@@ -357,7 +357,8 @@ select SUBSTRING(url,16,3) from wk_photo_ablum where id != 1;
 update wk_photo_ablum set url = replace(url,'uik','uk') where id != 1;
 
 -- 清空 表里的所有数据； Id 也会被清空 
-delete 不会把 id 排序清空 truncate table 表名 ;
+delete from 表名             --不会把 id 排序清空 
+truncate table 表名 ; 	   --会把 id 排序清空
 
 --添加字段 两个字段 也可以单个添加
 ALTER TABLE `user` ADD `username` varchar(20) NULL DEFAULT '' COMMENT '用户名',ADD `create_at` datetime NULL COMMENT '创建时间'; 
