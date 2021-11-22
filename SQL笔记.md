@@ -83,13 +83,20 @@ ALTER TABLE 表名 ADD [ UNIQUE | FULLTEXT | SPATIAL ] [ INDEX | KEY ]	[ 索引�
 
 
 ``` sql
-CREATE DATABASE 数据库名称 ;   //创建数据库 USE 数据库名称 ;     //使用数据库 SHOW DATABASES ;   //显示所有数据库 SHOW TABLES ;    //显示所有数据表 DESC 表名 ;      //显示表结构
+CREATE DATABASE 数据库名称 ;   --创建数据库 
+USE 数据库名称 ;     		  --使用数据库 
+SHOW DATABASES ;   			  --显示所有数据库 
+SHOW TABLES ;    			  --显示所有数据表 
+DESC 表名 ;      				--显示表结构
 
 -- MySQL连表
 SELECT * FROM TABLE LEFT JOIN TABLE2 ; 
--- 连表查询  会获取左表的全部数据 左连表； SELECT * FROM TABLE LEFT JOIN TABLE2 ;
--- 连表查询  会获取右表的全部数据 右连表； SELECT * FROM TABLE JOIN TABLE2 ;      
--- 内连接 简写  INNER JOIN 获取两个表中字段匹配关系的记录。；
+
+-- 连表查询  会获取左表的全部数据 左连表； 
+SELECT * FROM TABLE LEFT JOIN TABLE2 ;
+
+-- 连表查询  会获取右表的全部数据 右连表； 
+SELECT * FROM TABLE JOIN TABLE2 ;      -- 内连接 简写  INNER JOIN 获取两个表中字段匹配关系的记录。；
 
 -- MySQL插入数据：
 -- 括号 字段可写 也可以不写  VALUE('数据1','数据2','数据3') 
@@ -345,10 +352,16 @@ SELECT 视图名称	;
 ``` sql
 -- 查询 字段 第几个 字符 
 select SUBSTRING(url,16,3) from wk_photo_ablum where id != 1;
+
 -- 修改 字段 第几个 字符 
 update wk_photo_ablum set url = replace(url,'uik','uk') where id != 1;
+
 -- 清空 表里的所有数据； Id 也会被清空 
-delete 不会把 id 排序清空 truncate table 表名 ; //添加字段 两个字段 也可以单个添加 ALTER TABLE `user` ADD `username` varchar(20) NULL DEFAULT '' COMMENT '用户名',ADD `create_at` datetime NULL COMMENT '创建时间'; 
+delete 不会把 id 排序清空 truncate table 表名 ;
+
+--添加字段 两个字段 也可以单个添加
+ALTER TABLE `user` ADD `username` varchar(20) NULL DEFAULT '' COMMENT '用户名',ADD `create_at` datetime NULL COMMENT '创建时间'; 
+
 -- 查看表结构 
 show full columns from 表名   --可以查看字段结构
 ```
