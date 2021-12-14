@@ -245,9 +245,51 @@ document.onkeydown(e){
      //空格事件
     }
 }
+
+//给 id 为 input 添加事件
+var input = document.getElementById("input");
+input.onkeypress = function (e){
+		if(e.key == "Enter"){
+            console.log("触发Enter事件了")
+        }
+}
 ```
 
 [查询ASCII码](http://ascii.911cha.com/)
+
+
+
+**键盘事件：**
+
+| 属性       | 说明                                                         |
+| ---------- | ------------------------------------------------------------ |
+| keyCode    | 该属性包含键盘中对应键位的键值                               |
+| charCode   | 该属性包含键盘中对应键位的 Unicode 编码，仅 DOM 支持         |
+| target     | 发生事件的节点（包含元素），仅 DOM 支持                      |
+| srcElement | 发生事件的元素，仅 IE 支持                                   |
+| shiftKey   | 是否按下 Shift 键，如果按下返回 true，否则为false            |
+| ctrlKey    | 是否按下 Ctrl 键，如果按下返回 true，否则为false             |
+| altKey     | 是否按下 Alt 键，如果按下返回 true，否则为false              |
+| metaKey    | 是否按下 Mtea 键，如果按下返回 true，否则为false，仅 DOM 支持 |
+
+| 键位                    | 码值  | 键位                   | 码值  |
+| ----------------------- | ----- | ---------------------- | ----- |
+| 0~9（数字键）           | 48~57 | A~Z（字母键）          | 65~90 |
+| Backspace（退格键）     | 8     | Tab（制表键）          | 9     |
+| Enter（回车键）         | 13    | Space（空格键）        | 32    |
+| Left arrow（左箭头键）  | 37    | Top arrow（上箭头键）  | 38    |
+| Right arrow（右箭头键） | 39    | Down arrow（下箭头键） | 40    |
+
+| 属性                 | IE 事件模型                                                  | DOM 事件模型                                                 |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| keyCode（keypress）  | 返回所有字符键的正确值，区分大写状态（65~90）和小写状态（97~122） | 功能键返回正确值，而 Shift、Ctrl、Alt、PrintScreen、ScrollLock 无返回值，其他所有键值都返回 0 |
+| keyCode（keydown）   | 返回所有键值（除 PrintScreen 键），字母键都以大写状态显示键值（65~90） | 返回所有键值（除 PrintScreen 键），字母键都以大写状态显示键值（65~90） |
+| keyCode（keyup）     | 返回所有键值（除 PrintScreen 键），字母键都以大写状态显示键值（65~90） | 返回所有键值（除 PrintScreen 键），字母键都以大写状态显示键值（65~90） |
+| charCode（keypress） | 不支持该属性                                                 | 返回字符键，区分大写状态（65~90）和小写状态（97~122），Shift、Ctrl、Alt、PrintScreen、ScrollLock 无返回值，其他所有键值都返回 0 |
+| charCode（keydown）  | 不支持该属性                                                 | 所有键值为 0                                                 |
+| charCode（keyup）    | 不支持该属性                                                 | 所有键值为 0                                                 |
+
+
 
 
 
@@ -472,8 +514,77 @@ let data = await query(SQL语句)
 ### Node js  WebScoket：
 
 ```js
-1
+//安装 WebScoket
+npm install ws
+
+//引入使用
+const ws = require("ws");
+
+//客户端使用
+//连接服务器
+	var ws = new WebSocket("ws:localhost:888");
+	//打开连接
+	ws.onopen = function(e){
+		console.log("客户端：与服务器的连接已打开");
+	};
+	//接收服务器端发的消息
+	ws.onmessage = function(e){
+		console.log(e.data)
+		//document.getElementById("list").innerHTML += "<li>"+e.data+"</li>"
+	}
+	//触发事件 发送消息
+	function sendMessage(){
+		var message = document.getElementById("message").value;
+		// console.log(message);
+		ws.send(message);
+	};
+
+
+//服务器端使用如下
+//创建websocket服务
+var WebSocketServer = require("ws").Server;
+
+//设置端口号
+wss = new WebSocketServer({port:888});
+
+//查看 所有客户端
+console.log(wss.clients )
+
+//连接客户端
+wss.on("connection",function (ws){
+	console.log("服务器端：客户端已连接");
+
+	//接收客户端的消息
+	ws.on("message",function(message){
+		console.log(message.toString())
+
+		//发送消息到客户端
+		ws.send(message.toString())
+	})
+
+})
+
 ```
+**WebSocket事件：**
+
+| 事件    | 事件处理程序     | 描述                       |
+| :------ | :--------------- | :------------------------- |
+| open    | Socket.onopen    | 连接建立时触发             |
+| message | Socket.onmessage | 客户端接收服务端数据时触发 |
+| error   | Socket.onerror   | 通信发生错误时触发         |
+| close   | Socket.onclose   | 连接关闭时触发             |
+
+**WebSocket方法：**
+
+| 方法           | 描述             |
+| :------------- | :--------------- |
+| Socket.send()  | 使用连接发送数据 |
+| Socket.close() | 关闭连接         |
+
+
+
+
+
 #### Node js  Joi：JavaScript对象的规则描述语言和验证器。
 
 ```js

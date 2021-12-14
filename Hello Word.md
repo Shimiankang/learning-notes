@@ -49,8 +49,9 @@ E:                      #直接进入E盘
 cls                     #清空命令
 doskey /histry          #查看历史命令
 color a                 #更改命令 字体背景颜色
-md 目录名称              #创建目录
+md 目录名称              #创建目录 全拼 mkdir 
 del 文件名               #删除文件
+
 
 regedit   #注册表
 calc      #计算器
@@ -185,7 +186,7 @@ nvm list
 nvm current 
 
 #使用最新版本的node
-nvm use node 
+nvm use 15.13.0  
 
 #查看网络可以安装的版本
 nvm list available 

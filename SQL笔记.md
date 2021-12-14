@@ -365,4 +365,7 @@ ALTER TABLE `user` ADD `username` varchar(20) NULL DEFAULT '' COMMENT '用户名
 
 -- 查看表结构 
 show full columns from 表名   --可以查看字段结构
+
+-- 修改数据表的 某个字段的编码规则
+ALTER TABLE 表名 MODIFY COLUMN 字段名 数据类型 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```

@@ -635,7 +635,12 @@ Object.keys(filters).forEach((key) => {
     Vue.filter(key, filters[key]);
 });
 ```
-**Axios：**易用、简洁且高效的http库
+
+
+### Axios：
+
+易用、简洁且高效的http库
+
 ``` js
 // Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。 一般应用于，前后端通讯 
 // vue 使用 npm 安装 axios 
@@ -646,12 +651,22 @@ npm install --save axios vue-axios
 axios import axios from 'axios'
 import VueAxios from 'vue-axios'
 Vue.use(VueAxios,axios)
-this.axios.get ( ' api ' )
-    .then( ( response ) => {
-    	console.log( response ) 
-} ) .catch( function ( eroor ) {
-    console.log( response ) 
-} )
+
+//GET请求传参数
+this.axios.get("https://api.datoukang.top/api",{
+ params:{
+ 	   id:1
+   }
+}).then((response)=>{
+          console.log(response)
+})
+
+//POST请求传参数
+this.axios.post("https://api.datoukang.top/api",{
+    id:1
+}).then((response)=>{
+    console.log(response)
+})
 
 //拦截器 
 //请求之前执行 
