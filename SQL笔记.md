@@ -363,9 +363,21 @@ truncate table 表名 ; 	   --会把 id 排序清空
 --添加字段 两个字段 也可以单个添加
 ALTER TABLE `user` ADD `username` varchar(20) NULL DEFAULT '' COMMENT '用户名',ADD `create_at` datetime NULL COMMENT '创建时间'; 
 
--- 查看表结构 
-show full columns from 表名   --可以查看字段结构
+-- 查看表字段结构 
+show full columns from 表名   
 
 -- 修改数据表的 某个字段的编码规则
 ALTER TABLE 表名 MODIFY COLUMN 字段名 数据类型 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```
+
+
+
+## MySQL 基础用法：
+
+
+
+```shell
+mysql -uroot -proot										#连接数据库 -u 用户 -p 密码 -h IP地址
+
+```
+

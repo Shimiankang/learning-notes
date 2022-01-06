@@ -1,4 +1,4 @@
-# Vue3 or Vue2
+# Vue笔记
 
 ## 什么是Vue ？
 
@@ -758,7 +758,13 @@ git blame 文件名称 													#以列表形式查看指定文件的历史�
 git pull    													   #下载远程代码并合并
 git fetch														   #下载远程代码不会合并
 git restore --staged 文件名        								 #取消暂存
-
+git diff														   #详细查看修改了哪些东西
+git log --online												   #
+git branch														   #查看本地所有分支  -a查看所有
+git reset --hard HEAD~10										   #将当前版本重置为HEAD ~10往前是个版本   
+git reset --hard 版本号码											#重置到第几个版本号
+git reflog 															#显示所有提交，包括孤立节点。
+git checkout 版本号 文件名										   #将版本号的文件赋给文件
 ```
 ##### 自定义指令：
 
@@ -845,3 +851,29 @@ setup(props,context,){
     console.log(title.value)
 }
 ```
+
+
+
+### Vue Keep-alive：
+
+1. 一般结合路由和动态组件一起使用，用于缓存组件；
+2. 提供 include 和 exclude 属性，两者都支持字符串或正则表达式，include 表示只有名称匹配的组件会被缓存 exclude 表示任何名称匹配的组件都不会被缓存，其中 exclude 的优先级比 include 的高；
+3. 对应两个钩子函数 activated 和 deactivated，当组件被激活时，触发钩子函数 activated，当组件被移除时，触发钩子函数 deactivated 。
+
+
+
+### Vue Cli Watch：
+
+侦听器
+
+```js
+watch:{
+   //监听 路由
+  "$route"(e){
+     console.log(e);
+   }
+ }
+```
+
+
+

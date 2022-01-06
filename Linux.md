@@ -15,6 +15,7 @@ Windows Explorer 是一个典型的图形界面 Shell。
 不能使用标点符号。
 
 不能使用bash里的关键字（可用help命令查看保留关键字）。
+
 ``` shell
 echo hello world               #输出 hello world
 your_name = "runoob.com"       #定义变量
@@ -26,6 +27,16 @@ echo ${#your_name: 1 : 4 }     #截取字符串 输出：unoo
 array = (value1 value2 value3) #定义 数组
 echo ${array[ 0 ]}             #使用数组
 echo ${array[@]}               #获取所有数组内数据
+```
+
+
+
+
+
+## Linux常用命令：
+
+```shell
+
 cd ..                          # 返回上一级 命令
 li                             #列出文件目录
 ctrl + l                       #清除 屏幕命令
@@ -35,6 +46,8 @@ rm 名称                        #删除文件 ‐r 管理员权限
 ifconfig                      #查看网卡信息
 rz         					  #选择文件进行上传
 sz 文件名						# sz后面跟文件名可以进行文件从linux上面下载
+locate 文件名 					#查找文件命令
+ps aux|grep 进程			  #对进程检测和控制
 ```
 ## Linux 命令：
 
