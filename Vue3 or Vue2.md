@@ -765,6 +765,7 @@ git reset --hard HEAD~10										   #将当前版本重置为HEAD ~10往前是�
 git reset --hard 版本号码											#重置到第几个版本号
 git reflog 															#显示所有提交，包括孤立节点。
 git checkout 版本号 文件名										   #将版本号的文件赋给文件
+git remote show origin											   #查看当前设置的仓库地址
 ```
 ##### 自定义指令：
 
