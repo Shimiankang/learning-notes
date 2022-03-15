@@ -236,6 +236,12 @@ a= [ x ] [ y ]    或 var a [ x ] =1;
 
 **console.dir()**
 
+可以调样式：console.log('%c params ', 'color: white; background-color: #f00000', params);
+
+
+
+
+
 求余 10 % 4 = 2 ； 这就是求余   2 * 4 = 8    10 - 8 = 2 所以余数是二
 
 
@@ -675,3 +681,12 @@ error = (()=>{
     throw new Error("抛出异常");
 })();
 ```
+
+
+
+### JavaScript 操作DOM:
+
+```js
+document.designMode = 'on'    //页面所有元素可编辑
+```
+

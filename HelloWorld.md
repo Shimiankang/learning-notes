@@ -227,7 +227,5 @@ bios芯片 是电脑主板上一个独立芯片，用来诊断电脑
 
 ![null](https://gitee.com/datoukang/study-notes/raw/master/img/1446006437120565.png)
 
-
-
-
+![](./img/1446006437120565.png)
 

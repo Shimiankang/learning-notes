@@ -609,6 +609,22 @@ this.$router.go(n); //n 1 || n-1
 
 将回调延迟到下次 DOM 更新循环之后执行。在修改数据之后立即使用它，然后等待 DOM 更新。它跟全局方法 Vue.nextTick 一样，不同的          是回调的 this 自动绑定到调用它的实例上。
 
+
+
+##### $ref：
+
+ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就直向子组件
+
+```html
+<p ref='p' > </p>
+this.$refs.p     <!--- 这个就是DOM元素 -->
+
+<child-components ref="child"> </child-components>
+this.$refs.child  <!-- 而这个就是指向子组件 -->
+```
+
+
+
 ##### 过滤器：
 ``` js
 // 局部过滤器
@@ -743,7 +759,7 @@ git config -l													   #查看配置
 git config --system --list										   #查看本地配置
 git config --global user.name "大头康"       	                     #设置用户名 
 git config --global user.email "Kangbro@126.com"                   #设置邮箱 
-git config --global --lsit										   #查看全局配置
+git config --global --list										   #查看全局配置
 git init  		                 	                               #初始化仓库 
 git remote add origin https://gitee.com/datoukang/vue-project-2.0  #设置仓库地址 
 git add .		                                                   #选择要上传的内容  . 代表全部 添加到暂缓区
@@ -840,7 +856,7 @@ npm run serve      #在项目 根目录 cmd
 #打包项目 
 npm run build      # 会在根目录生成一个 dist 文件夹
 ```
-#### Vue3 Setup():
+## Vue3 Setup():
 
 在 setup() 内部，this 不是该活跃实例的引用，因为 setup() 是在解析其它组件选项之前被调用的，所以 setup() 内部的 this 的行为与其它选项中的 this 完全不同。这使得 setup() 在和其它选项式 API 一起使用时可能会导致混淆。
 
@@ -878,3 +894,14 @@ watch:{
 
 
 
+### Vue 导出引入：
+
+**export default：** vue 前端导出 用 import .. from 引入；
+
+**module.export:** node 导出模块 用 require() 引入；
+
+
+
+#### 封装接口：
+
+封装一个 request.js 方法
