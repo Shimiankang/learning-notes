@@ -524,13 +524,13 @@ destroyed：销毁之后状态
 
 ![img](https://cn.vuejs.org/images/lifecycle.png)
 
-#### VueX状态管理：
+## VueX状态管理：
 
 **概念**：Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
 
 **应用场景**：Vue多个组件之间需要共享数据或状态。
 
-Vuex有几个核心概念：State、Getter、Mutation、Action、Module。
+Vuex有几个核心概念：State、Getters、Mutations、Actions、Modules。
 
  
 
@@ -548,7 +548,52 @@ Modules：Vuex模块化。（模块化状态管理）
 
 ![img](https://vuex.vuejs.org/vuex.png)
 
-##### 混入数据：
+
+
+#### vux 用法：
+
+```js
+//全局注册 在main.js中
+import App from './App'
+import store from '封装的state.js'
+
+const app = new Vue({
+    store,
+    ...App
+})
+
+//在组件中使用
+this.$store.state.data = '新值'
+
+//在state.js中封装
+import vuex from "vuex"
+export default Vuex.Store({
+    state:{
+        //状态 数据
+    },
+    getters:{
+        //计算sate派生数据
+    },
+    mutations:{
+    	//同步修改state数据
+	},
+    actions:{
+        //可以异步提交mutations
+    },
+    modules{
+       //模块化管理vuex
+	},
+})
+```
+
+
+
+
+
+
+
+#### 混入数据：
+
 ``` js
 // 全局注册 在main.js里
 import mixin from './mixin/mixin.js' 
@@ -558,7 +603,7 @@ Vue.mixin(mixin)
 import mixin from './mixin/mixin.js'
 mixins: [mixin]
 ```
-##### 路由守卫：
+#### 路由守卫：
 ``` js
 router.beforeEach((to, from, next) => {
     console.log(to, from);
@@ -568,7 +613,7 @@ router.afterEach((to, from) => {
     console.log(to, from);
 })
 ```
-##### 路由跳转：
+#### 路由跳转：
 ``` js
 this.$router.push("/about"); 
 this.$router.push({  
@@ -595,7 +640,7 @@ this.$router.go(n); //n 1 || n-1
 <router-link :to="{ name: 'About', query: { id: 123 } }">Query跳转 </router-link>
 <router-link :to="{ name: 'About', params: { id: 123 } }">Params跳转</router-link>
 ```
-##### 插槽，具名插槽：
+#### 插槽，具名插槽：
 ``` vue
 <slot></slot>
 <slot name="t1"></slot>
@@ -611,7 +656,7 @@ this.$router.go(n); //n 1 || n-1
 
 
 
-##### $ref：
+#### $ref：
 
 ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就直向子组件
 
@@ -625,7 +670,7 @@ this.$refs.child  <!-- 而这个就是指向子组件 -->
 
 
 
-##### 过滤器：
+#### 过滤器：
 ``` js
 // 局部过滤器
 filters: { 

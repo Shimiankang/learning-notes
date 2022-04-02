@@ -680,6 +680,9 @@ console.log(a);
 error = (()=>{
     throw new Error("抛出异常");
 })();
+
+//获取 div 的样式
+window.getComputeStyle(div)
 ```
 
 
