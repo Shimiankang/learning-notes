@@ -37,9 +37,12 @@ cd\ 切换c盘
 # 查看已经连过的WiFi名
 netsh
 wlan show profiles 
+
 # 查看选择WiFi名 的详细信息
 wlan show profiles name="WiFi名" key=clear  
 
+# 查看电脑活动连接
+netstat
 
 cd 目录名/目录           #进入目录
 cd ..                   #返回上一级目录
