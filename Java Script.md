@@ -418,6 +418,10 @@ Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引�
 
 ### Node.js 安装包及源码下载地址为：https://nodejs.org/en/download/。
 
+
+
+简单示例：
+
 ```js
  // 创建一个应用
  const http = require("http"); //引入一个 http 模块
@@ -425,7 +429,7 @@ Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引�
  const url = require("url"); //引入一个 url 模块
 
  http.createServe(function(request,response){ 
- response.setHeader("Content‐type","text/html;charset=utf8;"); //设置 响应 是 设置内容编码格式
+	 response.setHeader("Content‐type","text/html;charset=utf8;"); //设置 响应 是 设置内容编码格式
      response.wirteHead 第一个参数是( 200 ,{"Content‐type" 设置状态码 :"text‐plain;charset=utf8;"}) //也 转换
      let.query  urlData 是接收= urlGET值.parse true (是执行request.url,true).query; //把 url GET 传的值格式 加文件名
      let txtData  加上Sync=意思是执行同步 fs.readFileSync('test.txt'); //读取文件 参数是文件名 或 路径 参数是值，如果没有该文件会创建该文件，如果有内容则会覆盖。
@@ -433,7 +437,11 @@ Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引�
 	 response.end('hello world') //相应内容
  }).listent( 8888 ) //设置端口号
 ```
-##### Node Koa2框架： 封装原生代码的 API
+
+
+
+
+### Node Koa2框架： 封装原生代码的 API
 
 ```sh
 #Node 安装Koa2 安装完成 不会自带 node_module 需要手动安装一下
@@ -465,7 +473,7 @@ nodemon 文件名或路径名加文件名       # 使用 nodemon 打开 node 服
 #nodemon 命令
 rs 重启一下 是 restart 的缩写
 ```
-##### Node Token：
+### Node Token：
 
 ```js
 // 安装 jwt jsonwebtoken
@@ -485,7 +493,7 @@ const token = jwt.sign({
 let token = ctx.request.headers['token'];
 const token = jwt.verify(token,'token');
 ```
-##### Node   Mysql连接数据库：
+### Node   Mysql连接数据库：
 
 ```js
 //先安装 MySQL
@@ -659,9 +667,51 @@ pm2 delete id
 
 
 
+## TypeScript
+
+TypeScript 是一个以 JavaScript 为基础的语言，TS 不可以像 JS 样直接被浏览器解析。
+
+TS 需要编译成 JS 后才能使用，TS 拓展了 JS 并添加了类型。让 JS 变得更加规范、更严谨、更利于维护。
+
+TS 就相当于 严格模式下的 JS
 
 
-#### JavaScript 小语句：
+
+使用 TS 前需要先安装依赖环境 Node.js 使用里面的 npm 包管理工具安装
+
+```shell
+#全局安装 typescript
+npm install -g typescript
+
+#使用 将 xxx.ts 文件转换成可以被浏览器解析的 xxx.js 文件
+tsc xxx.ts
+
+#时时监听 有修改内容就会自动转换成 js文件
+tsc xxx.ts -w  
+
+#查看 typescript 版本号
+tsc -v
+
+#生成 tsconfig.json 配置文件
+tsc -init
+```
+
+编写 TS：
+
+```js
+let a:Number = 1;      //定义 a 的值为 1 类型为 Number 
+let b:String = 'hello' //定义 b 的值为 hello 类型为 String   一般不这样写(通是赋值和赋值类型)
+
+let a:Number;         //定义 a 的类型为 Number
+a = 1234;			  //一般是这样写
+let b = 'hello'		  //这样写 TS 会自动判断 b 的类型为 String 并且 b 的类型定义为 String
+
+
+```
+
+
+
+#### JavaScript 语句：
 
 ```js
 //字符串截取
