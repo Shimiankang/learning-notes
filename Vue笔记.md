@@ -958,3 +958,16 @@ watch:{
 #### 封装接口：
 
 封装一个 request.js 方法
+
+
+
+### 运行打包后的 vue 项目：
+
+```shell
+#安装 serve
+npm install serve -g
+
+#使用 serve
+serve 打包后的文件 -s
+```
+

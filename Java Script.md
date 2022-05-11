@@ -667,6 +667,15 @@ pm2 delete id
 
 
 
+### NPM 包管理工具：
+
+```shell
+#查看 npm 安装的包
+npm list 包的名称
+```
+
+
+
 ## TypeScript
 
 TypeScript 是一个以 JavaScript 为基础的语言，TS 不可以像 JS 样直接被浏览器解析。
