@@ -752,3 +752,49 @@ window.getComputeStyle(div)
 document.designMode = 'on'    //页面所有元素可编辑
 ```
 
+
+
+
+
+## 防抖和节流：
+
+**防抖：**用户触发事件过于频繁，只要执行最后一次
+
+**节流：**控制执行次数，控制高频时间执行次数
+
+
+
+```js
+//防抖
+//定义一个控制器
+let flag = null;
+//执行函数
+function input() {
+    if(flag !== null) {
+        clearTimeout(flag)
+    }
+    flag = setTimeout(() => {
+        console.log(value)
+    },500)
+}
+
+
+//节流
+//定义控制器
+let flag = true;
+//执行函数
+function scroll() {
+    if(flag) {
+        setTimeout(() => {
+            console.log('hello')
+            flag = true
+        },500)
+    }
+    flag = false;
+}
+```
+
+
+
+
+
