@@ -73,40 +73,7 @@ ctrl + c  #结束进程
 
 ![](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.mianfeiwendang.com%2Fpic%2Fb38e795999720833623dca91%2F1-810-jpg_6-1080-0-0-1080.jpg)
 
-## Git的使用：
 
-
- git init 初始化git生成git仓库
-
- git status 查看git状态
-
- git add filename添文件到暂存区
-
- git add .加入所有文件到暂存区
-
- git commite -m message提交文件到本地仓库
-
- git reset filename将尚没有commite之前加入到暂存区的文件重新
-
-### 拉回
-
-### 文件状态：
-
- 1.没有被add过的文件叫untracked
-
- 2.add之后文件处于staged状态等待commite
-
- 3.commit之后文件处于unmodified这里之所以是modified是因为
-
- 文件会跟仓库中的文件对比
-
- 4.当unmodified的文件被修改则会变为modified状态
-
- 5.modified之后的文件add之后将继续变为staged状态
-
- 6.unmodifed的文件还有一种可能是已经不再需要了，那么可以
-
- remove它不再追踪变为untracked状态
 
 ## 转义字符：
 
@@ -246,3 +213,89 @@ forks:>1000 fork>1000 （forks数大于1000的）
 pushed:>2019-09-01 （2019年9月1日后有更新，代表着项目的活跃程度）
 language:java （用Java语言编写的项目）
 
+
+
+## 
+
+
+
+## 学习Git：
+
+
+
+![](https://www.runoob.com/wp-content/uploads/2015/02/git-command.jpg)
+
+- workspace：工作区
+- staging area：暂存区/缓存区
+- local repository：版本库或本地仓库
+- remote repository：远程仓库
+
+### 使用Git：
+
+
+ git init 初始化git生成git仓库
+
+ git status 查看git状态
+
+ git add filename添文件到暂存区
+
+ git add .加入所有文件到暂存区
+
+ git commite -m message提交文件到本地仓库
+
+ git reset filename将尚没有commite之前加入到暂存区的文件重新
+
+### 拉回
+
+### 文件状态：
+
+ 1.没有被add过的文件叫untracked
+
+ 2.add之后文件处于staged状态等待commite
+
+ 3.commit之后文件处于unmodified这里之所以是modified是因为
+
+ 文件会跟仓库中的文件对比
+
+ 4.当unmodified的文件被修改则会变为modified状态
+
+ 5.modified之后的文件add之后将继续变为staged状态
+
+ 6.unmodifed的文件还有一种可能是已经不再需要了，那么可以
+
+ remove它不再追踪变为untracked状态
+
+``` shell
+git config -l													   #查看配置
+git config --system --list										   #查看本地配置
+git config --global user.name "大头康"       	                     #设置用户名 
+git config --global user.email "Kangbro@126.com"                   #设置邮箱 
+git config --global --list										   #查看全局配置
+git init  		                 	                               #初始化仓库 
+git remote add origin https://gitee.com/datoukang/vue-project-2.0  #设置仓库地址 
+git add .		                                                   #选择要上传的内容  . 代表全部 添加到暂缓区
+git commit -m 'a' 	                                               #将暂缓区内容添加到仓库中  描述主要修改类型和内容   
+git push --set-upstream origin master 	                           #上传远程代码并合并 git push—设置上游原始主机
+git clone https://gitee.com/datoukang/study-notes.git              #拉取仓库(拷贝远程仓库) 后面跟仓库地址 
+git status                                                         #查看仓库当前状态 ，显示所有变更文件
+git rm 															   #删除工作区文件
+git mv 															   #移动或重命名工作区文件
+git log															   #查看历史提交记录
+git blame 文件名称 													#以列表形式查看指定文件的历史修改记录
+git pull    													   #下载远程代码并合并
+git fetch														   #下载远程代码不会合并
+git restore --staged 文件名        								 #取消暂存
+git diff														   #详细查看修改了哪些东西
+git log --online												   #
+git branch														   #查看本地所有分支  -a查看所有
+git reset --hard HEAD~10										   #将当前版本重置为HEAD ~10往前是个版本   
+git reset --hard 版本号码											#重置到第几个版本号
+git reflog 															#显示所有提交，包括孤立节点。
+git checkout 版本号 文件名										   #将版本号的文件赋给文件
+git remote show origin											   #查看当前设置的仓库地址
+
+ssh-keygen -t rsa -C "邮箱地址"										#生成 .ssh key            rsa：.ssh签名类型
+																    #rsa 签名类型有：ed25519
+```
+
+##### 

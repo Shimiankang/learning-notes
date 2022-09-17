@@ -783,51 +783,6 @@ try {
     console.log(123); 
 }
 ```
-### 上传到Gitee：
-
-
-
-![](https://www.runoob.com/wp-content/uploads/2015/02/git-command.jpg)
-
-- workspace：工作区
-
-- staging area：暂存区/缓存区
-
-- local repository：版本库或本地仓库
-
-- remote repository：远程仓库
-
-  
-
-``` shell
-git config -l													   #查看配置
-git config --system --list										   #查看本地配置
-git config --global user.name "大头康"       	                     #设置用户名 
-git config --global user.email "Kangbro@126.com"                   #设置邮箱 
-git config --global --list										   #查看全局配置
-git init  		                 	                               #初始化仓库 
-git remote add origin https://gitee.com/datoukang/vue-project-2.0  #设置仓库地址 
-git add .		                                                   #选择要上传的内容  . 代表全部 添加到暂缓区
-git commit -m 'a' 	                                               #将暂缓区内容添加到仓库中  描述主要修改类型和内容   
-git push --set-upstream origin master 	                           #上传远程代码并合并 git push—设置上游原始主机
-git clone https://gitee.com/datoukang/study-notes.git              #拉取仓库(拷贝远程仓库) 后面跟仓库地址 
-git status                                                         #查看仓库当前状态 ，显示所有变更文件
-git rm 															   #删除工作区文件
-git mv 															   #移动或重命名工作区文件
-git log															   #查看历史提交记录
-git blame 文件名称 													#以列表形式查看指定文件的历史修改记录
-git pull    													   #下载远程代码并合并
-git fetch														   #下载远程代码不会合并
-git restore --staged 文件名        								 #取消暂存
-git diff														   #详细查看修改了哪些东西
-git log --online												   #
-git branch														   #查看本地所有分支  -a查看所有
-git reset --hard HEAD~10										   #将当前版本重置为HEAD ~10往前是个版本   
-git reset --hard 版本号码											#重置到第几个版本号
-git reflog 															#显示所有提交，包括孤立节点。
-git checkout 版本号 文件名										   #将版本号的文件赋给文件
-git remote show origin											   #查看当前设置的仓库地址
-```
 ##### 自定义指令：
 
 第一个参数是指令名称，第二个参数是钩子函数
