@@ -1,93 +1,115 @@
 # Java Script
 
-##### Java Script：简称 js
-
 ##### 几个学习前端的库:
 
-  H-ui（admin组件库）、Element-ui（pc端组件库）、Vant（安卓端组件库）、Vue3、jQuery、
+  H-ui（admin组件库）、Element-ui（pc端组件库）、Vant（移动端组件库）、Vue3（前端框架）、jQuery、
 
- javaScript是一种脚本语言，可以提高用户提高用户体验度。（依托于浏览器）引擎是浏览器Javascript是跨平台的，为什么跨平台？以为依托于浏览器，不依托于操作系统
+
+
+**javaScript是一种脚本语言，可以提高用户提高用户体验度。（依托于浏览器）引擎是浏览器Javascript是跨平台的，为什么跨平台？以为依托于浏览器，不依托于操作系统**
 
 ##### JavaScript更像是一门函数式编程语言。
 
+```html
 <script type="text/javascript"><sccript/>           //可以放在body里面也可以放在外边，也可以放在head里面
-
-###### ECMAScript核心  // 隐藏head里面的代码一行
-###### DOM文档对象模型 /*....*/隐藏head和css里面的代码全部
-###### BOM浏览器对象模型 快捷键Ctrl+/     <!........>在body中隐藏代码
-
-##### 三目运算符也叫三元运算符：  这样写 c = a > b ? a : b ; 如果条件成立就会把
-##### 第一个值赋给 c 这就是三目运算符
-
-###### Java引入方式：内部引用；外部引用；行内格式‘
-
-###### 内部引用：<script  type="text/javaScript">    </script>
-
-###### 外部引用：<script src="index.js"></script>可以在head中引用 也可以在body中引用
-
-###### 行内引用：？
-
-######  内部JavaScript，指的是把HTML代码和JavaScript代码放在同一个文件中。
-
-###### 在JavaScript中，每一条语句都是英文分号“;”作为结束符。每一条语句都有它特定的功能。
-
-##### 如果只写了 ；号那就是空语句的意思
+```
 
 
-##### var a = 10；直接赋值    var声明符   a变量名    = 赋值符  10值     ；语句块结束符号
 
-##### alert  警告；告诫 在JavaScript中意思为弹出框警告的意思     else否则     int整数   parse强制       parseint强制整数
+ECMAScript核心  // 注释head里面的代码一行
 
-##### alert（）；在网页弹出一个对话框           \n 在谷歌和火狐浏览器中换行
+DOM文档对象模型 /*....*/注释head和css里面的代码全部
 
-##### \r在IE浏览器中换行。
+BOM浏览器对象模型 快捷键Ctrl+/     <!........>在body中注释代码
 
-##### document.write("");基本网页显示的一种语法语法
+##### 三目运算符也叫三元运算符： 
 
-##### a=1;初始化赋值
-
-##### var a = Number(prompt("请输入一个值"))；弹窗语法
-
-##### 赋值=     右边给左边赋值
-
-#### 变量
-##### 在JavaScript中，变量指的是一个可以改变的量。也就是说，变量的值在程序运行过程中是可以改变的
-##### 变量由字母、下划线、$或数字组成，并且第一个字母必须是“字母、下划线或$”；
-#####   变量不能是系统关键字和保留字
-
-##### 注意：JavaScript的变量名区分大小写，A和a是两个不同的变量。
-
-##### 引用数据类型：对象   数组
-##### 数字：10    -10   1.
-
-###### 基本数据类型：数值类型，布尔值类型，字符串类型
-###### 特殊数据类型：null，undefined
-###### 复合数据类型：数组，对象
+ 例如： 
+```js
+//如果条件成立就会把第一个值赋给 c 这就是三目运算符
+let c = a > b ? a : b ; 
+```
+#### JavaScript引入方式：内部引用；外部引用；
+```html
+内部引用：
+<script  type="text/javaScript">
+	//在这里写JS代码...
+</script>
+内部JavaScript，指的是把HTML代码和JavaScript代码放在同一个文件中。
 
 
-##### 数据类型：数值、复合、基本、布尔值（ true、false ）特殊数据类型 null undefined
+外部引用：
+<script src="/index.js"></script>
+可以在head中引用 也可以在body中引用
+```
+
+
+######  
+
+**在JavaScript中，每一条语句都是英文分号 ';' 作为结束符。每一条语句都有它特定的功能。如果只写了 ';'号那就是空语句的意思**
+
+```js
+ var a = 10；   //直接赋值    var声明符   a变量名    = 赋值符  10值     ；语句块结束符号
+
+// alert  警告；告诫 在JavaScript中意思为弹出框警告的意思     else否则     int整数   parse强制       parseint强制整数
+ alert();  //在网页弹出一个对话框      
+
+//   \n 在浏览器中换行
+//   \r在IE浏览器中换行。
+
+
+document.write("");基本网页显示的一种语法语法
+var a = 1; //初始化赋值
+a = Number(prompt("请输入一个值"); //弹窗语法
+// 变量 <= 赋值
+```
+
+
+
+#### 变量名 命名规则：
+在JavaScript中，变量指的是一个可以改变的量。也就是说，变量的值在程序运行过程中是可以改变的
+变量由字母、下划线、$或数字组成，并且第一个字母必须是“字母、下划线或$”；
+
+变量不能是系统关键字和保留字
+
+**注意：JavaScript的变量名区分大小写，A 和 a 是两个不同的变量。**
+
+
+
+#### 数据类型：
+
+**引用数据类型：** Object {}(对象)   Array [](数组)
+
+**数字类型**： 10(整数)  -10(负数)  1.1(浮点类型)  Number(数字类型)
+
+**字符串类型：** "hello world" String(字符串类型)
+
+**布尔值类型：** false、true  boolean(布尔值)
+
+**特殊数据类型：** null、undefined
+
+
 
 #### JavaScript标识符（命名规则）
-##### 标识符由字母、数字、下划线_、美元符号$、组成
-##### 不能以数字开头、不能是系统关键字、严格区分字母大小写、不能以中划线开头、不能包含中划线
+标识符由字母、数字、下划线_、美元符号$、组成
 
-##### 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名。
+不能以数字开头、不能是系统关键字、严格区分字母大小写、不能以中划线开头、不能包含中划线
 
-##### 水仙花数：水仙花数是指一个n位数（n>=3）,他的每个位上的数字的n次冥之和等于它本身。
-
-##### 例如：1^3+5^3+3^3=153     
+标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名。
 
 = 一个等于是赋值
 == 两个等于是判值判断关系运算赋是否相等
 === 三个等于是判断类型（全等于）
 
-关系运算符： 小于 <    大于 >    小于等于 <=     大于等于 >=    不等于 !=
 
-逻辑运算符：逻辑&&两者都为真，则为真。逻辑 | | 其中一个为真，则为真。
 
-逻辑！取相反值，本来是真 加入！之后就变成假了
+**关系运算符：** 小于 <    大于 >    小于等于 <=     大于等于 >=    不等于 !=
 
-算数运算符：等于 ==     左加 +=      左减 -=       左乘 *=       左除 /=       左
+**逻辑运算符：**逻辑&&两者都为真，则为真。逻辑 | | 其中一个为真，则为真。
+
+**逻辑！:**    取相反值，本来是真 加入！之后就变成假了
+
+**算数运算符：**等于 ==     左加 +=      左减 -=       左乘 *=       左除 /=       左
 
 取余 %=
 
@@ -213,11 +235,248 @@ if(a% 2 == 0 ){
 
 手动结束的话用  clearTimeout(id)清除timeout的     clearInterval(id)清除interval的
 
-##### 数组    
+### 数组：
 
 a= [ x ] [ y ]    或 var a [ x ] =1;
 
 下标减一   下标是从零开始的
+
+
+
+#### 数组遍历：
+
+```js
+let array = [1, 2, 3, 4, 5, 6, 7, 8,, 10, 11];
+for(let i = 0;i < array.length; i++) {
+    if(array[i] == 5) {
+        break; // 1 2 3 4 
+        continue; // 1 2 3 4 6 7 8 undefined 10 11
+    }
+}
+
+for(item of array) {
+    if(item == 5) {
+        break; // 1 2 3 4 
+        continue; // 1 2 3 4 6 7 8 undefined 10 11
+    }
+}
+
+array.forEach((item,index,arr) => {
+    if(item == 5) {
+        console.log(index) // 0 1 2 3 4 5 6 7 8 9 10
+        console.log(item) // 1 2 3 4 6 7 8  10 11
+    }
+})
+
+```
+**以上三种遍历方式总结：**
+	三者都是基本的从左到右遍历数组
+	forEach 无法跳出循环；for、for...of 可以使用 break；continue；跳出循环或中断。
+	for...of 直接访问的是实际元素。for 遍历数组索引，forEach 回调函数更丰富，元素、索引、原数组都可以获取。
+	for、for...of 数组中有空元素同样会执行。
+
+
+
+
+
+
+
+
+
+```js
+
+let array = [
+    {
+        name: '头部导航',
+        backward: false
+    },
+    {
+        name: '轮播',
+        backward: true
+    },
+    {
+        name: '页脚',
+        backward: false
+    },
+]
+someBackward = array.some(item => item.backward);
+// someBackward true;
+everyBackward = array.every(item => item.backward);
+// everyBackward false;
+
+```
+
+
+
+**以上两种遍历方式总结：**
+	二者都是采用数组条件判断的，都会返回一个布尔值
+	二者都可以被中断
+	some 其中某一个元素满足条件时，返回 true 遍历中断；所有元素不满足条件时，返回 false。
+	every 其中某一元素不满足条件时，返回 false 遍历中断；所有元素都满足条件时，返回 true。
+
+
+
+
+
+
+
+
+
+```js
+
+
+let array = [
+    { 
+        name: '头部导航', 
+        type: 'nav',
+        id: 1
+    },
+    
+    ,
+    {
+        name: '轮播', 
+        type: 'content',
+        id: 2 
+    },
+    {
+        name: '页脚', 
+        type: 'nav',
+        id: 3 
+    },
+]
+let newArray = array.filter(item => {
+    console.log(item);
+    return item.type == 'nav';
+});
+/* newArray 
+	[
+		{ name: '头部导航', type: 'nav', id: 1 },
+		{ name: '页脚', type: 'nav', id: 3 },
+	]
+*/
+
+let newArray = array.map(item => {
+    console.log(item);
+    return item.id;
+})
+/* newArray
+	[ 1, empty, 2, 3 ]
+*/
+
+```
+
+**以上两种遍历方式总结：**
+	二者都会生成一个新数组，不会改变原数组（不包括遍历对象数组，在回调函数中操作元素对象）
+	二者都会跳过空元素。
+	map 会将回调函数返回成一个新数组，数组长度与原数组一致。
+	filter 会将符合函数条件的元素组成一个新数组，数组长度于原数组不一致。
+	map 生成的新数组元素是可自定义。
+	filter 生成的新数组元素不可自定义，与对应原数组元素一致。
+
+
+
+
+
+
+
+
+
+
+```js
+
+let array = [
+    {
+        name: '头部导航',
+        id: 1
+    },
+    {
+        name: '轮播',
+        id: 2
+    },
+    {
+        name: '页脚',
+        id: 3
+    },
+]
+let reslut = array.find(item => return item == 1);
+/*
+	result {
+		name: '头部导航',
+		id: 1
+	}
+*/
+result.name = '头部'
+/*
+ array [
+ 	{ name: '头部', id: 1 },
+ 	{ name: '轮播', id: 2 },
+ 	{ name: '页脚', id: 3 },
+ ]
+*/
+
+let index = array.findIndex(item => return item == 2)
+// index  1
+
+```
+
+**以上两种方式总结：**
+	二者都是用来查找数组元素。
+	find 返回数组中满足回调函数的条件的第一个元素的值。如果不存在返回 undefined
+	findIndex 返回数组中满足回调函数的索引，如果没有返回 -1
+
+
+
+
+
+
+
+
+
+```js
+let array = [
+    {
+        name: 'left',
+        width: 20
+    },
+    {
+        name: 'center',
+        width: 70 
+    },
+    {
+        name: 'right',
+        width: 10 
+    },
+]
+let total = array.reduce((currentTotal,item) => {
+    return currentTotal + item.width;
+})
+// total: 100
+```
+
+**reduce 总结：**
+
+​	reduce 接收两个参数 callback 和 initValue 回调函数和初始值
+
+​	reduceRight 和 reduce 一样，只不过 reduceRight 是从右边开始的
+
+​	计算数组元素相加的总和
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ##### eval（"  "）把里面的字符串当代码执行
