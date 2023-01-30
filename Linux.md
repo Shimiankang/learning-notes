@@ -38,7 +38,7 @@ echo ${array[@]}               #获取所有数组内数据
 ```shell
 
 cd ..                          # 返回上一级 命令
-li                             #列出文件目录
+ls                             #列出文件目录
 ctrl + l                       #清除 屏幕命令
 #							   #Shell 里注释 
 mkdir 名称                     #新建文件夹
@@ -58,7 +58,7 @@ ps aux|grep 进程			  #对进程检测和控制
 5. mv：移动文件 如： mv index.html test 就会把index.html移动到test文件夹里
 6. reset：初始化终端 跟clear效果差不多
 
-***`rm -rf /`*** 格式化根目录 此命令不可乱用
+***`rm -rf /`* 格式化根目录 此命令不可乱用**
 
 ####  Linux 命令大全
 
@@ -174,3 +174,4 @@ ps aux|grep 进程			  #对进程检测和控制
 - [Linux 常用命令全拼](https://www.runoob.com/w3cnote/linux-command-full-fight.html)
 
   
+

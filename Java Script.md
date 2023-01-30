@@ -306,8 +306,6 @@ everyBackward = array.every(item => item.backward);
 
 ```
 
-
-
 **以上两种遍历方式总结：**
 	二者都是采用数组条件判断的，都会返回一个布尔值
 	二者都可以被中断
@@ -398,7 +396,7 @@ let array = [
         id: 3
     },
 ]
-let reslut = array.find(item => return item == 1);
+let reslut = array.find(item => item.id == 1);
 /*
 	result {
 		name: '头部导航',
@@ -983,21 +981,35 @@ let b = 'hello'		  //这样写 TS 会自动判断 b 的类型为 String 并且 b
 
 ```js
 //字符串截取
-str = url.split("?")[ 0 ] //根据问号分组取第一个值；
-//数组截取
-arr = ['yellow','green','red'];
-str = arr.slice( 1 , 2 ) //从下标值为  1  的截取 截取到第  2  个
+let str = 'http://www.baidu.com/search?value=a'
+str = url.split("?")[0] // 根据问号分组取第一个值；
+//str 输出 ['http://www.baidu.com/search']
 
-a = [ 3 , 2 , 1 ];
+str.substring(start,end) // start: 开始值 从0开始计算； end：结束值 从1开始计算
+str = str.substring(0,1); // 从索引值0开始 截取到1位  
+//输出 h
+
+str.substr(start,length) // strat：开始值 从0开始计算； lenght：截取长度
+str.substr(0,2) //从索引值0开始截取两位值
+//输出 ht
+
+//数组截取
+// slice 既可以截取数组也可以截取字符串， 不会改变原数组而是返回一个新数组。
+// splice 只可以截取数组，会改变原数组。
+let arr = ['yellow','green','red'];
+
+arr.slice(start,end); //start：开始值 从0开始； end：结束值 从1开始。 splice()也是一样
+str = arr.slice(1, 2) // 从索引值为1的截取到第2个
+// str 输出 ['yellow']
+
+
+a = [3,2,1];
 b = a;
-b[ 0 ] =  30 ;
-console.log(a);
-//输出结果为 [30,2,1]
+b[0] = 30;
+// a 输出 [30,2,1]
 
 //抛出异常
-error = (()=>{
-    throw new Error("抛出异常");
-})();
+throw new Error("我是一个错误");
 
 //获取 div 的样式
 window.getComputeStyle(div)
