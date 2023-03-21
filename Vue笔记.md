@@ -532,9 +532,7 @@ destroyed：销毁之后状态
 
 Vuex有几个核心概念：State、Getters、Mutations、Actions、Modules。
 
- 
-
-![img](https://vuex.vuejs.org/flow.png)
+ <img src="img/flow.png"/>
 
 State：存储状态数据
 
@@ -546,7 +544,7 @@ Actions：存储用于异步更改状态数据，但不是直接更改，而是�
 
 Modules：Vuex模块化。（模块化状态管理）
 
-![img](https://vuex.vuejs.org/vuex.png)
+<img src="img/vuex.png"/>
 
 
 

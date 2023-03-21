@@ -177,7 +177,7 @@ bios芯片 是电脑主板上一个独立芯片，用来诊断电脑
 
 各种品牌电脑进入bios的按键：
 
-![null](https://gitee.com/datoukang/study-notes/raw/master/img/1446006437120565.png)
+<img src="img/1446006437120565.png"/>
 
 ![](./img/1446006437120565.png)
 
@@ -226,7 +226,7 @@ language:java （用Java语言编写的项目）
 
 
 
-![](https://www.runoob.com/wp-content/uploads/2015/02/git-command.jpg)
+<img src="img/git-command.jpg">
 
 - workspace：工作区
 - staging area：暂存区/缓存区
@@ -277,7 +277,7 @@ git config --global --list										   #查看全局配置
 git init  		                 	                               #初始化仓库 
 git remote add origin https://gitee.com/datoukang/vue-project-2.0  #设置仓库地址 
 git add .		                                                   #选择要上传的内容  . 代表全部 添加到暂缓区
-git commit -m 'a' 	                                               #将暂缓区内容添加到仓库中  描述主要修改类型和内容   
+git commit -m 'message' 	                                       #将暂缓区内容添加到仓库中  描述主要修改类型和内容
 git push --set-upstream origin master 	                           #上传远程代码并合并 git push—设置上游原始主机
 git clone https://gitee.com/datoukang/study-notes.git              #拉取仓库(拷贝远程仓库) 后面跟仓库地址 
 git status                                                         #查看仓库当前状态 ，显示所有变更文件
@@ -293,8 +293,8 @@ git log --online												   #
 git branch														   #查看本地所有分支  -a查看所有
 git reset --hard HEAD~10										   #将当前版本重置为HEAD ~10往前是个版本   
 git reset --hard 版本号码											#重置到第几个版本号
-git reflog 															#显示所有提交，包括孤立节点。
-git checkout 版本号 文件名										   #将版本号的文件赋给文件
+git reflog 														   #显示所有提交，包括孤立节点。
+git checkout 版本号 文件名										  #将版本号的文件赋给文件
 git remote show origin											   #查看当前设置的仓库地址
 
 ssh-keygen -t rsa -C "邮箱地址"										#生成 .ssh key            rsa：.ssh签名类型
