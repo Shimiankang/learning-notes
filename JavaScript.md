@@ -1,12 +1,12 @@
 # Java Script
 
-##### 几个学习前端的库:
+**组件库&框架:**
 
   H-ui（admin组件库）、Element-ui（pc端组件库）、Vant（移动端组件库）、Vue3（前端框架）、jQuery、
 
 
 
-**javaScript是一种脚本语言，可以提高用户提高用户体验度。（依托于浏览器）引擎是浏览器Javascript是跨平台的，为什么跨平台？以为依托于浏览器，不依托于操作系统**
+**JavaScript是一种脚本语言，可以提高用户提高用户体验度。（依托于浏览器）引擎是浏览器Javascript是跨平台的，为什么跨平台？以为依托于浏览器，不依托于操作系统**
 
 ##### JavaScript更像是一门函数式编程语言。
 
@@ -132,17 +132,16 @@ i++：指的是先赋值，再运算
 ```js
 //先判断条件，在执行循环
 var  i=1；初始值：只执行一次
-while(循环条件：判断布尔值){
+while (循环条件：判断布尔值) {
 	循环体
   	i++；（计步器，是循环趋近于结束）
-}
-
-  // ; 代表空语句
+} 
+// ; 代表空语句
 
 //先执行，在判断条件
-do{
-
-}while(循环条件)
+do {
+	//要执行的代码段
+} while (循环条件)
 
 ```
 
@@ -174,31 +173,26 @@ break； 结束全部循环
 
 continue；结束本次循环，结束一次循环（直接跳到循环条件的地方）
 
-### switch
 
-一种比 if 读取快，写起来比 if 多     switch只能判断一个值，不能判断范围，而
 
-#### if 能判断范围
+#### **switch：**
 
-##### 例如：
+​	一种比 if 读取快，写起来比 if 多；**switch** 只能判断一个值，不能判断范围，而 if 可以判断范围。
 
 ```javascript
-var a= 1 ；
-switch(a){
- case1:
- document.write（“a=”+a）;
+// 例如：
+var num = 1；
+switch (num) {
+ case 1:
+ // num的值等于1时触发的代码段 ;
  break; // 注意：没有break；的时候从没有break；往下的都会输出一遍
 
- case2:
- document.write（“a=”+a）;
- break;
-
- case3:
- document.write（“a=”+a）;
+ case n:
+ // 以此类推 等于n时.. ;
  break;
 
  default:
- document.write(a);
+ // 以上条件都不符合时，默认执行的代码段；
  break;
 }
 
@@ -211,37 +205,42 @@ switch(a){
  }
  11
 
- do{
- 循环体
- }while()
+ do {
+ // 循环体
+ } while (循环条件)
 // 先执行，再判断条件 while先判断条件再执行代码 其实while和do while是一样的
-//强制转化为整数 parseInt（）
-//判定字符串 如果是字符串返回 true 如果不是返回 false isNaN（）
-//强制转化为小数 parseFloat（）
-函数 function（）{
-	 执行体
+     
+// 函数
+function 函数名（形参）{
+	 //执行体
  	}
 }
 
-if(a% 2 == 0 ){
+// JS 取余
+if(a % 2 == 0 ) {
  //取余
 }
 ```
 ##### window.onload   告诉计算机等到页面加载完了以后在执行的代码
 
-计时器  setTimeout（"需执行的函数",1000毫秒）；意思过多少秒执行一次的
+计时器或者叫定时器：
 
-计时器  setInterval   ("需要执行的函数"，时间毫秒)；意思每过多少时间执行一次的代码；
+ setTimeout（"需执行的函数",1000毫秒）；意思过多少秒执行一次的
+
+ setInterval   ("需要执行的函数"，时间毫秒)；意思每过多少时间执行一次的代码；
 
 手动结束的话用  clearTimeout(id)清除timeout的     clearInterval(id)清除interval的
 
 ### 数组：
 
-a= [ x ] [ y ]    或 var a [ x ] =1;
+```js
+// 索引值是从0开始
+var arr = [ x ] [ y ];
+var arr [ x ] = 1;
 
-下标减一   下标是从零开始的
-
-
+// 声明一个数组
+var arr = new Arry([2,3,4]);
+```
 
 #### 数组遍历：
 
@@ -477,7 +476,7 @@ let total = array.reduce((currentTotal,item) => {
 
 
 
-##### eval（"  "）把里面的字符串当代码执行
+##### eval（" num = 7 "）把里面的字符串当代码执行
 
 被除数      除数      商
 
@@ -600,43 +599,50 @@ mouseenter 事件只在鼠标移动到选取的元素上时触发。
 ```
 #### 递归：
 
-1 . 假设递归函数已经写好
+1.假设递归函数已经写好
 
-2 . 寻找递推关系
+2.寻找递推关系
 
-3 . 将递推关系的结构转换为递归体
+3.将递推关系的结构转换为递归体
 
-4 . 将临界条件加入到递归体中
-
-
+4.将临界条件加入到递归体中
 
 ```js
 //简单的递归
-if (n == 1) return 
-   return sum(n ­ 1) + n
- }
+function sum () {
+    if (n == 1) {
+        return ;
+    }
+    return sum(n * 1) + n
+}
 
 // 一个简单的阶乘函数
-var f = function(x){
-    if (x ===  1){
-     	return  1 ;
-     } else{
-    	return x * f(x ‐  1 );
+var fn = function(x) {
+    if (x ===  1) {
+     	return  1;
+     } else {
+    	return x * fn(x ‐ 1);
 	 }
  }
 
 // 递归方法 ：
 function fib(n) {
-	 if (n ===  1  || n ===  2 ) return n ‐  1  return fib(n ‐  1 ) + fib(n ‐  2 )
+	 if (n ===  1  || n ===  2) {
+         return n ‐  1;
+     }  
+    return fib(n ‐ 1) + fib(n ‐ 2);
  }
-  console.log(fib( 10 )) 
+console.log(fib( 10 )) 
+
  //非递归方法 
  function fib(n) {
-     let a =  
-     let b =  
-     let c = a + b
-     for (let i =  3 ; i < n; i++) {
-         a = b b = c c = a + b
+     let a =  n;
+     let b =  a + n;
+     let c = a + b;
+     for (let i =  3; i < n; i++) {
+         a = b 
+         b = c
+         c = a + b
      }
 	 return c
  }
@@ -653,16 +659,78 @@ function fib(n) {
  Hours = date.getHours()     //以(0~23) 获取小时数
  Minutes = date.getMinutes() //获取方法 描述
 
-getDate() 以数值返回天（1-31）
-getDay() 以数值获取周名（0-6）
-getFullYear() 获取四位的年（yyyy）
-getHours() 获取小时（0-23）
-getMilliseconds() 获取毫秒（0-999）
-getMinutes() 获取分（0-59）
-getMonth() 获取月（0-11）
-getSeconds() 获取秒（0-59）
-getTime() 获取时间（从 1970 年 1 月 1 日至今）
+getDate() 			// 以数值返回天（1-31）
+getDay() 			// 以数值获取周名（0-6）
+getFullYear() 		// 获取四位的年（yyyy）
+getHours() 			// 获取小时（0-23）
+getMilliseconds() 	// 获取毫秒（0-999）
+getMinutes()		// 获取分（0-59）
+getMonth()			// 获取月（0-11）
+getSeconds()		// 获取秒（0-59）
+getTime()			// 获取时间（从 1970 年 1 月 1 日至今）
 ```
+
+### JavaScript Class 类：
+
+Class 是 ES6 中引入的一种面向对象语法糖。它不是一种新的面向对象继承模型，而是基于原型的继承模型的语法糖。
+
+ES6 之前，我们使用构造函数和原型来定义对象和实现继承；
+
+```js
+// ES6之前写法
+function Person (name) {
+    this.name = name;
+}
+Person.prototype.sayName = function () {
+    console.log(this.name)
+}
+
+// Class写法
+class Person {
+    // 私有变量方法属性前面用 # 号。私有成员只能在类内部访问。
+    // #sex;
+    
+    // 静态方法：static 关键字来定义。静态方法属于类本身，而不是实例。
+    static sayValue () {
+        return 'Hello World';
+    }
+    // 静态方法是可以直接访问静态方法的，但不能访问实例方法属性
+    static say () {
+        alert(this.sayValue());
+    }
+    constructor (name,sex) {
+        this.name = name;
+        this.#sex = sex;
+    }
+    sayName() {
+        console.log(this.name);
+    }
+	// getter 和 setter 用来设置直接访问的属性值或直接修改属性值的方法。
+	set address(value) {
+        this.address = value;
+    }
+	get address(value) {
+        return '地址：' + this.address;
+    }
+}
+// 实例化Class 
+const person = new Person('王康', '男');
+person.sayName();
+person.address = '中国山东省临沂市';
+console.log(person.address); // 地址：中国山东省临沂市
+person.say();   // HelloWorld
+// 可以看到 Class 更加清晰，易于理解
+
+// Class 继承
+class Student extends Person {
+    constructor (name,number) {
+        // 使用 super 调用父类构造函数
+        super(name);
+        this.number = number;
+    }
+}
+```
+
 
 
 ## Node.js:
@@ -675,23 +743,34 @@ Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引�
 
 ### Node.js 安装包及源码下载地址为：https://nodejs.org/en/download/。
 
-
-
 简单示例：
 
 ```js
  // 创建一个应用
- const http = require("http"); //引入一个 http 模块
- const fs = require("fs"); //引入一个 fs 模块
- const url = require("url"); //引入一个 url 模块
+ const http = require("http");  // http 网络请求模块
+ const fs = require("fs"); 		// fs 系统操作模块
+ const url = require("url");	// url url地址截取模块
 
- http.createServe(function(request,response){ 
-	 response.setHeader("Content‐type","text/html;charset=utf8;"); //设置 响应 是 设置内容编码格式
-     response.wirteHead 第一个参数是( 200 ,{"Content‐type" 设置状态码 :"text‐plain;charset=utf8;"}) //也 转换
-     let.query  urlData 是接收= urlGET值.parse true (是执行request.url,true).query; //把 url GET 传的值格式 加文件名
-     let txtData  加上Sync=意思是执行同步 fs.readFileSync('test.txt'); //读取文件 参数是文件名 或 路径 参数是值，如果没有该文件会创建该文件，如果有内容则会覆盖。
-     fs.wirteFile("test.txt",value); //写入文件 第一个参数和读取文件一样 第二个
-	 response.end('hello world') //相应内容
+// 创建一个HTTP服务
+ http.createServe(function (request, response) {
+     /* 
+     设置响应头  设置内容编码格式
+     第一个参数是( 200 ,{"Content‐type" 设置状态码 :"text‐plain;charset=utf8;"}) 也 转换
+     */
+	 response.setHeader("Content‐type","text/html;charset=utf8;"); 
+     response.wirteHead
+     
+     // 把 url GET 传的值格式 加文件名
+     let query  urlData 是接收= urlGET值.parse true (是执行request.url,true).query; 
+     //读取文件 参数是文件名 或 路径 参数是值，如果没有该文件会创建该文件，如果有内容则会覆盖。
+     let txtData 
+     // 加上Sync=意思是执行同步 
+     fs.readFileSync('test.txt');
+     //写入文件 第一个参数和读取文件一样 第二个
+     fs.wirteFile("test.txt",value); 
+     //相应内容
+	 response.end('hello world') 
+     
  }).listent( 8888 ) //设置端口号
 ```
 
@@ -701,24 +780,24 @@ Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引�
 ### Node Koa2框架： 封装原生代码的 API
 
 ```sh
-#Node 安装Koa2 安装完成 不会自带 node_module 需要手动安装一下
+# Node 安装Koa2 安装完成 不会自带 node_module 需要手动安装一下
 npm i
-#安装koa2
+# 安装koa2
 npm i ‐g koa‐generator      	# 使用 npm 包管理工具 安装 i 是 install 的缩写 ‐g 是全局
 
-#查看 版本
+# 查看 版本
 koa2 ‐‐version
 
-#创建项目
-koa2 文件名称
+# 创建项目
+koa2 项目名称
 
-#打开项目
+# 运行项目
 koa2 run dev 项目名称
 ```
 
-#### Node mon 工具插件：nodemon是一种工具，可以自动检测到目录中的文件
+#### Nodemon 插件：
 
-##### 更改时通过重新启动应用程序来调试基于node.js的应用程序。
+介绍：nodemon是一种工具，可以自动检测到目录中的文件，更改时通过重新启动应用程序来调试基于node.js的应用程序。
 
 ```sh
 #安装 nodemon
@@ -730,7 +809,21 @@ nodemon 文件名或路径名加文件名       # 使用 nodemon 打开 node 服
 #nodemon 命令
 rs 重启一下 是 restart 的缩写
 ```
-### Node Token：
+### Node JWT Token：
+
+**JWT**：
+
+​	JSON Web Token是JSON对象的一种编码方式。它通过JSON对象来传递采用的信息，并且该信息是以数字签名的。由于数字签名，所以JWT也被称为JSON Web签名(JWS)。
+
+​	JWT常用于身份验证，因为他以JSON格式存储用户信息，且该信息是可以通过签名。这使JWT很适用于身份验证。
+
+​	JWT的组成部分：**header.payload.signature**
+
+​		**header：**中包含含有关令牌类型和使用的算法信息。
+
+​		**payload：**中包含声明或其它有用负载信息。
+
+​		**signture：**是可选项，用来对前两部分的签名，防止篡改
 
 ```js
 // 安装 jwt jsonwebtoken
@@ -741,16 +834,18 @@ const jwt = require('jsonwebtoken');
 
 // 登录成功 生成token
 const token = jwt.sign({
-	time:Date now(),
-	timeout:Date now() +  60000 ,
-	用户信息 等等
+	time: Date now(),
+	timeout: Date now() +  60000,
+	// 用户信息... 等等
 },'token'),
 
 // 解析验证token
 let token = ctx.request.headers['token'];
 const token = jwt.verify(token,'token');
 ```
-### Node   Mysql连接数据库：
+### Node Mysql 连接数据库：
+
+Nodejs环境下的MySQL数据库驱动程序。它允许Nodejs应用程序连接到MySQL数据库并执行查询；增删改查。
 
 ```js
 //先安装 MySQL
@@ -758,6 +853,7 @@ npm install mysql
 
 //使用
 const mysql = require('mysql');
+
 //配置 MySQL 文件 新建js文件 命名为db_config.js
 const config = {
      host     : 'localhost',
@@ -774,10 +870,10 @@ const config = require('./db_config');
 //创建连接池
 let connection = mysql.createConnection(config);
 connection.connect(); //开启连接
-var query = (Sql)=>{
+var query = (Sql) => {
 return new Promise((resolve,reject) => {
         connection.query(Sql,function (err, result) {
-            if(err){
+            if(err) {
                  console.log('[UPDATE ERROR] ‐ ',err.message);
                  return ;
             }
@@ -794,55 +890,52 @@ let data = await query(SQL语句)
 ```
 ### Node js  WebScoket：
 
+WebSocket 使客户端和服务器端之间的数据交换变得更加简单，允许服务器主动向客户端推送数据。在 WebSocket API 中，浏览器和服务器只需要完成一次握手，两者之间就可以持久性的连接，并进行双向数据传输。
+
 ```js
-//安装 WebScoket
+// 安装 WebScoket
 npm install ws
 
-//引入使用
-const ws = require("ws");
-
-//客户端使用
-//连接服务器
-	var ws = new WebSocket("ws:localhost:888");
-	//打开连接
-	ws.onopen = function(e){
-		console.log("客户端：与服务器的连接已打开");
-	};
-	//接收服务器端发的消息
-	ws.onmessage = function(e){
-		console.log(e.data)
-		//document.getElementById("list").innerHTML += "<li>"+e.data+"</li>"
-	}
-	//触发事件 发送消息
-	function sendMessage(){
-		var message = document.getElementById("message").value;
-		// console.log(message);
-		ws.send(message);
-	};
+// 客户端使用
+// 引入使用
+const WebSocket = require("ws");
+var ws = new WebSocket("ws:localhost:888");
+// 打开连接
+ws.onopen = function(e) {
+	console.log("客户端：与服务器的连接已打开");
+};
+// 接收服务器端发的消息
+ws.onmessage = function(e) {
+	console.log(e.data)
+	//document.getElementById("list").innerHTML += "<li>"+e.data+"</li>"
+}
+// 触发事件 发送消息
+function sendMessage() {
+	var message = document.getElementById("message").value;
+	// console.log(message);
+	ws.send(message);
+};
 
 
-//服务器端使用如下
-//创建websocket服务
+// 服务器端使用如下
+// 创建websocket服务
 var WebSocketServer = require("ws").Server;
 
 //设置端口号
 wss = new WebSocketServer({port:888});
 
 //查看 所有客户端
-console.log(wss.clients )
+console.log(wss.clients)
 
 //连接客户端
-wss.on("connection",function (ws){
+wss.on("connection",function (ws) {
 	console.log("服务器端：客户端已连接");
-
 	//接收客户端的消息
-	ws.on("message",function(message){
+	ws.on("message",function(message) {
 		console.log(message.toString())
-
 		//发送消息到客户端
 		ws.send(message.toString())
 	})
-
 })
 
 ```
@@ -866,29 +959,30 @@ wss.on("connection",function (ws){
 
 
 
-#### Node js  Joi：JavaScript对象的规则描述语言和验证器。
+#### Nodejs  Joi：
+
+JavaScript对象的规则描述语言和验证器。
 
 ```js
-const Joi = require('joi'); //引入joi模块
-Joi.string()/Joi.number() //定义只能是字符串类型/数字类型
-Joi.alphanum() //只能是字母字符串或数字字符串
-Joi.max()/Joi.min() //限制最大字符串长度/限制最小字符串长度
-Joi.required() //此属性必填
-Joi.error() //定义错误信息
-Joi.regex() //接受一个字符串规则验证
-Joi.integer() //必须是整数
+const Joi = require('joi'); 	// joi 一个校验模块
+Joi.string() / Joi.number() 	// 定义只能是字符串类型/数字类型
+Joi.alphanum() 					// 只能是字母字符串或数字字符串
+Joi.max() / Joi.min() 			// 限制最大字符串长度/限制最小字符串长度
+Joi.required() 					// 此属性必填
+Joi.error() 					// 定义错误信息
+Joi.regex() 					// 接受一个字符串规则验证
+Joi.integer() 					// 必须是整数
+
 //对象验证
 Joi.validate({ username: 'abc', birthyear:  1994  }, schema);
 ```
 
 
-#### Node pm2
+#### Node pm2：
 
-**说明：**是一个守护进程管理器，不会占用一个终端，而是在后台运行 js。
+是一个守护进程管理器，不会占用一个终端，而是在后台运行 js。
 
 
-
-**用法：**
 
 ```shell
 #安装
@@ -924,11 +1018,31 @@ pm2 delete id
 
 
 
-### NPM 包管理工具：
+### Nodejs Nvm：
+
+Nodejs 版本管理工具
 
 ```shell
-#查看 npm 安装的包
-npm list 包的名称
+# 查看已安装的Nodejs
+nvm list
+
+# 查看可以安装的版本
+nvm available
+
+# 切换版本
+nvm use 版本号
+
+# 安装版本
+nvm install 版本号
+
+# 删除版本
+nvm uninstall 版本号
+
+# 可以在项目根目录里记录 node 版本号，
+.nvmrc 文件下记录 node 版本号
+例如：v14.16.1
+#使用直接输入在根目录下输入；后面不用跟版本号
+num use
 ```
 
 
@@ -1040,7 +1154,7 @@ document.designMode = 'on'    //页面所有元素可编辑
 //定义一个控制器
 let flag = null;
 //执行函数
-function input() {
+function input () {
     if(flag !== null) {
         clearTimeout(flag)
     }
@@ -1056,7 +1170,7 @@ let flag = true;
 //执行函数
 function scroll() {
     if(flag) {
-        setTimeout(() => {
+        setTimeout( () => {
             console.log('hello')
             flag = true
         },500)

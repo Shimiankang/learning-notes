@@ -169,6 +169,35 @@ ps aux|grep 进程			  #对进程检测和控制
 - [Linux killall 命令](https://www.runoob.com/linux/linux-comm-killall.html)
 - [Linux pkill 命令](https://www.runoob.com/linux/linux-comm-pkill.html)
 
+### Linux vim/vi 编辑器：
+
+vim 编辑器有三种模式：
+
+- **命令模式（视图模式）：**当在终端中执行 vim 时，或者使用 vim 命令打开一个文件时，进入该模式
+
+- **插入模式（编辑模式）：**在命令模式下按 **I**/**i**、**O**/**o**、**A**/**a**、**R**/**r**、任意一个进入该模式
+
+- **命令行模式：**在命令模式下按 **:**、**？**、**/** 任意一个进入该模式
+
+<img src="img/Linux_vim.png"/>
+
+```shell
+#命令模式下命令
+
+
+#插入模式命令
+
+
+#命令行模式下命令
+:q		#退出 vim
+:q!		#强制退出 vim 不会保存文件
+:w		#只保存
+:wq		#保存退出
+
+```
+
+
+
 ### 扩展文章
 
 - [Linux 常用命令全拼](https://www.runoob.com/w3cnote/linux-command-full-fight.html)

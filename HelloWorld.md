@@ -2,17 +2,9 @@
 
 ## 计算机知识
 
-##### 计算折扣价格
-
-```apl
-价格×(折扣÷10)=打折后价格
-```
-
-#####     也可以这样写：原价×0.折扣=打折后的价格；
-
 #####     计算打几折
 
- 价格÷打折后的价格=折扣；
+ 价格 ÷ 打折后的价格 = 折扣；
 
 ## windows电脑快捷键：
 
@@ -246,9 +238,7 @@ language:java （用Java语言编写的项目）
 
  git commite -m message提交文件到本地仓库
 
- git reset filename将尚没有commite之前加入到暂存区的文件重新
-
-### 拉回
+ git reset filename将尚没有commite之前加入到暂存区的文件重新拉回
 
 ### 文件状态：
 
@@ -275,18 +265,21 @@ git config --global user.name "大头康"       	                     #设置用
 git config --global user.email "Kangbro@126.com"                   #设置邮箱 
 git config --global --list										   #查看全局配置
 git init  		                 	                               #初始化仓库 
-git remote add origin https://gitee.com/datoukang/vue-project-2.0  #设置仓库地址 
+git remote show origin											   #查看origin信息
+git remote add origin 远程仓库地址								  #设置远程仓库地址 origin 仓库名称
+git remote set-url origin 远程仓库地址							  #修改远程仓库地址
+git remote rename 旧仓库名称 新仓库名称							   #修改仓库名称
 git add .		                                                   #选择要上传的内容  . 代表全部 添加到暂缓区
 git commit -m 'message' 	                                       #将暂缓区内容添加到仓库中  描述主要修改类型和内容
 git push --set-upstream origin master 	                           #上传远程代码并合并 git push—设置上游原始主机
-git clone https://gitee.com/datoukang/study-notes.git              #拉取仓库(拷贝远程仓库) 后面跟仓库地址 
+git clone 远程仓库地址								              #拉取远程仓库到本地仓库 后面跟仓库地址 
 git status                                                         #查看仓库当前状态 ，显示所有变更文件
 git rm 															   #删除工作区文件
 git mv 															   #移动或重命名工作区文件
 git log															   #查看历史提交记录
 git blame 文件名称 													#以列表形式查看指定文件的历史修改记录
-git pull    													   #下载远程代码并合并
-git fetch														   #下载远程代码不会合并
+git pull    													   #下载远程仓库到本地工作区并合并
+git fetch														   #下载远程到本地仓库且不会合并
 git restore --staged 文件名        								 #取消暂存
 git diff														   #详细查看修改了哪些东西
 git log --online												   #
@@ -296,9 +289,30 @@ git reset --hard 版本号码											#重置到第几个版本号
 git reflog 														   #显示所有提交，包括孤立节点。
 git checkout 版本号 文件名										  #将版本号的文件赋给文件
 git remote show origin											   #查看当前设置的仓库地址
-
+git ignore <语言或框架> <文件模式>									#生成git忽略文件， .gitgnore
 ssh-keygen -t rsa -C "邮箱地址"										#生成 .ssh key            rsa：.ssh签名类型
-																    #rsa 签名类型有：ed25519
+																   #rsa 签名类型有：ed25519
+																   
 ```
 
-##### 
+
+
+**git查看暂缓区中的内容**
+
+```shell
+git ls-files [-c]		#默认 -c
+```
+
+| 选项           | 含义                                                         |
+| -------------- | ------------------------------------------------------------ |
+| -c，--cached   | 显示缓存了的文件（默认）                                     |
+| -d，--deleted  | 显示删除了的文件                                             |
+| -m，--modified | 显示修改了的文件                                             |
+| -o，--others   | 显示其它类型的文件（比如未追踪的）                           |
+| -i，--ignored  | 显示忽略了的文件（满足忽略模式的）                           |
+| -s，--stage    | 显示缓存的条目的相关信息（模式位，文件哈希后的值，暂存号和文件名） |
+
+
+
+
+
