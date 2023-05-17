@@ -11,14 +11,16 @@
 ```scss
 ctrl + shift + t   // 恢复上一个关闭的标签页
 ```
-## CMD命令：
+## CMD 命令：
 
  **win + r 输入cmd**
 
-#### DOS命令
+#### DOS&Shell 命令
 ``` shell
 
 dir  #查看计算机文件目录  /s 包括子目录 又称遍历目录
+
+Start-Process Powershell -Verb RunAs		# 以管理员身份运行 Power Shell
 
 ping 192.168.1.1   #测试路由器
 ping 127.0.0.1     #测试网卡
@@ -57,13 +59,7 @@ ctrl + c  #结束进程
 ```
 ## 计算机存储单位：
 
- 计算机存储单位一般用bit、B、KB、MB、GB、TB、PB、EB、ZB、YB、BB、
-
- NB、DB......来表示，它们之间的关系是： 1024
-
-
-
-![](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.mianfeiwendang.com%2Fpic%2Fb38e795999720833623dca91%2F1-810-jpg_6-1080-0-0-1080.jpg)
+ 计算机存储单位一般用 bit(位)、B(字节byte)、KB、MB、GB、TB、PB、EB、ZB、YB、BB、NB、DB......以此从小到大来表示，它们之间的关系是：1024
 
 
 
