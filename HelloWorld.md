@@ -86,18 +86,11 @@ ctrl + c  #结束进程
 
 
 
-## Submile Text 实用快捷键：
+## Nvm：
 
-```scss
-ctrl + shift + p      //打开命令行窗口
-ctrl + b              //运行程序
-ctrl + enter          //建立 下一 空白行
-ctrl + shift + [      //选中代码 折叠 ] 是展开
-ctrl + shift + 上下键  //移动代码
-```
-## Nvm ：nvm全名node.js version management，是一个node的版本管理工具。首先最重要的是：
+nvm全名node.js version management，是一个node的版本管理工具。
 
-一定要卸载已安装的 NodeJS，否则会发生冲突。然后下载 nvm-windows 最新安装包，直接安装即
+首先最重要的是：一定要卸载已安装的 NodeJS，否则会发生冲突。然后下载 nvm-windows 最新安装包，直接安装即
 
 可。
 
@@ -183,14 +176,14 @@ bios芯片 是电脑主板上一个独立芯片，用来诊断电脑
 
 ### 快捷键：
 
-```shell
-ctrl + k             #打开命令面板
-T					 #快速进入某个目录文件  快速检索
-。                   #在网页使用 VsCode 打开项目
-S                    #聚焦到搜索引擎
-T                    #对仓库内的项目路径搜索
-L                    #跳转到某一行
-B                    #查看该文件改动记录
+```scss
+ctrl + k             // 打开命令面板
+T					 // 快速进入某个目录文件  快速检索
+。                   // 在网页使用 VsCode 打开项目
+S                    // 聚焦到搜索引擎
+T                    // 对仓库内的项目路径搜索
+L                    // 跳转到某一行
+B                    // 查看该文件改动记录
 ```
 
 ### 高级搜索命令：

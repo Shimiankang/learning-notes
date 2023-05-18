@@ -18,7 +18,7 @@
 - Weui（微信小程序组件）
 - mui (移动H5端)
 
-## 前端框架...：
+## 前端框架：
 
 - Vue
 
@@ -26,19 +26,20 @@
 
   JS库：
 
-  - jQuery
-
-  跨端框架：
-
+  - jQuery 就是封装的JS
+- Lodash 工具库
+  
+跨端开发：
+  
   - uniapp: 支持多端(H5、百度小程序、微信小程序、字节小程序、Android、iOS...)
   - taro: 支持多端小程序
-  - flutter: 支持多端(web端、移动端、桌面和嵌入式平台)
-
+- flutter: 支持多端(web端、移动端、桌面和嵌入式平台)
+  
   
 
 ## HTML小笔记：
 
-**inert属性：** inert 属性是 HTMLElement 的一个布尔属性，意为"惰性"，简单来说，可以禁用一切交互，包括鼠标点击、选中、拖拽、键盘操作等。
+**inert属性：**inert 属性是 HTMLElement 的一个布尔属性，意为"惰性"，简单来说，可以禁用一切交互，包括鼠标点击、选中、拖拽、键盘操作等。
 
 例如：
 
@@ -320,9 +321,7 @@ body {
 
 
 
-## HTML 小笔记：
-
-
+## HTML部分：
 
 ### HTML元素：
 
@@ -354,9 +353,9 @@ body {
 ***Xpath语法：***XPath 使用路径表达式在 XML 文档中选取节点。节点是通过沿着路径或者 step 来选取的。
 
 ``` xquery
-# Xpath语句： 又称Xquery
-//div                     # 选取当前div 
-//div[@class='test']/*    # 选取当前div 类名为 test 里面所有的 内容
+Xpath语句： 又称Xquery
+//div                     选取当前div 
+//div[@class='test']/*    选取当前div 类名为 test 里面所有的 内容
 ```
 #### Xpath 参考语法手册：
 
@@ -649,60 +648,6 @@ width:100px !important;   //不使用引入的样式
 | [rgba()](https://www.runoob.com/cssref/func-rgba.html)       | 使用红(R)、绿(G)、蓝(B)、透明度(A)的叠加来生成各式各样的颜色。 | 3        |
 | [var()](https://www.runoob.com/cssref/func-var.html)         | 用于插入自定义的属性值。                                     | 3        |
 
-## VSCode 使用技巧：
-
-快捷键：
-``` scss
-ctrl + ~             //打开终端
-ctrl + k  ctrl + o   //打开文件夹 
-ctrl + k  ctrl + t   //打开主题设置 
-ctrl + shift + p     //打开 VsCode 命令面板
-alt + 上下键         //调整代码位置 
-alt + l  alt + o     //在本地服务打开 
-alt + b              //在默认浏览器打开
-
-shift + alt + f      //格式化文档 
-ctrl + k ; ctrl + f
-
-ctrl + shift + n     //新建窗口
-ctrl + shift + k     //删除一行内容
-ctrl + k ; ctrl + 0  //折叠所有代码  不同的数字代表 折叠等级 0是折叠全部 1是折叠第一级
-ctrl + k ; ctrl + j  //展开所有代码
-```
-## HbuilderX 使用：
-
-快捷键：
-``` scss
-Tab             //直接把单词变成标签 div*3   
-div*3 再按下Tab  //创建3个div标签 
-ctrl + ↓↑       //调整代码位置
-ctrl + k 		//格式化代码
-alt + c			//打开终端
-ctrl + d		//删除一行
-alt + x   		//打开或关闭控制台
-
-```
-
-
-## WebStorm 实用技巧&快捷键
-
-```scss
-alt + f12             //打开终端
-ctrl + f12            //打开函数
-ctrl + n              //打开类
-ctrl + w              //会从小到大逐渐扩大。比如按一次,选中word，按两次，选择表达式, 三次,整个函数
-shift + f6            //重构 重命名
-f6                    //移动文件
-ctrl + shift + 方向键  //移动代码
-ctrl + d              //复制整行
-ctrl + y              //删除整行
-ctrl + ‐              //折叠光标所在的代码块
-ctrl + +              //展开光标所在的代码块
-ctrl + shift + ‐      //折叠全部代码块
-ctrl + alt + ‐        //折叠代码块以及子代码块
-ctrl + shift + l      //格式化代码
-```
-
 ## HTML转义字符：
 
 | 特殊字符  |   描述    | 实体名称 |
@@ -728,18 +673,6 @@ ctrl + shift + l      //格式化代码
 |     °     |  摄氏度   |  &deg;   |
 |     ²     |   平方    |  &sup2;  |
 |     ³     |   立方    |  &sup3;  |
-
-
-
-## ApiCloud Studio3使用：
-
-**简介：**基于业界领先的VSCode深度定制，帮助您快速地构建多端应用，我们为Windows、Mac和Linux提供了出色的开发体验，您可以使用自己喜欢的操作系统进行开发。
-
-
-
-```scss
-
-```
 
 
 
