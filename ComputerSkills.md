@@ -106,6 +106,8 @@ ctrl + shift + l      // 格式化代码
 alt + shift + ins	  // 进入多行编辑模式
 ctrl + z			  // 撤销
 ctrl + shift + z	  // 恢复
+ctrl + r			  // 替换
+ctrl + shift + r	  // 全局替换
 ```
 
 ## ApiCloud Studio3 使用：
@@ -128,4 +130,12 @@ ctrl + shift + [      //选中代码 折叠 ] 是展开
 ctrl + shift + 上下键  //移动代码
 ```
 
-## 
+## Excel 使用：
+
+```scss
+f2					// 进入编辑模式
+Esc					// 退出编辑模式
+Ctrl + ;			// 输入当前日期
+Ctrl + Shift + ;	// 输入当前时间
+```
+
