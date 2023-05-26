@@ -29,8 +29,9 @@
   - jQuery 就是封装的JS
 - Lodash 工具库
   
+
 跨端开发：
-  
+
   - uniapp: 支持多端(H5、百度小程序、微信小程序、字节小程序、Android、iOS...)
   - taro: 支持多端小程序
 - flutter: 支持多端(web端、移动端、桌面和嵌入式平台)
@@ -91,39 +92,42 @@
 
 #### css文字文本属性：
 
-font-style:normal/ italic （设置文本为斜体）
+```scss
+font-style: normal/ italic; 					 // 设置文本为斜体
+font-weight: normal(100-500)/ bold(600-900); 	 // 设置文本为粗体
+font-family: “文本字体1”,”文本字体2”; 			  // 文本类型
+text-align: left/center/right;				     // 文本水平对齐方式
+vertical-align:top/middle/bottom;				 // 垂直对齐方式
+line-height: 25px;								 // 设置文本在一行内的高度
+color：#FFF;										// 设置字体颜色
+letter—spacing：1em;								// 定义字符间隔
+```
 
-font-weight:normal(100-500)/ bold(600-900) （设置文本为粗体）
+**文字省略号**：
 
-font-family: “文本字体1”,”文本字体2”; （文本类型）
+```scss
+overflow: hidden; 			// 溢位隐藏
+text-overflow: ellipsis; 	// 文字溢位隐藏为省略号
+-webkit-line-clamp: 3; 		// 设置行数为第三行
+white-space: nowrap;		// 设置行数为单行
 
-text-align:left/center/right （文本水平对齐方式）
-
-vertical-align:top/middle/bottom（垂直对齐方式）
-
-line-height:数字px;（设置文本在一行内的高度）
-
-color：（定义文本颜色）
-
-letter—spacing：（定义字符间隔）
-
-
+display: -webkit-box; 		
+-webkit-box-orient: vertical;
+```
 
 **设置文本简写方式：**
 
-text-decoration 文本修饰
+```scss
+text-decoration: none; 	// 文本修饰
 
-none:没有修饰
+// 属性
+none 					// 没有属性
+underline				// 添加下划线
+overline				// 添加上划线
+line-through			// 添加删除线
+text-indent				// 首行缩进
 
-underline:添加下划线
-
-overline:添加上划线
-
-line-through:添加删除线
-
-text-indent 首行缩进
-
-
+```
 
 **文本大小写：**
 
