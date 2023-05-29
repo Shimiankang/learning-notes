@@ -89,21 +89,22 @@ alt + x   		//打开或关闭控制台
 快捷键：
 
 ```scss
-alt + f12             // 打开终端
-ctrl + f12            // 打开函数
-ctrl + n              // 打开类
-ctrl + w              // 会从小到大逐渐扩大。比如按一次,选中word，按两次，选择表达式, 三次,整个函数
-shift + f6            // 重构 重命名
-f6                    // 移动文件
-ctrl + shift + 方向键  // 移动代码
-ctrl + d              // 复制整行
-ctrl + y              // 删除整行
-ctrl + ‐              // 折叠光标所在的代码块
-ctrl + +              // 展开光标所在的代码块
-ctrl + shift + ‐      // 折叠全部代码块
-ctrl + alt + ‐        // 折叠代码块以及子代码块
-ctrl + shift + l      // 格式化代码
-alt + shift + ins	  // 进入多行编辑模式
+alt + f12             		// 打开终端
+ctrl + f12            		// 打开函数
+ctrl + n              		// 打开类
+ctrl + w              		// 会从小到大逐渐扩大。比如按一次,选中word，按两次，选择表达式, 三次,整个函数
+shift + f6            		// 重构 重命名
+f6                    		// 移动文件
+ctrl + shift + 方向键  	  // 移动代码
+ctrl + d              	    // 复制整行
+ctrl + y              	    // 删除整行
+ctrl + ‐              		// 折叠光标所在的代码块
+ctrl + +              		// 展开光标所在的代码块
+ctrl + shift + ‐      		// 折叠全部代码块
+ctrl + alt + ‐        		// 折叠代码块以及子代码块
+ctrl + shift + l      		// 格式化代码
+alt + shift + ins	  		// 进入多行编辑模式
+alt + shift + ctrl + 鼠标选中 // 选中多行，插入多个光标编辑
 ctrl + z			  // 撤销
 ctrl + shift + z	  // 恢复
 ctrl + r			  // 替换
