@@ -131,25 +131,6 @@ nvm on
 nvm off 
 ```
 
-## Typora 编辑器
-
-***世界上最漂亮的写作APP   ——知乎***
-
-Typora官网：[https://www.typora.io/](https://www.typora.io/)
-
-
-
-Typora 常用的快捷键：
-
-```scss
-ctrl + k           //创建超链接
-ctrl + /           //切换源码模式
-ctrl + shift + i   //插入图片
-ctrl + n           //打开新窗口 新建文件
-```
-
-
-
 ## BIOS：
 
 bios芯片 是电脑主板上一个独立芯片，用来诊断电脑

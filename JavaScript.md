@@ -14,20 +14,20 @@
 <script type="text/javascript"><sccript/>           //可以放在body里面也可以放在外边，也可以放在head里面
 ```
 
+#### JavaScript 组成部分：
 
+ECMAScript 核心 
 
-ECMAScript核心  				   // 注释head里面的代码一行
+DOM 文档对象模型 
 
-DOM文档对象模型 					/*....*/注释head和css里面的代码全部
-
-BOM浏览器对象模型 快捷键Ctrl+/      <!........>在body中注释代码
+BOM 浏览器对象模型 
 
 ##### 三目运算符也叫三元运算符： 
 
  例如： 
 ```js
 //如果条件成立就会把第一个值赋给 c 这就是三目运算符
-let c = a > b ? a : b ; 
+let c = a > b ? a : b; 
 ```
 #### JavaScript引入方式：内部引用；外部引用；
 ```html
@@ -159,27 +159,35 @@ isNaN()判定字母如果是字母返回true，如果不是返回false
 
 单分支，双分支，多分支
 
+```js
+// 单分支  
+if(条件) { 
+	// 执行代码..
+}
 
+// 双分支  
+if(条件) {
+    // 条件成立执行代码..
+} else {
+    // 条件不成立执行代码..
+}
 
-单分支  if(){ }
-
-双分支  if(){}else{}
-
-多分支  if(){}else if(){}else(){};
-
-
-
-break； 结束全部循环
-
-continue；结束本次循环，结束一次循环（直接跳到循环条件的地方）
-
-
+// 多分支  
+if(条件) {
+	// 条件成立执行代码..
+} else if(条件) {
+	// 第二个条件成立执行代码..
+    // 可以写无数个 else if..
+} else {
+    // 条件不成立执行代码..
+}
+```
 
 #### **switch：**
 
 ​	一种比 if 读取快，写起来比 if 多；**switch** 只能判断一个值，不能判断范围，而 if 可以判断范围。
 
-```javascript
+```js
 // 例如：
 var num = 1；
 switch (num) {
@@ -196,10 +204,14 @@ switch (num) {
  break;
 }
 
+
+break; // 结束全部循环
+continue; //结束本次循环，结束一次循环（直接跳到循环条件的地方）
+
  //for 循环的执行顺序 1‐2‐3‐5‐6‐7‐9‐8‐7‐9‐8‐7‐4‐10‐11
- for( 2 ; 3 ; 4 ){ 再来到这个循环里，重新循环
+ for( 2 ; 3 ; 4 ){  // 再来到这个循环里，重新循环
      for( 6 ; 7 ; 8 ){
-      9  如果这里有break; 那他就直接结束只一个循环
+      9  // 如果这里有break; 那他就直接结束只一个循环
      }
     10
  }
@@ -211,10 +223,13 @@ switch (num) {
 // 先执行，再判断条件 while先判断条件再执行代码 其实while和do while是一样的
      
 // 函数
-function 函数名（形参）{
+function 函数名(形参) {
 	 //执行体
  	}
 }
+
+// 使用函数
+函数名(实参);
 
 // JS 取余
 if(a % 2 == 0 ) {
@@ -320,7 +335,6 @@ everyBackward = array.every(item => item.backward);
 
 
 ```js
-
 
 let array = [
     { 
@@ -580,22 +594,23 @@ mouseenter 事件只在鼠标移动到选取的元素上时触发。
 ##### 经是最大的了，所以最后一个元素不用比较。
 
 ```js
- var list = [ 45 ,  4 ,  6 ,  1 ,  14 ,  55 ,  10 ,  9 ];
- function sort(list){
- for (i =  0 ; i <  5 ; i++) {
-     for (j =  0 ; j <  7  ‐ i; j++) {
-         if (list[j] < list[j +  1 ]) {
+var list = [ 45, 4, 6, 1, 14, 55, 10, 9 ];
+function sort(list) {
+ for (i = 0; i < list.length; i++) {
+     for (j = 0; j < list.length - 1 ‐ i; j++) {
+         if (list[j] < list[j+1]) {
              b = list[j];
-             list[j] = list[j +  1 ];
-             list[j +  1 ] = b;
+             list[j] = list[j+1];
+             list[j+1] = b;
          }
      }
  }
-     for(k in list){
-	     document.write(list[k]+"<br/>")
-     }
+ for(k in list) {
+     document.write(list[k]+"<br/>");
  }
- sort(list);
+}
+// 执行函数
+sort(list);
 ```
 #### 递归：
 

@@ -1,5 +1,7 @@
 # 电脑小技巧
 
+此文件主要及一些电脑使用的快捷键之类的内容。
+
 ## Chrome 使用：
 
 快捷键：
@@ -89,27 +91,48 @@ alt + x   		//打开或关闭控制台
 快捷键：
 
 ```scss
-alt + f12             		// 打开终端
-ctrl + f12            		// 打开函数
-ctrl + n              		// 打开类
-ctrl + w              		// 会从小到大逐渐扩大。比如按一次,选中word，按两次，选择表达式, 三次,整个函数
-shift + f6            		// 重构 重命名
-f6                    		// 移动文件
-ctrl + shift + 方向键  	  // 移动代码
-ctrl + d              	    // 复制整行
-ctrl + y              	    // 删除整行
-ctrl + ‐              		// 折叠光标所在的代码块
-ctrl + +              		// 展开光标所在的代码块
-ctrl + shift + ‐      		// 折叠全部代码块
-ctrl + alt + ‐        		// 折叠代码块以及子代码块
-ctrl + shift + l      		// 格式化代码
-alt + shift + ins	  		// 进入多行编辑模式
-alt + shift + ctrl + 鼠标选中 // 选中多行，插入多个光标编辑
-ctrl + z			  // 撤销
-ctrl + shift + z	  // 恢复
-ctrl + r			  // 替换
-ctrl + shift + r	  // 全局替换
+alt + f12             			// 打开终端
+ctrl + f12            			// 打开函数
+ctrl + n              			// 打开类
+ctrl + w              			// 会从小到大逐渐扩大。比如按一次,选中word，按两次，选择表达式, 三次,整个函数
+shift + f6            			// 重构 重命名
+f6                    			// 移动文件
+ctrl + shift + 方向键  	 	 // 移动代码
+ctrl + d              	    	// 复制整行
+ctrl + y              	   		// 删除整行
+ctrl + ‐              			// 折叠光标所在的代码块
+ctrl + +              			// 展开光标所在的代码块
+ctrl + shift + ‐      			// 折叠全部代码块
+ctrl + alt + ‐        			// 折叠代码块以及子代码块
+ctrl + shift + l      			// 格式化代码
+alt + shift + ins	  			// 进入多行编辑模式
+alt + shift + ctrl + 鼠标选中 	// 选中多行，插入多个光标编辑
+ctrl + z			  			// 撤销
+ctrl + shift + z	  			// 恢复
+ctrl + r			  			// 替换
+ctrl + shift + r	  			// 全局替换
+ctrl + d + f					// 选择比较文件
 ```
+
+## Jet Brains 全家桶 插件：
+
+| 插件名称                           | 说明                                                 |
+| :--------------------------------- | :--------------------------------------------------- |
+| CodeGlance Pro                     | 代码小地图，右侧小地图                               |
+| Transition                         | 翻译插件                                             |
+| Nyan Progress Bar                  | 彩虹猫进度条                                         |
+| Key Promoter X                     | 快捷键提示，只要有快捷键的，通过鼠标点击了，就会提示 |
+| Rainbow Brackets                   | 彩红括号，让括号层级更能明显                         |
+| HighlightBracketPair               |                                                      |
+| Chinese (Simplified) Language Pack | 中文语言包                                           |
+| Rainbow Fart                       | 彩虹屁插件，写代码有人夸(❁´◡`❁)                      |
+| .env files support                 | .env 环境变量文件高亮主题                            |
+| Atom Material Icons                | 图标库，让文件目录都有icon                           |
+| GitToolBox                         | git 工具插件                                         |
+| Json Parser                        | Json 格式化工具                                      |
+| Regex Tester                       | 正则表达式插件                                       |
+
+
 
 ## ApiCloud Studio3 使用：
 
@@ -139,4 +162,33 @@ Esc					// 退出编辑模式
 Ctrl + ;			// 输入当前日期
 Ctrl + Shift + ;	// 输入当前时间
 ```
+
+## Typora 使用：
+
+## 
+
+***世界上最漂亮的写作APP   ——知乎***
+
+Typora官网：[https://www.typora.io/](https://www.typora.io/)
+
+
+
+Typora 常用的快捷键：
+
+| 按键                  | 说明                   |
+| --------------------- | ---------------------- |
+| ctrl + k              | 创建超链接             |
+| ctrl + /              | 切换源码编辑模式       |
+| ctrl + shift + i      | 插入图片               |
+| ctrl + 1.....n        | 1....n 级标题文字      |
+| ctrl + n              | 在新窗口打开，新建文件 |
+| ctrl + t              | 插入表格               |
+| ctrl + shift + 退格键 | 表格-删除一行          |
+| ctrl + enter          | 表格-在下一行插入一行  |
+| ctrl + shift + k      | 插入代码块             |
+| ctrl + shift + m      | 插入公式快             |
+| ctrl + shift + `      | 切换代码格式           |
+| ctrl + shift + [      | 插入有序列表           |
+| ctrl + shift + ]      | 插入无序列表           |
+|                       |                        |
 
