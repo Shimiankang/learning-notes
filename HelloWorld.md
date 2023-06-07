@@ -18,13 +18,13 @@ ctrl + shift + t   // 恢复上一个关闭的标签页
 #### DOS&Shell 命令
 ``` shell
 
-dir  #查看计算机文件目录  /s 包括子目录 又称遍历目录
-
+dir 										# 查看计算机文件目录  /s 包括子目录 又称遍历目录
 Start-Process Powershell -Verb RunAs		# 以管理员身份运行 Power Shell
+netstat -ano							 	# 查看端口号
 
-ping 192.168.1.1   #测试路由器
-ping 127.0.0.1     #测试网卡
-ping www.baidu.com #测试Internet
+ping 192.168.1.1   # 测试路由器
+ping 127.0.0.1     # 测试网卡
+ping www.baidu.com # 测试Internet
 
 cd\ 切换c盘
 
@@ -38,24 +38,24 @@ wlan show profiles name="WiFi名" key=clear
 # 查看电脑活动连接
 netstat
 
-cd 目录名/目录           #进入目录
-cd ..                   #返回上一级目录
-rename 原文件名 新文件名 #重命名
-dir                     #查看文件目录
-E:                      #直接进入E盘
-cls                     #清空命令
-doskey /histry          #查看历史命令
-color a                 #更改命令 字体背景颜色
-md 目录名称              #创建目录 全拼 mkdir 
-del 文件名               #删除文件
+cd 目录名/目录           	# 进入目录
+cd ..                   	# 返回上一级目录
+rename 原文件名 新文件名 	  # 重命名
+dir                     	# 查看文件目录
+E:                      	# 直接进入E盘
+cls                     	# 清空命令
+doskey /histry          	# 查看历史命令
+color a                 	# 更改命令 字体背景颜色
+md 目录名称             	 # 创建目录 全拼 mkdir 
+del 文件名               	# 删除文件
 
 
-regedit   #注册表
-calc      #计算器
-cliconfg  #SQL SERVER 客户端网络实用程序
-nodepad   #打开记事本
-mstsc     #远程桌面连接
-ctrl + c  #结束进程
+regedit  				# 注册表
+calc      				# 计算器
+cliconfg  				# SQL SERVER 客户端网络实用程序
+nodepad   				# 打开记事本
+mstsc     				# 远程桌面连接
+ctrl + c 				# 结束进程
 ```
 ## 计算机系统存储：
 

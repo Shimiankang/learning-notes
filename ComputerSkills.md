@@ -112,6 +112,8 @@ ctrl + shift + z	  			// 恢复
 ctrl + r			  			// 替换
 ctrl + shift + r	  			// 全局替换
 ctrl + d + f					// 选择比较文件
+ctrl + -						// 折叠代码
+ctrl + +						// 展开代码
 ```
 
 ## Jet Brains 全家桶 插件：
