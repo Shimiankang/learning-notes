@@ -15,7 +15,7 @@ ctrl + shift + t   // 恢复上一个关闭的标签页
 
  **win + r 输入cmd**
 
-#### DOS&Shell 命令
+#### Shell 终端命令：
 ``` shell
 
 dir 										# 查看计算机文件目录  /s 包括子目录 又称遍历目录
@@ -56,6 +56,7 @@ cliconfg  				# SQL SERVER 客户端网络实用程序
 nodepad   				# 打开记事本
 mstsc     				# 远程桌面连接
 ctrl + c 				# 结束进程
+
 ```
 ## 计算机系统存储：
 

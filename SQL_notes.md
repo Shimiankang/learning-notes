@@ -118,6 +118,16 @@ CREATE VIEW 视图名称 AS SQL语句 ;
 
 --使用视图：
 SELECT 视图名称	;
+
+-- MySQL 数据库；常用命令
+mysql -h 主机地址 -u 用户名 -p 用户密码				-- 连接数据库
+mysqladmin -u 用户名 -p 旧密码 password 新密码		  -- 修改密码 （试过好像不可以）
+CRATE DATABASE 数据库名；							 -- 创建数据库
+use 数据库名；										 -- 使用数据库
+CREATE TABLE (表字段)								   -- 创建表	
+SELECT * FROM 表名；								   -- 查询表
+DELET FOM 表名；									   -- 删除表数据
+DROP TABLE 表名；									   -- 删除表
 ```
 
 
