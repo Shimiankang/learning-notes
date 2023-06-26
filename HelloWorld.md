@@ -21,6 +21,7 @@ ctrl + shift + t   // 恢复上一个关闭的标签页
 dir 										# 查看计算机文件目录  /s 包括子目录 又称遍历目录
 Start-Process Powershell -Verb RunAs		# 以管理员身份运行 Power Shell
 netstat -ano							 	# 查看端口号
+netstat -ano|findstr '端口号'				  # 查看指定端口号
 
 ping 192.168.1.1   # 测试路由器
 ping 127.0.0.1     # 测试网卡

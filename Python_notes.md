@@ -357,3 +357,6 @@ pyinstaller -F -i 图标.ico 文件名.py
 | -F，--onefile       | 在dist文件夹中只生成独立的打包文件 |
 | -i <图标文件名.ico> | 指定打包程序使用的图标（.ico）文件 |
 
+python pywifi 暴力破解WiFi 文章地址；
+
+http://t.csdn.cn/wGOzL
