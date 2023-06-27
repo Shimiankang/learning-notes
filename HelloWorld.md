@@ -264,7 +264,9 @@ git remote show origin											   #查看当前设置的仓库地址
 git ignore <语言或框架> <文件模式>									#生成git忽略文件， .gitgnore
 ssh-keygen -t rsa -C "邮箱地址"										#生成 .ssh key            rsa：.ssh签名类型
 																   #rsa 签名类型有：ed25519
-																   
+git fetch 远程仓库 远程仓库分支 									  # 拉取远程仓库的某个分支
+git checkout 本地分支											   # 切换到本地某个分支
+git merge 远程仓库/本地分支											# 将远程仓库拉取到的内容合并到本地主分支
 ```
 
 
@@ -272,7 +274,7 @@ ssh-keygen -t rsa -C "邮箱地址"										#生成 .ssh key            rsa：.
 **git查看暂缓区中的内容**
 
 ```shell
-git ls-files [-c]		#默认 -c
+git ls-files -c		#默认 -c
 ```
 
 | 选项           | 含义                                                         |
