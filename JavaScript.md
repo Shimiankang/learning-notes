@@ -26,8 +26,12 @@ BOM 浏览器对象模型
 
  例如： 
 ```js
-//如果条件成立就会把第一个值赋给 c 这就是三目运算符
-let c = a > b ? a : b; 
+// 如果条件成立就会把第一个值赋给 c 这就是三目运算符
+let c = a > b ? a : b;
+// 合并空值运算符
+let a = undefined;
+let b = 'hello world'
+let c = a ?? b;  // 过滤 undefined 和 null 返回 b 的值；
 ```
 #### JavaScript引入方式：内部引用；外部引用；
 ```html
@@ -1037,12 +1041,12 @@ pm2 delete id
 
 Nodejs 版本管理工具
 
-```shell
+```powershell
 # 查看已安装的Nodejs
 nvm list
 
 # 查看可以安装的版本
-nvm available
+nvm ls available
 
 # 切换版本
 nvm use 版本号
