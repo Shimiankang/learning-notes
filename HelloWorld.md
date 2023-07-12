@@ -237,36 +237,37 @@ git config --global user.name "大头康"       	                     #设置用
 git config --global user.email "Kangbro@126.com"                   #设置邮箱 
 git config --global --list										   #查看全局配置
 git init  		                 	                               #初始化仓库 
-git remote show origin											   #查看origin信息
-git remote add origin 远程仓库地址								  #设置远程仓库地址 origin 仓库名称
-git remote set-url origin 远程仓库地址							  #修改远程仓库地址
-git remote rename 旧仓库名称 新仓库名称							   #修改仓库名称
+git remote show origin											   #查看 origin 信息
+git remote add 远程主机名称 远程仓库地址							 #设置远程仓库地址 origin 仓库名称
+git remote set-url 远程主机名 远程仓库地址							  #修改远程仓库地址
+git remote rename 旧远程主机名 新远程主机名							 #修改仓库名称
 git add .		                                                   #选择要上传的内容  . 代表全部 添加到暂缓区
 git commit -m 'message' 	                                       #将暂缓区内容添加到仓库中  描述主要修改类型和内容
-git push --set-upstream origin master 	                           #上传远程代码并合并 git push—设置上游原始主机
-git clone 远程仓库地址								              #拉取远程仓库到本地仓库 后面跟仓库地址 
-git status                                                         #查看仓库当前状态 ，显示所有变更文件
-git rm 															   #删除工作区文件
-git mv 															   #移动或重命名工作区文件
-git log															   #查看历史提交记录
-git blame 文件名称 													#以列表形式查看指定文件的历史修改记录
-git pull    													   #下载远程仓库到本地工作区并合并
-git fetch														   #下载远程到本地仓库且不会合并
-git restore --staged 文件名        								 #取消暂存
-git diff														   #详细查看修改了哪些东西
+git push --set-upstream 远程主机名 分支名  	                         #上传远程代码并合并 git push—设置上游原始主机
+git clone 远程主机地址								              # 拉取远程仓库到本地仓库 后面跟仓库地址 
+git status                                                         # 查看仓库当前状态 ，显示所有变更文件
+git rm 															   # 删除工作区文件
+git mv 															   # 移动或重命名工作区文件
+git log															   # 查看历史提交记录
+git blame 文件名称 													# 以列表形式查看指定文件的历史修改记录
+git pull    													   # 下载远程仓库到本地工作区并合并
+git fetch														   # 下载远程到本地仓库且不会合并
+git restore --staged 文件名        								 # 取消暂存
+git diff														   # 详细查看修改了哪些东西
 git log --online												   #
-git branch														   #查看本地所有分支  -a查看所有
-git reset --hard HEAD~10										   #将当前版本重置为HEAD ~10往前是个版本   
-git reset --hard 版本号码											#重置到第几个版本号
-git reflog 														   #显示所有提交，包括孤立节点。
-git checkout 版本号 文件名										  #将版本号的文件赋给文件
-git remote show origin											   #查看当前设置的仓库地址
-git ignore <语言或框架> <文件模式>									#生成git忽略文件， .gitgnore
-ssh-keygen -t rsa -C "邮箱地址"										#生成 .ssh key            rsa：.ssh签名类型
-																   #rsa 签名类型有：ed25519
+git branch														   # 查看本地所有分支  -a查看所有
+git reset --hard HEAD~10										   # 将当前版本重置为HEAD ~10往前是个版本   
+git reset --hard 版本号码											# 重置到第几个版本号
+git reflog 														   # 显示所有提交，包括孤立节点。
+git checkout 版本号 文件名										  # 将版本号的文件赋给文件
+git remote show origin											   # 查看当前设置的仓库地址
+git ignore <语言或框架> <文件模式>									# 生成git忽略文件， .gitgnore
+ssh-keygen -t rsa -C "邮箱地址"										# 生成 .ssh key            rsa：.ssh签名类型
+																   # rsa 签名类型有：ed25519
 git fetch 远程仓库 远程仓库分支 									  # 拉取远程仓库的某个分支
-git checkout 本地分支											   # 切换到本地某个分支
+git checkout 分支名称											   # 切换分支
 git merge 远程仓库/本地分支											# 将远程仓库拉取到的内容合并到本地主分支
+git merge 分支名称													# 合并分支到当前分支
 ```
 
 
