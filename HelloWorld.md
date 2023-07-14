@@ -255,7 +255,7 @@ git fetch														   # 下载远程到本地仓库且不会合并
 git restore --staged 文件名        								 # 取消暂存
 git diff														   # 详细查看修改了哪些东西
 git log --online												   #
-git branch														   # 查看本地所有分支  -a查看所有
+
 git reset --hard HEAD~10										   # 将当前版本重置为HEAD ~10往前是个版本   
 git reset --hard 版本号码											# 重置到第几个版本号
 git reflog 														   # 显示所有提交，包括孤立节点。
@@ -265,6 +265,9 @@ git ignore <语言或框架> <文件模式>									# 生成git忽略文件， .
 ssh-keygen -t rsa -C "邮箱地址"										# 生成 .ssh key            rsa：.ssh签名类型
 																   # rsa 签名类型有：ed25519
 git fetch 远程仓库 远程仓库分支 									  # 拉取远程仓库的某个分支
+git branch														   # 查看本地所有分支 参数： -a 查看所有；-r 查看远程分支
+git branch 分支名													# 创建分支
+git branch -d 分支名												# 删除分支 -D 是强制删除
 git checkout 分支名称											   # 切换分支
 git merge 远程仓库/本地分支											# 将远程仓库拉取到的内容合并到本地主分支
 git merge 分支名称													# 合并分支到当前分支
