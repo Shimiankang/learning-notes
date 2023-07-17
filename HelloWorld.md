@@ -204,13 +204,13 @@ language:java （用Java语言编写的项目）
 
  git status 查看git状态
 
- git add filename添文件到暂存区
+ git add filename 添文件到暂存区
 
- git add .加入所有文件到暂存区
+ git add . 加入所有文件到暂存区
 
- git commite -m message提交文件到本地仓库
+ git commite -m message 提交文件到本地仓库
 
- git reset filename将尚没有commite之前加入到暂存区的文件重新拉回
+ git reset filename  将尚没有commite之前加入到暂存区的文件重新拉回
 
 ### 文件状态：
 
@@ -243,14 +243,19 @@ git remote set-url 远程主机名 远程仓库地址							  #修改远程仓�
 git remote rename 旧远程主机名 新远程主机名							 #修改仓库名称
 git add .		                                                   #选择要上传的内容  . 代表全部 添加到暂缓区
 git commit -m 'message' 	                                       #将暂缓区内容添加到仓库中  描述主要修改类型和内容
+
 git push --set-upstream 远程主机名 分支名  	                         #上传远程代码并合并 git push—设置上游原始主机
+git push -u 远程主机名 分支										 
+
 git clone 远程主机地址								              # 拉取远程仓库到本地仓库 后面跟仓库地址 
 git status                                                         # 查看仓库当前状态 ，显示所有变更文件
+git tag 														   # 设置标签
 git rm 															   # 删除工作区文件
 git mv 															   # 移动或重命名工作区文件
 git log															   # 查看历史提交记录
 git blame 文件名称 													# 以列表形式查看指定文件的历史修改记录
-git pull    													   # 下载远程仓库到本地工作区并合并
+git pull    													   # 拉取远程仓库到本地工作区并合并 保留原来的 merge commit 保留完整的历史
+git pull --rebase												   # 拉取远程主机，重写当前分支史  重新 merge commit 重写当前分支历史
 git fetch														   # 下载远程到本地仓库且不会合并
 git restore --staged 文件名        								 # 取消暂存
 git diff														   # 详细查看修改了哪些东西
@@ -268,9 +273,11 @@ git fetch 远程仓库 远程仓库分支 									  # 拉取远程仓库的某�
 git branch														   # 查看本地所有分支 参数： -a 查看所有；-r 查看远程分支
 git branch 分支名													# 创建分支
 git branch -d 分支名												# 删除分支 -D 是强制删除
+git branch -u 新分支名												# 修改当前分支名成
 git checkout 分支名称											   # 切换分支
 git merge 远程仓库/本地分支											# 将远程仓库拉取到的内容合并到本地主分支
 git merge 分支名称													# 合并分支到当前分支
+git push 远程主机 -d 分支名称                                       # 删除远程分支
 ```
 
 
@@ -292,5 +299,25 @@ git ls-files -c		#默认 -c
 
 
 
+#### git pull
+
+默认情况
+
+1. 从远程仓库获取最新代码并更新本地远程分支
+2. 将远程分支的头部合并到当前分支
+
+这将意味着生成新的 merge commit 分支
 
 
+
+git pull --rebase 
+
+1. 从远程仓库获取最新代码并更新本地远程分支
+
+2. 将当前分支临时移动到更新后的远程分支的头部
+
+3. 重新播放当前分支的所有commit
+
+4. 将当前分支还原到原来的位置
+
+这将重写当前分支的历史,避免了多余的 merge commit。

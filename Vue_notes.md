@@ -18,8 +18,6 @@ Vue 只关注视图层， 采用自底向上增量开发的设计。
 
 
 
-#### 
-
 **What is SEO（Search Engine Optimization）：** 汉译为搜索引擎优化。是一种方式：利用搜索引擎的规则提高网站的在有关搜索引擎内的自然排名。目的是让其在行业内占据领先地位，获得品牌效益。
 
 
@@ -683,6 +681,28 @@ this.$router.go(n); //n 1 || n-1
 ##### $nextTick()：
 
 将回调延迟到下次 DOM 更新循环之后执行。在修改数据之后立即使用它，然后等待 DOM 更新。它跟全局方法 Vue.nextTick 一样，不同的          是回调的 this 自动绑定到调用它的实例上。
+
+
+
+**nextTick(); 实现思路：**
+
+1. 准备一个任务队列，可以是数组或是微任务队列
+2. 封装一个函数，接受回调函数作为参数
+3. 在这个函数内部，把回调推入任务队列
+4. 在当前调用栈执行完后，从任务队列中弹出函数执行次数
+
+```js
+// 实现代码
+let callbacks = [];
+function flusCallbacks() {
+    callbacks.forEach(cb => cb());
+    callbacks = [];
+}
+function $nextTick(cb) {
+    callbacks.push(cb);
+    queuMicrotask(flusCallbacks);
+}
+```
 
 
 
