@@ -1206,7 +1206,7 @@ function scroll() {
 ### JS 键盘键值对：
 
 ```scss
-// 键值		 // 键盘按键
+        // 键值	// 键盘按键
 keycode    8 = BackSpace BackSpace
 keycode    9 = Tab Tab
 keycode   12 = Clear
