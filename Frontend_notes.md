@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # 前端小笔记
 
 ## 前端组件库：
@@ -160,6 +154,37 @@ pt 1pt=1/72英寸（是一个标准的长度单位）
 pc 1pc=12点（12点活字）
 
 px 像素
+
+vmin 
+
+vmax
+
+| 单位   | 基于...                                                      |
+| :----- | :----------------------------------------------------------- |
+| `em`   | 元素的字号                                                   |
+| `ex`   | 字体的 X 字高（x-height）                                    |
+| `cap`  | 字体中大写字母的标称高度                                     |
+| `ch`   | Average character advance of a narrow glyph in the element’s font, as represented by the “0” (ZERO, U+0030) glyph. |
+| `ic`   | Average character advance of a full width glyph in the element’s font, as represented by the“水” (CJK water ideograph, U+6C34) glyph. |
+| `rem`  | 根元素的字体大小。                                           |
+| `lh`   | 元素的行高。                                                 |
+| `rlh`  | 根元素的行高。                                               |
+| `vw`   | 1% of viewport's width.                                      |
+| `vh`   | 1% of viewport's height.                                     |
+| `vi`   | 1% of viewport's size in the root element's inline axis.     |
+| `vb`   | 1% of viewport's size in the root element's block axis.      |
+| `vmin` | 1% of viewport's smaller dimension.                          |
+| `vmax` | 1% of viewport's larger dimension.                           |
+
+| Unit | Name                | Equivalent to       |
+| :--- | :------------------ | :------------------ |
+| `cm` | Centimeters         | 1cm = 96px/2.54     |
+| `mm` | Millimeters         | 1mm = 1/10th of 1cm |
+| `Q`  | Quarter-millimeters | 1Q = 1/40th of 1cm  |
+| `in` | Inches              | 1in = 2.54cm = 96px |
+| `pc` | Picas               | 1pc = 1/16th of 1in |
+| `pt` | Points              | 1pt = 1/72th of 1in |
+| `px` | Pixels              | 1px = 1/96th of 1in |
 
 <img src="/img/css_unit.jpg"/>
 

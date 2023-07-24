@@ -486,7 +486,17 @@ let total = array.reduce((currentTotal,item) => {
 
 
 
+#### Base 64：
 
+```js
+// JS 内置函数
+
+// base64 解密
+atob(base65值)
+
+// base64 加密
+btoa(要加密的值)
+```
 
 
 
