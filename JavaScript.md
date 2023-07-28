@@ -812,13 +812,13 @@ Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引�
 # Node 安装Koa2 安装完成 不会自带 node_module 需要手动安装一下
 npm i
 # 安装koa2
-npm i ‐g koa‐generator      	# 使用 npm 包管理工具 安装 i 是 install 的缩写 ‐g 是全局
+npm i ‐g koa‐generator      	# 安装 koa-generator 脚手架 中间件
 
 # 查看 版本
 koa2 ‐‐version
 
 # 创建项目
-koa2 项目名称
+koa2 项目名称 		# 使用 koa-generator 脚手架 创建项目
 
 # 运行项目
 koa2 run dev 项目名称
