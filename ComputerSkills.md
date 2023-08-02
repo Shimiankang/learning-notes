@@ -109,12 +109,22 @@ alt + shift + ins	  			// 进入多行编辑模式
 alt + shift + ctrl + 鼠标选中 	// 选中多行，插入多个光标编辑
 ctrl + z			  			// 撤销
 ctrl + shift + z	  			// 恢复
+ctrl + f						// 搜索
+ctrl + shift + f				// 全局搜索
 ctrl + r			  			// 替换
 ctrl + shift + r	  			// 全局替换
 ctrl + d + f					// 选择比较文件
 ctrl + -						// 折叠代码
 ctrl + +						// 展开代码
 双击 shift 					  // 搜索项目中文件
+alt + 左右方向键					// 切换 Tab 页面
+ctrl + alt + [  ]				// 切换项目窗口 上一个  下一个
+shift + f4						// 新窗口打开当前 Tab 页面
+ctrl + shift + n				// 通过文件名快速查找工程内的文件
+ctrl + shift + alt + n			// 通过一个字符快速查找
+ctrl + [  ]    					// 切换光标到代码块 前面  后面
+alt + 上下方向键					//　切换上一个下一个方法
+ctrl + shift + a				// 查找操作
 ```
 
 ## Jet Brains 全家桶 插件：
