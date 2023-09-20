@@ -138,6 +138,9 @@ CREATE TABLE (表字段)								   -- 创建表
 SELECT * FROM 表名；								   -- 查询表
 DELET FOM 表名；									   -- 删除表数据
 DROP TABLE 表名；									   -- 删除表
+
+-- 远程连接授予权限  全部权限
+GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 ```
 
 
