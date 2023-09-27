@@ -18,7 +18,7 @@
 
 **MySQL：** 关系型数据库
 
-**MongoDB：** 是目前IT行业非常流行的一种非关系型数据库（No SQL）= Not only SQL
+**MongoDB：** 是目前IT行业非常流行的一种非关系型数据库（No SQL）= Not only SQL  <a href="./MongoDB_notes.md">点击此处跳转 MongoDB笔记</a>
 
 **SQLite：** 一款轻型数据库
 
