@@ -112,5 +112,48 @@ newObject.getTimestamp()
 
 ### MongoDB 连接
 
+配置好环境变量后可以在终端打开 mongosh.exe 直接就连接到默认本地 test
+
+```sh
+mongosh.exe
+# 或者
+mongosh
+```
+
+MongoDB 7.0 之前的老版本可以输入 shell 命令来连接
+
+```apl
+# 标准的 URI 连接语法
+mongodb://[username:password@]host[:port1][,host2[:port2]],...[/[database][?options]]
+
+# 默认打开本地
+mongodb://localhost
+
+# 通过 shell 打开
+mongo
+```
+
+- **mongodb://**  这是固定格式，必须要指定。
+- **username:password@**   可选项，如果设置，在连接数据库服务器之后，驱动都会尝试登录这个数据库
+- **host**  必须指定至少一个 host，host1 是这个 URI 唯一要填写的。它指定了要连接服务器的地址。如果要连接复制集，请指定多个主机地址。
+- **port**  可选的指定端口，如果不填，默认为 27017
+- **database/**  如果指定 username:password@，连接并验证登录指定数据库。若不指定，默认打开 test 数据库。
+- **?options**  是连接选项。如果不使用 /database，则前面需要加上 / 所有连接选项都是键值对 key=>value，键值对之间通过 & 或 ; (分号) 隔开
+
+标准的连接格式包含了多个 options ,
+
+| 选项                | 描述                                                         |
+| :------------------ | :----------------------------------------------------------- |
+| replicaSet=name     | 验证replica set的名称。 Impliesconnect=replicaSet.           |
+| slaveOk=true\|false | true:在connect=direct模式下，驱动会连接第一台机器，即使这台服务器不是主。在connect=replicaSet模式下，驱动会发送所有的写请求到主并且把读取操作分布在其他从服务器。false: 在 connect=direct模式下，驱动会自动找寻主服务器. 在connect=replicaSet 模式下，驱动仅仅连接主服务器，并且所有的读写命令都连接到主服务器。 |
+| safe=true\|false    | true: 在执行更新操作之后，驱动都会发送getLastError命令来确保更新成功。(还要参考 wtimeoutMS).false: 在每次更新之后，驱动不会发送getLastError来确保更新成功。 |
+| w=n                 | 驱动添加 { w : n } 到getLastError命令. 应用于safe=true。     |
+| wtimeoutMS=ms       | 驱动添加 { wtimeout : ms } 到 getlasterror 命令. 应用于 safe=true. |
+| fsync=true\|false   | true: 驱动添加 { fsync : true } 到 getlasterror 命令.应用于 safe=true.false: 驱动不会添加到getLastError命令中。 |
+| journal=true\|false | 如果设置为 true, 同步到 journal (在提交到数据库前写入到实体中). 应用于 safe=true |
+| connectTimeoutMS=ms | 可以打开连接的时间。                                         |
+| socketTimeoutMS=ms  | 发送和接受sockets的时间。                                    |
 
 
+
+### MongoDB 创建数据库、查看数据库
