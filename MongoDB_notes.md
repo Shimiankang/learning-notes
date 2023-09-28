@@ -156,4 +156,79 @@ mongo
 
 
 
-### MongoDB 创建数据库、查看数据库
+### MongoDB 数据库
+
+查看据库
+
+```dart
+// 查看所有数据库
+show dbs
+    
+// 查看当前数据库名称
+db
+```
+
+
+
+使用数据库；如果没有则会创建
+
+```scss
+use DATABASE_NAME  // 数据库名
+```
+
+
+
+删除当前数据库
+
+```scss
+db.dropDatabase()
+```
+
+
+
+### MongoDB 集合/合集
+
+查看集合
+
+```scss
+show collections
+
+// 或者 
+
+show tables
+```
+
+创建集合
+
+```scss
+db.createCollection(name, options)
+
+/*
+	name：要创建集合的名称
+	options：可选参数，指定有关内存大小及索引的选项
+*/
+
+// 例如： 创建一个集合
+db.createCollection("student", { capped: true, autoIndexId: true, size: 6142800, max: 10000 })
+```
+
+options 参数列表
+
+| 字段        | 类型 | 描述                                                         |
+| :---------- | :--- | :----------------------------------------------------------- |
+| capped      | 布尔 | （可选）如果为 true，则创建固定集合。固定集合是指有着固定大小的集合，当达到最大值时，它会自动覆盖最早的文档。 **当该值为 true 时，必须指定 size 参数。** |
+| autoIndexId | 布尔 | 3.2 之后不再支持该参数。（可选）如为 true，自动在 _id 字段创建索引。默认为 false。 |
+| size        | 数值 | （可选）为固定集合指定一个最大值，即字节数。 **如果 capped 为 true，也需要指定该字段。** |
+| max         | 数值 | （可选）指定固定集合中包含文档的最大数量。                   |
+
+
+
+删除集合
+
+```scss
+db.collection.drop()         // collection 集合名称
+
+// 例如： 删除一个 student 集合
+db.student.drop()
+```
+
