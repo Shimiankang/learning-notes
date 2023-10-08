@@ -232,3 +232,50 @@ db.collection.drop()         // collection 集合名称
 db.student.drop()
 ```
 
+
+
+
+
+### MongoDB 文档/行(row)
+
+文档的数据结构和 JSON 基本一样。所有存储在集合中的数据都是 BSON 格式。
+
+BSON 是一种类似于 JSON 的二进制形式的存储格式，是 Binary JSON 的简称。
+
+
+
+插入文档
+
+```scss
+// collection 是集合名称
+db.collection.insert(document)
+
+// 或
+
+db.collection.save(document)
+// 新版本中已弃用 save() 方法，使用 insertOne() 代替
+// 插入一条文档
+db.collection.insertOne(document)
+
+// 插入多条文档
+db.collection.insertMany(document,document....)
+
+// 例如：往学生表(集合)中添加一条数据
+db.student.insert({
+    name: '小明',
+    sex: '男',
+    class_id: 1001,
+    hobby: ['玩游戏','打羽毛球','看动漫'],
+    birthday: '2000.12.04'
+})
+
+```
+
+查询文档
+
+```scss
+// collection 是集合名称；
+db.collection.find(query, projection);
+
+```
+
