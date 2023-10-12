@@ -1,4 +1,4 @@
-# 学习Python3
+# 学习Python
 
 ### Python海龟制图：
 
@@ -163,24 +163,26 @@ Ctral + Shift + F：//高级查找
 
 #### os模块：
 ``` python
-变量 = os.path.dirname( "/datou/wk/demo.py" )	   #返回路径名
-变量 = os.path.basename( "/datou/wk/demo.py" )   #返回文件名
-变量 = os.path.splitext( "/datou/wk/demo.py" )   #分别返回文件名和路径名
+变量 = os.path.dirname( "/datou/wk/demo.py" )	   # 返回路径名
+变量 = os.path.basename( "/datou/wk/demo.py" )   # 返回文件名
+变量 = os.path.splitext( "/datou/wk/demo.py" )   # 分别返回文件名和路径名
+os.path.exists("/dir") 							# 判断该目录是否存在 存在返回 true
+
 ```
 #### threading模块：多线程
 
 ``` python
 #例如：
 import time import threading 
-start=time.perf_counter() 
+start = time.perf_counter() 
 def worker():   
     print("worker")
     time.sleep(1) 
     return 
 
-if __name__ == "__main__":    
+if __name__ === "__main__":    
     for i in range(5): 
-        t=threading.Thread(target=worker)     
+        t = threading.Thread(target=worker)     
         t.start()   
         end = time.perf_counter() 
         print(end-start)
@@ -195,8 +197,8 @@ if __name__ == "__main__":
 ``` python
 #使用open语句读取文件： 
 #普通读取可能处理异常 
-file=open("./video/test.txt")
-data=file.read() print(data)  
+file = open("./video/test.txt")
+data = file.read() print(data)  
 
 #使用with语句读取文件： 
 #使用with语句读取可以有效避免异常 
@@ -274,8 +276,8 @@ abs()
 ```
 #### 转义字符：
 ``` python
-print(r"D:\User\Dell")    #输出结果  为  D:\User\Dell 
-print("D:\\User\\Dell"")  #输出结果  为  D:\User\Dell
+print(r"D:\User\Dell")    # 输出结果  为  D:\User\Dell 
+print("D:\\User\\Dell"")  # 输出结果  为  D:\User\Dell
 ```
 
 #### Python 语句：

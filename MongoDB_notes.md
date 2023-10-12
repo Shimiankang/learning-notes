@@ -105,24 +105,31 @@ ObjectId 类似唯一的主键，可以很快地去生成和排序，包含 12by
 MongoDB 中存储的文档必须有一个 _id 键。这个键值可以是任何类型，默认是 ObjectId 对象。由于 ObjectId 中保存了创建的时间戳，所以你不需要为你的文档保存时间戳字段，可以通过 getTimestamp 函数来获取文档的创建时间：
 
 ```js
+
 var newObject = ObjectId()
 newObject.getTimestamp()
 // 输出: ISODate("2023-09-27:14:12Z")
+
 ```
 
 ### MongoDB 连接
 
 配置好环境变量后可以在终端打开 mongosh.exe 直接就连接到默认本地 test
 
-```sh
+```scss
+
 mongosh.exe
-# 或者
+
+// 或者
+
 mongosh
+
 ```
 
 MongoDB 7.0 之前的老版本可以输入 shell 命令来连接
 
 ```apl
+
 # 标准的 URI 连接语法
 mongodb://[username:password@]host[:port1][,host2[:port2]],...[/[database][?options]]
 
@@ -131,6 +138,7 @@ mongodb://localhost
 
 # 通过 shell 打开
 mongo
+
 ```
 
 - **mongodb://**  这是固定格式，必须要指定。
@@ -161,11 +169,13 @@ mongo
 查看据库
 
 ```dart
+
 // 查看所有数据库
 show dbs
     
 // 查看当前数据库名称
 db
+    
 ```
 
 
@@ -173,7 +183,9 @@ db
 使用数据库；如果没有则会创建
 
 ```scss
+
 use DATABASE_NAME  // 数据库名
+
 ```
 
 
@@ -181,7 +193,9 @@ use DATABASE_NAME  // 数据库名
 删除当前数据库
 
 ```scss
+
 db.dropDatabase()
+
 ```
 
 
@@ -191,16 +205,19 @@ db.dropDatabase()
 查看集合
 
 ```scss
+
 show collections
 
 // 或者 
 
 show tables
+
 ```
 
 创建集合
 
 ```scss
+
 db.createCollection(name, options)
 
 /*
@@ -210,6 +227,7 @@ db.createCollection(name, options)
 
 // 例如： 创建一个集合
 db.createCollection("student", { capped: true, autoIndexId: true, size: 6142800, max: 10000 })
+
 ```
 
 options 参数列表
@@ -226,10 +244,13 @@ options 参数列表
 删除集合
 
 ```scss
-db.collection.drop()         // collection 集合名称
+
+// collection 是集合的名称
+db.collection.drop()         
 
 // 例如： 删除一个 student 集合
 db.student.drop()
+
 ```
 
 
@@ -247,6 +268,7 @@ BSON 是一种类似于 JSON 的二进制形式的存储格式，是 Binary JSON
 插入文档
 
 ```scss
+
 // collection 是集合名称
 db.collection.insert(document)
 
@@ -274,8 +296,211 @@ db.student.insert({
 查询文档
 
 ```scss
+
 // collection 是集合名称；
 db.collection.find(query, projection);
+
+```
+
+#### MongoDB 与 RDBMS Where 语句比较
+
+```scss
+
+// RDBMS
+select * from collection where id > 100
+select * from collection where id > 100 and id < 200
+
+// MongoDB
+db.collection.find({ id: { $gt: 100 }})
+db.collection.find({ id: { $gt: 100, $lt: 200 }})
+
+```
+
+对照表
+
+| 操作       | 格式                     | 范例                                        | RDBMS中的类似语句       |
+| :--------- | :----------------------- | :------------------------------------------ | :---------------------- |
+| 等于       | `{<key>:<value>`}        | `db.col.find({"by":"菜鸟教程"}).pretty()`   | `where by = '菜鸟教程'` |
+| 小于       | `{<key>:{$lt:<value>}}`  | `db.col.find({"likes":{$lt:50}}).pretty()`  | `where likes < 50`      |
+| 小于或等于 | `{<key>:{$lte:<value>}}` | `db.col.find({"likes":{$lte:50}}).pretty()` | `where likes <= 50`     |
+| 大于       | `{<key>:{$gt:<value>}}`  | `db.col.find({"likes":{$gt:50}}).pretty()`  | `where likes > 50`      |
+| 大于或等于 | `{<key>:{$gte:<value>}}` | `db.col.find({"likes":{$gte:50}}).pretty()` | `where likes >= 50`     |
+| 不等于     | `{<key>:{$ne:<value>}}`  | `db.col.find({"likes":{$ne:50}}).pretty()`  | `where likes != 50`     |
+
+##### **MongoDB AND 条件**
+
+MongoDB 的 find() 方法可以传入多个键(key)，每个键(key)以逗号隔开，即常规的 SQL 的 AND 条件。
+
+```scss
+
+db.collection.find({key1: value1, key2: value2})
+
+```
+
+##### **MongoDB OR 条件**
+
+MongoDB OR 条件语句使用了关键字 **$or**。
+
+```scss
+
+db.collection.find({ 
+    $or: [
+        {key1: value1},
+        {key2: value2}
+    ] 
+})
+
+```
+
+模糊查询
+
+```scss
+
+// 查询 name 字段包含 '王' 的
+db.collection.find({ name: '/王/' })
+
+// 查询 name 字段以 '王' 开头的
+db.collection.find({ name: '/^王/' })
+
+// 查询 name 字段以 '王' 结尾的
+db.cllection.find({ name: '/王$/' })
+
+```
+
+### MongoDB　更新文档/行(row)
+
+**update()** 方法用于更新已存在的文档。
+
+```scss
+
+db.collection.update(
+    <query>,
+    <update>,
+    {
+        upsert: <boolean>,
+        multi: <boolean>,
+        writeConcern: <document>
+	}
+)
+
+```
+
+参数说明：
+
+- **query：**　update 的查询条件，类似 sql update 查询内 where 后面的条件。
+- **update：**　update 的对象和一些更新的操作符（如：$, $inc...）等，也可以理解为 sql update 查询内 set 后面的。
+- **upsert：**　可选，这个参数的意思是，如果不存在 update 的记录，是否插入 objNew, true 为插入，默认是 false，不插入。
+- **multi：**　可选，默认是 false，只更新找到的第一条记录，如果这个参数为 true，就把按条件查出来的多条记录全部更新。
+- **writeConcern：**　可选，抛出异常的级别
+
+
+
+例如：
+
+```scss
+
+// 只修改查询到的第一条记录
+db.collection.update({ title: '饼干' }, {$set: { name: '奥利奥' }})
+
+// 修改多条记录
+db.collection.update({ title : 'MongoDB 教程' }, {$set: { title: 'MongoDB' }},{ multi: true })
+
+```
+
+**save()** 方法通过传入的文档来替换已有的文档，_id 主键存在就更新，不存在就插入
+
+**updateOne()** 方法更新单个文档
+
+**updateMany()** 方法更新多个文档
+
+
+
+移除集合中的键值对，使用 **$unset** 操作符
+
+```scss
+
+// 例如
+db.collection.update({ _id: "123456789" }, {$unset: test: "OK"})
+
+```
+
+##### writeConcern：异常抛出参数
+
+| 参数          | 说明                                                         |
+| ------------- | ------------------------------------------------------------ |
+| NONE          | 没有任何异常抛出                                             |
+| NORMAL        | 仅抛出网络错误异常，没有服务器错误异常                       |
+| SAFE          | 抛出网络错误异常、服务器错误异常；并等待服务器完成写操作。   |
+| MAJORITY      | 抛出网络错误异常、服务器错误异常；并等待一个主服务器完成写操作。 |
+| FSYNC_SAFE    | 抛出网络错误异常、服务器错误异常；写操作等待服务器将数据刷新到磁盘。 |
+| JOURNAL_SAFE  | 抛出网络错误异常、服务器错误异常；写操作等待服务器提交到磁盘的日志文件。 |
+| REPLICAS_SAFE | 抛出网络醋无异常、服务器错误异常；等待至少2台服务器完成写操作。 |
+
+### MongoDB 删除文档/行(row)
+
+**remove()**	函数是用来移除集合中的数据。
+
+```scss
+
+// 语法
+db.collection.remove(
+    <query>,
+    <justOne>,
+)
+
+// MongoDB 2.6 版本以后的语法
+db.collection.remove(
+    <query>,
+    {
+        justOne: <boolean>,
+        writeConcern: <docuent>
+	}
+)
+
+```
+
+参数说明：
+
+- **query：** 可选，删除文档的条件。
+- **justOne：** 可选，如果设为 true 或 1，则只删除一个文档，如果不设置该参数，或者使用默认值 false，则删除所有匹配条件的文档
+- **writeConcern：** 可选，抛出异常的级别（和更新文档的一样）
+
+例如：
+
+```scss
+
+// 删除 name 字段为 '赛文‘ 的所有数据
+db.collection.remove({ name: '赛文' })
+
+// 删除 name 字段为 '赛文‘ 的第一条数据
+db.collection.remove({ name: '赛文' }, { justOne: true})
+db.collection.remove({ name: '赛文' }, true)
+db.collection.remove({ name: '赛文' }, 1)
+
+```
+
+删除所有数据  类似于 SQL 中的 truncate 命令
+
+```scss
+
+db.collection.remove({})
+
+```
+
+
+
+官方推荐使用 **deleteOne( )** 和 **deleteMany( )** 方法。
+
+```scss
+
+// 删除全部文档
+db.collection.deleteMany({})
+
+// 删除 name 字段为 '赛文‘ 的所有文档
+db.collection.deleteManay({ name: '赛文' })
+
+// 删除 name 字段为 '赛文‘ 的第一条文档
+db.collection.deleteOne({ name: '赛文' })
 
 ```
 
