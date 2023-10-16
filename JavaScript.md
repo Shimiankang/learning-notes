@@ -11,7 +11,10 @@
 ##### JavaScript更像是一门函数式编程语言。
 
 ```html
-<script type="text/javascript"><sccript/>           //可以放在body里面也可以放在外边，也可以放在head里面
+
+<script type="text/javascript"></script>
+<!-- 可以放在body里面也可以放在外边，也可以放在head里面 -->
+        
 ```
 
 #### JavaScript 组成部分：
@@ -26,25 +29,30 @@ BOM 浏览器对象模型
 
  例如： 
 ```js
+
 // 如果条件成立就会把第一个值赋给 c 这就是三目运算符
 let c = a > b ? a : b;
+
 // 合并空值运算符
 let a = undefined;
 let b = 'hello world'
 let c = a ?? b;  // 过滤 undefined 和 null 返回 b 的值；
+
 ```
 #### JavaScript引入方式：内部引用；外部引用；
 ```html
-内部引用：
+
+<!-- 内部引用：-->
 <script  type="text/javaScript">
 	//在这里写JS代码...
 </script>
-内部JavaScript，指的是把HTML代码和JavaScript代码放在同一个文件中。
+<!-- 内部JavaScript，指的是把HTML代码和JavaScript代码放在同一个文件中。 -->
 
 
-外部引用：
+<!-- 外部引用：-->
 <script src="/index.js"></script>
-可以在head中引用 也可以在body中引用
+<!-- 可以在head中引用 也可以在body中引用 -->
+
 ```
 
 
@@ -53,7 +61,8 @@ let c = a ?? b;  // 过滤 undefined 和 null 返回 b 的值；
 **在JavaScript中，每一条语句都是英文分号 ';' 作为结束符。每一条语句都有它特定的功能。如果只写了 ';'号那就是空语句的意思**
 
 ```js
- var a = 10；   //直接赋值    var声明符   a变量名    = 赋值符  10值     ；语句块结束符号
+
+var a = 10；   //直接赋值    var声明符   a变量名    = 赋值符  10值     ；语句块结束符号
 
 // alert  警告；告诫 在JavaScript中意思为弹出框警告的意思     else否则     int整数   parse强制       parseint强制整数
  alert();  //在网页弹出一个对话框      
@@ -66,6 +75,7 @@ document.write("");基本网页显示的一种语法语法
 var a = 1; //初始化赋值
 a = Number(prompt("请输入一个值"); //弹窗语法
 // 变量 <= 赋值
+           
 ```
 
 
@@ -134,6 +144,7 @@ i++：指的是先赋值，再运算
 一切非零的正整数都为真true     零代表假false
 
 ```js
+
 //先判断条件，在执行循环
 var  i=1；初始值：只执行一次
 while (循环条件：判断布尔值) {
@@ -164,6 +175,7 @@ isNaN()判定字母如果是字母返回true，如果不是返回false
 单分支，双分支，多分支
 
 ```js
+
 // 单分支  
 if(条件) { 
 	// 执行代码..
@@ -185,6 +197,7 @@ if(条件) {
 } else {
     // 条件不成立执行代码..
 }
+
 ```
 
 #### **switch：**
@@ -192,6 +205,7 @@ if(条件) {
 ​	一种比 if 读取快，写起来比 if 多；**switch** 只能判断一个值，不能判断范围，而 if 可以判断范围。
 
 ```js
+
 // 例如：
 var num = 1；
 switch (num) {
@@ -239,6 +253,7 @@ function 函数名(形参) {
 if(a % 2 == 0 ) {
  //取余
 }
+
 ```
 ##### window.onload   告诉计算机等到页面加载完了以后在执行的代码
 
@@ -253,17 +268,20 @@ if(a % 2 == 0 ) {
 ### 数组：
 
 ```js
+
 // 索引值是从0开始
 var arr = [ x ] [ y ];
 var arr [ x ] = 1;
 
 // 声明一个数组
 var arr = new Arry([2,3,4]);
+
 ```
 
 #### 数组遍历：
 
 ```js
+
 let array = [1, 2, 3, 4, 5, 6, 7, 8,, 10, 11];
 for(let i = 0;i < array.length; i++) {
     if(array[i] == 5) {
@@ -448,6 +466,7 @@ let index = array.findIndex(item => return item == 2)
 
 
 ```js
+
 let array = [
     {
         name: 'left',
@@ -466,6 +485,7 @@ let total = array.reduce((currentTotal,item) => {
     return currentTotal + item.width;
 })
 // total: 100
+
 ```
 
 **reduce 总结：**
@@ -488,14 +508,16 @@ let total = array.reduce((currentTotal,item) => {
 
 #### Base 64：
 
+JavaScript 内置函数，用来转换成 Base64 编码，**Nodejs 中没有改名命令**
+
 ```js
-// JS 内置函数
 
 // base64 解密
 atob(base65值)
 
 // base64 加密
 btoa(要加密的值)
+
 ```
 
 
@@ -537,7 +559,8 @@ ASCII码 鼠标和键盘编码
 ##### JS ASII码 键盘事件绑定：
 
 ```js
-document.onkeydown(e){
+
+document.onkeydown(e) {
     let e = e ? e : event; //如果 e 不能用 就把 event 赋值给 e
     if(e.keyCode ==  32 ){
      //空格事件
@@ -551,6 +574,7 @@ input.onkeypress = function (e){
             console.log("触发Enter事件了")
         }
 }
+
 ```
 
 [查询ASCII码](http://ascii.911cha.com/)
@@ -608,6 +632,7 @@ mouseenter 事件只在鼠标移动到选取的元素上时触发。
 ##### 经是最大的了，所以最后一个元素不用比较。
 
 ```js
+
 var list = [ 45, 4, 6, 1, 14, 55, 10, 9 ];
 function sort(list) {
  for (i = 0; i < list.length; i++) {
@@ -625,6 +650,7 @@ function sort(list) {
 }
 // 执行函数
 sort(list);
+
 ```
 #### 递归：
 
@@ -637,6 +663,7 @@ sort(list);
 4.将临界条件加入到递归体中
 
 ```js
+
 //简单的递归
 function sum () {
     if (n == 1) {
@@ -676,11 +703,13 @@ console.log(fib( 10 ))
 	 return c
  }
   console.log(fib( 10 )) 
+
 ```
 ###### JS 日期函数:
 
 ```js
- var date = new Date();      //创建一个新的日期对
+
+var date = new Date();      //创建一个新的日期对
  Timestamp = date.getTime()  //获取时间戳
  Years = date.getFullYear()  //获取四位数 年份
  Month = date.getMonth()     //以(0~11) 获取月份
@@ -697,6 +726,7 @@ getMinutes()		// 获取分（0-59）
 getMonth()			// 获取月（0-11）
 getSeconds()		// 获取秒（0-59）
 getTime()			// 获取时间（从 1970 年 1 月 1 日至今）
+
 ```
 
 ### JavaScript Class 类：
@@ -706,6 +736,7 @@ Class 是 ES6 中引入的一种面向对象语法糖。它不是一种新的面
 ES6 之前，我们使用构造函数和原型来定义对象和实现继承；
 
 ```js
+
 // ES6之前写法
 function Person (name) {
     this.name = name;
@@ -758,6 +789,7 @@ class Student extends Person {
         this.number = number;
     }
 }
+
 ```
 
 
@@ -775,7 +807,8 @@ Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引�
 简单示例：
 
 ```js
- // 创建一个应用
+
+// 创建一个应用
  const http = require("http");  // http 网络请求模块
  const fs = require("fs"); 		// fs 系统操作模块
  const url = require("url");	// url url地址截取模块
@@ -801,6 +834,7 @@ Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引�
 	 response.end('hello world') 
      
  }).listent( 8888 ) //设置端口号
+
 ```
 
 
@@ -809,6 +843,7 @@ Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引�
 ### Node Koa2框架： 封装原生代码的 API
 
 ```sh
+
 # Node 安装Koa2 安装完成 不会自带 node_module 需要手动安装一下
 npm i
 # 安装koa2
@@ -822,6 +857,7 @@ koa2 项目名称 		# 使用 koa-generator 脚手架 创建项目
 
 # 运行项目
 koa2 run dev 项目名称
+
 ```
 
 #### Nodemon 插件：
@@ -829,6 +865,7 @@ koa2 run dev 项目名称
 介绍：nodemon是一种工具，可以自动检测到目录中的文件，更改时通过重新启动应用程序来调试基于node.js的应用程序。
 
 ```sh
+
 #安装 nodemon
 npm i ‐g nodemon                   #使用 npm 安装 ‐g 全局的 nodemon
 
@@ -837,6 +874,7 @@ nodemon 文件名或路径名加文件名       # 使用 nodemon 打开 node 服
 
 #nodemon 命令
 rs 重启一下 是 restart 的缩写
+
 ```
 ### Node JWT Token：
 
@@ -855,6 +893,7 @@ rs 重启一下 是 restart 的缩写
 ​		**signture：**是可选项，用来对前两部分的签名，防止篡改
 
 ```js
+
 // 安装 jwt jsonwebtoken
 npm install jsonwebtoken
 
@@ -871,12 +910,14 @@ const token = jwt.sign({
 // 解析验证token
 let token = ctx.request.headers['token'];
 const token = jwt.verify(token,'token');
+
 ```
 ### Node Mysql 连接数据库：
 
 Nodejs环境下的MySQL数据库驱动程序。它允许Nodejs应用程序连接到MySQL数据库并执行查询；增删改查。
 
 ```js
+
 //先安装 MySQL
 npm install mysql
 
@@ -916,12 +957,14 @@ module.exports = query; //导出
 //使用
 const query = require("../db.js")//引入
 let data = await query(SQL语句)
+
 ```
 ### Node js  WebScoket：
 
 WebSocket 使客户端和服务器端之间的数据交换变得更加简单，允许服务器主动向客户端推送数据。在 WebSocket API 中，浏览器和服务器只需要完成一次握手，两者之间就可以持久性的连接，并进行双向数据传输。
 
 ```js
+
 // 安装 WebScoket
 npm install ws
 
@@ -993,6 +1036,7 @@ wss.on("connection",function (ws) {
 JavaScript对象的规则描述语言和验证器。
 
 ```js
+
 const Joi = require('joi'); 	// joi 一个校验模块
 Joi.string() / Joi.number() 	// 定义只能是字符串类型/数字类型
 Joi.alphanum() 					// 只能是字母字符串或数字字符串
@@ -1004,6 +1048,7 @@ Joi.integer() 					// 必须是整数
 
 //对象验证
 Joi.validate({ username: 'abc', birthyear:  1994  }, schema);
+
 ```
 
 
@@ -1014,6 +1059,7 @@ Joi.validate({ username: 'abc', birthyear:  1994  }, schema);
 
 
 ```shell
+
 #安装
 npm install pm2 -g
 
@@ -1043,15 +1089,51 @@ pm2 delete all
 
 #删除指定应用
 pm2 delete id
+
 ```
 
 
 
-### Nodejs Nvm：
+### Volta
 
-Nodejs 版本管理工具
+Volta 是一种管理 JavaScript 命令行工具的便捷方式。
+
+Volta 的优点就是：速度、无缝，每个项目的版本切换、跨平台支持、支持多个包管理器、稳定的工具安装、可拓展性。
+
+```sh
+
+# 查看各个工具的默认版本   显示当前工具链
+volta list 
+
+# 安装某个工具的版本 or 也是设置全局默认版本
+volta install node@14.18.0
+
+# 为一个项目选择节点引擎和包管理器，  这个命令需在项目目录下使用，该命令会记录版本号到 package.json 文件中
+# 固定项目的运行时或包管理器
+volta pin node@14.18.0
+
+# 从工具链中删除
+volta uninstall node@14.18.0
+
+# 查看 volta 的安装的工具目录
+volta which <binary>
+
+# 设置当前 用户/shell 用户启动 volta
+volta setup
+
+# 运行带有自定义 Node、Yarn、Pnpm、npm 的版本命令
+volta run
+
+```
+
+
+
+### Nvm
+
+**Nvm（Node.js Version Management）** 是 Nodejs 版本管理工具
 
 ```powershell
+
 # 查看已安装的Nodejs
 nvm list
 
@@ -1069,10 +1151,11 @@ nvm uninstall 版本号
 
 # 可以在项目根目录里记录 node 版本号，
 # window 系统下可能不生效
-.nvmrc 文件下记录 node 版本号
-例如：v14.16.1
-#使用直接输入在根目录下输入；后面不用跟版本号
+# 在 .nvmrc 文件下记录 node 版本号
+# 例如：直接在 .nvmrc文件下写下  v14.16.1
+# 使用直接输入在根目录下输入；后面不用跟版本号
 num use
+
 ```
 
 
@@ -1090,6 +1173,7 @@ TS 就相当于 严格模式下的 JS
 使用 TS 前需要先安装依赖环境 Node.js 使用里面的 npm 包管理工具安装
 
 ```shell
+
 #全局安装 typescript
 npm install -g typescript
 
@@ -1104,27 +1188,40 @@ tsc -v
 
 #生成 tsconfig.json 配置文件
 tsc -init
-```
-
-编写 TS：
-
-```js
-let a:Number = 1;      //定义 a 的值为 1 类型为 Number 
-let b:String = 'hello' //定义 b 的值为 hello 类型为 String   一般不这样写(通是赋值和赋值类型)
-
-let a:Number;         //定义 a 的类型为 Number
-a = 1234;			  //一般是这样写
-let b = 'hello'		  //这样写 TS 会自动判断 b 的类型为 String 并且 b 的类型定义为 String
-
 
 ```
 
 
 
-#### JavaScript 语句：
+#### TypeScript 书写规范：
 
 ```js
-//字符串截取
+
+// 定义 a 的值为 1 类型为 Number 
+let a:Number = 1;      
+
+// 定义 b 的值为 hello 类型为 String   一般不这样写(通是赋值和赋值类型)
+let b:String = 'hello' 
+
+ // 定义 a 的类型为 Number
+let a:Number;        
+
+// 一般是这样写
+let a = 1234;			  
+
+// 这样写 TS 会自动判断 b 的类型为 String 并且 b 的类型定义为 String
+let b = 'hello'		  
+
+
+```
+
+
+
+#### JavaScript 书写规范：
+
+```js
+
+// 字符串截取
 let str = 'http://www.baidu.com/search?value=a'
 str = url.split("?")[0] // 根据问号分组取第一个值；
 //str 输出 ['http://www.baidu.com/search']
@@ -1157,6 +1254,7 @@ throw new Error("我是一个错误");
 
 //获取 div 的样式
 window.getComputeStyle(div)
+
 ```
 
 
@@ -1164,7 +1262,9 @@ window.getComputeStyle(div)
 ### JavaScript 操作DOM:
 
 ```js
+
 document.designMode = 'on'    //页面所有元素可编辑
+
 ```
 
 
@@ -1180,6 +1280,7 @@ document.designMode = 'on'    //页面所有元素可编辑
 
 
 ```js
+
 //防抖
 //定义一个控制器
 let flag = null;
@@ -1207,6 +1308,7 @@ function scroll() {
     }
     flag = false;
 }
+
 ```
 
 
@@ -1216,152 +1318,154 @@ function scroll() {
 ### JS 键盘键值对：
 
 ```scss
-        // 键值	// 键盘按键
-keycode    8 = BackSpace BackSpace
-keycode    9 = Tab Tab
-keycode   12 = Clear
-keycode   13 = Enter
-keycode   16 = Shift_L
-keycode   17 = Control_L
-keycode   18 = Alt_L
-keycode   19 = Pause
-keycode   20 = Caps_Lock
-keycode   27 = Escape Escape
-keycode   32 = space space
-keycode   33 = Prior
-keycode   34 = Next
-keycode   35 = End
-keycode   36 = Home
-keycode   37 = Left
-keycode   38 = Up
-keycode   39 = Right
-keycode   40 = Down
-keycode   41 = Select
-keycode   42 = Print
-keycode   43 = Execute
-keycode   45 = Insert
-keycode   46 = Delete
-keycode   47 = Help
-keycode   48 = 0 equal braceright
-keycode   49 = 1 exclam onesuperior
-keycode   50 = 2 quotedbl twosuperior
-keycode   51 = 3 section threesuperior
-keycode   52 = 4 dollar
-keycode   53 = 5 percent
-keycode   54 = 6 ampersand
-keycode   55 = 7 slash braceleft
-keycode   56 = 8 parenleft bracketleft
-keycode   57 = 9 parenright bracketright
-keycode   65 = a A
-keycode   66 = b B
-keycode   67 = c C
-keycode   68 = d D
-keycode   69 = e E EuroSign
-keycode   70 = f F
-keycode   71 = g G
-keycode   72 = h H
-keycode   73 = i I
-keycode   74 = j J
-keycode   75 = k K
-keycode   76 = l L
-keycode   77 = m M mu
-keycode   78 = n N
-keycode   79 = o O
-keycode   80 = p P
-keycode   81 = q Q at
-keycode   82 = r R
-keycode   83 = s S
-keycode   84 = t T
-keycode   85 = u U
-keycode   86 = v V
-keycode   87 = w W
-keycode   88 = x X
-keycode   89 = y Y
-keycode   90 = z Z
-keycode   96 = KP_0 KP_0
-keycode   97 = KP_1 KP_1
-keycode   98 = KP_2 KP_2
-keycode   99 = KP_3 KP_3
-keycode 100 = KP_4 KP_4
-keycode 101 = KP_5 KP_5
-keycode 102 = KP_6 KP_6
-keycode 103 = KP_7 KP_7
-keycode 104 = KP_8 KP_8
-keycode 105 = KP_9 KP_9
-keycode 106 = KP_Multiply KP_Multiply
-keycode 107 = KP_Add KP_Add
-keycode 108 = KP_Separator KP_Separator
-keycode 109 = KP_Subtract KP_Subtract
-keycode 110 = KP_Decimal KP_Decimal
-keycode 111 = KP_Divide KP_Divide
-keycode 112 = F1
-keycode 113 = F2
-keycode 114 = F3
-keycode 115 = F4
-keycode 116 = F5
-keycode 117 = F6
-keycode 118 = F7
-keycode 119 = F8
-keycode 120 = F9
-keycode 121 = F10
-keycode 122 = F11
-keycode 123 = F12
-keycode 124 = F13
-keycode 125 = F14
-keycode 126 = F15
-keycode 127 = F16
-keycode 128 = F17
-keycode 129 = F18
-keycode 130 = F19
-keycode 131 = F20
-keycode 132 = F21
-keycode 133 = F22
-keycode 134 = F23
-keycode 135 = F24
-keycode 136 = Num_Lock
-keycode 137 = Scroll_Lock
-keycode 187 = acute grave
-keycode 188 = comma semicolon
-keycode 189 = minus underscore
-keycode 190 = period colon
-keycode 192 = numbersign apostrophe
-keycode 210 = plusminus hyphen macron
-keycode 211 =
-keycode 212 = copyright registered
-keycode 213 = guillemotleft guillemotright
-keycode 214 = masculine ordfeminine
-keycode 215 = ae AE
-keycode 216 = cent yen
-keycode 217 = questiondown exclamdown
-keycode 218 = onequarter onehalf threequarters
-keycode 220 = less greater bar
-keycode 221 = plus asterisk asciitilde
-keycode 227 = multiply division
-keycode 228 = acircumflex Acircumflex
-keycode 229 = ecircumflex Ecircumflex
-keycode 230 = icircumflex Icircumflex
-keycode 231 = ocircumflex Ocircumflex
-keycode 232 = ucircumflex Ucircumflex
-keycode 233 = ntilde Ntilde
-keycode 234 = yacute Yacute
-keycode 235 = oslash Ooblique
-keycode 236 = aring Aring
-keycode 237 = ccedilla Ccedilla
-keycode 238 = thorn THORN
-keycode 239 = eth ETH
-keycode 240 = diaeresis cedilla currency
-keycode 241 = agrave Agrave atilde Atilde
-keycode 242 = egrave Egrave
-keycode 243 = igrave Igrave
-keycode 244 = ograve Ograve otilde Otilde
-keycode 245 = ugrave Ugrave
-keycode 246 = adiaeresis Adiaeresis
-keycode 247 = ediaeresis Ediaeresis
-keycode 248 = idiaeresis Idiaeresis
-keycode 249 = odiaeresis Odiaeresis
-keycode 250 = udiaeresis Udiaeresis
-keycode 251 = ssharp question backslash
-keycode 252 = asciicircum degree
-keycode 253 = 3 sterling
-keycode 254 = Mode_switch 
+
+//键值keycode = 对应的键盘按键
+    8 = BackSpace BackSpace
+    9 = Tab Tab
+   12 = Clear
+   13 = Enter
+   16 = Shift_L
+   17 = Control_L
+   18 = Alt_L
+   19 = Pause
+   20 = Caps_Lock
+   27 = Escape Escape
+   32 = space space
+   33 = Prior
+   34 = Next
+   35 = End
+   36 = Home
+   37 = Left
+   38 = Up
+   39 = Right
+   40 = Down
+   41 = Select
+   42 = Print
+   43 = Execute
+   45 = Insert
+   46 = Delete
+   47 = Help
+   48 = 0 equal braceright
+   49 = 1 exclam onesuperior
+   50 = 2 quotedbl twosuperior
+   51 = 3 section threesuperior
+   52 = 4 dollar
+   53 = 5 percent
+   54 = 6 ampersand
+   55 = 7 slash braceleft
+   56 = 8 parenleft bracketleft
+   57 = 9 parenright bracketright
+   65 = a A
+   66 = b B
+   67 = c C
+   68 = d D
+   69 = e E EuroSign
+   70 = f F
+   71 = g G
+   72 = h H
+   73 = i I
+   74 = j J
+   75 = k K
+   76 = l L
+   77 = m M mu
+   78 = n N
+   79 = o O
+   80 = p P
+   81 = q Q at
+   82 = r R
+   83 = s S
+   84 = t T
+   85 = u U
+   86 = v V
+   87 = w W
+   88 = x X
+   89 = y Y
+   90 = z Z
+   96 = KP_0 KP_0
+   97 = KP_1 KP_1
+   98 = KP_2 KP_2
+   99 = KP_3 KP_3
+ 100 = KP_4 KP_4
+ 101 = KP_5 KP_5
+ 102 = KP_6 KP_6
+ 103 = KP_7 KP_7
+ 104 = KP_8 KP_8
+ 105 = KP_9 KP_9
+ 106 = KP_Multiply KP_Multiply
+ 107 = KP_Add KP_Add
+ 108 = KP_Separator KP_Separator
+ 109 = KP_Subtract KP_Subtract
+ 110 = KP_Decimal KP_Decimal
+ 111 = KP_Divide KP_Divide
+ 112 = F1
+ 113 = F2
+ 114 = F3
+ 115 = F4
+ 116 = F5
+ 117 = F6
+ 118 = F7
+ 119 = F8
+ 120 = F9
+ 121 = F10
+ 122 = F11
+ 123 = F12
+ 124 = F13
+ 125 = F14
+ 126 = F15
+ 127 = F16
+ 128 = F17
+ 129 = F18
+ 130 = F19
+ 131 = F20
+ 132 = F21
+ 133 = F22
+ 134 = F23
+ 135 = F24
+ 136 = Num_Lock
+ 137 = Scroll_Lock
+ 187 = acute grave
+ 188 = comma semicolon
+ 189 = minus underscore
+ 190 = period colon
+ 192 = numbersign apostrophe
+ 210 = plusminus hyphen macron
+ 211 =
+ 212 = copyright registered
+ 213 = guillemotleft guillemotright
+ 214 = masculine ordfeminine
+ 215 = ae AE
+ 216 = cent yen
+ 217 = questiondown exclamdown
+ 218 = onequarter onehalf threequarters
+ 220 = less greater bar
+ 221 = plus asterisk asciitilde
+ 227 = multiply division
+ 228 = acircumflex Acircumflex
+ 229 = ecircumflex Ecircumflex
+ 230 = icircumflex Icircumflex
+ 231 = ocircumflex Ocircumflex
+ 232 = ucircumflex Ucircumflex
+ 233 = ntilde Ntilde
+ 234 = yacute Yacute
+ 235 = oslash Ooblique
+ 236 = aring Aring
+ 237 = ccedilla Ccedilla
+ 238 = thorn THORN
+ 239 = eth ETH
+ 240 = diaeresis cedilla currency
+ 241 = agrave Agrave atilde Atilde
+ 242 = egrave Egrave
+ 243 = igrave Igrave
+ 244 = ograve Ograve otilde Otilde
+ 245 = ugrave Ugrave
+ 246 = adiaeresis Adiaeresis
+ 247 = ediaeresis Ediaeresis
+ 248 = idiaeresis Idiaeresis
+ 249 = odiaeresis Odiaeresis
+ 250 = udiaeresis Udiaeresis
+ 251 = ssharp question backslash
+ 252 = asciicircum degree
+ 253 = 3 sterling
+ 254 = Mode_switch 
+
 ```

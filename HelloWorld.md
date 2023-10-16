@@ -249,7 +249,11 @@ git push -u 远程主机名 分支
 
 git clone 远程主机地址								              # 拉取远程仓库到本地仓库 后面跟仓库地址 
 git status                                                         # 查看仓库当前状态 ，显示所有变更文件
-git tag 														   # 设置标签
+git tag 														  # 查看所有标签
+git tag v1.0.0 													  # 设置标签
+git tag -d v1.0.0												 # 删除标签
+git push origin v1.0.0											 # 远程添加标签
+git push origin -d v1.0.0										 # 远程删除标签
 git rm 															   # 删除工作区文件
 git mv 															   # 移动或重命名工作区文件
 git log															   # 查看历史提交记录
