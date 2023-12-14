@@ -1273,32 +1273,72 @@ document.designMode = 'on'    //页面所有元素可编辑
 
 ## 防抖和节流：
 
-**防抖：**用户触发事件过于频繁，只要执行最后一次
+#### 防抖（Debounicng）
 
-**节流：**控制执行次数，控制高频时间执行次数
-
-
+防抖是用于延迟执行某个函数，直到某个连续动作停止触发一段时间后才执行。在连续触发事件时，只有当一定的间隔时间过去后，才会触发该函数执行。这对于处理需等待一段时间后才执行的任务非常有用，比如：搜索框输入、窗口大小调整、按钮点击次数过多等。
 
 ```js
-
-//防抖
-//定义一个控制器
-let flag = null;
-//执行函数
+//未封装直接使用防抖技术的
+let timer = null;
 function input () {
-    if(flag !== null) {
-        clearTimeout(flag)
+    if(timer !== null) {
+        clearTimeout(timer)
     }
-    flag = setTimeout(() => {
+    timer = setTimeout(() => {
+        // 要执行的函数体
         console.log(value)
     },500)
 }
 
 
+// 封装防抖函数
+function debounce(fn,delay) {
+    const args = arguments;
+    let timer;
+    if(timer) {
+        clearTimeout(timer)
+    }
+	timer = setTimeout(() => {
+        fn.apply(this,args)
+    },delay)
+}
+//用法
+const fun = debounce(searchHandle, 100);
+
+
+
+/**
+ * @desc 防抖函数：一定时间内，只有最后一次执行操作
+ * @param {Function} fn 要执行的函数
+ * @param {Number} delay 延迟执行毫秒
+ */
+const debounce = (fn, delay) => {
+    let timer;
+    return function() {
+        let args = arguments;
+        if (timer)  {
+            clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+            fn.apply(this,args)
+        },delay)
+    }
+}
+```
+
+
+
+#### 节流（Throttling）
+
+节流是确保函数在一定时间间隔内最多执行一次。它会在指定的时间段内定期执行函数，而不管事件触发的频率有多高。节流适用于需要在连续事件中控制函数执行频率的情况。比如：鼠标移动事件、鼠标滑轮滚动事件等。
+
+
+
+```js
+
+
 //节流
-//定义控制器
 let flag = true;
-//执行函数
 function scroll() {
     if(flag) {
         setTimeout( () => {
@@ -1307,6 +1347,37 @@ function scroll() {
         },500)
     }
     flag = false;
+}
+
+//封装节流函数
+function throttle(fn, delay) {
+    let throttleTimer;
+      return function() {
+          const context = this;
+          const args = arguments;
+          if (!throttleTimer) {
+              throttleTimer = setTimeout(() => {
+                  func.apply(context, args);
+                  throttleTimer = null;
+              }, delay);
+          }
+      }
+}
+
+
+
+/**
+ * @desc 节流函数：在一定时间内只触发一次
+ * @param {Function} fn 执行函数
+ * @param {Number} delay 延迟执行毫秒
+ */
+let previous = 0;
+const throttle = (fn, delay) => {
+    let now = new Date();
+    if (now - previous > delay) {
+        fn();
+        previous = now;
+    }
 }
 
 ```

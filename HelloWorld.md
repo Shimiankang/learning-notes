@@ -236,24 +236,25 @@ git config --system --list										   #查看本地配置
 git config --global user.name "大头康"       	                     #设置用户名 
 git config --global user.email "Kangbro@126.com"                   #设置邮箱 
 git config --global --list										   #查看全局配置
+git config --global user.name --unset 							   #删除配置
 git init  		                 	                               #初始化仓库 
 git remote show origin											   #查看 origin 信息
-git remote add 远程主机名称 远程仓库地址							 #设置远程仓库地址 origin 仓库名称
-git remote set-url 远程主机名 远程仓库地址							  #修改远程仓库地址
-git remote rename 旧远程主机名 新远程主机名							 #修改仓库名称
+git remote add 远程主机名称 远程仓库地址							   #设置远程仓库地址 origin 仓库名称
+git remote set-url 远程主机名 远程仓库地址							    #修改远程仓库地址
+git remote rename 旧远程主机名 新远程主机名							   #修改仓库名称
 git add .		                                                   #选择要上传的内容  . 代表全部 添加到暂缓区
 git commit -m 'message' 	                                       #将暂缓区内容添加到仓库中  描述主要修改类型和内容
 
-git push --set-upstream 远程主机名 分支名  	                         #上传远程代码并合并 git push—设置上游原始主机
+git push --set-upstream 远程主机名 分支名  	                          #上传远程代码并合并 git push—设置上游原始主机
 git push -u 远程主机名 分支										 
 
-git clone 远程主机地址								              # 拉取远程仓库到本地仓库 后面跟仓库地址 
+git clone 远程主机地址								               # 拉取远程仓库到本地仓库 后面跟仓库地址 
 git status                                                         # 查看仓库当前状态 ，显示所有变更文件
-git tag 														  # 查看所有标签
-git tag v1.0.0 													  # 设置标签
-git tag -d v1.0.0												 # 删除标签
-git push origin v1.0.0											 # 远程添加标签
-git push origin -d v1.0.0										 # 远程删除标签
+git tag 														   # 查看所有标签
+git tag v1.0.0 												 	   # 设置标签
+git tag -d v1.0.0											       # 删除标签
+git push origin v1.0.0											   # 远程添加标签
+git push origin -d v1.0.0										   # 远程删除标签
 git rm 															   # 删除工作区文件
 git mv 															   # 移动或重命名工作区文件
 git log															   # 查看历史提交记录
@@ -268,22 +269,26 @@ git log --online												   #
 git reset --hard HEAD~10										   # 将当前版本重置为HEAD ~10往前是个版本   
 git reset --hard 版本号码											# 重置到第几个版本号
 git reflog 														   # 显示所有提交，包括孤立节点。
-git checkout 版本号 文件名										  # 将版本号的文件赋给文件
+git checkout 版本号 文件名										   # 将版本号的文件赋给文件
 git remote show origin											   # 查看当前设置的仓库地址
-git ignore <语言或框架> <文件模式>									# 生成git忽略文件， .gitgnore
+git ignore <语言或框架> <文件模式>									 # 生成git忽略文件， .gitgnore
 ssh-keygen -t rsa -C "邮箱地址"										# 生成 .ssh key            rsa：.ssh签名类型
 																   # rsa 签名类型有：ed25519
-git fetch 远程仓库 远程仓库分支 									  # 拉取远程仓库的某个分支
+git fetch 远程仓库 远程仓库分支 									    # 拉取远程仓库的某个分支
 git branch														   # 查看本地所有分支 参数： -a 查看所有；-r 查看远程分支
-git branch 分支名													# 创建分支
-git branch -d 分支名												# 删除分支 -D 是强制删除
-git branch -u 远程主机/分支名										# 与上游分支建立追踪关系
-git branch -m 新分支名称 										  # 重命名 修改分支名
-git checkout 分支名称											   # 切换分支
-git merge 远程仓库/本地分支											# 将远程仓库拉取到的内容合并到本地主分支
+git branch 分支名												 	 # 创建分支
+git branch -d 分支名											     # 删除分支 -D 是强制删除
+git branch -u 远程主机/分支名										  # 与上游分支建立追踪关系
+git branch -m 新分支名称 										   # 重命名 修改分支名
+git checkout 分支名称											    # 切换分支
+git merge 远程仓库/本地分支											 # 将远程仓库拉取到的内容合并到本地主分支
 git merge 分支名称													# 合并分支到当前分支
-git push 远程主机 -d 分支名称                                       # 删除远程分支
+git push 远程主机 -d 分支名称                                        # 删除远程分支
 git stash 														   # 将变化藏匿在一个脏工作区中
+
+git reset --hard HEAD^												# 删除本地最后一个 commit
+git push --force-with-lease 										# 推送到远程删掉最后一个 commit
+git cherry-pick HASH 												# 恢复本地最后一个 commit
 ```
 
 
