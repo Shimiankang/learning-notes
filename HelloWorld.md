@@ -23,9 +23,9 @@ Start-Process Powershell -Verb RunAs		# 以管理员身份运行 Power Shell
 netstat -ano							 	# 查看端口号
 netstat -ano|findstr '端口号'				  # 查看指定端口号
 
-ping 192.168.1.1   # 测试路由器
-ping 127.0.0.1     # 测试网卡
-ping www.baidu.com # 测试Internet
+ping 192.168.1.1    # 测试路由器
+ping 127.0.0.1      # 测试网卡
+ping www.baidu.com  # 测试Internet
 
 cd\ 切换c盘
 
@@ -39,16 +39,19 @@ wlan show profiles name="WiFi名" key=clear
 # 查看电脑活动连接
 netstat
 
+# 显示所有所动链接
+netstat -a
+
 cd 目录名/目录           	# 进入目录
 cd ..                   	# 返回上一级目录
-rename 原文件名 新文件名 	  # 重命名
+rename 原文件名 新文件名 	   # 重命名
 dir                     	# 查看文件目录
 E:                      	# 直接进入E盘
 cls                     	# 清空命令
 doskey /histry          	# 查看历史命令
 color a                 	# 更改命令 字体背景颜色
 md 目录名称             	 # 创建目录 全拼 mkdir 
-del 文件名               	# 删除文件
+del 文件名               	  # 删除文件
 
 
 regedit  				# 注册表
@@ -181,8 +184,6 @@ pushed:>2019-09-01 （2019年9月1日后有更新，代表着项目的活跃程�
 language:java （用Java语言编写的项目）
 
 
-
-## 
 
 
 

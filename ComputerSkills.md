@@ -97,7 +97,7 @@ ctrl + n              			// 打开类
 ctrl + w              			// 会从小到大逐渐扩大。比如按一次,选中word，按两次，选择表达式, 三次,整个函数
 shift + f6            			// 重构 重命名
 f6                    			// 移动文件
-ctrl + shift + 方向键  	 	 // 移动代码
+ctrl + shift + 方向键  	 	  // 移动代码
 ctrl + d              	    	// 复制整行
 ctrl + y              	   		// 删除整行
 ctrl + ‐              			// 折叠光标所在的代码块
@@ -106,7 +106,7 @@ ctrl + shift + ‐      			// 折叠全部代码块
 ctrl + alt + ‐        			// 折叠代码块以及子代码块
 ctrl + shift + l      			// 格式化代码
 alt + shift + ins	  			// 进入多行编辑模式
-alt + shift + ctrl + 鼠标选中 	// 选中多行，插入多个光标编辑
+alt + shift + ctrl + 鼠标选中 	 // 选中多行，插入多个光标编辑
 ctrl + z			  			// 撤销
 ctrl + shift + z	  			// 恢复
 ctrl + f						// 搜索
@@ -116,14 +116,14 @@ ctrl + shift + r	  			// 全局替换
 ctrl + d + f					// 选择比较文件
 ctrl + -						// 折叠代码
 ctrl + +						// 展开代码
-双击 shift 					  // 搜索项目中文件
-alt + 左右方向键					// 切换 Tab 页面
+双击 shift 					   // 搜索项目中文件
+alt + 左右方向键					 // 切换 Tab 页面
 ctrl + alt + [  ]				// 切换项目窗口 上一个  下一个
 shift + f4						// 新窗口打开当前 Tab 页面
 ctrl + shift + n				// 通过文件名快速查找工程内的文件
 ctrl + shift + alt + n			// 通过一个字符快速查找
 ctrl + [  ]    					// 切换光标到代码块 前面  后面
-alt + 上下方向键					//　切换上一个下一个方法
+alt + 上下方向键					 //　切换上一个下一个方法
 ctrl + shift + a				// 查找操作
 ```
 
