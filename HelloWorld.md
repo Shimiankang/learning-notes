@@ -4,9 +4,7 @@ Hello World 这个笔记主要及一些计算机相关知识，以及学习编�
 
 ## 计算机：
 
-
-
-## windows电脑快捷键：
+### win电脑快捷键：
 
 ```scss
 ctrl + shift + t   // 恢复上一个关闭的标签页
@@ -15,19 +13,26 @@ ctrl + shift + t   // 恢复上一个关闭的标签页
 
  **win + r 输入cmd**
 
-#### Shell 终端命令：
+**powershell 或 cmd**
+
+#### window 终端命令：
 ``` shell
 
 dir 										# 查看计算机文件目录  /s 包括子目录 又称遍历目录
 Start-Process Powershell -Verb RunAs		# 以管理员身份运行 Power Shell
-netstat -ano							 	# 查看端口号
-netstat -ano|findstr '端口号'				  # 查看指定端口号
+
+netstat -ano							 	# 查看所有端口情况   
+											# 可以根据查找出来的 PID 打开任务管理器看进程是被什么程序给占用了
+											
+netstat -ano|findstr "端口号"				  # 查看指定端口信息
+tastlist|findstr "PID"						# 查看PID指定的进程信息
+ipconfig 									# 查看网卡网络信息、IP信息
 
 ping 192.168.1.1    # 测试路由器
 ping 127.0.0.1      # 测试网卡
 ping www.baidu.com  # 测试Internet
 
-cd\ 切换c盘
+cd \ 切换c盘
 
 # 查看已经连过的WiFi名
 netsh
@@ -42,7 +47,7 @@ netstat
 # 显示所有所动链接
 netstat -a
 
-cd 目录名/目录           	# 进入目录
+cd 目录名/目录           	 # 进入目录
 cd ..                   	# 返回上一级目录
 rename 原文件名 新文件名 	   # 重命名
 dir                     	# 查看文件目录
@@ -108,31 +113,31 @@ nvm全名node.js version management，是一个node的版本管理工具。
 ***Nvm 常用命令：***
 
 ```shell
-#查看nvm版本
+# 查看nvm版本
 nvm version
 
-#下载15.13.0版本的node
+# 下载15.13.0版本的node
 nvm install v15.13.0 
 
-#卸载15.13.0版本的node
+# 卸载15.13.0版本的node
 nvm uninstall v15.13.0
 
-#查看已下载的node
+# 查看已下载的node
 nvm list 
 
-#查看当前使用node的版本
+# 查看当前使用node的版本
 nvm current 
 
-#使用最新版本的node
+# 使用最新版本的node
 nvm use 15.13.0  
 
-#查看网络可以安装的版本
+# 查看网络可以安装的版本
 nvm list available 
 
-#打开node版本控制
+# 打开node版本控制
 nvm on 
 
-#关闭node版本控制
+# 关闭node版本控制
 nvm off 
 ```
 

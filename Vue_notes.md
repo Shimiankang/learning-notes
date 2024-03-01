@@ -976,3 +976,48 @@ npm install serve -g
 serve 打包后的文件 -s
 ```
 
+
+
+
+
+## Nuxt
+
+**介绍：**Nuxt 的目标是以出色的开发者体验为核心，使 Web 开发变得更直观和高效。vue 用来实现 SSR（服务端渲染）的，为了使 SEO 优化更好的。一个基于 vue 的框架
+
+
+
+##### 创建Nuxt项目：
+
+使用模板仓库官方文档里的命令创建不行，只能拉去模板仓库
+
+```sh
+# 直接从我的 gitee 拉取
+git clone https://gitee.com/datoukang/nuxt3-app.git
+
+# 然后安装依赖包
+# 要求node版本 >= 18.0.0
+yarn install
+或
+pnpm install
+或
+npm install
+或
+bun install
+
+# 运行  除了 yarn 命令不太一样其它一样
+npm run dev
+或
+yarn dev
+
+# 打包构建
+npm run build
+或
+yarn build
+
+# 本地预览
+npm run preview
+或
+yarn preview
+```
+
+##### 部署项目：
