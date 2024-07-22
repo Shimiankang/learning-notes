@@ -203,12 +203,12 @@ language:java （用Java语言编写的项目）
 - local repository：版本库或本地仓库
 - remote repository：远程仓库
 
-### 使用Git：
+### 常用Git命令：
 
 
  git init 初始化git生成git仓库
 
- git status 查看git状态
+ git status   查看git状态
 
  git add filename 添文件到暂存区
 
@@ -217,6 +217,10 @@ language:java （用Java语言编写的项目）
  git commite -m message 提交文件到本地仓库
 
  git reset filename  将尚没有commite之前加入到暂存区的文件重新拉回
+
+ git push	 推送到远程仓库
+
+ git pull       拉取远程仓库自动合并
 
 ### 文件状态：
 
@@ -264,7 +268,7 @@ git push origin -d v1.0.0										   # 远程删除标签
 git rm 															   # 删除工作区文件
 git mv 															   # 移动或重命名工作区文件
 git log															   # 查看历史提交记录
-git blame 文件名称 													# 以列表形式查看指定文件的历史修改记录
+git blame 文件名称 													# 查看文件历史修改记录
 git pull    													   # 拉取远程仓库到本地工作区并合并 保留原来的 merge commit 保留完整的历史
 git pull --rebase												   # 拉取远程主机，重写当前分支史  重新 merge commit 重写当前分支历史
 git fetch														   # 下载远程到本地仓库且不会合并
