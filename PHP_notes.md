@@ -46,7 +46,9 @@ substr(string,start,length)  字符串截取
 ##### PHP函数：
 
 ```php
-1 exit(); // 退出 执行到这一步 下面的代码就不会执行了；
+
+exit(); // 退出 执行到这一步 下面的代码就不会执行了；
+
 ```
 #### PHP数学函数：
 
@@ -371,13 +373,15 @@ empty（）用来判断一个变量的值是否为空，如果为空则返回 tr
 
 #### PHP正则表达式：
 ``` php
+
 // 例如：
-$val='15093691582';
-if(preg_match('/^1[1-9][0-9]{9}$/',$val)){
+$val = '15093691582';
+if(preg_match('/^1[1-9][0-9]{9}$/',$val)) {
 	echo"ok";
-}else{
+}else {
 	echo"no";
 }
+
 ```
 
 ##### 正则表达式的用途：判断邮箱地址 判断特殊字符 判断格式 判断手机号
@@ -419,21 +423,22 @@ preg_split()
 #### PHP磁盘、目录和文件夹操作：
 
 ``` php
-opendir(path,context)打开目录句柄
+opendir(path,context)		// 打开目录句柄
 
 $file = __FILE__;
 
 echo "<pre>";
 echo "<br/>";
-echo basename($file);//文件名称
+echo basename($file);		// 文件名称
 echo "<br/>";
-echo dirname($file);//文件路径
+echo dirname($file);		// 文件路径
 echo "<br/>";
 
 print_r(pathinfo($file));//函数以数组的形式返回关于文件路径的信息。
 
 fopen(filename,mode,include_path,context)  //fopen函数打开一个url或一个文件
 // 如果 fopen() 失败，它将返回 FALSE 并附带错误信息。您可以通过在函数名前面添加一个'@' 来隐藏错误输出。
+    
 ```
 
 
@@ -449,8 +454,19 @@ fopen(filename,mode,include_path,context)  //fopen函数打开一个url或一个
 
 #### PHP表单提交or数据库连接：
 ``` php
+
 // 提交方式or内置数组：
- $_SERVER、 $_GET、 $_POST、 $_REQUEST、 $_SESSION、 $_FILES、 $_COOKIE、 $_ENV、 $_GLOBALS、 $_FILES['file']['error']
+$_SERVER
+$_GET
+$_POST
+$_REQUEST
+$_SESSION
+$_FILES
+$_COOKIE
+$_ENV
+$_GLOBALS
+$_FILES['file']['error']
+    
 ```
 其值为 0，没有错误发生，文件上传成功。
 
@@ -558,6 +574,7 @@ fopen(filename,mode,include_path,context)  //fopen函数打开一个url或一个
 
 ### 设定标头指定 MIME 输出类型
 ``` php
+
 header('Content-Type: image/png');
 
 //创建㇐个空白的图像区域
@@ -684,21 +701,25 @@ class Car extends father
     }
 
 }
+
 ```
 
 
 ## PHP写接口：
 
 ```php
-//写法：一个PHP文件，写上请求头，从数据库查出数据并返回；
+
+//写法：一个PHP文件，写上请求头，从数据库查出数据并返回
 //写上请求头，解决跨域问题；
 //也可以写 token；
 header("Access‐Control‐Allow‐Origin: *"); //解决跨域问题；
 header("Access‐Control‐Allow‐Methods:POST,GET"); //请求方式；
 header("Access‐Control‐Allow‐Headers:x‐requested‐with,content‐type"); //
+
 //响应首部
 //Headers的三种类型："application/x‐www‐form‐urlencoded"、"multipart/form‐data" 或 "text/plain"
 header("Content‐type:text/json;charset=utf‐8"); //请求头 数据格式
+
 ```
 #### ThinkPHP：
 
@@ -707,13 +728,21 @@ header("Content‐type:text/json;charset=utf‐8"); //请求头 数据格式
 ##### TP使用数据库：
 
 ```php
+
 //先使用 数据库类库
 use think\facade\Db;
 
-$data = Db::name('table')‐>select(); //查询table表中的值 name也可以写成talbe 也可以加where条件
-Db::name('table')‐>insert(['id'=> 1 ,'name'=>'hello']); //添加一条数据 添加成功 返回true 1 添加失败 返回false 0
-Db::name('table')‐>delete( 1 ); //根据主键删除 也可以加where条件 添加成功 返回true 1 添加失败 返回false 0
-Db::name('table')‐>update(['id'=> 1 ,'name'=>'world']); //修改数据 也可以加where条件
+//查询table表中的值 name也可以写成talbe 也可以加where条件
+$data = Db::name('table')‐>select();
+
+//添加一条数据 添加成功 返回true 1 添加失败 返回false 0
+Db::name('table')‐>insert(['id'=> 1 ,'name'=>'hello']);
+
+//根据主键删除 也可以加where条件 添加成功 返回true 1 添加失败 返回false 0
+Db::name('table')‐>delete( 1 );
+
+//修改数据 也可以加where条件
+Db::name('table')‐>update(['id'=> 1 ,'name'=>'world']);
 
 // 设置 Sesion 以及使用
 use think\facade\Session; //引用 Session 类
@@ -743,6 +772,7 @@ Cookie::set('name','value', 3600 ); //第三个参数是 时间（秒）如果�
 Cookie::get();
 //永久保存 Cookie
 Cookie::forever('name','value');
+
 ```
 
 

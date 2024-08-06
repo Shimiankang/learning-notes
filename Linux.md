@@ -17,6 +17,7 @@ Windows Explorer 是一个典型的图形界面 Shell。
 不能使用bash里的关键字（可用help命令查看保留关键字）。
 
 ``` shell
+
 echo hello world               #输出 hello world
 your_name = "runoob.com"       #定义变量
 echo $your_name                #使用变量 需要加美元符号
@@ -27,6 +28,7 @@ echo ${#your_name: 1 : 4 }     #截取字符串 输出：unoo
 array = (value1 value2 value3) #定义 数组
 echo ${array[ 0 ]}             #使用数组
 echo ${array[@]}               #获取所有数组内数据
+
 ```
 
 
@@ -47,7 +49,8 @@ ifconfig                      #查看网卡信息
 rz         					  #选择文件进行上传
 sz 文件名						# sz后面跟文件名可以进行文件从linux上面下载
 locate 文件名 					#查找文件命令
-ps aux|grep 进程			  #对进程检测和控制
+ps aux|grep 进程			 	 #对进程检测和控制
+
 ```
 ## Linux 命令：
 

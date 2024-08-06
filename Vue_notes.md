@@ -54,12 +54,15 @@ Vue 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM �
 
 数据绑定最常见的形式就是使用 {{ }} 的文本插值{{...}} 标签的内容将会被替代为对应组件实例中 **message** 属性的值，如果 **message** 属性的值发生了改变，{{...}} 标签内容也会更新。如果不想改变标签的内容，可以通过使用 **v-once** 指令执行一次性地插值，当数据改变时，插值处的内容不会更新。
 ``` html
+
 <span v-once>这个将不会改变: {{ message }}</span>
+
 ```
 
 例如：
 
 ``` html js
+
 <div id="hello-vue" class="demo">  
     {{ message }}
 </div>
@@ -73,12 +76,14 @@ Vue 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM �
     }
     Vue.createApp(HelloVueApp).mount('#hello-vue') 
 </script>
+
 ```
 
 ***使用 v-html 指令用于输出 html 代码***
 
 例如：
 ``` html js
+
 <div id="example1" class="demo"> 
     <p>使用双大括号的文本插值: {{ rawHtml }}</p>
     <p>使用 v-html 指令: <span v-html="rawHtml"></span>
@@ -96,16 +101,19 @@ Vue 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM �
 </script> 
 <!-- v-bind 指令用于绑定一个属性 -->
 <div v-bind:id="dynamicId"></div>
+
 ```
 #### Vue.js 都提供了完全的 JavaScript 表达式
 
 表达式会在当前活动实例的数据作用域下作为 JavaScript 被解析。有个限制就是，每个绑定都只能包含单个表达式，所以下面的例子都不会生效:
 ``` html
-<!--  这是语句，不是表达式：--> 	
+
+<!--  这是语句，不是表达式：-->
 {{ var a = 1 }}
 
 <!-- 流控制也不会生效，请使用三元表达式 --> 
 {{ if (ok) { return message } }}
+
 ```
 ##### 指令：
 
@@ -113,7 +121,8 @@ Vue 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM �
 
 指令用于在表达式的值改变时，将某些行为应用到 DOM 上。如下例子：
 ``` html js
-<div id="app"> 
+
+<div id="app">
     <p v-if="seen">现在你看到我了</p>  
 </div>
 <script> 
@@ -126,6 +135,7 @@ Vue 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM �
     }
     Vue.createApp(app).mount('#app')  
 </script>
+
 ```
 这里， v-if 指令将根据表达式 seen 的值( true 或 false )来决定是否插入 p 元素。
 
@@ -139,6 +149,7 @@ Vue 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM �
 
 另一个例子是 v-on 指令，它用于监听 DOM 事件：
 ```html
+
 <!-- 完整语法 -->
 <a v-on:click="doSomething"> ... </a>
 
@@ -147,6 +158,7 @@ Vue 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM �
 
 <!-- 动态参数的缩写 (2.6.0+) -->
 <a @[event]="doSomething"> ... </a>
+
 ```
 
 ##### Vue条件语句：
@@ -179,6 +191,7 @@ v-show 与 v-if 的区别：
 
 例如：
 ``` html
+
 <div id="app">
     <ol>  
         <li v-for="site in sites">
@@ -200,6 +213,7 @@ v-show 与 v-if 的区别：
     }
     Vue.createApp(app).mount('#app') 
 </script>
+
 ```
 v-for 还支持一个可选的第二个参数；也支持第三个参数
 
@@ -230,6 +244,7 @@ template 属性只是作为一个模板，显示数据，本身不是组件。
 **父组件：**
 
 ``` vue
+
 <template>  
 <div>
     <div>我是父组件</div>  
@@ -256,11 +271,13 @@ template 属性只是作为一个模板，显示数据，本身不是组件。
         }
     };
 </script>
+
 ```
 可以看到我在第一个子组件上面传入了一个msg,那么在子组件上就需要定义一个msg用来接收传进来的参数
 
 **子组件：**
 ``` vue
+
 <template> 
 <div>  
     <div id="title">我是第一个子组件</div>   
@@ -273,8 +290,9 @@ template 属性只是作为一个模板，显示数据，本身不是组件。
                 type: String
             }
         }
-    };
+    }
 </script>
+
 ```
 ##### 子组件向父组件传值：
 
@@ -284,7 +302,8 @@ this.$emit(arg1,arg2) arg1:方法名字，arg2:要传出的值
 
 **子组件：**
 ``` vue
-<template> 
+
+<template>
 <div>
     <div id="title">我是第二个子组件</div>    
     <div>我要发送给父组件的值：{{msg}}</div>
@@ -305,12 +324,14 @@ this.$emit(arg1,arg2) arg1:方法名字，arg2:要传出的值
         }
     };
 </script>
+
 ```
 我在button上绑定了一个点击事件，函数里面传出了一个方法名为toParent的方法，这时候我们就要去父组件接收这个函数，它会带一个返回值，这个返回值就是我们需要从子组件传的值。
 
 **父组件:**
 ``` vue
-<template>   
+
+<template>
 <div>   
     <div>我是父组件</div>   
     <div>我即将接收第二组件传值是：{{child2Msg}}</div>   
@@ -341,6 +362,7 @@ this.$emit(arg1,arg2) arg1:方法名字，arg2:要传出的值
         }
     };
 </script>
+
 ```
 <span style="font-weight:bold;color:red;font-style:italic;"> 组件（Component）是 Vue.js 最强大的功能之一。</span>
 
@@ -352,6 +374,7 @@ this.$emit(arg1,arg2) arg1:方法名字，arg2:要传出的值
 
 每个 Vue 应用都是通过用 createApp 函数创建的，传递给 createApp 的选项用于配置根组件。当我们挂载应用时，该组件被用作渲染的起点。一个应用需要被挂载到一个 DOM 元素中。
 ``` html
+
 <!-- 实例：我们将 Vue 应用挂载到 -->
 <div id="app"></div> <!-- 应该传入 #app：-->
 
@@ -393,6 +416,7 @@ app.component('my-component-name', {})
     })
     app.mount('#app') 
 </script>
+
 ```
 组件可以重复使用；
 
@@ -401,7 +425,9 @@ app.component('my-component-name', {})
 #### Vue 修饰符：
 修饰符是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。例如，**.prevent** 修饰符告诉 v-on 指令对于触发的事件调用**event.preventDefault()**：
 ``` html
+
 <form v-on:submit.prevent="onSubmit"></form>
+
 ```
 ##### 事件修饰符：
 
@@ -414,6 +440,7 @@ app.component('my-component-name', {})
 *使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。因此，用 `v-on:click.prevent.self` 会阻止**所有的点击**，而 `v-on:click.self.prevent` 只会阻止对元素自身的点击。*
 
 ``` html
+
 .stop   <!-- 阻止单击事件继续传播 -->
 <a v-on:click.stop="doThis" ></a>
 
@@ -445,12 +472,14 @@ app.component('my-component-name', {})
 这个 .passive 修饰符尤其能够提升移动端的性能。
 不要把 .passive 和 .prevent 一起使用，因为.prevent将会被忽略，同时浏览器可能会向你展示一个警告。请记住，.passive会告诉浏览器不想被阻止事件的默认行为。
 -->
+
 ```
 ##### 按键修饰符：
 
 在监听键盘事件时，我们经常需要检查详细的按键。Vue允许 v-on 在监听键盘事件时添加按键修饰符：
 
 ```html
+
 <!--只有在 key 是 Enter 时调用 vm.submit()-->
 <input v-on:keyup.enter="submit" />
 
@@ -472,13 +501,16 @@ app.component('my-component-name', {})
 .left，
 .right
 <!--有一些按键（.esc以及所有的方向键）在IE9中有不同的 key 值，如果你想支持IE9，这些内置别名应该是首选-->
+
 ```
 
 你还可以通过全局的 config.keyCode 对象[自定义按键修饰符别名](https://cn.vuejs.org/v2/api/#keyCodes)：
 
 ```js
+
 //可以使用 'v-on:keyup.f1'
 Vue.config.keyCode.f1 = 112
+
 ```
 
 
@@ -495,6 +527,7 @@ Vue.config.keyCode.f1 = 112
 
 二.具体使用方式如下：
 ``` js
+
 // localStorage - 没有时间限制的数据存储 　　
 var arr=[1,2,3];
 localStorage.setItem("temp",arr);           //存入 参数： 1.调用的值 2.所要存入的数据 
@@ -507,15 +540,18 @@ localStorage.clear();
 localStorage.removeItem("arr");　　
 
 //注意：存入的数据只能以 字符串 形式存入。
+
 ```
 三.提供转JOSN数据方法：
 ```json
+
 //JSON对象转JSON字符串
-var obj = {"a": 1,"b": 2};
+let obj = {"a": 1,"b": 2};
     obj = JSON.stringify(obj); //转化为JSON字符串
 　　localStorage.setItem("temp2", obj);
 　　//JSON字符串转JSON对象
 　　obj = JSON.parse(localStorage.getItem("temp2"));
+
 ```
 
 
@@ -578,9 +614,10 @@ Modules：Vuex模块化。（模块化状态管理）
 
 
 
-#### vux 用法：
+### vuex 用法：
 
 ```js
+
 //全局注册 在main.js中
 import App from './App'
 import store from '封装的state.js'
@@ -612,6 +649,7 @@ export default Vuex.Store({
        //模块化管理vuex
 	},
 })
+
 ```
 
 
@@ -623,6 +661,7 @@ export default Vuex.Store({
 #### 混入数据：
 
 ``` js
+
 // 全局注册 在main.js里
 import mixin from './mixin/mixin.js' 
 Vue.mixin(mixin) 
@@ -630,9 +669,11 @@ Vue.mixin(mixin)
 // 局部注册 在其他vue页面
 import mixin from './mixin/mixin.js'
 mixins: [mixin]
+
 ```
 #### 路由守卫：
 ``` js
+
 router.beforeEach((to, from, next) => {
     console.log(to, from);
     next() 
@@ -640,9 +681,11 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to, from) => {
     console.log(to, from);
 })
+
 ```
 #### 路由跳转：
 ``` js
+
 this.$router.push("/about"); 
 this.$router.push({  
     name: "About", 
@@ -662,17 +705,22 @@ this.$route.params
 this.$route.query 
 this.$router.replace("/about")
 this.$router.go(n); //n 1 || n-1
+
 ```
 ``` vue
-标签使用
+
+<!-- 标签使用 -->
 <router-link :to="{ name: 'About', query: { id: 123 } }">Query跳转 </router-link>
 <router-link :to="{ name: 'About', params: { id: 123 } }">Params跳转</router-link>
+
 ```
 #### 插槽，具名插槽：
 ``` vue
+
 <slot></slot>
 <slot name="t1"></slot>
 <template #t1>haha</template>
+
 ```
 ##### $forceUpdate()的作用：
 
@@ -692,6 +740,7 @@ this.$router.go(n); //n 1 || n-1
 4. 在当前调用栈执行完后，从任务队列中弹出函数执行次数
 
 ```js
+
 // 实现代码
 let callbacks = [];
 function flusCallbacks() {
@@ -702,6 +751,7 @@ function $nextTick(cb) {
     callbacks.push(cb);
     queuMicrotask(flusCallbacks);
 }
+
 ```
 
 
@@ -711,17 +761,20 @@ function $nextTick(cb) {
 ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就直向子组件
 
 ```html
+
 <p ref='p' > </p>
 this.$refs.p     <!--- 这个就是DOM元素 -->
 
 <child-components ref="child"> </child-components>
 this.$refs.child  <!-- 而这个就是指向子组件 -->
+
 ```
 
 
 
 #### 过滤器：
 ``` js
+
 // 局部过滤器
 filters: { 
     setText(res) {   
@@ -745,6 +798,7 @@ import * as filters from "./filters";
 Object.keys(filters).forEach((key) => { 
     Vue.filter(key, filters[key]);
 });
+
 ```
 
 
@@ -753,6 +807,7 @@ Object.keys(filters).forEach((key) => {
 易用、简洁且高效的http库
 
 ``` js
+
 // Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。 一般应用于，前后端通讯 
 // vue 使用 npm 安装 axios 
 npm install axios
@@ -806,9 +861,11 @@ axios.interceptors.response.use(response => {
     }
     return Promise.resolve(err.response)
 })
+
 ```
 ##### Axios 封装：
 ``` js
+
 // Promise 
 function test() { 
     return new Promise((resolve, reject) => {
@@ -832,6 +889,7 @@ try {
 } catch (error) { 
     console.log(123); 
 }
+
 ```
 ##### 自定义指令：
 
@@ -855,6 +913,7 @@ bind 是在 dom 树绘制之前调用 ；inserted 是在 dom 树绘制后调用
 
 **全局注册：**
 ``` js
+
 // 注册一个全局自定义指令 
 v-focus Vue.directive('focus', { 
     // 当绑定元素插入到 DOM 中。  
@@ -873,10 +932,13 @@ directives: {
         }
     }
 }
+
 ```
 使用如下：
 ``` html
+
 <input v-focus>
+
 ```
 #### Vue-cli脚手架：
 
@@ -887,6 +949,7 @@ directives: {
 在安装之前需要安装node.js
 
 ``` shell
+
 #安装：
 npm install -g @vue/cli 
 #或
@@ -906,19 +969,20 @@ npm run serve      #在项目 根目录 cmd
 #默认配置 打包项目指令
 npm run build      # 会在根目录生成一个 dist 文件夹
 
-
 ```
 ## Vue3 Setup():
 
 在 setup() 内部，this 不是该活跃实例的引用，因为 setup() 是在解析其它组件选项之前被调用的，所以 setup() 内部的 this 的行为与其它选项中的 this 完全不同。这使得 setup() 在和其它选项式 API 一起使用时可能会导致混淆。
 
 ``` js
-setup(props,context,){    
+
+setup(props,context,) {
     //props 是响应式的，不能使用 ES6 解构,    
     //如果需要解构 prop，可以通过使用 setup 函数中的 toRefs 来安全地完成此操作     c
     onst { title } = toRefs(props) 
     console.log(title.value)
 }
+
 ```
 
 
@@ -930,9 +994,11 @@ setup(props,context,){
 3. 对应两个钩子函数 activated 和 deactivated，当组件被激活时，触发钩子函数 activated，当组件被移除时，触发钩子函数 deactivated 。
 
 ```vue
+
 <keep-alive>
 区域内的值会缓存
 </keep-alive>
+
 ```
 
 
@@ -942,12 +1008,14 @@ setup(props,context,){
 侦听器
 
 ```js
-watch:{
+
+watch: {
    //监听 路由
   "$route"(e){
      console.log(e);
    }
- }
+}
+
 ```
 
 
@@ -969,11 +1037,13 @@ watch:{
 ### 运行打包后的 vue 项目：
 
 ```shell
+
 #安装 serve
 npm install serve -g
 
 #使用 serve
 serve 打包后的文件 -s
+
 ```
 
 
@@ -991,6 +1061,7 @@ serve 打包后的文件 -s
 使用模板仓库官方文档里的命令创建不行，只能拉去模板仓库
 
 ```sh
+
 # 直接从我的 gitee 拉取
 git clone https://gitee.com/datoukang/nuxt3-app.git
 
@@ -1018,6 +1089,7 @@ yarn build
 npm run preview
 或
 yarn preview
+
 ```
 
 ##### 部署项目：

@@ -55,15 +55,16 @@ hex（）转换十六进制；
 ***字符串新函数：***
 
 ```python
+
 #移除前缀字符代码： 
-"祝三连的读者7月暴富".removeprefix("祝")
+"祝您身体健康万事如意".removeprefix("祝")
 #输出：
-"三连的读者7月暴富"
+"您身体健康万事如意"
 
 #移除后缀字符代码：
-"祝三连的读者7月暴富".removesuffix("富")
+"祝您身体健康万事如意".removesuffix("意")
 #输出：
-"祝三连的读者7月暴"
+"祝您身体健康万事如"
 
 #过滤头尾字符串：
 str = "123abcrunoob321" 
@@ -71,6 +72,7 @@ print (str.strip( '12' ))
 
 #切割：
 split("_")
+
 ```
 
 ### Python中一些语法：
@@ -82,6 +84,7 @@ if __name__ == '__main__'的意思是：当.py文件被直接运行时，if __na
 **Python 变量：**
 
 ``` python
+
 #支持中文变量名
 大大 = dada  #大大 的值为dada 
 
@@ -90,12 +93,14 @@ a,b = 1,2  # a的值为1 b的值为2
 
 #也可以赋值多个变量 
 a = b = 3   #两个值都变成 3
+
 ```
 
 
 
 **Python函数：**
 ``` python
+
 #数组去除重复：
 s=[1,1,1,2,2,3,3,4]
 s2=list(set(s))
@@ -118,16 +123,19 @@ format() #字符串类型格式化输出
 " { 1 } ：您 { 2 } 购买的 { 0 } 到了" .format( "快递小哥","taobao","快递" )
 #输出：
 taobao：您快递购买的快递小哥到了
+
 ```
 
 
 
-**Pycharm快捷键：**
+**Pycharm 快捷键：**
 
 ``` scss
-Ctral + Shift + L：//搜索
-Ctral + Alt + L：  //格式化代码
-Ctral + Shift + F：//高级查找
+
+Ctrl + Shift + L：//搜索
+Ctrl + Alt + L：  //格式化代码
+Ctrl + Shift + F：//高级查找
+
 ```
 
 
@@ -163,6 +171,7 @@ Ctral + Shift + F：//高级查找
 
 #### os模块：
 ``` python
+
 变量 = os.path.dirname( "/datou/wk/demo.py" )	   # 返回路径名
 变量 = os.path.basename( "/datou/wk/demo.py" )   # 返回文件名
 变量 = os.path.splitext( "/datou/wk/demo.py" )   # 分别返回文件名和路径名
@@ -172,6 +181,7 @@ os.path.exists("/dir") 							# 判断该目录是否存在 存在返回 true
 #### threading模块：多线程
 
 ``` python
+
 #例如：
 import time import threading 
 start = time.perf_counter() 
@@ -186,6 +196,7 @@ if __name__ === "__main__":
         t.start()   
         end = time.perf_counter() 
         print(end-start)
+        
 ```
 #### IDM模块：
 
@@ -195,6 +206,7 @@ if __name__ === "__main__":
 
 
 ``` python
+
 #使用open语句读取文件： 
 #普通读取可能处理异常 
 file = open("./video/test.txt")
@@ -204,12 +216,14 @@ data = file.read() print(data)
 #使用with语句读取可以有效避免异常 
 with open("/tmp/foo.txt") as file:  
     data = file.read()
+    
 ```
 #### try、except、finally用法：
 
 try, except, finally是Python中的异常捕捉机制，通常的用法就是try..except...结合起来用，程序捕捉try语句块中的异常，如果发现异常就把异常交给except中的语句块进行处理，也就是执行except中的语句，这里except也可以结合
 
 ``` python
+
 #就像if else 的用法 
 try:  
     print('hello') 
@@ -217,16 +231,19 @@ except:
     print('你好') 
 finally:
     pass      # pass 通过的意思
+
 ```
 
 
 #### open（）用法：
 ``` python
+
 open(name[, mode[, buffering]]) 
 
 # name : 一个包含了你要访问的文件名称的字符串值。 
 # mode : mode 决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读(r)。 
 # buffering : 如果 buffering 的值被设为 0，就不会有寄存。如果 buffering 的值取 1，访问文件时会寄存行。如果将 buffering 的值设为大于 1 的整数，表明了这就是的寄存区的缓冲大小。如果取负值，寄存区的缓冲大小则为系统默认。
+
 ```
 
 **mode 参数表：**
@@ -253,12 +270,15 @@ open(name[, mode[, buffering]])
 
 #### BeautifulSoup：
 ``` python
+
 from bs4 import BeautifulSoup 
 text = BeautifulSoup(html)
 print(text.select('a'))  #查看所有a标签   可以 #title 这样可以查看id为title的元素
+
 ```
 #### Python3 BIF内置函数：
 ``` python
+
 #查看所有 内置函数 
 dir(__builtins__) 
 
@@ -273,18 +293,23 @@ complex(re,im)
 
 #返回绝对值
 abs()  
+
 ```
 #### 转义字符：
 ``` python
+
 print(r"D:\User\Dell")    # 输出结果  为  D:\User\Dell 
 print("D:\\User\\Dell"")  # 输出结果  为  D:\User\Dell
+      
 ```
 
 #### Python 语句：
 ``` python
+
 a = "hello world" * 5             #赋值 5 个 hello world 给 a
-a = """ 这个地方可以随便写文章 """  #长字符串  跨行字符串  Triple quoted 三引号字符串 
+a = """ 这个地方可以随便写文章 """   #长字符串  跨行字符串  Triple quoted 三引号字符串 
 a = 3 // 2                        #地板出  确保两个数相处的结果为整数 如果不是整数 就向下取整
+
 ```
 ####  E记法：
 
@@ -338,7 +363,8 @@ a = 3 // 2                        #地板出  确保两个数相处的结果为�
 
 **用法：**
 
-```shell
+```sh
+
 #安装
 pip install pyinstaller
 
@@ -347,6 +373,7 @@ pyinstaller -F 文件名.py
 
 #设置icon
 pyinstaller -F -i 图标.ico 文件名.py
+
 ```
 
 **参数：**

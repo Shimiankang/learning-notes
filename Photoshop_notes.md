@@ -10,4 +10,3 @@
 | ctrl + B         | 色彩平衡    |
 | ctrl + I         | 颜色反转    |
 | ctrl + shift + U | 去色        |
-

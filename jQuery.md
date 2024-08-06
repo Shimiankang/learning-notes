@@ -11,11 +11,13 @@
 语法写法：
 
 ``` js
+
 //回调函数
-$("ID或元素").函数 ( ) ,function ( ) {}
-$("p").click(function(){
+$("ID或元素").函数 ( ) ,function ( ) { }
+$("p").click(function() {
 	// 动作触发后执行的代码!!
-});
+})
+
 ```
 
 ### jQuery 事件方法 参考手册:
@@ -88,14 +90,19 @@ $("p").click(function(){
 ### 语法:
 
 ``` js
+
 //隐藏与显示
-$(selector).hide(speed,callback)；
+$(selector).hide(speed,callback)
+
 //隐藏代码 后面跟的事件速度 回调函数
-$(selector).show(speed,callback);
+$(selector).show(speed,callback)
+
 //显示代码     后面隔得时间速度    回调函数
 toggle()   //也可以切换其他属性
+
 //通过 jQuery，您可以使用 toggle() 方法来切换 hide() 和 show() 方法。
 //显示被隐藏的元素，并隐藏已显示的元素：
+
 ```
 
 ### jQuery 动画效果 参考手册：
@@ -203,12 +210,14 @@ toggle()   //也可以切换其他属性
 
 ### jQuery尺寸方法
 ``` js
+
 $("button").click(function() {
     var txt = "";
     txt += "div 的宽度是: " + $("#div1").width() + "</br>";
     txt += "div 的高度是: " + $("#div1").height();
     $("#div1").html(txt);
-});
+})
+
 ```
 
 ## jQuery HTML / CSS 方法

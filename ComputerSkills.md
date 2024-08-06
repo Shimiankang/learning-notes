@@ -1,12 +1,13 @@
 # 电脑小技巧
 
-此文件主要及一些电脑使用的快捷键之类的内容。
+##### 该笔记主要记录一些电脑经常使用的快捷键以及一些开发技巧之类内容。
 
 ## Chrome 使用：
 
 快捷键：
 
 ```scss
+
 Ctrl + n 			// 打开新窗口
 Ctrl + t 			// 打开新的标签页，并跳转到该标签页
 Ctrl + Shift + t	// 重新打开最后关闭的标签页，并跳转到该标签页
@@ -21,6 +22,7 @@ Alt + Home 			// 在当前标签页中打开主页
 Ctrl + Shift + w 	// 关闭所有打开的标签页和浏览器
 Ctrl + Shift + q 	// 退出 Chrome 浏览器
 Ctrl + Shift + t 	// 复原关闭的页面
+
 ```
 
 ### Lorem&Lorem Picsum：
@@ -32,19 +34,23 @@ Ctrl + Shift + t 	// 复原关闭的页面
 **Lorem 用法：**输入 Lorem 然后按下 Tab 键，就会生成默认三十个单词的句子
 
 ```scss
+
 LoremN			// N 要成成几个单词的句子
 LoremN*M		// M 代表要生成几句
+
 ```
 
 **Lorem Picsum 用法：**
 
 ```html
+
 <!-- 随机生成一张 200*200 的图片 -->
 <img src="https://picsum.photos/200/200" />
 <img src="https://picsum.photos/200" />
 
 <!-- 通过ID生成一张 200*200 的图片 -->
 <img src="https://picsum.photos/id/160/200/200" />
+
 ```
 
 
@@ -54,6 +60,7 @@ LoremN*M		// M 代表要生成几句
 快捷键：
 
 ``` scss
+
 ctrl + ~             //打开终端
 ctrl + k  ctrl + o   //打开文件夹 
 ctrl + k  ctrl + t   //打开主题设置 
@@ -69,6 +76,7 @@ ctrl + shift + n     //新建窗口
 ctrl + shift + k     //删除一行内容
 ctrl + k ; ctrl + 0  //折叠所有代码  不同的数字代表 折叠等级 0是折叠全部 1是折叠第一级
 ctrl + k ; ctrl + j  //展开所有代码
+
 ```
 
 ## HbuilderX 使用：
@@ -76,7 +84,8 @@ ctrl + k ; ctrl + j  //展开所有代码
 快捷键：
 
 ``` scss
-Tab             //直接把单词变成标签 div*3   
+
+Tab             //直接把单词变成标签 div*3
 div*3 再按下Tab  //创建3个div标签 
 ctrl + ↓↑       //调整代码位置
 ctrl + k 		//格式化代码
@@ -91,6 +100,7 @@ alt + x   		//打开或关闭控制台
 快捷键：
 
 ```scss
+
 alt + f12             			// 打开终端
 ctrl + f12            			// 打开函数
 ctrl + n              			// 打开类
@@ -125,6 +135,7 @@ ctrl + shift + alt + n			// 通过一个字符快速查找
 ctrl + [  ]    					// 切换光标到代码块 前面  后面
 alt + 上下方向键					 //　切换上一个下一个方法
 ctrl + shift + a				// 查找操作
+
 ```
 
 ## Jet Brains 全家桶 插件：
@@ -170,17 +181,15 @@ ctrl + shift + 上下键  //移动代码
 ## Excel 使用：
 
 ```scss
+
 f2					// 进入编辑模式
 Esc					// 退出编辑模式
 Ctrl + ;			// 输入当前日期
 Ctrl + Shift + ;	// 输入当前时间
+
 ```
 
 ## Typora 使用：
-
-## 
-
-***世界上最漂亮的写作APP   ——知乎***
 
 Typora官网：[https://www.typora.io/](https://www.typora.io/)
 
