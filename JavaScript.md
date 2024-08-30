@@ -104,7 +104,71 @@ a = Number(prompt("请输入一个值"); //弹窗语法
 
 
 
+### let、var、const 的区别：
+
+JS中作用域有：全局作用域、函数作用域。没有块作用域的概念。ECMAScript 6(简称ES6)中新增了块级作用域。块作用域由 { } 包括，if语句和for语句里面的{ }也属于块作用域。
+
+#### var：
+
+var定义的变量可以修改，如果不初始化会输出undefined，不会报错。
+
+``` js
+var a = 1; 
+// var a;//不会报错 
+console.log('函数外var定义a：' + a); 	//可以输出a=1 
+function change(){
+    a = 4; 
+    console.log('函数内var定义a：' + a);//可以输出a=4 
+} 
+change();
+console.log('函数调用后var定义a为函数内部修改值：' + a);//可以输出a=4
+
+
+//var 声明全局变量，换句话理解就是，声明在for循环中的变量，跳出for循环同样可以使用。声明在for循环内部的sum，跳出for循环一样可以使用，不会报错正常弹出结果
+for(var i=0;i<=1000;i++){ 
+    var sum=0;  
+    sum+=i; 
+}
+alert(sum);
+```
+
+
+#### let:
+
+同一个变量，不可在声明之前调用，必须先定义再使用，否则会报错，循环体中可以用let
+
+let是块级作用域，函数内部使用let定义后，对函数外部无影响。并且let不能定义同名变量，否则会报错。
+
+``` js
+let c = 3; 
+console.log('函数外let定义c：' + c);//输出c=3 
+function change(){ 
+    let c = 6;
+    console.log('函数内let定义c：' + c);//输出c=6
+}  
+change();
+console.log('函数调用后let定义c不受函数内部定义影响：' + c);//输出c=3
+```
+
+
+#### const:
+
+const：用于声明常量，也具有块级作用域 ，也可声明块级。const定义的变量不可以修改，而且必须初始化。
+
+``` js
+const b = 2;//正确 
+// const b;//错误，必须初始化 
+console.log('函数外const定义b：' + b);//有输出值 
+// b = 5; 
+// console.log('函数外修改const定义b：' + b);//无法输出
+
+//它和let一样，也不能重复定义同一个变量，const一旦定义，无法修改.let和const属于局部变量，不会出现变量提升的情况，全局定义的let和const变量，不属于顶层变量，不属于window的属性
+```
+
+
+
 #### JavaScript标识符（命名规则）
+
 标识符由字母、数字、下划线_、美元符号$、组成
 
 不能以数字开头、不能是系统关键字、严格区分字母大小写、不能以中划线开头、不能包含中划线
@@ -1540,3 +1604,13 @@ const throttle = (fn, delay) => {
  254 = Mode_switch 
 
 ```
+
+### 实用语法：
+
+```js
+
+// 浏览器控制视频速度代码：
+document.querySelector('video').playbackRate = 3
+
+```
+

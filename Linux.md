@@ -37,19 +37,24 @@ echo ${array[@]}               #获取所有数组内数据
 
 ## Linux常用命令：
 
-```shell
+```sh
 
-cd ..                          # 返回上一级 命令
-ls                             #列出文件目录
-ctrl + l                       #清除 屏幕命令
-#							   #Shell 里注释 
-mkdir 名称                     #新建文件夹
-rm 名称                        #删除文件 ‐r 管理员权限
-ifconfig                      #查看网卡信息
-rz         					  #选择文件进行上传
-sz 文件名						# sz后面跟文件名可以进行文件从linux上面下载
-locate 文件名 					#查找文件命令
-ps aux|grep 进程			 	 #对进程检测和控制
+cd ..                          		#返回上一级 命令
+ls                             		#列出文件目录
+ctrl + l                       		#清除 屏幕命令
+mkdir [名称]							#新建文件夹
+rm [名称]								#删除文件 ‐r 管理员权限
+ifconfig							#查看网卡信息
+rz         					  		#选择文件进行上传
+sz [文件名]							# sz后面跟文件名可以进行文件从linux上面下载
+locate [文件名]						#查找文件命令
+ps aux|grep [进程]					#对进程检测和控制
+
+# 检查端口是否被占用
+sudo netstat -tuln | grep [端口号]
+或者
+sudo ss -tuln | grep [端口号]
+
 
 ```
 ## Linux 命令：

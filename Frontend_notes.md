@@ -1,9 +1,11 @@
 # 前端小笔记
 
-## 前端组件库：
+该笔记主要记录一些前端知识概念，以及HTML和CSS语法，JavaScript内容较多在单独一个笔记。
+
+### 前端组件库：
 
 - H-ui（admin组件样式库）
-- Element-ui（pc端组件样式库）
+- Element-ui（Vue组件库）
 - Vant（安卓端组件样式库）
 - Color-UI（微信小程序样式库）
 - Bootstrap（目前最受欢迎的前端框架，基于HTML、CSS、Javascript）
@@ -11,18 +13,21 @@
 - EasUi（jQuery的组件库）
 - Weui（微信小程序组件）
 - mui (移动H5端)
+- AntDesign（主要配合React使用、也有Vue版的）
+- UviewUI（uniapp样式组件库）
+- NaiveUI（一个非常全面好用的组件库，不过现在好像没人维护了）
+- ArcoUI（一款由字节跳动开发的组件库）
+- TDesign（一款由腾讯开发的组件库）
 
-## 前端框架：
+### 前端框架：
 
 - Vue
-
 - React
-
-  JS库：
+- JS库：
 
   - jQuery 就是封装的JS
 - Lodash 工具库
-  
+- Angular
 
 跨端开发：
 
@@ -87,19 +92,22 @@
 #### css文字文本属性：
 
 ```scss
+
 font-style: normal/ italic; 					 // 设置文本为斜体
 font-weight: normal(100-500)/ bold(600-900); 	 // 设置文本为粗体
-font-family: “文本字体1”,”文本字体2”; 			  // 文本类型
+font-family: “文本字体1”,”文本字体2”; 			    // 文本类型
 text-align: left/center/right;				     // 文本水平对齐方式
 vertical-align:top/middle/bottom;				 // 垂直对齐方式
 line-height: 25px;								 // 设置文本在一行内的高度
 color：#FFF;										// 设置字体颜色
 letter—spacing：1em;								// 定义字符间隔
+
 ```
 
 **文字省略号**：
 
 ```scss
+
 overflow: hidden; 			// 溢位隐藏
 text-overflow: ellipsis; 	// 文字溢位隐藏为省略号
 -webkit-line-clamp: 3; 		// 设置行数为第三行
@@ -107,11 +115,13 @@ white-space: nowrap;		// 设置行数为单行
 
 display: -webkit-box; 		
 -webkit-box-orient: vertical;
+
 ```
 
 **设置文本简写方式：**
 
 ```scss
+
 text-decoration: none; 	// 文本修饰
 
 // 属性
@@ -125,39 +135,116 @@ text-indent				// 首行缩进
 
 **文本大小写：**
 
-text-transform:
+​	text-transform:
 
-uppercase 单词都大写
+​		uppercase 单词都大写
 
-lowercase 单字都小写
+​		lowercase 单字都小写
 
-capitalize 每个单词首字母大写
+​		capitalize 每个单词首字母大写
 
 
 
-***单位 描述：***
+### CSS 单位：
 
-% 百分比
+​	**绝对单位：**
 
-in 英寸
+​		**px（像素）：** 一个像素，通常用于屏幕显示。1px通常等于设备显示器上的一个物理像素。
 
-cm 厘米
+​		**in（英寸）：**  1英寸，通常用于打印
 
-mm 毫米
+​		**cm（厘米）：** 1厘米，通常用于打印
 
-em 1em=当前的字体尺寸，2em=当前字体尺寸的两倍（在CSS中，em可以自动适应用户所使用的字体）
+​		**pt（点）：**  1点等于1/72英寸（是一个标准的长度单位）通常用于打印。
 
-ex 一个ex是一个字体的x-height（x-height通常是字体尺寸的一半）
+​		**pc（派卡）：**  1派卡等于12点（12点活字）
 
-pt 1pt=1/72英寸（是一个标准的长度单位）
 
-pc 1pc=12点（12点活字）
 
-px 像素
+​	**相对单位：**
 
-vmin 
+​		**%（百分比）：** 相对于父元素的长度。例如：width: 50%; 表示的是父元素宽度的50%
 
-vmax
+​		**ex：**  一个ex是一个字体的x-height（x-height通常是字体尺寸的一半）
+
+​		**rem：** 相对于根元素的字体大小。例如：如果根元素的字体大小是16px，那么1rem就等于16px。
+
+​		**em：** 相对于父元素的字体大小。例如：如果父元素的字体大小是16px，那么1em就等于16px
+
+​		**vw（视口宽度）：** 视口宽度的百分比，1vw等于视口宽度的1%
+
+​		**vh（视口高度）：** 视口高度的百分比，1vh等于视口高度的1%
+
+​		**vmin：** 视口最小维度（宽度或高度）的1%，例如：如果视口的宽度是1000px，高度是800px，那么 1vmin等于8px。
+
+​		**vmax：** 视口最大维度（宽度或高度）的1%，例如：如果视口的宽度是1000px，高度是800px，那么 1vmax等于10px。
+
+​		**ch：** 相当于当前元素字体的 “0” 字符宽度。
+
+​		**ex：** 相当于当前元素字体的 “x” 字符高度。
+
+​		**cap：** 相当于当前元素字体的大写字母高度。
+
+​		**ic：** 相对于当前元素字体的 CJK（中日韩字符）字符的宽度。
+
+​		**lh：** 相对于当前元素的行高。
+
+​		**rlh：** 相对于根元素的行高。
+
+
+
+​	**时间单位：** 时间单位主要用于过度和动画中，用于定义持续时间或延迟时间
+
+​		**s（秒）：** 例如：transition: all 5s;
+
+​		**ms（毫秒）：** 
+
+
+
+​	**频率单位：** 通常情况下，频率单位使用在听或说级联样式表中。频率可以被用来改变一个语音阅读文本的音调。低频率就是低音，高频率就是高音
+
+​		**Hz（赫兹）：**   例如： pitch: 105Hz;
+
+​		**kHz（千赫兹）： **
+
+
+
+​	**分辨率单位：**
+
+​		**dpi：** 全称为 dots per inch，表示每英寸包含点的数量。普通屏幕通常包含 72 或 96 个点，
+
+​		**dpcm：** 全称为 dots per centimeter，表示每厘米包含点的数量。
+
+​		**dppx：** 全称为 dots per pixel，表示每像素（px）包含点的数量。由于CSS px的固定比率为1:96，因此1dppx相当于96dpi。它对应于由图像分辨率定义的CSS中显示的图像的默认分辨率。
+
+```css
+
+/* 分辨率单位的主要用法 */
+@media screen and (min-resolution: 96dpi) {}
+@media print and (min-resolution: 300dpi) {}
+@media screen and (min-resolution: 28dpcm) {}
+@media print and (min-resolution: 118dpcm) {}
+@media screen and (min-resolution: 2dppx) {}
+@media screen and (min-resolution: 1dppx) and (max-resolution: 1.9dppx) {}
+
+/* 单位换算 */
+1dppx = 96dpi
+1dpi ≈ 0.39dpcm
+1dpcm ≈ 2.54dpi
+
+```
+
+
+
+​	**角度单位：**
+
+​		**deg：** 全称为 Degress，表示度，一个圆共360度。例如：transform: rotate(90deg);
+
+​		**grad： ** 全称为 Gradians，表示梯度，一个圆共400梯度。
+
+​		**rad：** 全称为 Radian是，表示弧度，一个圆共2π弧度
+
+​		**turn：** 全称为 Turns，表示圈（转），一个圆共一圈（转）
 
 | 单位   | 基于...                                                      |
 | :----- | :----------------------------------------------------------- |
@@ -188,7 +275,7 @@ vmax
 
 <img src="/img/css_unit.jpg"/>
 
-#### CSS自定义属性 变量：
+### CSS自定义属性 变量：
 
 声明变量 用 --name
 
@@ -354,7 +441,9 @@ body {
 
  cursor：pointer  更改鼠标经过时鼠标指针的样式
 
-**cursor　值　列表：**
+
+
+**cursor　属性值列表：**
 
 | 值        | 描述                                                         |
 | :-------- | :----------------------------------------------------------- |
@@ -375,6 +464,96 @@ body {
 | text      | 此光标指示文本。                                             |
 | wait      | 此光标指示程序正忙（通常是一只表或沙漏）。                   |
 | help      | 此光标指示可用的帮助（通常是一个问号或一个气球）。           |
+
+
+
+### transition用法：
+
+过渡可以为一个元素在不同状态之间切换的时定义不同过渡效果。比如在不同的伪元素之间切换，像是:hover、:active或者是由JavaScript实现的状态变化。
+
+
+
+语法：
+
+```css
+
+transition: margin 4s;
+
+transition: all 0.6s ease-out;
+
+/*			属性名 | 持续时间  | 过渡效果的速度曲线	| 延迟时间			*/
+transition: [name] [duration] [timing-function] [dealy];
+
+/*	也可以单独写	*/
+transition-name: height;
+
+transition-duration: 3s;
+
+```
+
+
+
+### animation用法：
+
+animation 属性用来定义一组或多组动画效果，每组动画之间用逗号隔开。
+
+
+
+语法：
+
+```css
+
+/* 定义关键帧动画 */
+@keyframes example {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+    /* 也可以使用百分比 */
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 50%;
+    }
+}
+
+/* 应用关键帧动画 */
+div {
+    animation: example;
+}
+
+/* animation 所有属性值用法 */
+animation: 
+	[animation-name] /* 关键帧动画的名称 */
+	[animation-duration] /* 动画持续时间 */
+	steps()
+	[animation-timing-function] /* 动画的速度曲线 */ 
+	[animation-delay] /* 动画开始前延迟时间 */
+	[animation-iteration-count] /* 动画循环次数 */
+	[animation-direction] /* 动画每次完成一个周期后是否反向播放 */
+	[animation-fill-mode] /* 动画执行之前和之后如何应用样式 */
+	[animation-play-state] /* 动画播放还是暂定 */;
+
+/* steps()用法 */
+
+
+```
+
+
+
+##### timing-function 参照表：
+
+| 值                    | 描述                                                        |
+| --------------------- | ----------------------------------------------------------- |
+| linear                | 动画从头到尾匀速进行（transition中没有该值，animation中有） |
+| ease                  | 动画先缓慢开始，然后加速，再缓慢结束                        |
+| ease-in               | 动画以缓慢开始                                              |
+| ease-out              | 动画以缓慢结束                                              |
+| ease-in-out           | 动画先缓慢开始，然后加速，再缓慢结束                        |
+| cubic-bezier(n,n,n,n) | 使用贝塞尔曲线自定义速度曲线                                |
 
 
 
@@ -405,9 +584,13 @@ body {
 | skewY(*angle*)                                               | 定义沿着 Y 轴的 2D 倾斜转换。           |
 | perspective(*n*)                                             | 为 3D 转换元素定义透视视图。            |
 
+
+
 **input框去除聚焦框：outline: none;**
 
 **textarea文本域去除右下角三角：resize:none;**
+
+
 
 **display属性：常见的有：block块级元素、inline内联元素、inline-block行内块元素、none元素不显示**
 
@@ -480,30 +663,32 @@ body {
 1. 块级元素（block）：<h1>…<h6>、<p>、<div>、列表
 2. 内联元素(也叫行内元素)（inline）：<span>、<a>、<img/>、<strong>...
 
-***HTML DOM：***HTML DOM是HTML Document Object Model（文档对象模型）
+**HTML DOM：** HTML DOM是HTML Document Object Model（文档对象模型）
 
-***XHTML：***更严格更纯净的基于 XML 的 HTML 版本。
+**XHTML：** 更严格更纯净的基于 XML 的 HTML 版本。
 
-***XML：***被设计用来传输和存储数据。
+**XML：** 被设计用来传输和存储数据。
 
-***HTML：***被设计用来显示数据。
+**HTML：** 被设计用来显示数据。
 
-***SOPA：***允许应用程序在 HTTP 之上交换信息的基于 XML 的协议。
+**SOPA：** 允许应用程序在 HTTP 之上交换信息的基于 XML 的协议。
 
-***XML DOM：***访问和操作 XML 的标准文档模型。
+**XML DOM：** 访问和操作 XML 的标准文档模型。
 
-***Xpath：***用于在 XML 文档中导航的语言。
+**Xpath：** 用于在 XML 文档中导航的语言。
 
-***Xquery:*** XQuery 之于 XML 作用就类似于 SQL 之于数据库的作用。XQuery 被设计用来查询 XML 数据。
+**Xquery:**  XQuery 之于 XML 作用就类似于 SQL 之于数据库的作用。XQuery 被设计用来查询 XML 数据。
 
 
 
-***Xpath语法：***XPath 使用路径表达式在 XML 文档中选取节点。节点是通过沿着路径或者 step 来选取的。
+**Xpath语法：** XPath 使用路径表达式在 XML 文档中选取节点。节点是通过沿着路径或者 step 来选取的。
 
 ``` xquery
+
 Xpath语句： 又称Xquery
 //div                     选取当前div 
 //div[@class='test']/*    选取当前div 类名为 test 里面所有的 内容
+
 ```
 #### Xpath 参考语法手册：
 
@@ -515,6 +700,8 @@ Xpath语句： 又称Xquery
 | .        | 选取当前节点。                                             |
 | ..       | 选取当前节点的父节点。                                     |
 | @        | 选取属性。                                                 |
+
+
 
 实例：在下面的表格中，我们已列出了一些路径表达式以及表达式的结果：
 
@@ -528,6 +715,8 @@ Xpath语句： 又称Xquery
 | //@lang         | 选取名为 lang 的所有属性。                                   |
 
 谓语：谓语用来查找某个特定的节点或者包含某个指定的值的节点。谓语被嵌在方括号中。
+
+
 
 实例：
 
@@ -710,69 +899,6 @@ Canvas教程：[https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tuto
 **XQuery： 基于 XML 的用于查询 XML 数据的语言。**
 
 
-
-## JavaScript 小笔记：
-
-### JS中let、var、const的区别：
-
-JS中作用域有：全局作用域、函数作用域。没有块作用域的概念。ECMAScript 6(简称ES6)中新增了块级作用域。块作用域由 { } 包括，if语句和for语句里面的{ }也属于块作用域。
-
-
-
-#### Var：
-
-var定义的变量可以修改，如果不初始化会输出undefined，不会报错。
-``` js
-var a = 1; 
-// var a;//不会报错 
-console.log('函数外var定义a：' + a); 	//可以输出a=1 
-function change(){
-    a = 4; 
-    console.log('函数内var定义a：' + a);//可以输出a=4 
-} 
-change();
-console.log('函数调用后var定义a为函数内部修改值：' + a);//可以输出a=4
-
-
-//var 声明全局变量，换句话理解就是，声明在for循环中的变量，跳出for循环同样可以使用。声明在for循环内部的sum，跳出for循环一样可以使用，不会报错正常弹出结果
-for(var i=0;i<=1000;i++){ 
-    var sum=0;  
-    sum+=i; 
-}
-alert(sum);
-```
-
-
-#### Let:
-
-同一个变量，不可在声明之前调用，必须先定义再使用，否则会报错，循环体中可以用let
-
-let是块级作用域，函数内部使用let定义后，对函数外部无影响。并且let不能定义同名变量，否则会报错。
-
-``` js
-let c = 3; 
-console.log('函数外let定义c：' + c);//输出c=3 
-function change(){ 
-    let c = 6;
-    console.log('函数内let定义c：' + c);//输出c=6
-}  
-change();
-console.log('函数调用后let定义c不受函数内部定义影响：' + c);//输出c=3
-```
-
-
-#### Const:
-
-const：用于声明常量，也具有块级作用域 ，也可声明块级。const定义的变量不可以修改，而且必须初始化。
-``` js
-const b = 2;//正确 
-// const b;//错误，必须初始化 
-console.log('函数外const定义b：' + b);//有输出值 
-// b = 5; 
-// console.log('函数外修改const定义b：' + b);//无法输出
-
-//它和let一样，也不能重复定义同一个变量，const一旦定义，无法修改.let和const属于局部变量，不会出现变量提升的情况，全局定义的let和const变量，不属于顶层变量，不属于window的属性
-```
 
 
 ### CSS一些写法：
