@@ -2,26 +2,46 @@
 
 ##### 该笔记主要记录一些电脑经常使用的快捷键以及一些开发技巧之类内容。
 
-## Chrome 使用：
+## Edge 技巧：
 
-快捷键：
+- 地址栏输入 edge://flags 进入edge 实验室页面
+- 地址栏中输入 edge://surf 进入冲浪小游戏
+- 地址栏中前缀加 read:// 进入阅读模式
+
+#### 快捷键：
+
+```scss
+
+ctrl + 
+
+```
+
+
+
+## Chrome 技巧：
+
+#### 快捷键： 
+
+基本上所有浏览器都通用的
 
 ```scss
 
 Ctrl + n 			// 打开新窗口
 Ctrl + t 			// 打开新的标签页，并跳转到该标签页
+Ctrl + w 			// 关闭当前标签页
 Ctrl + Shift + t	// 重新打开最后关闭的标签页，并跳转到该标签页
 Ctrl + Tab 			// 跳转到下一个打开的标签页
 Ctrl + Shift + Tab 	// 跳转到上一个打开的标签页
 Alt + ← 			// 历史记录上一页
 Alt + → 			// 历史记录下一页
-Ctrl + w 			// 关闭当前标签页
 Ctrl + 1 - Ctrl + 8 // 跳转到指定页数标签页
 Ctrl + 9			// 跳转到最后一个标签页
 Alt + Home 			// 在当前标签页中打开主页
 Ctrl + Shift + w 	// 关闭所有打开的标签页和浏览器
 Ctrl + Shift + q 	// 退出 Chrome 浏览器
 Ctrl + Shift + t 	// 复原关闭的页面
+ctrl + shift + b	// 隐藏/显示 收藏夹栏
+ctrl + shift + n	// 新窗口打开私密模式
 
 ```
 
