@@ -82,10 +82,11 @@ LoremN*M		// M 代表要生成几句
 ``` scss
 
 ctrl + ~             //打开终端
+ctrl + b			// 打开资源管理器
 ctrl + k  ctrl + o   //打开文件夹 
 ctrl + k  ctrl + t   //打开主题设置 
 ctrl + shift + p     //打开 VsCode 命令面板
-alt + 上下键         //调整代码位置 
+alt + 上下键          //调整代码位置 
 alt + l  alt + o     //在本地服务打开 
 alt + b              //在默认浏览器打开
 
@@ -96,7 +97,7 @@ ctrl + shift + n     //新建窗口
 ctrl + shift + k     //删除一行内容
 ctrl + k ; ctrl + 0  //折叠所有代码  不同的数字代表 折叠等级 0是折叠全部 1是折叠第一级
 ctrl + k ; ctrl + j  //展开所有代码
-
+ctrl + shift + c	// 在根目录打开CMD
 ```
 
 ## HbuilderX 使用：
@@ -158,7 +159,7 @@ ctrl + shift + a				// 查找操作
 
 ```
 
-## Jet Brains 全家桶 插件：
+## Jet Brains 全家桶插件：
 
 | 插件名称                           | 说明                                                 |
 | :--------------------------------- | :--------------------------------------------------- |
@@ -175,16 +176,6 @@ ctrl + shift + a				// 查找操作
 | GitToolBox                         | git 工具插件                                         |
 | Json Parser                        | Json 格式化工具                                      |
 | Regex Tester                       | 正则表达式插件                                       |
-
-
-
-## ApiCloud Studio3 使用：
-
-**简介：**基于业界领先的VSCode深度定制，帮助您快速地构建多端应用，我们为Windows、Mac和Linux提供了出色的开发体验，您可以使用自己喜欢的操作系统进行开发。
-
-```scss
-
-```
 
 
 
