@@ -16,7 +16,7 @@
 | <a href="./JavaScript.md">JavaScript</a>           | Js学习笔记包括NodeJS                                        |
 | <a href="./jQuery_notes.md">jQuery_notes</a>       | jQuery学习笔记                                              |
 | <a href="./Linux_notes.md">Linux_notes</a>         | Linux学习笔记，记录一些Linux的命令以及一些使用技巧          |
-| <a href="./">MongoDB_notes</a>                     | MongoDB笔记，记录MongoDB的一些概念以及用法                  |
+| <a href="./MongoDB_notes.md">MongoDB_notes</a>     | MongoDB笔记，记录MongoDB的一些概念以及用法                  |
 | <a href="./Photoshop_notes.md">Photoshop_notes</a> | 记录PS和LR的使用快捷键和一些方法技巧                        |
 | <a href="./PHP_notes.md">PHP_notes</a>             | PHP学习笔记                                                 |
 | <a href="./Python_notes.md">Python_notes</a>       | Python学习笔记                                              |

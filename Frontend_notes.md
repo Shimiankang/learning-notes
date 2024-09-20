@@ -903,56 +903,61 @@ Canvas教程：[https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tuto
 
 
 
-### CSS一些写法：
 
-width:100px !important;   //不使用引入的样式
+#### CSS函数 参考手册：
 
-**CSS函数 参考手册：**
+| 函数                                                         | 描述                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [attr()](https://www.runoob.com/cssref/func-attr.html)       | 返回选择元素的属性值。                                       |
+| [calc()](https://www.runoob.com/cssref/func-calc.html)       | 允许计算 CSS 的属性值，比如动态计算长度值。                  |
+| [cubic-bezier()](https://www.runoob.com/cssref/func-cubic-bezier.html) | 定义了一个贝塞尔曲线(Cubic Bezier)。                         |
+| [hsl()](https://www.runoob.com/cssref/func-hsl.html)         | 使用色相、饱和度、亮度来定义颜色。                           |
+| [hsla()](https://www.runoob.com/cssref/func-hsla.html)       | 使用色相、饱和度、亮度、透明度来定义颜色。                   |
+| [linear-gradient()](https://www.runoob.com/cssref/func-linear-gradient.html) | 创建一个线性渐变的图像                                       |
+| [radial-gradient()](https://www.runoob.com/cssref/func-radial-gradient.html) | 用径向渐变创建图像。                                         |
+| [repeating-linear-gradient()](https://www.runoob.com/cssref/func-repeating-linear-gradient.html) | 用重复的线性渐变创建图像。                                   |
+| [repeating-radial-gradient()](https://www.runoob.com/cssref/func-repeating-radial-gradient.html) | 类似 radial-gradient()，用重复的径向渐变创建图像。           |
+| [rgb()](https://www.runoob.com/cssref/func-rgb-css.html)     | 使用红(R)、绿(G)、蓝(B)三个颜色的叠加来生成各式各样的颜色。  |
+| [rgba()](https://www.runoob.com/cssref/func-rgba.html)       | 使用红(R)、绿(G)、蓝(B)、透明度(A)的叠加来生成各式各样的颜色。 |
+| [var()](https://www.runoob.com/cssref/func-var.html)         | 用于插入自定义的属性值。                                     |
+| <a href="https://www.runoob.com/cssref/func-hsl.html">hsl()</a> | 使用色相、饱和度、亮度来定义颜色。                           |
+|                                                              |                                                              |
 
-| 函数                                                         | 描述                                                         | CSS 版本 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
-| [attr()](https://www.runoob.com/cssref/func-attr.html)       | 返回选择元素的属性值。                                       | 2        |
-| [calc()](https://www.runoob.com/cssref/func-calc.html)       | 允许计算 CSS 的属性值，比如动态计算长度值。                  | 3        |
-| [cubic-bezier()](https://www.runoob.com/cssref/func-cubic-bezier.html) | 定义了一个贝塞尔曲线(Cubic Bezier)。                         | 3        |
-| [hsl()](https://www.runoob.com/cssref/func-hsl.html)         | 使用色相、饱和度、亮度来定义颜色。                           | 3        |
-| [hsla()](https://www.runoob.com/cssref/func-hsla.html)       | 使用色相、饱和度、亮度、透明度来定义颜色。                   | 3        |
-| [linear-gradient()](https://www.runoob.com/cssref/func-linear-gradient.html) | 创建一个线性渐变的图像                                       | 3        |
-| [radial-gradient()](https://www.runoob.com/cssref/func-radial-gradient.html) | 用径向渐变创建图像。                                         | 3        |
-| [repeating-linear-gradient()](https://www.runoob.com/cssref/func-repeating-linear-gradient.html) | 用重复的线性渐变创建图像。                                   | 3        |
-| [repeating-radial-gradient()](https://www.runoob.com/cssref/func-repeating-radial-gradient.html) | 类似 radial-gradient()，用重复的径向渐变创建图像。           | 3        |
-| [rgb()](https://www.runoob.com/cssref/func-rgb-css.html)     | 使用红(R)、绿(G)、蓝(B)三个颜色的叠加来生成各式各样的颜色。  | 2        |
-| [rgba()](https://www.runoob.com/cssref/func-rgba.html)       | 使用红(R)、绿(G)、蓝(B)、透明度(A)的叠加来生成各式各样的颜色。 | 3        |
-| [var()](https://www.runoob.com/cssref/func-var.html)         | 用于插入自定义的属性值。                                     | 3        |
+
 
 ## HTML转义字符：
 
-| 特殊字符  |   描述    | 实体名称 |
-| :-------: | :-------: | :------: |
-| 【空格】  |   空格    |  &nbsp;  |
-| 【Tab键】 |   Tab键   |  &emsp;  |
-|     >     |  大于号   |   &gt;   |
-|     <     |  小于号   |   &lt;   |
-|    《     | 书名号-前 | &laquo;  |
-|    》     | 书名号-后 | &raquo;  |
-|     &     |   和号    |  &amp;   |
-|     "     |   引号    |  &quot;  |
-|     '     |  单引号   |  &apos;  |
-|    ￥     |  人民币   |  &yen;   |
-|     $     | 美元符号  |  &#36;   |
-|     %     |  百分号   |  &#37;   |
-|     ©     |   版权    |  &copy;  |
-|     ®     | 注册商标  |  &reg;   |
-|     ™     |   商标    | &trade;  |
-|     x     |   乘号    | &times;  |
-|     ÷     |   除号    | &divide; |
-|     ±     |  正负号   | &plusmn; |
-|     °     |  摄氏度   |  &deg;   |
-|     ²     |   平方    |  &sup2;  |
-|     ³     |   立方    |  &sup3;  |
+| 特殊字符  |   描述    | 实体名称  |
+| :-------: | :-------: | :-------: |
+| 【空格】  |   空格    |  &nbsp ;  |
+| 【Tab键】 |   Tab键   |  &emsp ;  |
+|     >     |  大于号   |   &gt ;   |
+|     <     |  小于号   |   &lt ;   |
+|    《     | 书名号-前 | &laquo ;  |
+|    》     | 书名号-后 | &raquo ;  |
+|     &     |   和号    |  &amp ;   |
+|     "     |   引号    |  &quot ;  |
+|     '     |  单引号   |  &apos ;  |
+|    ￥     |  人民币   |  &yen ;   |
+|     $     | 美元符号  |  &#36 ;   |
+|     %     |  百分号   |  &#37 ;   |
+|     ©     |   版权    |  &copy ;  |
+|     ®     | 注册商标  |  &reg ;   |
+|     ™     |   商标    | &trade ;  |
+|     x     |   乘号    | &times ;  |
+|     ÷     |   除号    | &divide ; |
+|     ±     |  正负号   | &plusmn ; |
+|     °     |  摄氏度   |  &deg ;   |
+|     ²     |   平方    |  &sup2 ;  |
+|     ³     |   立方    |  &sup3 ;  |
+
+注：实体名称后面我又加了一个空格，防止解析成特殊字符。
 
 
 
-**鱼皮整理的 前端学习路线：**
+
+
+### 鱼皮的前端学习路线：
 
 
 
