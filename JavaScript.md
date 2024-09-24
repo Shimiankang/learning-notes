@@ -856,7 +856,208 @@ class Student extends Person {
 
 
 
-## Node.js:
+### JavaScript 操作DOM:
+
+```js
+document.designMode = 'on'    //页面所有元素可编辑
+
+```
+
+
+
+
+
+## 防抖和节流：
+
+#### 防抖（Debounicng）
+
+防抖是用于延迟执行某个函数，直到某个连续动作停止触发一段时间后才执行。在连续触发事件时，只有当一定的间隔时间过去后，才会触发该函数执行。这对于处理需等待一段时间后才执行的任务非常有用，比如：搜索框输入、窗口大小调整、按钮点击次数过多等。
+
+```js
+//未封装直接使用防抖技术的
+let timer = null;
+function input () {
+    if(timer !== null) {
+        clearTimeout(timer)
+    }
+    timer = setTimeout(() => {
+        // 要执行的函数体
+        console.log(value)
+    },500)
+}
+
+
+// 封装防抖函数
+function debounce(fn,delay) {
+    const args = arguments;
+    let timer;
+    if(timer) {
+        clearTimeout(timer)
+    }
+	timer = setTimeout(() => {
+        fn.apply(this,args)
+    },delay)
+}
+//用法
+const fun = debounce(searchHandle, 100);
+
+
+
+/**
+ * @desc 防抖函数：一定时间内，只有最后一次执行操作
+ * @param {Function} fn 要执行的函数
+ * @param {Number} delay 延迟执行毫秒
+ */
+const debounce = (fn, delay) => {
+    let timer;
+    return function() {
+        let args = arguments;
+        if (timer) {
+            clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+            fn.apply(this,args)
+        },delay)
+    }
+}
+
+```
+
+
+
+#### 节流（Throttling）
+
+节流是确保函数在一定时间间隔内最多执行一次。它会在指定的时间段内定期执行函数，而不管事件触发的频率有多高。节流适用于需要在连续事件中控制函数执行频率的情况。比如：鼠标移动事件、鼠标滑轮滚动事件等。
+
+
+
+```js
+
+//节流
+let flag = true;
+function scroll() {
+    if(flag) {
+        setTimeout( () => {
+            console.log('hello')
+            flag = true
+        },500)
+    }
+    flag = false;
+}
+
+//封装节流函数
+function throttle(fn, delay) {
+    let throttleTimer;
+      return function() {
+          const context = this;
+          const args = arguments;
+          if (!throttleTimer) {
+              throttleTimer = setTimeout(() => {
+                  func.apply(context, args);
+                  throttleTimer = null;
+              }, 500);
+          }
+      }
+}
+
+
+
+/**
+ * @desc 节流函数：在一定时间内只触发一次
+ * @param {Function} fn 执行函数
+ * @param {Number} delay 延迟执行毫秒
+ */
+let previous = 0;
+const throttle = (fn, delay) => {
+    let now = new Date();
+    if (now - previous > delay) {
+        fn();
+        previous = now;
+    }
+}
+
+```
+
+
+
+### JS 常用键盘值对照表
+
+| 键值（Keycode） | 按键             |
+| --------------- | ---------------- |
+| 8               | 回退键 Backspace |
+| 9               | Tab              |
+| 12              | Clear            |
+| 13              | Enter            |
+| 16              | 左 Shift         |
+| 17              | 左 Ctrl          |
+| 18              | 左 Alt           |
+| 19              | Pause            |
+| 20              | CapsLock         |
+| 27              | Esc              |
+| 32              | 空格 Space       |
+| 35              | End              |
+| 36              | Home             |
+| 37              | 左方向键         |
+| 38              | 上方向键         |
+| 39              | 右方向键         |
+| 40              | 下方向键         |
+| 46              | Delete           |
+| 112             | F1               |
+| 113             | F2               |
+| 114             | F3               |
+| 115             | F4               |
+| 117             | F6               |
+| 118             | F7               |
+| 119             | F8               |
+| 120             | F9               |
+| 121             | F10              |
+| 122             | F11              |
+| 123             | F12              |
+| 65              | A                |
+| 66              | B                |
+| 67              | C                |
+| 68              | D                |
+| 69              | E                |
+| 70              | F                |
+| 71              | G                |
+| 72              | H                |
+| 73              | I                |
+| 74              | J                |
+| 75              | K                |
+| 76              | L                |
+| 77              | M                |
+| 78              | N                |
+| 79              | O                |
+| 80              | P                |
+| 81              | Q                |
+| 82              | R                |
+| 83              | S                |
+| 84              | T                |
+| 85              | U                |
+| 86              | V                |
+| 87              | W                |
+| 88              | X                |
+| 89              | Y                |
+| 90              | Z                |
+|                 |                  |
+
+### 实用语法：
+
+```js
+// 浏览器控制视频速度代码：
+document.querySelector('video').playbackRate = 3
+
+```
+
+
+
+
+
+
+
+# Node.js
+
+**介绍：**
 
 简单的说 Node.js 就是运行在服务端的 JavaScript。
 
@@ -864,9 +1065,11 @@ Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。
 
 Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好。
 
-#### Node.js 安装包及源码下载地址为：https://nodejs.org/en/download/。
+Node.js 安装包及源码下载地址为：https://nodejs.org/en/download/。
 
-简单示例：
+
+
+**简单示例：**
 
 ```js
 
@@ -899,30 +1102,7 @@ Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引�
 
 ```
 
-
-
-
-### Node Koa2框架： 封装原生代码的 API
-
-```sh
-
-# Node 安装Koa2 安装完成 不会自带 node_module 需要手动安装一下
-npm i
-# 安装koa2
-npm i ‐g koa‐generator      	# 安装 koa-generator 脚手架 中间件
-
-# 查看 版本
-koa2 ‐‐version
-
-# 创建项目
-koa2 项目名称 		# 使用 koa-generator 脚手架 创建项目
-
-# 运行项目
-koa2 run dev 项目名称
-
-```
-
-#### Nodemon 插件：
+### Nodemon 插件
 
 介绍：nodemon是一种工具，可以自动检测到目录中的文件，更改时通过重新启动应用程序来调试基于node.js的应用程序。
 
@@ -938,7 +1118,7 @@ nodemon 文件名或路径名加文件名       # 使用 nodemon 打开 node 服
 rs 重启一下 是 restart 的缩写
 
 ```
-### Node JWT Token：
+### Node JWT Token
 
 **JWT**：
 
@@ -974,7 +1154,7 @@ let token = ctx.request.headers['token'];
 const token = jwt.verify(token,'token');
 
 ```
-### Node Mysql 连接数据库：
+### Node MySQL 连接数据库：
 
 Nodejs环境下的MySQL数据库驱动程序。它允许Nodejs应用程序连接到MySQL数据库并执行查询；增删改查。
 
@@ -1021,7 +1201,7 @@ const query = require("../db.js")//引入
 let data = await query(SQL语句)
 
 ```
-### Node js  WebScoket：
+### Node  WebScoket：
 
 WebSocket 使客户端和服务器端之间的数据交换变得更加简单，允许服务器主动向客户端推送数据。在 WebSocket API 中，浏览器和服务器只需要完成一次握手，两者之间就可以持久性的连接，并进行双向数据传输。
 
@@ -1093,7 +1273,7 @@ wss.on("connection",function (ws) {
 
 
 
-#### Nodejs  Joi：
+### Node  Joi：
 
 JavaScript对象的规则描述语言和验证器。
 
@@ -1114,7 +1294,7 @@ Joi.validate({ username: 'abc', birthyear:  1994  }, schema);
 ```
 
 
-#### Node pm2：
+### Node pm2：
 
 是一个守护进程管理器，不会占用一个终端，而是在后台运行 js。
 
@@ -1154,6 +1334,53 @@ pm2 delete id
 
 ```
 
+## Koa2 框架
+
+**安装使用**
+
+```sh
+# Node 安装Koa2 安装完成 不会自带 node_module 需要手动安装一下
+npm i
+# 安装koa2
+npm i ‐g koa‐generator      	# 安装 koa-generator 脚手架 中间件
+
+# 查看 版本
+koa2 ‐‐version
+
+# 创建项目
+koa2 项目名称 		# 使用 koa-generator 脚手架 创建项目
+
+# 运行项目
+koa2 run dev 项目名称
+
+```
+
+#### 
+
+## Nest 框架
+
+Nest 是一个用于构建高效，可拓展的 Node.js 服务端应用程序的框架。它使用渐进式JavaScript，内置并完全支持TypeScript（但仍然允许开发人员使用纯JavaScript编写代码）并结合了OOP（面向对象编程）。FP（函数式编程）和FRP（函数时响应编程）的元素。
+
+
+
+**安装使用**
+
+```sh
+
+# 使用 CLI 安装
+npm i -g @nestjs/cli
+
+nest new <项目名称>
+
+# 使用 Git
+# JS版
+git clone https://github.com/nestjs/javascript-starter.git <项目名>
+
+# TS版
+git clone https://github.com/nestjs/typescript-starter.git <项目名>
+
+```
+
 
 
 ### Volta
@@ -1161,6 +1388,8 @@ pm2 delete id
 Volta 是一种管理 JavaScript 命令行工具的便捷方式。
 
 Volta 的优点就是：速度、无缝，每个项目的版本切换、跨平台支持、支持多个包管理器、稳定的工具安装、可拓展性。
+
+缺点：安装其他的工具时，老是报一些莫名其妙的错误 <span style="color: red">Volta error: Could not create shared environment for package</span>
 
 ```sh
 
@@ -1194,7 +1423,7 @@ volta run
 
 **Nvm（Node.js Version Management）** 是 Nodejs 版本管理工具
 
-```powershell
+```sh
 
 # 查看已安装的Nodejs
 nvm list
@@ -1203,13 +1432,13 @@ nvm list
 nvm ls available
 
 # 切换版本
-nvm use 版本号
+nvm use <版本号>
 
 # 安装版本
-nvm install 版本号
+nvm install <版本号>
 
 # 删除版本
-nvm uninstall 版本号
+nvm uninstall <版本号>
 
 # 可以在项目根目录里记录 node 版本号，
 # window 系统下可能不生效
@@ -1222,7 +1451,9 @@ num use
 
 
 
-## TypeScript
+
+
+# TypeScript
 
 TypeScript 是一个以 JavaScript 为基础的语言，TS 不可以像 JS 样直接被浏览器解析。
 
@@ -1320,297 +1551,4 @@ window.getComputeStyle(div)
 ```
 
 
-
-### JavaScript 操作DOM:
-
-```js
-
-document.designMode = 'on'    //页面所有元素可编辑
-
-```
-
-
-
-
-
-## 防抖和节流：
-
-#### 防抖（Debounicng）
-
-防抖是用于延迟执行某个函数，直到某个连续动作停止触发一段时间后才执行。在连续触发事件时，只有当一定的间隔时间过去后，才会触发该函数执行。这对于处理需等待一段时间后才执行的任务非常有用，比如：搜索框输入、窗口大小调整、按钮点击次数过多等。
-
-```js
-
-//未封装直接使用防抖技术的
-let timer = null;
-function input () {
-    if(timer !== null) {
-        clearTimeout(timer)
-    }
-    timer = setTimeout(() => {
-        // 要执行的函数体
-        console.log(value)
-    },500)
-}
-
-
-// 封装防抖函数
-function debounce(fn,delay) {
-    const args = arguments;
-    let timer;
-    if(timer) {
-        clearTimeout(timer)
-    }
-	timer = setTimeout(() => {
-        fn.apply(this,args)
-    },delay)
-}
-//用法
-const fun = debounce(searchHandle, 100);
-
-
-
-/**
- * @desc 防抖函数：一定时间内，只有最后一次执行操作
- * @param {Function} fn 要执行的函数
- * @param {Number} delay 延迟执行毫秒
- */
-const debounce = (fn, delay) => {
-    let timer;
-    return function() {
-        let args = arguments;
-        if (timer) {
-            clearTimeout(timer)
-        }
-        timer = setTimeout(() => {
-            fn.apply(this,args)
-        },delay)
-    }
-}
-
-```
-
-
-
-#### 节流（Throttling）
-
-节流是确保函数在一定时间间隔内最多执行一次。它会在指定的时间段内定期执行函数，而不管事件触发的频率有多高。节流适用于需要在连续事件中控制函数执行频率的情况。比如：鼠标移动事件、鼠标滑轮滚动事件等。
-
-
-
-```js
-
-
-//节流
-let flag = true;
-function scroll() {
-    if(flag) {
-        setTimeout( () => {
-            console.log('hello')
-            flag = true
-        },500)
-    }
-    flag = false;
-}
-
-//封装节流函数
-function throttle(fn, delay) {
-    let throttleTimer;
-      return function() {
-          const context = this;
-          const args = arguments;
-          if (!throttleTimer) {
-              throttleTimer = setTimeout(() => {
-                  func.apply(context, args);
-                  throttleTimer = null;
-              }, 500);
-          }
-      }
-}
-
-
-
-/**
- * @desc 节流函数：在一定时间内只触发一次
- * @param {Function} fn 执行函数
- * @param {Number} delay 延迟执行毫秒
- */
-let previous = 0;
-const throttle = (fn, delay) => {
-    let now = new Date();
-    if (now - previous > delay) {
-        fn();
-        previous = now;
-    }
-}
-
-```
-
-
-
-
-
-### JS 键盘键值对：
-
-```scss
-
-//键值keycode = 对应的键盘按键
-    8 = BackSpace BackSpace
-    9 = Tab Tab
-   12 = Clear
-   13 = Enter
-   16 = Shift_L
-   17 = Control_L
-   18 = Alt_L
-   19 = Pause
-   20 = Caps_Lock
-   27 = Escape Escape
-   32 = space space
-   33 = Prior
-   34 = Next
-   35 = End
-   36 = Home
-   37 = Left
-   38 = Up
-   39 = Right
-   40 = Down
-   41 = Select
-   42 = Print
-   43 = Execute
-   45 = Insert
-   46 = Delete
-   47 = Help
-   48 = 0 equal braceright
-   49 = 1 exclam onesuperior
-   50 = 2 quotedbl twosuperior
-   51 = 3 section threesuperior
-   52 = 4 dollar
-   53 = 5 percent
-   54 = 6 ampersand
-   55 = 7 slash braceleft
-   56 = 8 parenleft bracketleft
-   57 = 9 parenright bracketright
-   65 = a A
-   66 = b B
-   67 = c C
-   68 = d D
-   69 = e E EuroSign
-   70 = f F
-   71 = g G
-   72 = h H
-   73 = i I
-   74 = j J
-   75 = k K
-   76 = l L
-   77 = m M mu
-   78 = n N
-   79 = o O
-   80 = p P
-   81 = q Q at
-   82 = r R
-   83 = s S
-   84 = t T
-   85 = u U
-   86 = v V
-   87 = w W
-   88 = x X
-   89 = y Y
-   90 = z Z
-   96 = KP_0 KP_0
-   97 = KP_1 KP_1
-   98 = KP_2 KP_2
-   99 = KP_3 KP_3
- 100 = KP_4 KP_4
- 101 = KP_5 KP_5
- 102 = KP_6 KP_6
- 103 = KP_7 KP_7
- 104 = KP_8 KP_8
- 105 = KP_9 KP_9
- 106 = KP_Multiply KP_Multiply
- 107 = KP_Add KP_Add
- 108 = KP_Separator KP_Separator
- 109 = KP_Subtract KP_Subtract
- 110 = KP_Decimal KP_Decimal
- 111 = KP_Divide KP_Divide
- 112 = F1
- 113 = F2
- 114 = F3
- 115 = F4
- 116 = F5
- 117 = F6
- 118 = F7
- 119 = F8
- 120 = F9
- 121 = F10
- 122 = F11
- 123 = F12
- 124 = F13
- 125 = F14
- 126 = F15
- 127 = F16
- 128 = F17
- 129 = F18
- 130 = F19
- 131 = F20
- 132 = F21
- 133 = F22
- 134 = F23
- 135 = F24
- 136 = Num_Lock
- 137 = Scroll_Lock
- 187 = acute grave
- 188 = comma semicolon
- 189 = minus underscore
- 190 = period colon
- 192 = numbersign apostrophe
- 210 = plusminus hyphen macron
- 211 =
- 212 = copyright registered
- 213 = guillemotleft guillemotright
- 214 = masculine ordfeminine
- 215 = ae AE
- 216 = cent yen
- 217 = questiondown exclamdown
- 218 = onequarter onehalf threequarters
- 220 = less greater bar
- 221 = plus asterisk asciitilde
- 227 = multiply division
- 228 = acircumflex Acircumflex
- 229 = ecircumflex Ecircumflex
- 230 = icircumflex Icircumflex
- 231 = ocircumflex Ocircumflex
- 232 = ucircumflex Ucircumflex
- 233 = ntilde Ntilde
- 234 = yacute Yacute
- 235 = oslash Ooblique
- 236 = aring Aring
- 237 = ccedilla Ccedilla
- 238 = thorn THORN
- 239 = eth ETH
- 240 = diaeresis cedilla currency
- 241 = agrave Agrave atilde Atilde
- 242 = egrave Egrave
- 243 = igrave Igrave
- 244 = ograve Ograve otilde Otilde
- 245 = ugrave Ugrave
- 246 = adiaeresis Adiaeresis
- 247 = ediaeresis Ediaeresis
- 248 = idiaeresis Idiaeresis
- 249 = odiaeresis Odiaeresis
- 250 = udiaeresis Udiaeresis
- 251 = ssharp question backslash
- 252 = asciicircum degree
- 253 = 3 sterling
- 254 = Mode_switch 
-
-```
-
-### 实用语法：
-
-```js
-
-// 浏览器控制视频速度代码：
-document.querySelector('video').playbackRate = 3
-
-```
 
