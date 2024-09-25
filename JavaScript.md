@@ -1,14 +1,10 @@
 # Java Script
 
-**组件库&框架:**
+#### 简介
 
-  H-ui（admin组件库）、Element-ui（pc端组件库）、Vant（移动端组件库）、Vue3（前端框架）、jQuery、
+**JavaScript** （JS）是一种具有函数优先特性的轻量级、解释型或者说是即时编译的编程语言。虽然作为 Web 页面中的脚本语言被人所熟知，但是它也被利用到了非浏览器环境中，例如：<a href="#Node.js">Node.js</a>、Apache、CouchDB、Adobe Acrobat等。进一步说，JavaScript 是一种基于原型、多范式、单线程的动态语言，并且支持面向对象、命令式和声明式（如函数式编程）风格。
 
 
-
-**JavaScript是一种脚本语言，可以提高用户提高用户体验度。（依托于浏览器）引擎是浏览器Javascript是跨平台的，为什么跨平台？以为依托于浏览器，不依托于操作系统**
-
-##### JavaScript更像是一门函数式编程语言。
 
 ```html
 
@@ -104,7 +100,7 @@ a = Number(prompt("请输入一个值"); //弹窗语法
 
 
 
-### let、var、const 的区别：
+### let、var、const 的区别
 
 JS中作用域有：全局作用域、函数作用域。没有块作用域的概念。ECMAScript 6(简称ES6)中新增了块级作用域。块作用域由 { } 包括，if语句和for语句里面的{ }也属于块作用域。
 
@@ -631,8 +627,8 @@ document.onkeydown(e) {
 
 //给 id 为 input 添加事件
 var input = document.getElementById("input");
-input.onkeypress = function (e){
-		if(e.key == "Enter"){
+input.onkeypress = function (e) {
+		if(e.key == "Enter") {
             console.log("触发Enter事件了")
         }
 }
@@ -643,7 +639,7 @@ input.onkeypress = function (e){
 
 
 
-**键盘事件：**
+### 键盘事件
 
 | 属性       | 说明                                                         |
 | ---------- | ------------------------------------------------------------ |
@@ -655,14 +651,6 @@ input.onkeypress = function (e){
 | ctrlKey    | 是否按下 Ctrl 键，如果按下返回 true，否则为false             |
 | altKey     | 是否按下 Alt 键，如果按下返回 true，否则为false              |
 | metaKey    | 是否按下 Mtea 键，如果按下返回 true，否则为false，仅 DOM 支持 |
-
-| 键位                    | 码值  | 键位                   | 码值  |
-| ----------------------- | ----- | ---------------------- | ----- |
-| 0~9（数字键）           | 48~57 | A~Z（字母键）          | 65~90 |
-| Backspace（退格键）     | 8     | Tab（制表键）          | 9     |
-| Enter（回车键）         | 13    | Space（空格键）        | 32    |
-| Left arrow（左箭头键）  | 37    | Top arrow（上箭头键）  | 38    |
-| Right arrow（右箭头键） | 39    | Down arrow（下箭头键） | 40    |
 
 | 属性                 | IE 事件模型                                                  | DOM 事件模型                                                 |
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -859,6 +847,7 @@ class Student extends Person {
 ### JavaScript 操作DOM:
 
 ```js
+
 document.designMode = 'on'    //页面所有元素可编辑
 
 ```
@@ -874,6 +863,7 @@ document.designMode = 'on'    //页面所有元素可编辑
 防抖是用于延迟执行某个函数，直到某个连续动作停止触发一段时间后才执行。在连续触发事件时，只有当一定的间隔时间过去后，才会触发该函数执行。这对于处理需等待一段时间后才执行的任务非常有用，比如：搜索框输入、窗口大小调整、按钮点击次数过多等。
 
 ```js
+
 //未封装直接使用防抖技术的
 let timer = null;
 function input () {
@@ -1044,6 +1034,7 @@ const throttle = (fn, delay) => {
 ### 实用语法：
 
 ```js
+
 // 浏览器控制视频速度代码：
 document.querySelector('video').playbackRate = 3
 

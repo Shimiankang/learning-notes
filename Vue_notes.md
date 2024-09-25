@@ -1,52 +1,101 @@
 # Vue笔记
 
-## 什么是Vue ？
+#### 介绍
 
-Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的渐进式框架。
+Vue.js（读音 /vjuː/, 类似于 view） 是一款构建用户界面的 JavaScript 框架。它基于 HTML、CSS 和 JavsScript 构建，并提供了一套声明式、组件化的模型，帮助我们高效的开发用户界面。Vue 只关注视图层， 采用自底向上增量开发的设计。
 
-Vue 只关注视图层， 采用自底向上增量开发的设计。
+#### 安装使用
 
+**通过Node.js包管理工具创建使用**
 
+```sh
 
-**使用方法：1.可以从官网上直接下载最新版，并用<script>标签引入。**
+# npm
+npm create vue@latest
 
-2.使用**CDN**方法.
+# pnpm 
+pnpm create vue@latest
 
-3.可以保存到本地用<script>标签引入。
+# yarn v2+
+yarn create vue@latest
 
-4.**NPM**方法，NPM方法安装慢，比较复杂。
+# yarn v4.11
+yarn dlx create-vue@latest
 
-
-
-**What is SEO（Search Engine Optimization）：** 汉译为搜索引擎优化。是一种方式：利用搜索引擎的规则提高网站的在有关搜索引擎内的自然排名。目的是让其在行业内占据领先地位，获得品牌效益。
-
-
-
-**SEO 流程图：**
-
-<img src="./img/SEO.png" />
-
+# bun
+bun create vue@latest
 
 
-#### Vue SEO 优化方案：
+# 安装依赖
+npm install
 
-**预渲染 SPA： **预渲染不仅可以优化 SEO 还可以解决首屏加载白屏问题。 使用 prereender-SPA-plugin 插件
+# 本地开发环境 启动项目
+npm run dev
+
+# 构建生产环境
+npm run build
+
+# yarn 安装依赖
+yarn 
+
+# yarn 启动
+yarn dev
+
+# yarn 构建
+yarn build
+```
 
 
 
-**静态化： **
+**通过CDN创建**
+
+```html
+
+<!-- 通过script标签引入vue直接使用 -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">
+	{{ message }}
+</div>
+
+<script>
+	const { createApp, ref } = Vue
+    
+    createApp({
+        setup() {
+            const message = ref('Hello world')
+            return {
+                message
+            }
+        }
+    }).mount('#app')
+</script>
+
+```
 
 
 
-**Phantomjs： **针对网络爬虫做处理
+
+
+### Vue SEO 优化方案
+
+**SEO（Search Engine Optimization）** 
+
+汉译为搜索引擎优化。是一种方式：利用搜索引擎的规则提高网站的在有关搜索引擎内的自然排名。目的是让其在行业内占据领先地位，获得品牌效益。
 
 
 
-**SSR 服务端渲染：** 服务端渲染就是在服务器发送到浏览器前，就将页面渲染上。
+**预渲染 SPA： ** 预渲染不仅可以优化 SEO 还可以解决首屏加载白屏问题。  prereender-spa-plugin
+
+**静态化： ** 静态化是 Nuxt.js 的另一种方式，页面速度加载很快。在 Nuxt.js 中执行 generate 静态化打包时，动态路由会被忽略
+
+**SSR 服务端渲染：**  服务端渲染就是在服务器发送到浏览器前，就将页面渲染上。
+
+**Phantomjs： ** 是一个基于 webkit 内核的无头浏览器，即没有UI界面，使用 Phantomjs 针对爬虫做处理。
 
 
 
-
+<img src="/img/seo.jpg"/>
 
 #### Vue模板语法：
 
@@ -79,9 +128,9 @@ Vue 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM �
 
 ```
 
-***使用 v-html 指令用于输出 html 代码***
+#### 使用 v-html 指令用于输出 html 代码
 
-例如：
+例如
 ``` html js
 
 <div id="example1" class="demo"> 
@@ -300,7 +349,10 @@ template 属性只是作为一个模板，显示数据，本身不是组件。
 
 this.$emit(arg1,arg2) arg1:方法名字，arg2:要传出的值
 
-**子组件：**
+
+
+**子组件**
+
 ``` vue
 
 <template>
@@ -328,7 +380,10 @@ this.$emit(arg1,arg2) arg1:方法名字，arg2:要传出的值
 ```
 我在button上绑定了一个点击事件，函数里面传出了一个方法名为toParent的方法，这时候我们就要去父组件接收这个函数，它会带一个返回值，这个返回值就是我们需要从子组件传的值。
 
-**父组件:**
+
+
+**父组件**
+
 ``` vue
 
 <template>
@@ -364,7 +419,7 @@ this.$emit(arg1,arg2) arg1:方法名字，arg2:要传出的值
 </script>
 
 ```
-<span style="font-weight:bold;color:red;font-style:italic;"> 组件（Component）是 Vue.js 最强大的功能之一。</span>
+<span style="font-weight:bold;color:red;"> 组件（Component）是 Vue.js 最强大的功能之一。</span>
 
 组件可以扩展 HTML 元素，封装可重用的代码。
 
@@ -555,20 +610,6 @@ let obj = {"a": 1,"b": 2};
 ```
 
 
-
-#### H-UI概述：
-
-子《道德经》曰：道生一，一生二，二生三，三生万物。
-
-H-ui前端框架将带你从点、线、面、体去剖析前端中的道！
-
-**点：**html标签、css属性、js语法
-
-**线：**由HTML+css+js 开发的组件、模块
-
-**面：**由组件组合起来的页面
-
-**体：**由多个页面组合起来的网站系统
 
 #### 生命周期钩子函数：
 
@@ -987,7 +1028,7 @@ setup(props,context,) {
 
 
 
-### Vue Keep-alive：
+### Vue Keep-alive
 
 1. 一般结合路由和动态组件一起使用，用于缓存组件；
 2. 提供 include 和 exclude 属性，两者都支持字符串或正则表达式，include 表示只有名称匹配的组件会被缓存 exclude 表示任何名称匹配的组件都不会被缓存，其中 exclude 的优先级比 include 的高；
@@ -996,7 +1037,7 @@ setup(props,context,) {
 ```vue
 
 <keep-alive>
-区域内的值会缓存
+	<!-- 区域内的值会缓存 -->
 </keep-alive>
 
 ```
@@ -1050,13 +1091,15 @@ serve 打包后的文件 -s
 
 
 
-## Nuxt
+# Nuxt
 
-**介绍：**Nuxt 的目标是以出色的开发者体验为核心，使 Web 开发变得更直观和高效。vue 用来实现 SSR（服务端渲染）的，为了使 SEO 优化更好的。一个基于 vue 的框架
+#### 介绍
+
+Nuxt 的目标是以出色的开发者体验为核心，使 Web 开发变得更直观和高效。vue 用来实现 SSR（服务端渲染）的，为了使 SEO 优化更好的。一个基于 vue 的框架
 
 
 
-##### 创建Nuxt项目：
+#### 安装使用
 
 使用模板仓库官方文档里的命令创建不行，只能拉去模板仓库
 
@@ -1068,28 +1111,28 @@ git clone https://gitee.com/datoukang/nuxt3-app.git
 # 然后安装依赖包
 # 要求node版本 >= 18.0.0
 yarn install
-或
+
 pnpm install
-或
+
 npm install
-或
+
 bun install
 
 # 运行  除了 yarn 命令不太一样其它一样
 npm run dev
-或
+
 yarn dev
 
 # 打包构建
 npm run build
-或
+
 yarn build
 
 # 本地预览
 npm run preview
-或
+
 yarn preview
 
 ```
 
-##### 部署项目：
+#### 打包部署

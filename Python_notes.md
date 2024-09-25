@@ -1,6 +1,14 @@
-# 学习Python
 
-### Python海龟制图：
+
+# Python
+
+#### 介绍
+
+Python 是一门易于学习、功能强大的编程语言。它提供了高效的高级数据结构，还能简单有效的面向对象编程。
+
+Python 优雅的语法和动态类型以及解释型语言的本质，使它成为多数平台上写脚本和快速开发应用的理想语言。
+
+#### Python海龟制图
 
 import  turtle   导入海归制图模块；
 
@@ -139,7 +147,7 @@ Ctrl + Shift + F：//高级查找
 ```
 
 
-## Pychon模块：
+## Pychon模块
 
 **python模块分为三类：内置模块、开源模块（第三方模块）、自定义模块**
 
@@ -169,7 +177,7 @@ Ctrl + Shift + F：//高级查找
 
 
 
-#### os模块：
+#### os模块
 ``` python
 
 变量 = os.path.dirname( "/datou/wk/demo.py" )	   # 返回路径名
@@ -178,7 +186,7 @@ Ctrl + Shift + F：//高级查找
 os.path.exists("/dir") 							# 判断该目录是否存在 存在返回 true
 
 ```
-#### threading模块：多线程
+#### threading模块（多线程）
 
 ``` python
 
@@ -198,9 +206,9 @@ if __name__ === "__main__":
         print(end-start)
         
 ```
-#### IDM模块：
+#### IDM模块
 
-#### Python with语句：
+#### Python with语句
 
 有一些任务，可能事先需要设置，事后做清理工作。对于这种场景，Python的with语句提供了一种非常方便的处理方式。一个很好的例子是文件处理，你需要获取一个文件句柄，从文件中读取数据，然后关闭文件句柄。
 
@@ -268,7 +276,7 @@ open(name[, mode[, buffering]])
 | a+   | 打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。 |
 | ab+  | 以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。 |
 
-#### BeautifulSoup：
+#### BeautifulSoup
 ``` python
 
 from bs4 import BeautifulSoup 
@@ -276,7 +284,7 @@ text = BeautifulSoup(html)
 print(text.select('a'))  #查看所有a标签   可以 #title 这样可以查看id为title的元素
 
 ```
-#### Python3 BIF内置函数：
+#### Python3 BIF内置函数
 ``` python
 
 #查看所有 内置函数 
@@ -295,7 +303,7 @@ complex(re,im)
 abs()  
 
 ```
-#### 转义字符：
+#### 转义字符
 ``` python
 
 print(r"D:\User\Dell")    # 输出结果  为  D:\User\Dell 
@@ -303,7 +311,7 @@ print("D:\\User\\Dell"")  # 输出结果  为  D:\User\Dell
       
 ```
 
-#### Python 语句：
+#### Python 语句
 ``` python
 
 a = "hello world" * 5             #赋值 5 个 hello world 给 a
@@ -311,7 +319,7 @@ a = """ 这个地方可以随便写文章 """   #长字符串  跨行字符串  
 a = 3 // 2                        #地板出  确保两个数相处的结果为整数 如果不是整数 就向下取整
 
 ```
-####  E记法：
+####  E记法
 
 ​	2e7，即：2 x10 x10 x10 x10 x10 x10 x10     
 

@@ -1,63 +1,38 @@
 # Linux
 
-## Shell命令：
+### 介绍
 
-Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。Ken Thompson 的 sh 是第一种 Unix Shell，
-
-Windows Explorer 是一个典型的图形界面 Shell。
-
-#### 变量：
-
-命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。
-
-中间不能有空格，可以使用下划线 _。
-
-不能使用标点符号。
-
-不能使用bash里的关键字（可用help命令查看保留关键字）。
-
-``` shell
-
-echo hello world               #输出 hello world
-your_name = "runoob.com"       #定义变量
-echo $your_name                #使用变量 需要加美元符号
-echo ${your_name}              #规范的使用
-unset your_name                #删除变量
-echo ${#your_name}             #获取字符串 长度
-echo ${#your_name: 1 : 4 }     #截取字符串 输出：unoo
-array = (value1 value2 value3) #定义 数组
-echo ${array[ 0 ]}             #使用数组
-echo ${array[@]}               #获取所有数组内数据
-
-```
+Linux，Linux Is Not UniX 的[递归缩写](https://baike.baidu.com/item/递归缩写/2216444?fromModule=lemma_inlink)，一般指GNU/Linux，是一套免费使用和自由传播的类Unix操作系统，是一个遵循POSIX的多用户、多任务、支持多线程和多[CPU](https://baike.baidu.com/item/CPU/120556?fromModule=lemma_inlink)的操作系统。
 
 
 
+Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。Linux有上百种不同的发行版，如基于社区开发的[Debian](https://baike.baidu.com/item/Debian/748667?fromModule=lemma_inlink)、[Arch Linux](https://baike.baidu.com/item/Arch Linux/8876099?fromModule=lemma_inlink)，和基于商业开发的[Red Hat Enterprise Linux](https://baike.baidu.com/item/Red Hat Enterprise Linux/10770503?fromModule=lemma_inlink)、[SUSE](https://baike.baidu.com/item/SUSE/60409?fromModule=lemma_inlink)、[Oracle Linux](https://baike.baidu.com/item/Oracle Linux/6876458?fromModule=lemma_inlink)等。
 
 
-## Linux常用命令：
+
+### Linux常用命令
 
 ```sh
 
-cd ..                          		#返回上一级 命令
-ls                             		#列出文件目录
-ctrl + l                       		#清除 屏幕命令
+cd ..                          		 #返回上一级 命令
+ls                             		 #列出文件目录
+ctrl + l                       		 #清除 屏幕命令
 mkdir [名称]							#新建文件夹
 rm [名称]								#删除文件 ‐r 管理员权限
-ifconfig							#查看网卡信息
-rz         					  		#选择文件进行上传
+ifconfig							  #查看网卡信息
+rz         					  		  #选择文件进行上传
 sz [文件名]							# sz后面跟文件名可以进行文件从linux上面下载
 locate [文件名]						#查找文件命令
-ps aux|grep [进程]					#对进程检测和控制
+ps aux|grep [进程]					 #对进程检测和控制
 
 # 检查端口是否被占用
 sudo netstat -tuln | grep [端口号]
-或者
+# 或者
 sudo ss -tuln | grep [端口号]
 
 
 ```
-## Linux 命令：
+### Linux 命令
 
 1. pwd：显示当前所在的目录路径
 2. ll：更详细的列出文件

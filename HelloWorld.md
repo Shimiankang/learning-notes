@@ -2,7 +2,39 @@
 
 Hello World 这个笔记主要及一些计算机相关知识，以及学习编程用的的工具、插件、包之类的。
 
-## CMD 命令：
+## Shell命令
+
+Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。Ken Thompson 的 sh 是第一种 Unix Shell，
+
+Windows Explorer 是一个典型的图形界面 Shell。
+
+#### 变量：
+
+命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。
+
+中间不能有空格，可以使用下划线 _。
+
+不能使用标点符号。
+
+不能使用bash里的关键字（可用help命令查看保留关键字）。
+
+``` shell
+echo hello world               #输出 hello world
+your_name = "runoob.com"       #定义变量
+echo $your_name                #使用变量 需要加美元符号
+echo ${your_name}              #规范的使用
+unset your_name                #删除变量
+echo ${#your_name}             #获取字符串 长度
+echo ${#your_name: 1 : 4 }     #截取字符串 输出：unoo
+array = (value1 value2 value3) #定义 数组
+echo ${array[ 0 ]}             #使用数组
+echo ${array[@]}               #获取所有数组内数据
+
+```
+
+
+
+## CMD 命令
 
  **win + r 输入cmd**
 
