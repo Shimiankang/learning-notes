@@ -558,28 +558,28 @@ textarea文本域去除右下角三角：resize:none;
 | run-in             | 此元素会根据上下文作为块级元素或内联元素显示。               |
 | compact            | CSS 中有值 compact，不过由于缺乏广泛支持，已经从 CSS2.1 中删除。 |
 | marker             | CSS 中有值 marker，不过由于缺乏广泛支持，已经从 CSS2.1 中删除。 |
-| table              | 此元素会作为块级表格来显示（类似 <table>），表格前后带有换行符。 |
-| inline-table       | 此元素会作为内联表格来显示（类似 <table>），表格前后没有换行符。 |
-| table-row-group    | 此元素会作为一个或多个行的分组来显示（类似 <tbody>）。       |
-| table-header-group | 此元素会作为一个或多个行的分组来显示（类似 <thead>）。       |
-| table-footer-group | 此元素会作为一个或多个行的分组来显示（类似 <tfoot>）。       |
-| table-row          | 此元素会作为一个表格行显示（类似 <tr>）。                    |
-| table-column-group | 此元素会作为一个或多个列的分组来显示（类似 <colgroup>）。    |
-| table-column       | 此元素会作为一个单元格列显示（类似 <col>）                   |
-| table-cell         | 此元素会作为一个表格单元格显示（类似 <td> 和 <th>）          |
-| table-caption      | 此元素会作为一个表格标题显示（类似 <caption>）               |
+| table              | 此元素会作为块级表格来显示（类似 table 标签），表格前后带有换行符。 |
+| inline-table       | 此元素会作为内联表格来显示（类似 table 标签），表格前后没有换行符。 |
+| table-row-group    | 此元素会作为一个或多个行的分组来显示（类似 tbody）。         |
+| table-header-group | 此元素会作为一个或多个行的分组来显示（类似 thead）。         |
+| table-footer-group | 此元素会作为一个或多个行的分组来显示（类似 tfoot）。         |
+| table-row          | 此元素会作为一个表格行显示（类似 tr）。                      |
+| table-column-group | 此元素会作为一个或多个列的分组来显示（类似 colgroup）。      |
+| table-column       | 此元素会作为一个单元格列显示（类似 col）                     |
+| table-cell         | 此元素会作为一个表格单元格显示（类似 <d 和 <h）              |
+| table-caption      | 此元素会作为一个表格标题显示（类似 caption）                 |
 | inherit            | 规定应该从父元素继承 display 属性的值。                      |
 | flex               | 该元素类的行为似块元素并且根据弹性盒模型布局它的内容         |
 | grid               | 该元素类的行为似块元素并且根据网络模型布局它的内容           |
 
 #### vertical-align ：属性设置元素的垂直对齐方式。
 
-**说明：**该属性定义行内元素的基线相对于该元素所在行的基线的垂直对齐方式
+**说明：** 该属性定义行内元素的基线相对于该元素所在行的基线的垂直对齐方式
 
 **属性列表：**
 
 | 值          | 描述                                                         |
-| :---------- | :----------------------------------------------------------- |
+| ---------- | ----------------------------------------------------------- |
 | baseline    | 默认。元素放置在父元素的基线上。                             |
 | sub         | 垂直对齐文本的下标。                                         |
 | super       | 垂直对齐文本的上标                                           |
@@ -614,8 +614,8 @@ textarea文本域去除右下角三角：resize:none;
 
 元素：
 
-1. 块级元素（block）：<h1>…<h6>、<p>、<div>、列表
-2. 内联元素(也叫行内元素)（inline）：<span>、<a>、<img/>、<strong>...
+1. 块级元素（block）：\<h1>…\<h6>、\<p>、\<div> 列表
+2. 内联元素(也叫行内元素)（inline）：\<span>、\<a>、\<img/>、\<strong>
 
 **HTML DOM：** HTML DOM是HTML Document Object Model（文档对象模型）
 
@@ -724,6 +724,7 @@ var c = document.getElementById("myCanvas");
 var ctx = c.getContext(2d);
     
 </script>
+
 ```
 
 ##### 颜色、样式和阴影
