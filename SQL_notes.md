@@ -87,9 +87,13 @@ create table 表名 （ id int, name varchar, index ( id )  ）default charset=u
 ALTER TABLE 表名 ADD [ UNIQUE | FULLTEXT | SPATIAL ] [ INDEX | KEY ]	[ 索引名称 ] ( col_name [ length ] , ... ) [ ADC | DESC ]
 ```
 
+## MySQL 基础用法
 
+```shell
+mysql -uroot -proot										#连接数据库 -u 用户 -p 密码 -h IP地址
+```
 
-## 数据库 语句：
+## 基本查询语法
 
 
 ``` sql
@@ -147,7 +151,7 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 
 
 
-## MySQL数据类型：
+## MySQL数据类型
 
 **数值类型：**   无符号类型  **UNSIGNED** 
 
@@ -204,7 +208,7 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 | {n}        | n 是一个非负整数。匹配确定的 n 次。例如，'o{2}' 不能匹配 "Bob" 中的 'o'，但是能匹配 "food" 中的两个 o。 |
 | {n,m}      | m 和 n 均为非负整数，其中n <= m。最少匹配 n 次且最多匹配 m 次。 |
 
-## MySQL函数：
+## MySQL函数
 
 | 函数                                  | 描述                                                         | 实例                                                         |
 | :------------------------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
@@ -240,7 +244,7 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 | UCASE(s)                              | 将字符串转换为大写                                           | 将字符串 runoob 转换为大写：`SELECT UCASE("runoob"); -- RUNOOB` |
 | UPPER(s)                              | 将字符串转换为大写                                           | 将字符串 runoob 转换为大写：`SELECT UPPER("runoob"); -- RUNOOB` |
 
-------
+
 
 ## MySQL 数字函数
 
@@ -341,7 +345,7 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 | YEAR(d)                                           | 返回年份                                                     | `SELECT YEAR("2017-06-15"); -> 2017`                         |
 | YEARWEEK(date, mode)                              | 返回年份及第几周（0到53），mode 中 0 表示周天，1表示周一，以此类推 | `SELECT YEARWEEK("2017-06-15"); -> 201724`                   |
 
-------
+
 
 ## MySQL 高级函数
 
@@ -369,10 +373,11 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 
 
 
-### 用到过的SQL语句：
+## 常用SQL
 
 
 ``` sql
+
 -- 查询 字段 第几个 字符 
 select SUBSTRING(url,16,3) from wk_photo_ablum where id != 1;
 
@@ -391,16 +396,8 @@ show full columns from 表名
 
 -- 修改数据表的 某个字段的编码规则
 ALTER TABLE 表名 MODIFY COLUMN 字段名 数据类型 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-```
-
-
-
-## MySQL 基础用法：
-
-
-
-```shell
-mysql -uroot -proot										#连接数据库 -u 用户 -p 密码 -h IP地址
 
 ```
+
+
 

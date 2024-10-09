@@ -2,7 +2,7 @@
 
 
 
-常用的配置 查看官方文档⇨：[https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html](https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html)
+查看官方文档⇨：[developers.weixin.qq.com/miniprogram/dev/framework/](https://developers.weixin.qq.com/miniprogram/dev/framework/)
 
 | 属性                                                         | 类型    | 必填 | 描述               |
 | ------------------------------------------------------------ | ------- | ---- | ------------------ |
@@ -155,7 +155,7 @@ Page({
 
 
 
-### 小程序中rpx与px：
+### 小程序中rpx与px
 
 **pt与px：**
 

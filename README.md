@@ -25,6 +25,3 @@
 | <a href="./Vue_notes.md">Vue_notes</a>             | Vue学习笔记                                                  |
 | <a href="./WeChatMP.md">WeChatMP</a>               | 微信小程序笔记                                               |
 
-
-
-咱也不知道为啥在Github上预览有些格式会很乱😵😵

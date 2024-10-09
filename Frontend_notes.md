@@ -55,7 +55,254 @@ H-ui前端框架将带你从点、线、面、体去剖析前端中的道！
 
 **体：**由多个页面组合起来的网站系统
 
-## HTML小笔记：
+## HTML笔记
+
+**HTML** （超文本标记语言 HypeText Markup Language）是构成 Web 世界的一砖一瓦。它定义了网页内容的含义和结构。除 HTML 以外的技术则通常用来描述一个网页的展示与表现效果（如 <a href="#CSS笔记">CSS</a> ）或功能与行为（如 <a href="./JavaScript.md">JavaScript</a>）。
+
+“超文本”（hpytertext）是指连接单个网站内或多个网站间的网页的链接。
+
+### HTML元素
+
+标准文档流：指元素根据块元素或行内元素的特性按从上到下，从左到右的方式自然排列。这也是元素默认的排列方式
+
+元素：
+
+1. 块级元素（block）：\<h1>…\<h6>、\<p>、\<div> 列表
+2. 内联元素(也叫行内元素)（inline）：\<span>、\<a>、\<img/>、\<strong>
+
+**HTML DOM：** HTML DOM是HTML Document Object Model（文档对象模型）
+
+**XHTML：** 更严格更纯净的基于 XML 的 HTML 版本。
+
+**XML：** 被设计用来传输和存储数据。
+
+**HTML：** 被设计用来显示数据。
+
+**SOPA：** 允许应用程序在 HTTP 之上交换信息的基于 XML 的协议。
+
+**XML DOM：** 访问和操作 XML 的标准文档模型。
+
+**Xpath：** 用于在 XML 文档中导航的语言。
+
+**Xquery:**  XQuery 之于 XML 作用就类似于 SQL 之于数据库的作用。XQuery 被设计用来查询 XML 数据。
+
+**Xpath语法：** XPath 使用路径表达式在 XML 文档中选取节点。节点是通过沿着路径或者 step 来选取的。
+
+``` xquery
+
+//div                      	选取当前div 
+//div[@class='test']/*     	选取当前div 类名为 test 里面所有的 内容
+
+```
+
+#### Xpath 参考语法手册：
+
+| 表达式   | 描述                                                       |
+| -------- | ---------------------------------------------------------- |
+| nodename | 选取此节点的所有子节点。                                   |
+| /        | 从根节点选取。                                             |
+| //       | 从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。 |
+| .        | 选取当前节点。                                             |
+| ..       | 选取当前节点的父节点。                                     |
+| @        | 选取属性。                                                 |
+
+
+
+实例：在下面的表格中，我们已列出了一些路径表达式以及表达式的结果：
+
+| 路径表达式      | 结果                                                         |
+| --------------- | ------------------------------------------------------------ |
+| bookstore       | 选取 bookstore 元素的所有子节点。                            |
+| /bookstore      | 选取根元素 bookstore。注释：假如路径起始于正斜杠( / )，则此路径始终代表到某元素的绝对路径！ |
+| bookstore/book  | 选取属于 bookstore 的子元素的所有 book 元素。                |
+| //book          | 选取所有 book 子元素，而不管它们在文档中的位置。             |
+| bookstore//book | 选择属于 bookstore 元素的后代的所有 book 元素，而不管它们位于 bookstore 之下的什么位置。 |
+| //@lang         | 选取名为 lang 的所有属性。                                   |
+
+谓语：谓语用来查找某个特定的节点或者包含某个指定的值的节点。谓语被嵌在方括号中。
+
+
+
+实例：
+
+| 路径表达式                         | 结果                                                         |
+| ---------------------------------- | ------------------------------------------------------------ |
+| /bookstore/book[1]                 | 选取属于 bookstore 子元素的第一个 book 元素。                |
+| /bookstore/book[last()]            | 选取属于 bookstore 子元素的最后一个 book 元素。              |
+| /bookstore/book[last()-1]          | 选取属于 bookstore 子元素的倒数第二个 book 元素。            |
+| /bookstore/book[position()<3]      | 选取最前面的两个属于 bookstore 元素的子元素的 book 元素。    |
+| //title[@lang]                     | 选取所有拥有名为 lang 的属性的 title 元素。                  |
+| //title[@lang='eng']               | 选取所有 title 元素，且这些元素拥有值为 eng 的 lang 属性。   |
+| /bookstore/book[price>35.00]       | 选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00。 |
+| /bookstore/book[price>35.00]/title | 选取 bookstore 元素中的 book 元素的所有 title 元素，且其中的 price 元素的值须大于 35.00。 |
+
+选取未知节点：
+
+| 通配符 | 描述                 |
+| ------ | -------------------- |
+| *      | 匹配任何元素节点。   |
+| @*     | 匹配任何属性节点。   |
+| node() | 匹配任何类型的节点。 |
+
+实例：
+
+| 路径表达式   | 结果                              |
+| ------------ | --------------------------------- |
+| /bookstore/* | 选取 bookstore 元素的所有子元素。 |
+| //*          | 选取文档中的所有元素。            |
+| //title[@*]  | 选取所有带有属性的 title 元素。   |
+
+选取若干路径：通过在路径表达式中使用“|”运算符，您可以选取若干个路径。
+
+| 路径表达式                       | 结果                                                         |
+| -------------------------------- | ------------------------------------------------------------ |
+| //book/title \| //book/price     | 选取 book 元素的所有 title 和 price 元素。                   |
+| //title \| //price               | 选取文档中的所有 title 和 price 元素。                       |
+| /bookstore/book/title \| //price | 选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。 |
+
+### Canvas画布：
+
+用于图形的绘制，通过JavaScript脚本来完成的；<canvas></canvas> 标签只是图形容器，必须使用脚本来绘制图形。
+
+```html
+<!-- 创建一个画布 -->
+
+<canvas id="myCanvas" width="500" height="500"></canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+    
+var ctx = c.getContext(2d);
+    
+</script>
+
+```
+
+##### 颜色、样式和阴影
+
+| 属性                                                         | 描述                                       |
+| :----------------------------------------------------------- | :----------------------------------------- |
+| [fillStyle](https://www.runoob.com/tags/canvas-fillstyle.html) | 设置或返回用于填充绘画的颜色、渐变或模式。 |
+| [strokeStyle](https://www.runoob.com/tags/canvas-strokestyle.html) | 设置或返回用于笔触的颜色、渐变或模式。     |
+| [shadowColor](https://www.runoob.com/tags/canvas-shadowcolor.html) | 设置或返回用于阴影的颜色。                 |
+| [shadowBlur](https://www.runoob.com/tags/canvas-shadowblur.html) | 设置或返回用于阴影的模糊级别。             |
+| [shadowOffsetX](https://www.runoob.com/tags/canvas-shadowoffsetx.html) | 设置或返回阴影与形状的水平距离。           |
+| [shadowOffsetY](https://www.runoob.com/tags/canvas-shadowoffsety.html) | 设置或返回阴影与形状的垂直距离。           |
+
+
+
+| 方法                                                         | 描述                                      |
+| :----------------------------------------------------------- | :---------------------------------------- |
+| [createLinearGradient()](https://www.runoob.com/tags/canvas-createlineargradient.html) | 创建线性渐变（用在画布内容上）。          |
+| [createPattern()](https://www.runoob.com/tags/canvas-createpattern.html) | 在指定的方向上重复指定的元素。            |
+| [createRadialGradient()](https://www.runoob.com/tags/canvas-createradialgradient.html) | 创建放射状/环形的渐变（用在画布内容上）。 |
+| [addColorStop()](https://www.runoob.com/tags/canvas-addcolorstop.html) | 规定渐变对象中的颜色和停止位置。          |
+
+##### 线条样式
+
+| 属性                                                         | 描述                                       |
+| :----------------------------------------------------------- | :----------------------------------------- |
+| [lineCap](https://www.runoob.com/tags/canvas-linecap.html)   | 设置或返回线条的结束端点样式。             |
+| [lineJoin](https://www.runoob.com/tags/canvas-linejoin.html) | 设置或返回两条线相交时，所创建的拐角类型。 |
+| [lineWidth](https://www.runoob.com/tags/canvas-linewidth.html) | 设置或返回当前的线条宽度。                 |
+| [miterLimit](https://www.runoob.com/tags/canvas-miterlimit.html) | 设置或返回最大斜接长度。                   |
+
+##### 矩形
+
+| 方法                                                         | 描述                           |
+| :----------------------------------------------------------- | :----------------------------- |
+| [rect()](https://www.runoob.com/tags/canvas-rect.html)       | 创建矩形。                     |
+| [fillRect()](https://www.runoob.com/tags/canvas-fillrect.html) | 绘制"被填充"的矩形。           |
+| [strokeRect()](https://www.runoob.com/tags/canvas-strokerect.html) | 绘制矩形（无填充）。           |
+| [clearRect()](https://www.runoob.com/tags/canvas-clearrect.html) | 在给定的矩形内清除指定的像素。 |
+
+##### 路径
+
+| 方法                                                         | 描述                                                      |
+| :----------------------------------------------------------- | :-------------------------------------------------------- |
+| [fill()](https://www.runoob.com/tags/canvas-fill.html)       | 填充当前绘图（路径）。                                    |
+| [stroke()](https://www.runoob.com/tags/canvas-stroke.html)   | 绘制已定义的路径。                                        |
+| [beginPath()](https://www.runoob.com/tags/canvas-beginpath.html) | 起始一条路径，或重置当前路径。                            |
+| [moveTo()](https://www.runoob.com/tags/canvas-moveto.html)   | 把路径移动到画布中的指定点，不创建线条。                  |
+| [closePath()](https://www.runoob.com/tags/canvas-closepath.html) | 创建从当前点回到起始点的路径。                            |
+| [lineTo()](https://www.runoob.com/tags/canvas-lineto.html)   | 添加一个新点，然后在画布中创建从该点到最后指定点的线条。  |
+| [clip()](https://www.runoob.com/tags/canvas-clip.html)       | 从原始画布剪切任意形状和尺寸的区域。                      |
+| [quadraticCurveTo()](https://www.runoob.com/tags/canvas-quadraticcurveto.html) | 创建二次贝塞尔曲线。                                      |
+| [bezierCurveTo()](https://www.runoob.com/tags/canvas-beziercurveto.html) | 创建三次贝塞尔曲线。                                      |
+| [arc()](https://www.runoob.com/tags/canvas-arc.html)         | 创建弧/曲线（用于创建圆形或部分圆）。                     |
+| [arcTo()](https://www.runoob.com/tags/canvas-arcto.html)     | 创建两切线之间的弧/曲线。                                 |
+| [isPointInPath()](https://www.runoob.com/tags/canvas-ispointinpath.html) | 如果指定的点位于当前路径中，则返回 true，否则返回 false。 |
+
+##### 转换
+
+| 方法                                                         | 描述                                             |
+| :----------------------------------------------------------- | :----------------------------------------------- |
+| [scale()](https://www.runoob.com/tags/canvas-scale.html)     | 缩放当前绘图至更大或更小。                       |
+| [rotate()](https://www.runoob.com/tags/canvas-rotate.html)   | 旋转当前绘图。                                   |
+| [translate()](https://www.runoob.com/tags/canvas-translate.html) | 重新映射画布上的 (0,0) 位置。                    |
+| [transform()](https://www.runoob.com/tags/canvas-transform.html) | 替换绘图的当前转换矩阵。                         |
+| [setTransform()](https://www.runoob.com/tags/canvas-settransform.html) | 将当前转换重置为单位矩阵。然后运行 transform()。 |
+
+##### 文本
+
+| 属性                                                         | 描述                                       |
+| :----------------------------------------------------------- | :----------------------------------------- |
+| [font](https://www.runoob.com/tags/canvas-font.html)         | 设置或返回文本内容的当前字体属性。         |
+| [textAlign](https://www.runoob.com/tags/canvas-textalign.html) | 设置或返回文本内容的当前对齐方式。         |
+| [textBaseline](https://www.runoob.com/tags/canvas-textbaseline.html) | 设置或返回在绘制文本时使用的当前文本基线。 |
+
+
+
+| 方法                                                         | 描述                         |
+| :----------------------------------------------------------- | :--------------------------- |
+| [fillText()](https://www.runoob.com/tags/canvas-filltext.html) | 在画布上绘制"被填充的"文本。 |
+| [strokeText()](https://www.runoob.com/tags/canvas-stroketext.html) | 在画布上绘制文本（无填充）。 |
+| [measureText()](https://www.runoob.com/tags/canvas-measuretext.html) | 返回包含指定文本宽度的对象。 |
+
+##### 图像绘制
+
+| 方法                                                         | 描述                           |
+| :----------------------------------------------------------- | :----------------------------- |
+| [drawImage()](https://www.runoob.com/tags/canvas-drawimage.html) | 向画布上绘制图像、画布或视频。 |
+
+##### 像素操作
+
+| 属性                                                         | 描述                                                  |
+| :----------------------------------------------------------- | :---------------------------------------------------- |
+| [width](https://www.runoob.com/tags/canvas-imagedata-width.html) | 返回 ImageData 对象的宽度。                           |
+| [height](https://www.runoob.com/tags/canvas-imagedata-height.html) | 返回 ImageData 对象的高度。                           |
+| [data](https://www.runoob.com/tags/canvas-imagedata-data.html) | 返回一个对象，其包含指定的 ImageData 对象的图像数据。 |
+
+
+
+| 方法                                                         | 描述                                                        |
+| :----------------------------------------------------------- | :---------------------------------------------------------- |
+| [createImageData()](https://www.runoob.com/tags/canvas-createimagedata.html) | 创建新的、空白的 ImageData 对象。                           |
+| [getImageData()](https://www.runoob.com/tags/canvas-getimagedata.html) | 返回 ImageData 对象，该对象为画布上指定的矩形复制像素数据。 |
+| [putImageData()](https://www.runoob.com/tags/canvas-putimagedata.html) | 把图像数据（从指定的 ImageData 对象）放回画布上。           |
+
+##### 合成
+
+| 属性                                                         | 描述                                     |
+| :----------------------------------------------------------- | :--------------------------------------- |
+| [globalAlpha](https://www.runoob.com/tags/canvas-globalalpha.html) | 设置或返回绘图的当前 alpha 或透明值。    |
+| [globalCompositeOperation](https://www.runoob.com/tags/canvas-globalcompositeoperation.html) | 设置或返回新图像如何绘制到已有的图像上。 |
+
+##### 其他
+
+| 方法          | 描述                             |
+| :------------ | :------------------------------- |
+| save()        | 保存当前环境的状态。             |
+| restore()     | 返回之前保存过的路径状态和属性。 |
+| createEvent() |                                  |
+| getContext()  |                                  |
+| toDataURL()   |                                  |
+
+Canvas教程：[https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial)
+
+### DOM：
+
+**XQuery： 基于 XML 的用于查询 XML 数据的语言。**
 
 **inert属性：**inert 属性是 HTMLElement 的一个布尔属性，意为"惰性"，简单来说，可以禁用一切交互，包括鼠标点击、选中、拖拽、键盘操作等。
 
@@ -87,9 +334,43 @@ H-ui前端框架将带你从点、线、面、体去剖析前端中的道！
 
 ```
 
+### HTML转义字符
+
+| 特殊字符  |   描述    | 实体名称  |
+| :-------: | :-------: | :-------: |
+| 【空格】  |   空格    |  \&nbsp;  |
+| 【Tab键】 |   Tab键   |  \&emsp;  |
+|     >     |  大于号   |   \&gt;   |
+|     <     |  小于号   |   \&lt;   |
+|    《     | 书名号-前 | \&laquo;  |
+|    》     | 书名号-后 | \&raquo;  |
+|     &     |   和号    |  \&amp;   |
+|     "     |   引号    |  \&quot;  |
+|     '     |  单引号   |  \&apos;  |
+|    ￥     |  人民币   |  \&yen;   |
+|     $     | 美元符号  |  \&#36;   |
+|     %     |  百分号   |  \&#37;   |
+|     ©     |   版权    |  \&copy;  |
+|     ®     | 注册商标  |  \&reg;   |
+|     ™     |   商标    | \&trade;  |
+|     x     |   乘号    | \&times;  |
+|     ÷     |   除号    | \&divide; |
+|     ±     |  正负号   | \&plusmn; |
+|     °     |  摄氏度   |  \&deg;   |
+|     ²     |   平方    |  \&sup2;  |
+|     ³     |   立方    |  \&sup3;  |
 
 
-## CSS小笔记：
+
+## CSS笔记
+
+**CSS 层叠样式表** （Cascading Style Sheets，缩写为 **CSS** ）是一种样式表语言，用来描述 <a href="#HTML笔记">HTML</a> 或 XML（包括：SVG、MathML、或XHTML之类的分支语言）。
+
+CSS 是 **开放Web** 的核心语言之一，并根据 W3C 规范在 Web 浏览器中进行了标准化
+
+
+
+
 
 **属性选择器：**
 
@@ -113,18 +394,18 @@ H-ui前端框架将带你从点、线、面、体去剖析前端中的道！
 
 ```scss
 
-font-style: normal/ italic; 					 // 设置文本为斜体
-font-weight: normal(100-500)/ bold(600-900); 	 // 设置文本为粗体
+font-style: normal / italic; 					 // 设置文本为斜体
+font-weight: normal(100-500) / bold(600-900); 	 // 设置文本为粗体
 font-family: “文本字体1”,”文本字体2”; 			    // 文本类型
-text-align: left/center/right;				     // 文本水平对齐方式
-vertical-align:top/middle/bottom;				 // 垂直对齐方式
+text-align: left / center / right;			     // 文本水平对齐方式
+vertical-align:top / middle / bottom;			 // 垂直对齐方式
 line-height: 25px;								 // 设置文本在一行内的高度
 color：#FFF;										// 设置字体颜色
 letter—spacing：1em;								// 定义字符间隔
 
 ```
 
-**文字省略号**：
+**文本省略号**：
 
 ```scss
 
@@ -132,7 +413,6 @@ overflow: hidden; 			// 溢位隐藏
 text-overflow: ellipsis; 	// 文字溢位隐藏为省略号
 -webkit-line-clamp: 3; 		// 设置行数为第三行
 white-space: nowrap;		// 设置行数为单行
-
 display: -webkit-box; 		
 -webkit-box-orient: vertical;
 
@@ -155,7 +435,7 @@ text-indent				// 首行缩进
 
 **文本大小写：**
 
-​	text-transform:
+text-transform:
 
 ​		uppercase 单词都大写
 
@@ -606,252 +886,9 @@ textarea文本域去除右下角三角：resize:none;
 
 
 
-## HTML部分：
 
-### HTML元素：
 
-标准文档流：指元素根据块元素或行内元素的特性按从上到下，从左到右的方式自然排列。这也是元素默认的排列方式
 
-元素：
-
-1. 块级元素（block）：\<h1>…\<h6>、\<p>、\<div> 列表
-2. 内联元素(也叫行内元素)（inline）：\<span>、\<a>、\<img/>、\<strong>
-
-**HTML DOM：** HTML DOM是HTML Document Object Model（文档对象模型）
-
-**XHTML：** 更严格更纯净的基于 XML 的 HTML 版本。
-
-**XML：** 被设计用来传输和存储数据。
-
-**HTML：** 被设计用来显示数据。
-
-**SOPA：** 允许应用程序在 HTTP 之上交换信息的基于 XML 的协议。
-
-**XML DOM：** 访问和操作 XML 的标准文档模型。
-
-**Xpath：** 用于在 XML 文档中导航的语言。
-
-**Xquery:**  XQuery 之于 XML 作用就类似于 SQL 之于数据库的作用。XQuery 被设计用来查询 XML 数据。
-
-
-
-**Xpath语法：** XPath 使用路径表达式在 XML 文档中选取节点。节点是通过沿着路径或者 step 来选取的。
-
-``` xquery
-
-Xpath语句： 又称Xquery
-//div                     选取当前div 
-//div[@class='test']/*    选取当前div 类名为 test 里面所有的 内容
-
-```
-#### Xpath 参考语法手册：
-
-| 表达式   | 描述                                                       |
-| -------- | ---------------------------------------------------------- |
-| nodename | 选取此节点的所有子节点。                                   |
-| /        | 从根节点选取。                                             |
-| //       | 从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。 |
-| .        | 选取当前节点。                                             |
-| ..       | 选取当前节点的父节点。                                     |
-| @        | 选取属性。                                                 |
-
-
-
-实例：在下面的表格中，我们已列出了一些路径表达式以及表达式的结果：
-
-| 路径表达式      | 结果                                                         |
-| --------------- | ------------------------------------------------------------ |
-| bookstore       | 选取 bookstore 元素的所有子节点。                            |
-| /bookstore      | 选取根元素 bookstore。注释：假如路径起始于正斜杠( / )，则此路径始终代表到某元素的绝对路径！ |
-| bookstore/book  | 选取属于 bookstore 的子元素的所有 book 元素。                |
-| //book          | 选取所有 book 子元素，而不管它们在文档中的位置。             |
-| bookstore//book | 选择属于 bookstore 元素的后代的所有 book 元素，而不管它们位于 bookstore 之下的什么位置。 |
-| //@lang         | 选取名为 lang 的所有属性。                                   |
-
-谓语：谓语用来查找某个特定的节点或者包含某个指定的值的节点。谓语被嵌在方括号中。
-
-
-
-实例：
-
-| 路径表达式                         | 结果                                                         |
-| ---------------------------------- | ------------------------------------------------------------ |
-| /bookstore/book[1]                 | 选取属于 bookstore 子元素的第一个 book 元素。                |
-| /bookstore/book[last()]            | 选取属于 bookstore 子元素的最后一个 book 元素。              |
-| /bookstore/book[last()-1]          | 选取属于 bookstore 子元素的倒数第二个 book 元素。            |
-| /bookstore/book[position()<3]      | 选取最前面的两个属于 bookstore 元素的子元素的 book 元素。    |
-| //title[@lang]                     | 选取所有拥有名为 lang 的属性的 title 元素。                  |
-| //title[@lang='eng']               | 选取所有 title 元素，且这些元素拥有值为 eng 的 lang 属性。   |
-| /bookstore/book[price>35.00]       | 选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00。 |
-| /bookstore/book[price>35.00]/title | 选取 bookstore 元素中的 book 元素的所有 title 元素，且其中的 price 元素的值须大于 35.00。 |
-
-选取未知节点：
-
-| 通配符 | 描述                 |
-| ------ | -------------------- |
-| *      | 匹配任何元素节点。   |
-| @*     | 匹配任何属性节点。   |
-| node() | 匹配任何类型的节点。 |
-
-实例：
-
-| 路径表达式   | 结果                              |
-| ------------ | --------------------------------- |
-| /bookstore/* | 选取 bookstore 元素的所有子元素。 |
-| //*          | 选取文档中的所有元素。            |
-| //title[@*]  | 选取所有带有属性的 title 元素。   |
-
-选取若干路径：通过在路径表达式中使用“|”运算符，您可以选取若干个路径。
-
-| 路径表达式                       | 结果                                                         |
-| -------------------------------- | ------------------------------------------------------------ |
-| //book/title \| //book/price     | 选取 book 元素的所有 title 和 price 元素。                   |
-| //title \| //price               | 选取文档中的所有 title 和 price 元素。                       |
-| /bookstore/book/title \| //price | 选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。 |
-
-### Canvas画布：
-
-用于图形的绘制，通过JavaScript脚本来完成的；<canvas></canvas> 标签只是图形容器，必须使用脚本来绘制图形。
-
-```html
-<!-- 创建一个画布 -->
-
-<canvas id="myCanvas" width="500" height="500"></canvas>
-
-<script>
-var c = document.getElementById("myCanvas");
-    
-var ctx = c.getContext(2d);
-    
-</script>
-
-```
-
-##### 颜色、样式和阴影
-
-| 属性                                                         | 描述                                       |
-| :----------------------------------------------------------- | :----------------------------------------- |
-| [fillStyle](https://www.runoob.com/tags/canvas-fillstyle.html) | 设置或返回用于填充绘画的颜色、渐变或模式。 |
-| [strokeStyle](https://www.runoob.com/tags/canvas-strokestyle.html) | 设置或返回用于笔触的颜色、渐变或模式。     |
-| [shadowColor](https://www.runoob.com/tags/canvas-shadowcolor.html) | 设置或返回用于阴影的颜色。                 |
-| [shadowBlur](https://www.runoob.com/tags/canvas-shadowblur.html) | 设置或返回用于阴影的模糊级别。             |
-| [shadowOffsetX](https://www.runoob.com/tags/canvas-shadowoffsetx.html) | 设置或返回阴影与形状的水平距离。           |
-| [shadowOffsetY](https://www.runoob.com/tags/canvas-shadowoffsety.html) | 设置或返回阴影与形状的垂直距离。           |
-
-
-
-| 方法                                                         | 描述                                      |
-| :----------------------------------------------------------- | :---------------------------------------- |
-| [createLinearGradient()](https://www.runoob.com/tags/canvas-createlineargradient.html) | 创建线性渐变（用在画布内容上）。          |
-| [createPattern()](https://www.runoob.com/tags/canvas-createpattern.html) | 在指定的方向上重复指定的元素。            |
-| [createRadialGradient()](https://www.runoob.com/tags/canvas-createradialgradient.html) | 创建放射状/环形的渐变（用在画布内容上）。 |
-| [addColorStop()](https://www.runoob.com/tags/canvas-addcolorstop.html) | 规定渐变对象中的颜色和停止位置。          |
-
-##### 线条样式
-
-| 属性                                                         | 描述                                       |
-| :----------------------------------------------------------- | :----------------------------------------- |
-| [lineCap](https://www.runoob.com/tags/canvas-linecap.html)   | 设置或返回线条的结束端点样式。             |
-| [lineJoin](https://www.runoob.com/tags/canvas-linejoin.html) | 设置或返回两条线相交时，所创建的拐角类型。 |
-| [lineWidth](https://www.runoob.com/tags/canvas-linewidth.html) | 设置或返回当前的线条宽度。                 |
-| [miterLimit](https://www.runoob.com/tags/canvas-miterlimit.html) | 设置或返回最大斜接长度。                   |
-
-##### 矩形
-
-| 方法                                                         | 描述                           |
-| :----------------------------------------------------------- | :----------------------------- |
-| [rect()](https://www.runoob.com/tags/canvas-rect.html)       | 创建矩形。                     |
-| [fillRect()](https://www.runoob.com/tags/canvas-fillrect.html) | 绘制"被填充"的矩形。           |
-| [strokeRect()](https://www.runoob.com/tags/canvas-strokerect.html) | 绘制矩形（无填充）。           |
-| [clearRect()](https://www.runoob.com/tags/canvas-clearrect.html) | 在给定的矩形内清除指定的像素。 |
-
-##### 路径
-
-| 方法                                                         | 描述                                                      |
-| :----------------------------------------------------------- | :-------------------------------------------------------- |
-| [fill()](https://www.runoob.com/tags/canvas-fill.html)       | 填充当前绘图（路径）。                                    |
-| [stroke()](https://www.runoob.com/tags/canvas-stroke.html)   | 绘制已定义的路径。                                        |
-| [beginPath()](https://www.runoob.com/tags/canvas-beginpath.html) | 起始一条路径，或重置当前路径。                            |
-| [moveTo()](https://www.runoob.com/tags/canvas-moveto.html)   | 把路径移动到画布中的指定点，不创建线条。                  |
-| [closePath()](https://www.runoob.com/tags/canvas-closepath.html) | 创建从当前点回到起始点的路径。                            |
-| [lineTo()](https://www.runoob.com/tags/canvas-lineto.html)   | 添加一个新点，然后在画布中创建从该点到最后指定点的线条。  |
-| [clip()](https://www.runoob.com/tags/canvas-clip.html)       | 从原始画布剪切任意形状和尺寸的区域。                      |
-| [quadraticCurveTo()](https://www.runoob.com/tags/canvas-quadraticcurveto.html) | 创建二次贝塞尔曲线。                                      |
-| [bezierCurveTo()](https://www.runoob.com/tags/canvas-beziercurveto.html) | 创建三次贝塞尔曲线。                                      |
-| [arc()](https://www.runoob.com/tags/canvas-arc.html)         | 创建弧/曲线（用于创建圆形或部分圆）。                     |
-| [arcTo()](https://www.runoob.com/tags/canvas-arcto.html)     | 创建两切线之间的弧/曲线。                                 |
-| [isPointInPath()](https://www.runoob.com/tags/canvas-ispointinpath.html) | 如果指定的点位于当前路径中，则返回 true，否则返回 false。 |
-
-##### 转换
-
-| 方法                                                         | 描述                                             |
-| :----------------------------------------------------------- | :----------------------------------------------- |
-| [scale()](https://www.runoob.com/tags/canvas-scale.html)     | 缩放当前绘图至更大或更小。                       |
-| [rotate()](https://www.runoob.com/tags/canvas-rotate.html)   | 旋转当前绘图。                                   |
-| [translate()](https://www.runoob.com/tags/canvas-translate.html) | 重新映射画布上的 (0,0) 位置。                    |
-| [transform()](https://www.runoob.com/tags/canvas-transform.html) | 替换绘图的当前转换矩阵。                         |
-| [setTransform()](https://www.runoob.com/tags/canvas-settransform.html) | 将当前转换重置为单位矩阵。然后运行 transform()。 |
-
-##### 文本
-
-| 属性                                                         | 描述                                       |
-| :----------------------------------------------------------- | :----------------------------------------- |
-| [font](https://www.runoob.com/tags/canvas-font.html)         | 设置或返回文本内容的当前字体属性。         |
-| [textAlign](https://www.runoob.com/tags/canvas-textalign.html) | 设置或返回文本内容的当前对齐方式。         |
-| [textBaseline](https://www.runoob.com/tags/canvas-textbaseline.html) | 设置或返回在绘制文本时使用的当前文本基线。 |
-
-
-
-| 方法                                                         | 描述                         |
-| :----------------------------------------------------------- | :--------------------------- |
-| [fillText()](https://www.runoob.com/tags/canvas-filltext.html) | 在画布上绘制"被填充的"文本。 |
-| [strokeText()](https://www.runoob.com/tags/canvas-stroketext.html) | 在画布上绘制文本（无填充）。 |
-| [measureText()](https://www.runoob.com/tags/canvas-measuretext.html) | 返回包含指定文本宽度的对象。 |
-
-##### 图像绘制
-
-| 方法                                                         | 描述                           |
-| :----------------------------------------------------------- | :----------------------------- |
-| [drawImage()](https://www.runoob.com/tags/canvas-drawimage.html) | 向画布上绘制图像、画布或视频。 |
-
-##### 像素操作
-
-| 属性                                                         | 描述                                                  |
-| :----------------------------------------------------------- | :---------------------------------------------------- |
-| [width](https://www.runoob.com/tags/canvas-imagedata-width.html) | 返回 ImageData 对象的宽度。                           |
-| [height](https://www.runoob.com/tags/canvas-imagedata-height.html) | 返回 ImageData 对象的高度。                           |
-| [data](https://www.runoob.com/tags/canvas-imagedata-data.html) | 返回一个对象，其包含指定的 ImageData 对象的图像数据。 |
-
-
-
-| 方法                                                         | 描述                                                        |
-| :----------------------------------------------------------- | :---------------------------------------------------------- |
-| [createImageData()](https://www.runoob.com/tags/canvas-createimagedata.html) | 创建新的、空白的 ImageData 对象。                           |
-| [getImageData()](https://www.runoob.com/tags/canvas-getimagedata.html) | 返回 ImageData 对象，该对象为画布上指定的矩形复制像素数据。 |
-| [putImageData()](https://www.runoob.com/tags/canvas-putimagedata.html) | 把图像数据（从指定的 ImageData 对象）放回画布上。           |
-
-##### 合成
-
-| 属性                                                         | 描述                                     |
-| :----------------------------------------------------------- | :--------------------------------------- |
-| [globalAlpha](https://www.runoob.com/tags/canvas-globalalpha.html) | 设置或返回绘图的当前 alpha 或透明值。    |
-| [globalCompositeOperation](https://www.runoob.com/tags/canvas-globalcompositeoperation.html) | 设置或返回新图像如何绘制到已有的图像上。 |
-
-##### 其他
-
-| 方法          | 描述                             |
-| :------------ | :------------------------------- |
-| save()        | 保存当前环境的状态。             |
-| restore()     | 返回之前保存过的路径状态和属性。 |
-| createEvent() |                                  |
-| getContext()  |                                  |
-| toDataURL()   |                                  |
-
-Canvas教程：[https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial)
-
-### DOM：
-
-**XQuery： 基于 XML 的用于查询 XML 数据的语言。**
 
 
 
@@ -878,39 +915,9 @@ Canvas教程：[https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tuto
 
 
 
-## HTML转义字符：
-
-| 特殊字符  |   描述    | 实体名称  |
-| :-------: | :-------: | :-------: |
-| 【空格】  |   空格    |  &nbsp ;  |
-| 【Tab键】 |   Tab键   |  &emsp ;  |
-|     >     |  大于号   |   &gt ;   |
-|     <     |  小于号   |   &lt ;   |
-|    《     | 书名号-前 | &laquo ;  |
-|    》     | 书名号-后 | &raquo ;  |
-|     &     |   和号    |  &amp ;   |
-|     "     |   引号    |  &quot ;  |
-|     '     |  单引号   |  &apos ;  |
-|    ￥     |  人民币   |  &yen ;   |
-|     $     | 美元符号  |  &#36 ;   |
-|     %     |  百分号   |  &#37 ;   |
-|     ©     |   版权    |  &copy ;  |
-|     ®     | 注册商标  |  &reg ;   |
-|     ™     |   商标    | &trade ;  |
-|     x     |   乘号    | &times ;  |
-|     ÷     |   除号    | &divide ; |
-|     ±     |  正负号   | &plusmn ; |
-|     °     |  摄氏度   |  &deg ;   |
-|     ²     |   平方    |  &sup2 ;  |
-|     ³     |   立方    |  &sup3 ;  |
-
-注：实体名称后面我又加了一个空格，防止解析成特殊字符。
 
 
-
-
-
-### 鱼皮的前端学习路线：
+### 鱼皮的前端学习路线
 
 
 

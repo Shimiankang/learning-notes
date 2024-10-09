@@ -13,7 +13,7 @@
         
 ```
 
-#### JavaScript 组成部分：
+#### JavaScript 组成部分
 
 ECMAScript 核心 
 
