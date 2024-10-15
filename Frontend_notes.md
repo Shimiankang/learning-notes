@@ -95,7 +95,7 @@ H-ui前端框架将带你从点、线、面、体去剖析前端中的道！
 
 ```
 
-#### Xpath 参考语法手册：
+#### Xpath 参考语法手册
 
 | 表达式   | 描述                                                       |
 | -------- | ---------------------------------------------------------- |
@@ -105,6 +105,7 @@ H-ui前端框架将带你从点、线、面、体去剖析前端中的道！
 | .        | 选取当前节点。                                             |
 | ..       | 选取当前节点的父节点。                                     |
 | @        | 选取属性。                                                 |
+| *        | 选取所有                                                   |
 
 
 
@@ -160,7 +161,7 @@ H-ui前端框架将带你从点、线、面、体去剖析前端中的道！
 | //title \| //price               | 选取文档中的所有 title 和 price 元素。                       |
 | /bookstore/book/title \| //price | 选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。 |
 
-### Canvas画布：
+### Canvas画布
 
 用于图形的绘制，通过JavaScript脚本来完成的；<canvas></canvas> 标签只是图形容器，必须使用脚本来绘制图形。
 
@@ -300,7 +301,7 @@ var ctx = c.getContext(2d);
 
 Canvas教程：[https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial)
 
-### DOM：
+### DOM
 
 **XQuery： 基于 XML 的用于查询 XML 数据的语言。**
 

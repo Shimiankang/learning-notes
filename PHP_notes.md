@@ -1,62 +1,76 @@
 # PHP笔记
 
+### 介绍
 
-##### PHP 官方手册：https://www.php.net/manual-lookup.php?pattern=manuai%2Fzh%2F&lang=zh&scope=404quickref
+PHP（“PHP：Hypertext Preprocessor”，超文本预处理器的首字母缩写）是一种被广泛应用到开放源代码的多用途脚本语言，它可以嵌入到 HTML 中，尤其适合 Web 开发。
 
-print_r ( )    打印
 
-include在引入不存文件时产生一个警告且脚本还会继续执行，
 
-require则会导致一个致命性错误且脚本停止执行。
+### 基础语法
 
-phpinfo ( ) 查看php详细信息
-
-$变量名 = 值 ;
-
-$a='1' ;  $b="1$a" ;   双引号与单引号的区别 ： 单引号不识别变量名，
-
-##### 而双引号识别；
-
-echo $a;   打印  print ( ) 打印 两者的区别是 echo 没有返回值而
-
-print（）有返回值；
-
-form 表单里：$GET $POST   两个传值方式
-
-$FILE    form表单后面必须加  enctype=" multipart/form-data "；
-
-##### 服务器端：检索文件，并相应客户端的HTTP请求=Apache、Nginx=服务器；
-
-B/S架构的软件：phpstudy_pro，
-
-server = 服务器
-
-borrow = 浏览器
-
-WAMP :  W = window       A=Apache        M=MySqL         P=php
-
-WNMP：W = window       N=Nginx        M=MySqL         P=php
-
-##### 同理还有  MAMP 就是苹果电脑的 还有 LAMP 是Linux的；
-
-echo substr("Hello world",6);  字符返回‘world’
-
-substr(string,start,length)  字符串截取
-
-##### PHP函数：
+PHP中变量名以 **$** 符号开头，没行语句结尾必须要加 **;** 分号
 
 ```php
 
-exit(); // 退出 执行到这一步 下面的代码就不会执行了；
+print_r();	    		// 打印
+
+include file.php;  		// 在引入不存文件时产生一个警告且脚本还会继续执行，
+
+require file.php;		// 则会导致一个致命性错误且脚本停止执行。
+
+phpinfo();				// 查看php详细信息
+
+$name=value;			// 变量名前要加$符号
+
+$a='1';
+$b="1$a";   			// 双引号与单引号的区别: 单引号不识别变量名
 
 ```
-#### PHP数学函数：
 
-###### 常见的：
+嵌入HTML文件中
 
-abs ( ) 求绝对值  ； floor ( ) 舍去法取整； ceil（） 进一法取整； round（） 四舍五入； min（）最小值；max（）最大值；
+```html
 
-##### 完整一点的：
+<?php print('Hello PHP') ?>
+
+```
+
+
+
+### PHP函数
+
+```php
+
+array_unshift(); 	// 函数降新元素添加到数组头部；
+array_push();		// 函数将每一个新元素添加到数组的末尾；
+array_shift(); 		// 删除数组第一个元素；array_pop ( ) 删除并返回数组末尾的第一个元素；
+array_rand(); 		// 返回数组中的一个或多个键；
+explode();			// 将字符串转换成数组；implode（）将数组转换成字符串；
+
+// 例如：a=explode（ "分隔符" ,$string）这样就把$string 字符以分隔符的方式转换成了数组
+
+is_array(); 		// 判断是否是数组
+is_float(); 
+is_double();
+is_real();			// 是否是浮点类型
+
+is_int();
+is_integer();
+is_long(); 		// 判断是否是整型； 
+
+is_string(); 	// 判断是否是字符串； 
+is_object(); 	// 判断是否是对象；
+
+is_resource();	// 判断是否是资源对象； 
+is_null();		// 判断是否是空；
+
+is_numeric()	// 判断是否是任何类型的数字或数字字符串；
+
+empty();		// 用来判断一个变量的值是否为空，如果为空则返回 true 否则false；
+exit(); 		// 退出 执行到这一步 下面的代码就不会执行了；
+
+```
+#### 数学函数
 
 | 函数                                                         | 描述                                                  |
 | :----------------------------------------------------------- | :---------------------------------------------------- |
@@ -111,7 +125,7 @@ abs ( ) 求绝对值  ； floor ( ) 舍去法取整； ceil（） 进一法取�
 
 
 
-## PHP 5 预定义的 Math 常量
+### PHP5 预定义的 Math 常量
 
 | 常量                | 值                     | 描述                                  | PHP 版本 |
 | :------------------ | :--------------------- | :------------------------------------ | :------- |
@@ -153,31 +167,7 @@ __ METHOD __  当前的方法名； __ FUNCTION __  当前的函数名称；
 
 NULL  空值；
 
-#### PHP函数：
-
-array_unshift ( ) 函数降新元素添加到数组头部；array_push（）函数将每一个新元素添加到数组的末尾；
-
-array_shift ( ) 删除数组第一个元素；array_pop ( ) 删除并返回数组末尾的第一个元素；
-
-array_rand ( ) 返回数组中的一个或多个键；
-
-explode ( ) 将字符串转换成数组；implode（）将数组转换成字符串；
-
-例如：a=explode（ "分隔符" ,$string）这样就把$string 字符以分隔符的方式转换成了数组
-
-is_array ( ) 判断是否是数组； is_float ( ) 、is_double ( ) 、is_real () 是否是浮点类型；
-
-is_int ( ) 、is_integer ( ) 、is_long ( ) 判断是否是整型； is_string ( ) 判断是否是字符串； is_object ( ) 判断是否是对象；
-
-is_resource ( ) 判断是否是资源对象； is_null ( ) 判断是否是空；
-
-Is_numeric ( ) 判断是否是任何类型的数字或数字字符串；
-
-empty（）用来判断一个变量的值是否为空，如果为空则返回 true 否则false；
-
-#### PHP数组函数：
-
-##### 参考手册：
+#### PHP数组函数
 
 | 函数                                                         | 描述                                                         |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
@@ -264,114 +254,9 @@ empty（）用来判断一个变量的值是否为空，如果为空则返回 tr
 
 #### PHP字符串函数：
 
-###### strip_tags（字符串，规定允许的标签）将HTML标签过滤掉；
+strip_tags（字符串，规定允许的标签）将HTML标签过滤掉；
 
-##### 参考手册：
-
-| 函数                                                         | 描述                                                         |
-| :----------------------------------------------------------- | :----------------------------------------------------------- |
-| [addcslashes()](https://www.runoob.com/php/func-string-addcslashes.html) | 返回在指定的字符前添加反斜杠的字符串。                       |
-| [addslashes()](https://www.runoob.com/php/func-string-addslashes.html) | 返回在预定义的字符前添加反斜杠的字符串。                     |
-| [bin2hex()](https://www.runoob.com/php/func-string-bin2hex.html) | 把 ASCII 字符的字符串转换为十六进制值。                      |
-| [chop()](https://www.runoob.com/php/func-string-chop.html)   | 移除字符串右侧的空白字符或其他字符。                         |
-| [chr()](https://www.runoob.com/php/func-string-chr.html)     | 从指定 ASCII 值返回字符。                                    |
-| [chunk_split()](https://www.runoob.com/php/func-string-chunk-split.html) | 把字符串分割为一连串更小的部分。                             |
-| [convert_cyr_string()](https://www.runoob.com/php/func-string-convert-cyr-string.html) | 把字符串由一种 Cyrillic 字符集转换成另一种。                 |
-| [convert_uudecode()](https://www.runoob.com/php/func-string-convert-uudecode.html) | 对 uuencode 编码的字符串进行解码。                           |
-| [convert_uuencode()](https://www.runoob.com/php/func-string-convert-uuencode.html) | 使用 uuencode 算法对字符串进行编码。                         |
-| [count_chars()](https://www.runoob.com/php/func-string-count-chars.html) | 返回字符串所用字符的信息。                                   |
-| [crc32()](https://www.runoob.com/php/func-string-crc32.html) | 计算一个字符串的 32 位 CRC（循环冗余校验）。                 |
-| [crypt()](https://www.runoob.com/php/func-string-crypt.html) | 单向的字符串加密法（hashing）。                              |
-| [echo()](https://www.runoob.com/php/func-string-echo.html)   | 输出一个或多个字符串。                                       |
-| [explode()](https://www.runoob.com/php/func-string-explode.html) | 把字符串打散为数组。                                         |
-| [fprintf()](https://www.runoob.com/php/func-string-fprintf.html) | 把格式化的字符串写入到指定的输出流。                         |
-| [get_html_translation_table()](https://www.runoob.com/php/func-string-get-html-translation-table.html) | 返回 htmlspecialchars() 和 htmlentities() 使用的翻译表。     |
-| [hebrev()](https://www.runoob.com/php/func-string-hebrev.html) | 把希伯来（Hebrew）文本转换为可见文本。                       |
-| [hebrevc()](https://www.runoob.com/php/func-string-hebrevc.html) | 把希伯来（Hebrew）文本转换为可见文本，并把新行（\n）转换为 <br>。 |
-| [hex2bin()](https://www.runoob.com/php/func-string-hex2bin.html) | 把十六进制值的字符串转换为 ASCII 字符。                      |
-| [html_entity_decode()](https://www.runoob.com/php/func-string-html-entity-decode.html) | 把 HTML 实体转换为字符。                                     |
-| [htmlentities()](https://www.runoob.com/php/func-string-htmlentities.html) | 把字符转换为 HTML 实体。                                     |
-| [htmlspecialchars_decode()](https://www.runoob.com/php/func-string-htmlspecialchars-decode.html) | 把一些预定义的 HTML 实体转换为字符。                         |
-| [htmlspecialchars()](https://www.runoob.com/php/func-string-htmlspecialchars.html) | 把一些预定义的字符转换为 HTML 实体。                         |
-| [implode()](https://www.runoob.com/php/func-string-implode.html) | 返回一个由数组元素组合成的字符串。                           |
-| [join()](https://www.runoob.com/php/func-string-join.html)   | implode() 的别名。                                           |
-| [lcfirst()](https://www.runoob.com/php/func-string-lcfirst.html) | 把字符串中的首字符转换为小写。                               |
-| [levenshtein()](https://www.runoob.com/php/func-string-levenshtein.html) | 返回两个字符串之间的 Levenshtein 距离。                      |
-| [localeconv()](https://www.runoob.com/php/func-string-localeconv.html) | 返回本地数字及货币格式信息。                                 |
-| [ltrim()](https://www.runoob.com/php/func-string-ltrim.html) | 移除字符串左侧的空白字符或其他字符。                         |
-| [md5()](https://www.runoob.com/php/func-string-md5.html)     | 计算字符串的 MD5 散列。                                      |
-| [md5_file()](https://www.runoob.com/php/func-string-md5-file.html) | 计算文件的 MD5 散列。                                        |
-| [metaphone()](https://www.runoob.com/php/func-string-metaphone.html) | 计算字符串的 metaphone 键。                                  |
-| [money_format()](https://www.runoob.com/php/func-string-money-format.html) | 返回格式化为货币字符串的字符串。                             |
-| [nl_langinfo()](https://www.runoob.com/php/func-string-nl-langinfo.html) | 返回指定的本地信息。                                         |
-| [nl2br()](https://www.runoob.com/php/func-string-nl2br.html) | 在字符串中的每个新行之前插入 HTML 换行符。                   |
-| [number_format()](https://www.runoob.com/php/func-string-number-format.html) | 通过千位分组来格式化数字。                                   |
-| [ord()](https://www.runoob.com/php/func-string-ord.html)     | 返回字符串中第一个字符的 ASCII 值。                          |
-| [parse_str()](https://www.runoob.com/php/func-string-parse-str.html) | 把查询字符串解析到变量中。                                   |
-| [print()](https://www.runoob.com/php/func-string-print.html) | 输出一个或多个字符串。                                       |
-| [printf()](https://www.runoob.com/php/func-string-printf.html) | 输出格式化的字符串。                                         |
-| [quoted_printable_decode()](https://www.runoob.com/php/func-string-quoted-printable-decode.html) | 把 quoted-printable 字符串转换为 8 位字符串。                |
-| [quoted_printable_encode()](https://www.runoob.com/php/func-string-quoted-printable-encode.html) | 把 8 位字符串转换为 quoted-printable 字符串。                |
-| [quotemeta()](https://www.runoob.com/php/func-string-quotemeta.html) | 引用元字符。                                                 |
-| [rtrim()](https://www.runoob.com/php/func-string-rtrim.html) | 移除字符串右侧的空白字符或其他字符。                         |
-| [setlocale()](https://www.runoob.com/php/func-string-setlocale.html) | 设置地区信息（地域信息）。                                   |
-| [sha1()](https://www.runoob.com/php/func-string-sha1.html)   | 计算字符串的 SHA-1 散列。                                    |
-| [sha1_file()](https://www.runoob.com/php/func-string-sha1-file.html) | 计算文件的 SHA-1 散列。                                      |
-| [similar_text()](https://www.runoob.com/php/func-string-similar-text.html) | 计算两个字符串的相似度。                                     |
-| [soundex()](https://www.runoob.com/php/func-string-soundex.html) | 计算字符串的 soundex 键。                                    |
-| [sprintf()](https://www.runoob.com/php/func-string-sprintf.html) | 把格式化的字符串写入一个变量中。                             |
-| [sscanf()](https://www.runoob.com/php/func-string-sscanf.html) | 根据指定的格式解析来自一个字符串的输入。                     |
-| [str_getcsv()](https://www.runoob.com/php/func-string-str-getcsv.html) | 把 CSV 字符串解析到数组中。                                  |
-| [str_ireplace()](https://www.runoob.com/php/func-string-str-ireplace.html) | 替换字符串中的一些字符（大小写不敏感）。                     |
-| [str_pad()](https://www.runoob.com/php/func-string-str-pad.html) | 把字符串填充为新的长度。                                     |
-| [str_repeat()](https://www.runoob.com/php/func-string-str-repeat.html) | 把字符串重复指定的次数。                                     |
-| [str_replace()](https://www.runoob.com/php/func-string-str-replace.html) | 替换字符串中的一些字符（大小写敏感）。                       |
-| [str_rot13()](https://www.runoob.com/php/func-string-str-rot13.html) | 对字符串执行 ROT13 编码。                                    |
-| [str_shuffle()](https://www.runoob.com/php/func-string-str-shuffle.html) | 随机地打乱字符串中的所有字符。                               |
-| [str_split()](https://www.runoob.com/php/func-string-str-split.html) | 把字符串分割到数组中。                                       |
-| [str_word_count()](https://www.runoob.com/php/func-string-str-word-count.html) | 计算字符串中的单词数。                                       |
-| [strcasecmp()](https://www.runoob.com/php/func-string-strcasecmp.html) | 比较两个字符串（大小写不敏感）。                             |
-| [strchr()](https://www.runoob.com/php/func-string-strchr.html) | 查找字符串在另一字符串中的第一次出现。（strstr() 的别名。）  |
-| [strcmp()](https://www.runoob.com/php/func-string-strcmp.html) | 比较两个字符串（大小写敏感）。                               |
-| [strcoll()](https://www.runoob.com/php/func-string-strcoll.html) | 比较两个字符串（根据本地设置）。                             |
-| [strcspn()](https://www.runoob.com/php/func-string-strcspn.html) | 返回在找到任何指定的字符之前，在字符串查找的字符数。         |
-| [strip_tags()](https://www.runoob.com/php/func-string-strip-tags.html) | 剥去字符串中的 HTML 和 PHP 标签。                            |
-| [stripcslashes()](https://www.runoob.com/php/func-string-stripcslashes.html) | 删除由 addcslashes() 函数添加的反斜杠。                      |
-| [stripslashes()](https://www.runoob.com/php/func-string-stripslashes.html) | 删除由 addslashes() 函数添加的反斜杠。                       |
-| [stripos()](https://www.runoob.com/php/func-string-stripos.html) | 返回字符串在另一字符串中第一次出现的位置（大小写不敏感）。   |
-| [stristr()](https://www.runoob.com/php/func-string-stristr.html) | 查找字符串在另一字符串中第一次出现的位置（大小写不敏感）。   |
-| [strlen()](https://www.runoob.com/php/func-string-strlen.html) | 返回字符串的长度。中文字符串的处理使用 [mb_strlen() 函数](https://www.runoob.com/php/func-string-mb_strlen.html)。 |
-| [strnatcasecmp()](https://www.runoob.com/php/func-string-strnatcasecmp.html) | 使用一种"自然排序"算法来比较两个字符串（大小写不敏感）。     |
-| [strnatcmp()](https://www.runoob.com/php/func-string-strnatcmp.html) | 使用一种"自然排序"算法来比较两个字符串（大小写敏感）。       |
-| [strncasecmp()](https://www.runoob.com/php/func-string-strncasecmp.html) | 前 n 个字符的字符串比较（大小写不敏感）。                    |
-| [strncmp()](https://www.runoob.com/php/func-string-strncmp.html) | 前 n 个字符的字符串比较（大小写敏感）。                      |
-| [strpbrk()](https://www.runoob.com/php/func-string-strpbrk.html) | 在字符串中搜索指定字符中的任意一个。                         |
-| [strpos()](https://www.runoob.com/php/func-string-strpos.html) | 返回字符串在另一字符串中第一次出现的位置（大小写敏感）。     |
-| [strrchr()](https://www.runoob.com/php/func-string-strrchr.html) | 查找字符串在另一个字符串中最后一次出现。                     |
-| [strrev()](https://www.runoob.com/php/func-string-strrev.html) | 反转字符串。                                                 |
-| [strripos()](https://www.runoob.com/php/func-string-strripos.html) | 查找字符串在另一字符串中最后一次出现的位置(大小写不敏感)。   |
-| [strrpos()](https://www.runoob.com/php/func-string-strrpos.html) | 查找字符串在另一字符串中最后一次出现的位置(大小写敏感)。     |
-| [strspn()](https://www.runoob.com/php/func-string-strspn.html) | 返回在字符串中包含的特定字符的数目。                         |
-| [strstr()](https://www.runoob.com/php/func-string-strstr.html) | 查找字符串在另一字符串中的第一次出现（大小写敏感）。         |
-| [strtok()](https://www.runoob.com/php/func-string-strtok.html) | 把字符串分割为更小的字符串。                                 |
-| [strtolower()](https://www.runoob.com/php/func-string-strtolower.html) | 把字符串转换为小写字母。                                     |
-| [strtoupper()](https://www.runoob.com/php/func-string-strtoupper.html) | 把字符串转换为大写字母。                                     |
-| [strtr()](https://www.runoob.com/php/func-string-strtr.html) | 转换字符串中特定的字符。                                     |
-| [substr()](https://www.runoob.com/php/func-string-substr.html) | 返回字符串的一部分。                                         |
-|                                                              |                                                              |
-| [mb_substr()](https://www.runoob.com/php/func-string-mb_substr.html) | 返回中文字符串的一部分。                                     |
-| [substr_compare()](https://www.runoob.com/php/func-string-substr-compare.html) | 从指定的开始位置（二进制安全和选择性区分大小写）比较两个字符串。 |
-| [substr_count()](https://www.runoob.com/php/func-string-substr-count.html) | 计算子串在字符串中出现的次数。                               |
-| [substr_replace()](https://www.runoob.com/php/func-string-substr-replace.html) | 把字符串的一部分替换为另一个字符串。                         |
-| [trim()](https://www.runoob.com/php/func-string-trim.html)   | 移除字符串两侧的空白字符和其他字符。                         |
-| [ucfirst()](https://www.runoob.com/php/func-string-ucfirst.html) | 把字符串中的首字符转换为大写。                               |
-| [ucwords()](https://www.runoob.com/php/func-string-ucwords.html) | 把字符串中每个单词的首字符转换为大写。                       |
-| [vfprintf()](https://www.runoob.com/php/func-string-vfprintf.html) | 把格式化的字符串写到指定的输出流。                           |
-| [vprintf()](https://www.runoob.com/php/func-string-vprintf.html) | 输出格式化的字符串。                                         |
-| [vsprintf()](https://www.runoob.com/php/func-string-vsprintf.html) | 把格式化字符串写入变量中。                                   |
-| [wordwrap()](https://www.runoob.com/php/func-string-wordwrap.html) | 按照指定长度对字符串进行折行处理。                           |
-
-#### PHP正则表达式：
+#### PHP正则表达式
 ``` php
 
 // 例如：
@@ -404,7 +289,7 @@ preg_replace_callback() 、
 
 preg_split()
 
-##### 参考表：
+##### 参考表
 
 | 特别字符 | 描述                                                         |
 | -------- | ------------------------------------------------------------ |
@@ -420,12 +305,14 @@ preg_split()
 | {        | 标记限定符表达式的开始。要匹配 {，请使⽤ \{。                |
 | \|       | 指明两项之间的⼀个选择。要匹配 \|，请使⽤ \|。               |
 
-#### PHP磁盘、目录和文件夹操作：
+
+
+#### PHP磁盘、目录和文件夹操作
 
 ``` php
-opendir(path,context)		// 打开目录句柄
+opendir(path,context);		// 打开目录句柄
 
-$file = __FILE__;
+$file = __FILE__;
 
 echo "<pre>";
 echo "<br/>";
@@ -443,7 +330,7 @@ fopen(filename,mode,include_path,context)  //fopen函数打开一个url或一个
 
 
 
-##### 参考表：
+##### 参考表
 
 | 参数         | 描述                                                         |
 | ------------ | ------------------------------------------------------------ |
@@ -452,7 +339,8 @@ fopen(filename,mode,include_path,context)  //fopen函数打开一个url或一个
 | include_path | 可选。如果您还想在 include_path（在 php.ini 中）中搜索文件的话，请设置该参数为 '1'。 |
 | context      | 可选。规定文件句柄的环境。context 是一套可以修改流的行为的选项。 |
 
-#### PHP表单提交or数据库连接：
+### PHP表单提交
+
 ``` php
 
 // 提交方式or内置数组：
@@ -482,81 +370,7 @@ $_FILES['file']['error']
 
 其值为 7，文件写入失败。PHP 5.1.0 引进。
 
-##### MySQL内置函数 参考手册：
-
-| 函数                                                         | 描述                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [mysqli_affected_rows()](https://www.runoob.com/php/func-mysqli-affected-rows.html) | 返回前一次 MySQL 操作所影响的记录行数。                      |
-| [mysqli_autocommit()](https://www.runoob.com/php/func-mysqli-autocommit.html) | 打开或关闭自动提交数据库修改。                               |
-| [mysqli_change_user()](https://www.runoob.com/php/func-mysqli-change-user.html) | 更改指定数据库连接的用户。                                   |
-| [mysqli_character_set_name()](https://www.runoob.com/php/func-mysqli-character-set-name.html) | 返回数据库连接的默认字符集。                                 |
-| [mysqli_close()](https://www.runoob.com/php/func-mysqli-close.html) | 关闭先前打开的数据库连接。                                   |
-| [mysqli_commit()](https://www.runoob.com/php/func-mysqli-commit.html) | 提交当前事务。                                               |
-| [mysqli_connect_errno()](https://www.runoob.com/php/func-mysqli-connect-errno.html) | 返回上一次连接错误的错误代码。                               |
-| [mysqli_connect_error()](https://www.runoob.com/php/func-mysqli-connect-error.html) | 返回上一次连接错误的错误描述。                               |
-| [mysqli_connect()](https://www.runoob.com/php/func-mysqli-connect.html) | 打开一个到 MySQL 服务器的新的连接。                          |
-| [mysqli_data_seek()](https://www.runoob.com/php/func-mysqli-data-seek.html) | 调整结果指针到结果集中的一个任意行。                         |
-| [mysqli_debug()](https://www.runoob.com/php/func-mysqli-debug.html) | 执行调试操作。                                               |
-| [mysqli_dump_debug_info()](https://www.runoob.com/php/func-mysqli-dump-debug-info.html) | 转储调试信息到日志中。                                       |
-| [mysqli_errno()](https://www.runoob.com/php/func-mysqli-errno.html) | 返回最近调用函数的最后一个错误代码。                         |
-| [mysqli_error_list()](https://www.runoob.com/php/func-mysqli-error-list.html) | 返回最近调用函数的错误列表。                                 |
-| [mysqli_error()](https://www.runoob.com/php/func-mysqli-error.html) | 返回最近调用函数的最后一个错误描述。                         |
-| [mysqli_fetch_all()](https://www.runoob.com/php/func-mysqli-fetch-all.html) | 从结果集中取得所有行作为关联数组，或数字数组，或二者兼有。   |
-| [mysqli_fetch_array()](https://www.runoob.com/php/func-mysqli-fetch-array.html) | 从结果集中取得一行作为关联数组，或数字数组，或二者兼有。     |
-| [mysqli_fetch_assoc()](https://www.runoob.com/php/func-mysqli-fetch-assoc.html) | 从结果集中取得一行作为关联数组。                             |
-| [mysqli_fetch_field_direct()](https://www.runoob.com/php/func-mysqli-fetch-field-direct.html) | 从结果集中取得某个单一字段的 meta-data，并作为对象返回。     |
-| [mysqli_fetch_field()](https://www.runoob.com/php/func-mysqli-fetch-field.html) | 从结果集中取得下一字段，并作为对象返回。                     |
-| [mysqli_fetch_fields()](https://www.runoob.com/php/func-mysqli-fetch-fields.html) | 返回结果中代表字段的对象的数组。                             |
-| [mysqli_fetch_lengths()](https://www.runoob.com/php/func-mysqli-fetch-lengths.html) | 返回结果集中当前行的每个列的长度。                           |
-| [mysqli_fetch_object()](https://www.runoob.com/php/func-mysqli-fetch-object.html) | 从结果集中取得当前行，并作为对象返回。                       |
-| [mysqli_fetch_row()](https://www.runoob.com/php/func-mysqli-fetch-row.html) | 从结果集中取得一行，并作为枚举数组返回。                     |
-| [mysqli_field_count()](https://www.runoob.com/php/func-mysqli-field-count.html) | 返回最近查询的列数。                                         |
-| [mysqli_field_seek()](https://www.runoob.com/php/func-mysqli-field-seek.html) | 把结果集中的指针设置为指定字段的偏移量。                     |
-| [mysqli_field_tell()](https://www.runoob.com/php/func-mysqli-field-tell.html) | 返回结果集中的指针的位置。                                   |
-| [mysqli_free_result()](https://www.runoob.com/php/func-mysqli-free-result.html) | 释放结果内存。                                               |
-| [mysqli_get_charset()](https://www.runoob.com/php/func-mysqli-get-charset.html) | 返回字符集对象。                                             |
-| [mysqli_get_client_info()](https://www.runoob.com/php/func-mysqli-get-client-info.html) | 返回 MySQL 客户端库版本。                                    |
-| [mysqli_get_client_stats()](https://www.runoob.com/php/func-mysqli-get-client-stats.html) | 返回有关客户端每个进程的统计。                               |
-| [mysqli_get_client_version()](https://www.runoob.com/php/func-mysqli-get-client-version.html) | 将 MySQL 客户端库版本作为整数返回。                          |
-| [mysqli_get_connection_stats()](https://www.runoob.com/php/func-mysqli-get-connection-stats.html) | 返回有关客户端连接的统计。                                   |
-| [mysqli_get_host_info()](https://www.runoob.com/php/func-mysqli-get-host-info.html) | 返回 MySQL 服务器主机名和连接类型。                          |
-| [mysqli_get_proto_info()](https://www.runoob.com/php/func-mysqli-get-proto-info.html) | 返回 MySQL 协议版本。                                        |
-| [mysqli_get_server_info()](https://www.runoob.com/php/func-mysqli-get-server-info.html) | 返回 MySQL 服务器版本。                                      |
-| [mysqli_get_server_version()](https://www.runoob.com/php/func-mysqli-get-server-version.html) | 将 MySQL 服务器版本作为整数返回。                            |
-| [mysqli_info()](https://www.runoob.com/php/func-mysqli-info.html) | 返回有关最近执行查询的信息。                                 |
-| [mysqli_init()](https://www.runoob.com/php/func-mysqli-init.html) | 初始化 MySQLi 并返回 mysqli_real_connect() 使用的资源。      |
-| [mysqli_insert_id()](https://www.runoob.com/php/func-mysqli-insert-id.html) | 返回最后一个查询中自动生成的 ID。                            |
-| [mysql_kill()](https://www.runoob.com/php/func-mysqli-kill.html) | 请求服务器杀死一个 MySQL 线程。                              |
-| [mysqli_more_results()](https://www.runoob.com/php/func-mysqli-more-results.html) | 检查一个多查询是否有更多的结果。                             |
-| [mysqli_multi_query()](https://www.runoob.com/php/func-mysqli-multi-query.html) | 执行一个或多个针对数据库的查询。                             |
-| [mysqli_next_result()](https://www.runoob.com/php/func-mysqli-next-result.html) | 为 mysqli_multi_query() 准备下一个结果集。                   |
-| [mysqli_num_fields()](https://www.runoob.com/php/func-mysqli-num-fields.html) | 返回结果集中字段的数量。                                     |
-| [mysqli_num_rows()](https://www.runoob.com/php/func-mysqli-num-rows.html) | 返回结果集中行的数量。                                       |
-| [mysqli_options()](https://www.runoob.com/php/func-mysqli-options.html) | 设置额外的连接选项，用于影响连接行为。                       |
-| [mysqli_ping()](https://www.runoob.com/php/func-mysqli-ping.html) | 进行一个服务器连接，如果连接已断开则尝试重新连接。           |
-| mysqli_prepare()                                             | 准备执行一个 SQL 语句。                                      |
-| [mysqli_query()](https://www.runoob.com/php/func-mysqli-query.html) | 执行某个针对数据库的查询。                                   |
-| [mysqli_real_connect()](https://www.runoob.com/php/func-mysqli-real-connect.html) | 打开一个到 MySQL 服务器的新的链接。                          |
-| [mysqli_real_escape_string()](https://www.runoob.com/php/func-mysqli-real-escape-string.html) | 转义在 SQL 语句中使用的字符串中的特殊字符。                  |
-| mysqli_real_query()                                          | 执行 SQL 查询                                                |
-| mysqli_reap_async_query()                                    | 返回异步查询的结果。                                         |
-| [mysqli_refresh()](https://www.runoob.com/php/func-mysqli-refresh.html) | 刷新表或缓存，或者重置复制服务器信息。                       |
-| [mysqli_rollback()](https://www.runoob.com/php/func-mysqli-rollback.html) | 回滚数据库中的当前事务。                                     |
-| [mysqli_select_db()](https://www.runoob.com/php/func-mysqli-select-db.html) | 更改连接的默认数据库。                                       |
-| [mysqli_set_charset()](https://www.runoob.com/php/func-mysqli-set-charset.html) | 设置默认客户端字符集。                                       |
-| mysqli_set_local_infile_default()                            | 撤销用于 load local infile 命令的用户自定义句柄。            |
-| mysqli_set_local_infile_handler()                            | 设置用于 LOAD DATA LOCAL INFILE 命令的回滚函数。             |
-| [mysqli_sqlstate()](https://www.runoob.com/php/func-mysqli-sqlstate.html) | 返回最后一个 MySQL 操作的 SQLSTATE 错误代码。                |
-| [mysqli_ssl_set()](https://www.runoob.com/php/func-mysqli-ssl-set.html) | 用于创建 SSL 安全连接。                                      |
-| [mysqli_stat()](https://www.runoob.com/php/func-mysqli-stat.html) | 返回当前系统状态。                                           |
-| [mysqli_stmt_init()](https://www.runoob.com/php/func-mysqli-stmt-init.html) | 初始化声明并返回 mysqli_stmt_prepare() 使用的对象。          |
-| mysqli_store_result()                                        | 传输最后一个查询的结果集。                                   |
-| [mysqli_thread_id()](https://www.runoob.com/php/func-mysqli-thread-id.html) | 返回当前连接的线程 ID。                                      |
-| [mysqli_thread_safe()](https://www.runoob.com/php/func-mysqli-thread-safe.html) | 返回是否将客户端库编译成 thread-safe。                       |
-| mysqli_use_result()                                          | 从上次使用 mysqli_real_query() 执行的查询中初始化结果集的检索。 |
-| mysqli_warning_count()                                       | 返回连接中的最后一个查询的警告数量。                         |
-
-#### PHP图像处理：
+### PHP图像处理
 
 创建图像的㇐般流程:
 
@@ -629,10 +443,10 @@ http.send();
 //监听之后的动作
 function stateChange(){
     //如果监听的事件发生了则触发该函数
-    http.readyState == 4
-    http.status == 200 //HTTP协议中的状态码
-    http.statusText == 'OK'//HTTP协议中的状态码的描述
-    http.responseText //就是相应的数据内容
+    http.readyState == 4;
+    http.status == 200; 		//HTTP协议中的状态码
+    http.statusText == 'OK'		//HTTP协议中的状态码的描述
+    http.responseText;			//就是相应的数据内容
 }
 
 ```
@@ -664,7 +478,7 @@ fainl function eat ( ) {
 	 // 我不能被子类继承；
 }
 
-$_GLOBALS[' ']; 全局变量；
+$_GLOBALS[' '];   // 全局变量；
 
 // 举个例子：
 // 设置一个父级类
@@ -689,7 +503,7 @@ class father
    }
 }
 
-设置一个类 继承了 父级 father
+// 设置一个类 继承了 父级 father
 include "father.php";
 class Car extends father
 {
@@ -705,7 +519,7 @@ class Car extends father
 ```
 
 
-## PHP写接口：
+### 响应头
 
 ```php
 
@@ -721,7 +535,7 @@ header("Access‐Control‐Allow‐Headers:x‐requested‐with,content‐type")
 header("Content‐type:text/json;charset=utf‐8"); //请求头 数据格式
 
 ```
-#### ThinkPHP：
+## ThinkPHP
 
 ###### Tp文档：http://www.thinkphp.cn/
 
@@ -788,3 +602,21 @@ Cookie::forever('name','value');
 | name           | session_name                            |
 | prefix         | session前缀                             |
 | serialize      | 序列化方法                              |
+
+##### 服务器端：检索文件，并相应客户端的HTTP请求=Apache、Nginx=服务器；
+
+B/S架构的软件：phpstudy_pro，
+
+server = 服务器
+
+borrow = 浏览器
+
+WAMP :  W = window       A=Apache        M=MySqL         P=php
+
+WNMP：W = window       N=Nginx        M=MySqL         P=php
+
+##### 同理还有  MAMP 就是苹果电脑的 还有 LAMP 是Linux的；
+
+echo substr("Hello world",6);  字符返回‘world’
+
+substr(string,start,length)  字符串截取

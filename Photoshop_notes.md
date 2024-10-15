@@ -69,9 +69,9 @@ Adobe Photoshop 是 Adobe 公司旗下最强图像处理软件。
 
 
 
-# Lightroom_notes
+# Lightroom Classic_notes
 
-Adobe Lightroom 是一款强大的图像处理和管理软件，广泛应用于摄影师和图像编辑者。它提供了从照片管理刀高级编辑的一站式解决方案。
+Adobe Lightroom Clasic 是一款强大的图像处理和管理软件，广泛应用于摄影师和图像编辑者。它提供了从照片管理刀高级编辑的一站式解决方案。
 
 
 
