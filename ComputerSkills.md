@@ -2,13 +2,13 @@
 
 ##### 该笔记主要记录一些电脑经常使用的快捷键以及一些开发技巧之类内容。
 
-## Edge 技巧：
+## Edge 技巧
 
 - 地址栏输入 edge://flags 进入edge 实验室页面
 - 地址栏中输入 edge://surf 进入冲浪小游戏
 - 地址栏中前缀加 read:// 进入阅读模式
 
-#### 快捷键：
+#### 快捷键
 
 ```scss
 
@@ -18,7 +18,7 @@ ctrl +
 
 
 
-## Chrome 技巧：
+## Chrome 技巧
 
 #### 快捷键： 
 
@@ -45,7 +45,7 @@ ctrl + shift + n	// 新窗口打开私密模式
 
 ```
 
-### Lorem&Lorem Picsum：
+### Lorem&Lorem Picsum
 
 一般编辑器都支持，Lorem 一个随机生成数据的
 
@@ -75,7 +75,7 @@ LoremN*M		// M 代表要生成几句
 
 
 
-## VsCode 使用：
+## VsCode 使用
 
 快捷键：
 
@@ -100,7 +100,7 @@ ctrl + k ; ctrl + j  //展开所有代码
 ctrl + shift + c	// 在根目录打开CMD
 ```
 
-## HbuilderX 使用：
+## HbuilderX 使用
 
 快捷键：
 
@@ -116,7 +116,7 @@ alt + x   		//打开或关闭控制台
 
 ```
 
-## WebStorm 使用：
+## WebStorm 使用
 
 快捷键：
 
@@ -159,7 +159,7 @@ ctrl + shift + a				// 查找操作
 
 ```
 
-## Jet Brains 全家桶插件：
+## Jet Brains 全家桶插件
 
 | 插件名称                           | 说明                                                 |
 | :--------------------------------- | :--------------------------------------------------- |
@@ -179,7 +179,7 @@ ctrl + shift + a				// 查找操作
 
 
 
-## SubmileText 使用：
+## SubmileText 使用
 
 ```scss
 ctrl + shift + p      //打开命令行窗口
@@ -189,18 +189,18 @@ ctrl + shift + [      //选中代码 折叠 ] 是展开
 ctrl + shift + 上下键  //移动代码
 ```
 
-## Excel 使用：
+## Excel 使用
 
 ```scss
 
-f2					// 进入编辑模式
+F2					// 进入编辑模式
 Esc					// 退出编辑模式
 Ctrl + ;			// 输入当前日期
 Ctrl + Shift + ;	// 输入当前时间
 
 ```
 
-## Typora 使用：
+## Typora 使用
 
 Typora官网：[https://www.typora.io/](https://www.typora.io/)
 
@@ -212,6 +212,7 @@ Typora 常用的快捷键：
 | --------------------- | ---------------------- |
 | ctrl + k              | 创建超链接             |
 | ctrl + /              | 切换源码编辑模式       |
+| ctrl + shift + L      | 显示/隐藏侧边栏        |
 | ctrl + shift + i      | 插入图片               |
 | ctrl + 1.....n        | 1....n 级标题文字      |
 | ctrl + n              | 在新窗口打开，新建文件 |

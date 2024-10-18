@@ -1346,7 +1346,7 @@ koa2 run dev 项目名称
 
 ```
 
-#### 
+
 
 ## Nest 框架
 
@@ -1354,7 +1354,7 @@ Nest 是一个用于构建高效，可拓展的 Node.js 服务端应用程序的
 
 
 
-**安装使用**
+#### 安装使用
 
 ```sh
 
@@ -1374,13 +1374,17 @@ git clone https://github.com/nestjs/typescript-starter.git <项目名>
 
 
 
-### Volta
+## Volta
 
 Volta 是一种管理 JavaScript 命令行工具的便捷方式。
 
 Volta 的优点就是：速度、无缝，每个项目的版本切换、跨平台支持、支持多个包管理器、稳定的工具安装、可拓展性。
 
-缺点：安装其他的工具时，老是报一些莫名其妙的错误 <span style="color: red">Volta error: Could not create shared environment for package</span>
+
+
+**常见问题：** 安装其他的工具时，老是报一些莫名其妙的错误 <span style="color: red">Volta error: Could not create shared environment for package</span>
+
+**解决方法：** 用管理员权限打开终端
 
 ```sh
 
@@ -1393,6 +1397,8 @@ volta install node@14.18.0
 # 为一个项目选择节点引擎和包管理器，  这个命令需在项目目录下使用，该命令会记录版本号到 package.json 文件中
 # 固定项目的运行时或包管理器
 volta pin node@14.18.0
+# 然后切换当前项目node版本
+node -v  
 
 # 从工具链中删除
 volta uninstall node@14.18.0

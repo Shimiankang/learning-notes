@@ -454,13 +454,17 @@ function stateChange(){
 
 ##### JavaScript中：JSON.parse ( );将字符串转换成 json 数据格式；
 
-##### //JSON数据结构
+```json
+// JSON数据结构
 
 {"名1":"值1","名2","值2"}
 
-{"name":"xikun",'age':19,'isboy':true} 表示㇐个单独的对象
+{"name":"xikun",'age':19,'isboy':true}  // 表示㇐个单独的对象
 
-[{"name":"xikun",'age':19},{"name":"xikun",'age':19}] 表示json数
+[{"name":"xikun",'age':19},{"name":"xikun",'age':19}] // 表示json数
+```
+
+
 
 #### PHP面向对象
 
