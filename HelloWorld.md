@@ -19,6 +19,7 @@ Windows Explorer 是一个典型的图形界面 Shell。
 不能使用bash里的关键字（可用help命令查看保留关键字）。
 
 ``` shell
+
 echo hello world               #输出 hello world
 your_name = "runoob.com"       #定义变量
 echo $your_name                #使用变量 需要加美元符号
@@ -121,13 +122,106 @@ ctrl + c 				# 结束进程
 
 
 
-## Nvm：
+## Npm
 
-nvm全名node.js version management，是一个node的版本管理工具。
+**npm** 全称 Node.js Package Manager，是一个 JavaScript 包管理工具，也就是 Node.js 的默认管理工具
 
-首先最重要的是：一定要卸载已安装的 NodeJS，否则会发生冲突。然后下载 nvm-windows 最新安装包，直接安装即
+#### 命令
 
-可。
+```sh
+# 初始化目录
+npm init
+
+# 安装依赖
+npm install 
+
+# 安装单独依赖
+npm install name
+npm install name@2.0		# 安装指定版本的依赖
+
+# 删除依赖
+npm uninstall name
+
+# 更新依赖
+npm update name				# 默认更新到最新版本
+npm update name@3.0			# 更新到指定版本
+npm update name@latest		# 更新到最后一个新版本
+
+# 查看 npm 配置
+npm config ls
+
+# 设置 npm 配置
+npm config set registry 'http://registry.npmmirror.com/'
+
+# 获取 npm 某个配置
+npm config get registry
+
+# 查看项目中依赖包位置
+npm root
+
+# 列出本地安装的模块依赖
+npm ls
+npm list
+
+# 查看某个依赖包对各种包的依赖关系
+npm view name dependencies
+
+# 查看某个依赖包的最新版本号
+npm view name version
+
+# 查看某个依赖包的历史版本
+npm view name versions
+
+# 查看某个依赖包的最新版本信息
+npm view name 
+npm info name
+
+# 查看本地已安装某个依赖包的详细信息
+npm ls name
+npm list name
+
+# 查看某个依赖包的来源地址
+npm view name repository.url
+
+# 查看本地缓存
+npm cache ls
+
+# 清除缓存
+npm cache clean
+npm cache clean -f		# 强制执行
+
+# 清除项目中没有用到的依赖模块
+npm prnue
+
+# 检查模块是否已经过时
+npm outdated
+
+# 默认浏览器打开GitHub依赖包的页面、主页、README
+npm repo name 		# 页面
+npm home name		# 主页
+npm docs name 		# README
+
+# 以上 name 代表的是依赖包名称
+```
+
+#### 命令参数
+
+| 参数 | 描述                                                         |
+| ---- | ------------------------------------------------------------ |
+| -S   | --save 的缩写，表示安装的包将写进 package.json 里面的 dependencies |
+| -g   | --global 的缩写，表示安装到全局目录里                        |
+| -D   | --save-dev 的缩写，表示安装的包将写进 package.json 里面的 devDependencies |
+| -f   | --force 的缩写，表示强有力的执行，强制执行                   |
+
+
+
+## Nvm
+
+**nvm** 全称 Node.js Version Management，是一个 Node.js 版本管理工具。
+
+#### 安装
+
+首先要卸载已安装的 Node.js 避免版本冲突，然后下载 nvm-windows 最新安装包，直接安装即可。
 
 去GitHub上下载 [https://github.com/coreybutler/nvm‐windows/releases ](https://github.com/coreybutler/nvm‐windows/releases)
 
@@ -137,7 +231,7 @@ nvm全名node.js version management，是一个node的版本管理工具。
 
 ***Nvm 常用命令：***
 
-```shell
+```sh
 # 查看nvm版本
 nvm version
 
@@ -148,6 +242,7 @@ nvm install v15.13.0
 nvm uninstall v15.13.0
 
 # 查看已下载的node
+nvm ls
 nvm list 
 
 # 查看当前使用node的版本
@@ -157,6 +252,7 @@ nvm current
 nvm use 15.13.0  
 
 # 查看网络可以安装的版本
+nvm ls available 
 nvm list available 
 
 # 打开node版本控制
@@ -164,9 +260,59 @@ nvm on
 
 # 关闭node版本控制
 nvm off 
+
+# 可以在项目根目录里记录 node 版本号，
+# window 系统下可能不生效，好像只支持 mac 系统
+# 在 .nvmrc 文件下记录 node 版本号
+# 例如：直接在 .nvmrc文件下写下  v14.16.1
+# 使用直接输入在根目录下输入；后面不用跟版本号
+num use
 ```
 
-## BIOS：
+
+
+## Volta
+
+Volta 是一种管理 JavaScript 命令行工具的便捷方式。
+
+Volta 的优点就是：速度、无缝，每个项目的版本切换、跨平台支持、支持多个包管理器、稳定的工具安装、可拓展性。
+
+
+
+**常见问题：** 安装其他的工具时，老是报一些莫名其妙的错误 <span style="color: red">Volta error: Could not create shared environment for package</span>
+
+**解决方法：** 用管理员权限打开终端
+
+```sh
+# 查看各个工具的默认版本   显示当前工具链
+volta list 
+
+# 安装某个工具的版本 or 也是设置全局默认版本
+volta install node@14.18.0
+
+# 为一个项目选择节点引擎和包管理器，  这个命令需在项目目录下使用，该命令会记录版本号到 package.json 文件中
+# 固定项目的运行时或包管理器
+volta pin node@14.18.0
+# 然后切换当前项目node版本
+node -v  
+
+# 从工具链中删除
+volta uninstall node@14.18.0
+
+# 查看 volta 的安装的工具目录
+volta which <binary>
+
+# 设置当前 用户/shell 用户启动 volta
+volta setup
+
+# 运行带有自定义 Node、Yarn、Pnpm、npm 的版本命令
+volta run
+
+```
+
+
+
+## BIOS
 
 bios芯片 是电脑主板上一个独立芯片，用来诊断电脑
 
@@ -182,7 +328,7 @@ bios芯片 是电脑主板上一个独立芯片，用来诊断电脑
 
 
 
-## Github 使用技巧：
+## Github 技巧
 
 
 
@@ -217,7 +363,7 @@ language:java （用Java语言编写的项目）
 
 
 
-## 学习Git：
+## Git
 
 
 
