@@ -55,7 +55,9 @@ H-ui前端框架将带你从点、线、面、体去剖析前端中的道！
 
 **体：**由多个页面组合起来的网站系统
 
-## HTML笔记
+
+
+# HTML笔记
 
 **HTML** （超文本标记语言 HypeText Markup Language）是构成 Web 世界的一砖一瓦。它定义了网页内容的含义和结构。除 HTML 以外的技术则通常用来描述一个网页的展示与表现效果（如 <a href="#CSS笔记">CSS</a> ）或功能与行为（如 <a href="./JavaScript.md">JavaScript</a>）。
 
@@ -363,7 +365,11 @@ Canvas教程：[https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tuto
 
 
 
-## CSS笔记
+
+
+
+
+# CSS笔记
 
 **CSS 层叠样式表** （Cascading Style Sheets，缩写为 **CSS** ）是一种样式表语言，用来描述 <a href="#HTML笔记">HTML</a> 或 XML（包括：SVG、MathML、或XHTML之类的分支语言）。
 
@@ -425,7 +431,7 @@ display: -webkit-box;
 
 text-decoration: none; 	// 文本修饰
 
-// 属性
+// 属性值
 none 					// 没有属性
 underline				// 添加下划线
 overline				// 添加上划线
@@ -445,6 +451,12 @@ text-transform:
 ​		capitalize 每个单词首字母大写
 
 
+
+
+
+input框去除聚焦框：outline: none;
+
+textarea文本域去除右下角三角：resize:none;
 
 ### CSS 单位：
 
@@ -814,12 +826,6 @@ transform: none | transform-functions;
 | skewX(*angle*)                                               | 定义沿着 X 轴的 2D 倾斜转换。           |
 | skewY(*angle*)                                               | 定义沿着 Y 轴的 2D 倾斜转换。           |
 | perspective(*n*)                                             | 为 3D 转换元素定义透视视图。            |
-
-
-
-input框去除聚焦框：outline: none;
-
-textarea文本域去除右下角三角：resize:none;
 
 
 

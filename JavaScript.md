@@ -1,6 +1,6 @@
 # Java Script
 
-#### 简介
+## 简介
 
 **JavaScript** （JS）是一种具有函数优先特性的轻量级、解释型或者说是即时编译的编程语言。虽然作为 Web 页面中的脚本语言被人所熟知，但是它也被利用到了非浏览器环境中，例如：<a href="#Node.js">Node.js</a>、Apache、CouchDB、Adobe Acrobat等。进一步说，JavaScript 是一种基于原型、多范式、单线程的动态语言，并且支持面向对象、命令式和声明式（如函数式编程）风格。
 
@@ -13,29 +13,62 @@
         
 ```
 
-#### JavaScript 组成部分
+## 组成部分
 
-ECMAScript 核心 
+### ECMAScript 语言核心 
 
-DOM 文档对象模型 
+这是 JavaScript 的基础本分，由 ECMAScript 标准定义。
 
-BOM 浏览器对象模型 
+**ECMAScript** 是一种由 <a href="https://baike.baidu.com/item/Ecma%E5%9B%BD%E9%99%85/0?fromModule=lemma_inlink">Ecma国际</a> 通过 **ECMA-262** 标准化的脚本程序设计语言。
 
-##### 三目运算符也叫三元运算符： 
 
- 示例： 
-```js
 
-// 如果条件成立就会把第一个值赋给 c 这就是三目运算符
-let c = a > b ? a : b;
+它包括：
 
-// 合并空值运算符
-let a = undefined;
-let b = 'hello world'
-let c = a ?? b;  // 过滤 undefined 和 null 返回 b 的值；
+- **语法和数据类型：** 变量、常量、数据类型（如字符串、数字、布尔值、对象、数组等）
+- **运算符：** 算术运算符、赋值运算符、比较运算符、逻辑运算符等
+- **控制结构：** 条件语句（if else、switch）、循环结构（for、while、do while等）
+- **函数：** 函数声明、函数表达式、箭头函数、参数、返回值
+- **对象和类：** 对象字面量、构造函数、类和继承、原型链
+- **异常处理：** try {} catch () {} fainall 结构
+- **模块：** import 和 export 语法，用于模块化代码，module.export 和 require（）
+- **异步编程：** 回调函数（将函数作为参数传递给另一个函数）、Promise、async/await（基于Promise语法糖）
+- **事件驱动编程：** 事件监听器（使用addEventListener方法监听事件）、事件对象
+- **Ajax和Fetch：** XMLHttpRequest（传统的Ajax请求方式）、Fetch API（现代的一部请求方式，基于Promise）
+- **内置对象：** String（字符操作方法）、Number、Array、Date（日期和时间操作方法）、Math、JSON（解析和序列化JSON数据方法）等
 
-```
-#### JavaScript引入方式：内部引用、外部引用
+### DOM 文档对象模型 
+
+DOM 是一个网络文档的编程接口。他代表页面，以便程序改变文档结构、风格和内容。允许程序和脚本动态访问和更新文档的内容、结构和样式。
+
+
+
+它包括：
+
+- **节点：** 文档中每个部分（如元素、属性、文本）都是一个节点
+- **树结构：** 文档被表示为树结构（DOM树），节点之间也有父子关系
+- **操作节点：** 创建、添加、获取、删除、替换、复制节点等
+- **事件处理：** 添加、删除事件监听器，处理用户交互事件（如点击、输入）
+
+### BOM 浏览器对象模型 
+
+BOM 提供了浏览器进行交互的对象和方法。
+
+
+
+它包括：
+
+- **Window对象：** 表示浏览器窗口（Screen），包含文档（Document）、历史记录（History）、导航（Navigator）、定时器等
+- **Navigator对象：** 提供有关浏览器的信息（如代理、平台、语言）
+- **Location对象：** 提供当前 URL 的信息并允许修改 URL
+- **History对象：** 允许访问和操作浏览器的历史记录
+- **Screen对象：** 提供有关用户屏幕的信息
+- **Document对象：** 提供操作DOM树的方法
+
+
+
+## 使用方式
+
 ```html
 
 <!-- 内部引用：-->
@@ -51,13 +84,26 @@ let c = a ?? b;  // 过滤 undefined 和 null 返回 b 的值；
 
 ```
 
+## 语法规范
 
-######  
+### 命名规则
 
-**在JavaScript中，每一条语句都是英文分号 ';' 作为结束符。每一条语句都有它特定的功能。如果只写了 ';'号那就是空语句的意思**
+在JavaScript中，变量指的是一个可以改变的量。也就是说，变量的值在程序运行过程中是可以改变的
+变量由字母、下划线、$或数字组成，并且第一个字母必须是“字母、下划线或$”；
+
+变量不能是系统关键字和保留字
+
+**注意：JavaScript的变量名区分大小写，A 和 a 是两个不同的变量。**
+
+
+
+### ES 规范
+
+在JavaScript中，每一条语句都是英文分号 **;** 作为结束符。每一条语句都有它特定的功能。如果只写了 **;** 号那就是空语句的意思
+
+
 
 ```js
-
 var a = 10；   //直接赋值    var声明符   a变量名    = 赋值符  10值     ；语句块结束符号
 
 // alert  警告；告诫 在JavaScript中意思为弹出框警告的意思     else否则     int整数   parse强制       parseint强制整数
@@ -74,19 +120,7 @@ a = Number(prompt("请输入一个值"); //弹窗语法
            
 ```
 
-
-
-#### 变量名 命名规则：
-在JavaScript中，变量指的是一个可以改变的量。也就是说，变量的值在程序运行过程中是可以改变的
-变量由字母、下划线、$或数字组成，并且第一个字母必须是“字母、下划线或$”；
-
-变量不能是系统关键字和保留字
-
-**注意：JavaScript的变量名区分大小写，A 和 a 是两个不同的变量。**
-
-
-
-#### 数据类型：
+## 数据类型
 
 **引用数据类型：** Object {}(对象)   Array [](数组)
 
@@ -104,7 +138,7 @@ a = Number(prompt("请输入一个值"); //弹窗语法
 
 JS中作用域有：全局作用域、函数作用域。没有块作用域的概念。ECMAScript 6(简称ES6)中新增了块级作用域。块作用域由 { } 包括，if语句和for语句里面的{ }也属于块作用域。
 
-#### var：
+#### var
 
 var定义的变量可以修改，如果不初始化会输出undefined，不会报错。
 
@@ -129,7 +163,7 @@ alert(sum);
 ```
 
 
-#### let:
+#### let
 
 同一个变量，不可在声明之前调用，必须先定义再使用，否则会报错，循环体中可以用let
 
@@ -147,7 +181,7 @@ console.log('函数调用后let定义c不受函数内部定义影响：' + c);//
 ```
 
 
-#### const:
+#### const
 
 const：用于声明常量，也具有块级作用域 ，也可声明块级。const定义的变量不可以修改，而且必须初始化。
 
@@ -297,17 +331,17 @@ continue; //结束本次循环，结束一次循环（直接跳到循环条件�
 
  do {
  // 循环体
- } while (循环条件)
+ } while (condition)
 // 先执行，再判断条件 while先判断条件再执行代码 其实while和do while是一样的
      
-// 函数
-function 函数名(形参) {
+// 函数	函数名（形参）
+function fnName(params) {
 	 //执行体
  	}
 }
 
-// 使用函数
-函数名(实参);
+// 使用函数	函数名（实参）
+fnName('hello');
 
 // JS 取余
 if(a % 2 == 0 ) {
@@ -669,93 +703,7 @@ mouseover 事件在鼠标移动到选取的元素及其子元素上时触发 。
 
 mouseenter 事件只在鼠标移动到选取的元素上时触发。
 
-#### 冒泡排序法：
-
-##### 思路：
-
-(1)比较两个相邻的元素，如果后一个比前一个大，则交换位置
-
-(2)第一轮的时候最后一个元素应该是最大的一个
-
-(3)按照第一步的方法进行两个相邻的元素的比较，由于最后一个元素已
-
-##### 经是最大的了，所以最后一个元素不用比较。
-
-```js
-
-var list = [ 45, 4, 6, 1, 14, 55, 10, 9 ];
-function sort(list) {
- for (i = 0; i < list.length; i++) {
-     for (j = 0; j < list.length - 1 ‐ i; j++) {
-         if (list[j] < list[j+1]) {
-             b = list[j];
-             list[j] = list[j+1];
-             list[j+1] = b;
-         }
-     }
- }
- for(k in list) {
-     document.write(list[k]+"<br/>");
- }
-}
-// 执行函数
-sort(list);
-
-```
-#### 递归：
-
-1.假设递归函数已经写好
-
-2.寻找递推关系
-
-3.将递推关系的结构转换为递归体
-
-4.将临界条件加入到递归体中
-
-```js
-
-//简单的递归
-function sum () {
-    if (n == 1) {
-        return ;
-    }
-    return sum(n * 1) + n
-}
-
-// 一个简单的阶乘函数
-var fn = function(x) {
-    if (x ===  1) {
-     	return  1;
-     } else {
-    	return x * fn(x ‐ 1);
-	 }
- }
-
-// 递归方法 ：
-function fib(n) {
-	 if (n ===  1  || n ===  2) {
-         return n ‐  1;
-     }  
-    return fib(n ‐ 1) + fib(n ‐ 2);
- }
-console.log(fib( 10 )) 
-
- //非递归方法 
- function fib(n) {
-     let a =  n;
-     let b =  a + n;
-     let c = a + b;
-     for (let i =  3; i < n; i++) {
-         a = b 
-         b = c
-         c = a + b
-     }
-	 return c
- }
-  console.log(fib( 10 )) 
-
-```
-###### JS 日期函数:
+### JS 日期函数
 
 ```js
 
@@ -854,9 +802,114 @@ document.designMode = 'on'    //页面所有元素可编辑
 
 
 
+### 三目运算符
 
+**三目运算符** 也叫 **三元运算符** 不仅仅在JS中有，也在很多编程语言中广泛使用。写法基本都一致，也许有的编程语言会有自己的三目特殊用法。
 
-## 防抖和节流：
+例如：在 PHP 中可以使用 <?php $c = $a ?: $b; ?>  就表示如果 $a 为 true 就会返回该值，否则就会返回 $b
+
+##### 示例
+
+```js
+// 如果条件成立就会把第一个值赋给 c 这就是三目运算符
+let c = a > b ? a : b;
+
+// 合并空值运算符
+let a = undefined;
+let b = 'hello world'
+let c = a ?? b;  // 过滤 undefined 和 null 返回 b 的值；
+
+```
+
+### 冒泡排序法
+
+##### 思路
+
+(1)比较两个相邻的元素，如果后一个比前一个大，则交换位置
+
+(2)第一轮的时候最后一个元素应该是最大的一个
+
+(3)按照第一步的方法进行两个相邻的元素的比较，由于最后一个元素已
+
+##### 经是最大的了，所以最后一个元素不用比较。
+
+```js
+var list = [ 45, 4, 6, 1, 14, 55, 10, 9 ];
+function sort(list) {
+ for (i = 0; i < list.length; i++) {
+     for (j = 0; j < list.length - 1 ‐ i; j++) {
+         if (list[j] < list[j+1]) {
+             b = list[j];
+             list[j] = list[j+1];
+             list[j+1] = b;
+         }
+     }
+ }
+ for(k in list) {
+     document.write(list[k]+"<br/>");
+ }
+}
+// 执行函数
+sort(list);
+
+```
+
+### 递归
+
+1.假设递归函数已经写好
+
+2.寻找递推关系
+
+3.将递推关系的结构转换为递归体
+
+4.将临界条件加入到递归体中
+
+```js
+//简单的递归
+function sum () {
+    if (n == 1) {
+        return ;
+    }
+    return sum(n * 1) + n
+}
+
+// 一个简单的阶乘函数
+var fn = function(x) {
+    if (x ===  1) {
+     	return  1;
+     } else {
+    	return x * fn(x ‐ 1);
+	 }
+ }
+
+// 递归方法 ：
+function fib(n) {
+	 if (n ===  1  || n ===  2) {
+         return n ‐  1;
+     }  
+    return fib(n ‐ 1) + fib(n ‐ 2);
+ }
+console.log(fib( 10 )) 
+
+ //非递归方法 
+ function fib(n) {
+     let a =  n;
+     let b =  a + n;
+     let c = a + b;
+     for (let i =  3; i < n; i++) {
+         a = b 
+         b = c
+         c = a + b
+     }
+	 return c
+ }
+  console.log(fib( 10 )) 
+
+```
+
+### 
+
+### 防抖和节流
 
 #### 防抖（Debounicng）
 
@@ -1031,7 +1084,7 @@ const throttle = (fn, delay) => {
 | 90              | Z                |
 |                 |                  |
 
-### 实用语法：
+## 一些语法
 
 ```js
 
@@ -1048,7 +1101,7 @@ document.querySelector('video').playbackRate = 3
 
 # Node.js
 
-**介绍：**
+## 简介
 
 简单的说 Node.js 就是运行在服务端的 JavaScript。
 
@@ -1060,7 +1113,7 @@ Node.js 安装包及源码下载地址为：https://nodejs.org/en/download/。
 
 
 
-**简单示例：**
+## 简单示例
 
 ```js
 
@@ -1093,7 +1146,7 @@ Node.js 安装包及源码下载地址为：https://nodejs.org/en/download/。
 
 ```
 
-### Nodemon 插件
+## Nodemon 插件
 
 介绍：nodemon是一种工具，可以自动检测到目录中的文件，更改时通过重新启动应用程序来调试基于node.js的应用程序。
 
@@ -1109,7 +1162,7 @@ nodemon 文件名或路径名加文件名       # 使用 nodemon 打开 node 服
 rs 重启一下 是 restart 的缩写
 
 ```
-### Node JWT Token
+## Node JWT Token
 
 **JWT**：
 
@@ -1145,7 +1198,7 @@ let token = ctx.request.headers['token'];
 const token = jwt.verify(token,'token');
 
 ```
-### Node MySQL 连接数据库：
+## Node MySQL 连接数据库
 
 Nodejs环境下的MySQL数据库驱动程序。它允许Nodejs应用程序连接到MySQL数据库并执行查询；增删改查。
 
@@ -1192,7 +1245,7 @@ const query = require("../db.js")//引入
 let data = await query(SQL语句)
 
 ```
-### Node  WebScoket：
+## Node  WebScoket
 
 WebSocket 使客户端和服务器端之间的数据交换变得更加简单，允许服务器主动向客户端推送数据。在 WebSocket API 中，浏览器和服务器只需要完成一次握手，两者之间就可以持久性的连接，并进行双向数据传输。
 
@@ -1244,7 +1297,7 @@ wss.on("connection",function (ws) {
 })
 
 ```
-**WebSocket事件：**
+### WebSocket事件
 
 | 事件    | 事件处理程序     | 描述                       |
 | :------ | :--------------- | :------------------------- |
@@ -1253,7 +1306,7 @@ wss.on("connection",function (ws) {
 | error   | Socket.onerror   | 通信发生错误时触发         |
 | close   | Socket.onclose   | 连接关闭时触发             |
 
-**WebSocket方法：**
+### WebSocket方法
 
 | 方法           | 描述             |
 | :------------- | :--------------- |
@@ -1264,7 +1317,7 @@ wss.on("connection",function (ws) {
 
 
 
-### Node  Joi：
+## Node  Joi
 
 JavaScript对象的规则描述语言和验证器。
 
@@ -1284,8 +1337,9 @@ Joi.validate({ username: 'abc', birthyear:  1994  }, schema);
 
 ```
 
+## Node pm2
 
-### Node pm2：
+用于部署 Node.js 服务
 
 是一个守护进程管理器，不会占用一个终端，而是在后台运行 js。
 
@@ -1379,6 +1433,8 @@ git clone https://github.com/nestjs/typescript-starter.git <项目名>
 
 
 # TypeScript
+
+## 介绍
 
 TypeScript 是一个以 JavaScript 为基础的语言，TS 不可以像 JS 样直接被浏览器解析。
 
