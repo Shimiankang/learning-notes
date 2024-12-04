@@ -392,8 +392,8 @@ pyinstaller -F -i 图标.ico 文件名.py
 | --clean             | 清理打包过程中的临时文件           |
 | -D，--onedir        | 默认值，生成dist文件夹             |
 | -F，--onefile       | 在dist文件夹中只生成独立的打包文件 |
+| -w                  | 使用窗口，无控制台                 |
+| -C                  | 使用控制台，无窗口                 |
+| -n <文件名>         | 设置文件名                         |
 | -i <图标文件名.ico> | 指定打包程序使用的图标（.ico）文件 |
 
-python pywifi 暴力破解WiFi 文章地址；
-
-http://t.csdn.cn/wGOzL
