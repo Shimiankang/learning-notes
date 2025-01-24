@@ -20,16 +20,16 @@ Windows Explorer 是一个典型的图形界面 Shell。
 
 ``` shell
 
-echo hello world               #输出 hello world
-your_name = "runoob.com"       #定义变量
-echo $your_name                #使用变量 需要加美元符号
-echo ${your_name}              #规范的使用
-unset your_name                #删除变量
-echo ${#your_name}             #获取字符串 长度
-echo ${#your_name: 1 : 4 }     #截取字符串 输出：unoo
-array = (value1 value2 value3) #定义 数组
-echo ${array[ 0 ]}             #使用数组
-echo ${array[@]}               #获取所有数组内数据
+echo hello world             		#输出 hello world
+your_name = "runoob.com"     		#定义变量
+echo $your_name              		#使用变量 需要加美元符号
+echo ${your_name}              		#规范的使用
+unset your_name                		#删除变量
+echo ${#your_name}             		#获取字符串 长度
+echo ${#your_name: 1 : 4 }     		#截取字符串 输出：unoo
+array = (value1 value2 value3) 		#定义 数组
+echo ${array[ 0 ]}             		#使用数组
+echo ${array[@]}               		#获取所有数组内数据
 
 ```
 
@@ -44,19 +44,19 @@ echo ${array[@]}               #获取所有数组内数据
 #### window 终端命令：
 ``` shell
 
-dir 										# 查看计算机文件目录  /s 包括子目录 又称遍历目录
-Start-Process Powershell -Verb RunAs		# 以管理员身份运行 Power Shell
+dir 								# 查看计算机文件目录  /s 包括子目录 又称遍历目录
+Start-Process Powershell -Verb RunAs				# 以管理员身份运行 Power Shell
 
-netstat -ano							 	# 查看所有端口情况   
-											# 可以根据查找出来的 PID 打开任务管理器看进程是被什么程序给占用了
+netstat -ano					 		# 查看所有端口情况   
+								# 可以根据查找出来的 PID 打开任务管理器看进程是被什么程序给占用了
 											
-netstat -ano|findstr "端口号"				  # 查看指定端口信息
+netstat -ano|findstr "端口号"			 		# 查看指定端口信息
 tastlist|findstr "PID"						# 查看PID指定的进程信息
-ipconfig 									# 查看网卡网络信息、IP信息
+ipconfig 							# 查看网卡网络信息、IP信息
 
-ping 192.168.1.1    # 测试路由器
-ping 127.0.0.1      # 测试网卡
-ping www.baidu.com  # 测试Internet
+ping 192.168.1.1   			 # 测试路由器
+ping 127.0.0.1     			 # 测试网卡
+ping www.baidu.com 			 # 测试Internet
 
 cd \ 切换c盘
 
@@ -73,16 +73,16 @@ netstat
 # 显示所有所动链接
 netstat -a
 
-cd 目录名/目录           	 # 进入目录
-cd ..                   	# 返回上一级目录
-rename 原文件名 新文件名 	   # 重命名
-dir                     	# 查看文件目录
-E:                      	# 直接进入E盘
-cls                     	# 清空命令
-doskey /histry          	# 查看历史命令
-color a                 	# 更改命令 字体背景颜色
-md 目录名称             	 # 创建目录 全拼 mkdir 
-del 文件名               	  # 删除文件
+cd 目录名/目录           		# 进入目录
+cd ..                   		# 返回上一级目录
+rename 原文件名 新文件名 	   	# 重命名
+dir                     		# 查看文件目录
+E:                      		# 直接进入E盘
+cls                     		# 清空命令
+doskey /histry          		# 查看历史命令
+color a                 		# 更改命令 字体背景颜色
+md 目录名称            		 	# 创建目录 全拼 mkdir 
+del 文件名               		# 删除文件
 
 
 regedit  				# 注册表
@@ -137,7 +137,7 @@ npm install
 
 # 安装单独依赖
 npm install name
-npm install name@2.0		# 安装指定版本的依赖
+npm install name@2.0			# 安装指定版本的依赖
 
 # 删除依赖
 npm uninstall name
@@ -145,7 +145,7 @@ npm uninstall name
 # 更新依赖
 npm update name				# 默认更新到最新版本
 npm update name@3.0			# 更新到指定版本
-npm update name@latest		# 更新到最后一个新版本
+npm update name@latest			# 更新到最后一个新版本
 
 # 查看 npm 配置
 npm config ls
@@ -339,13 +339,13 @@ bios芯片 是电脑主板上一个独立芯片，用来诊断电脑
 ### 快捷键：
 
 ```scss
-ctrl + k             // 打开命令面板
-T					 // 快速进入某个目录文件  快速检索
-。                   // 在网页使用 VsCode 打开项目
-S                    // 聚焦到搜索引擎
-T                    // 对仓库内的项目路径搜索
-L                    // 跳转到某一行
-B                    // 查看该文件改动记录
+ctrl + k             	// 打开命令面板
+T			// 快速进入某个目录文件  快速检索
+。                   	// 在网页使用 VsCode 打开项目
+S                    	// 聚焦到搜索引擎
+T                    	// 对仓库内的项目路径搜索
+L                    	// 跳转到某一行
+B                    	// 查看该文件改动记录
 ```
 
 ### 高级搜索命令：
