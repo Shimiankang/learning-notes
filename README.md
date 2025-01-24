@@ -11,7 +11,7 @@
 | -------------------------------------------------- | ------------------------------------------------------------ |
 | <a href="./ComputerSkills.md">ComputerSkills</a>   | 计算机使用技巧，记录一些使用计算机的快捷键之类的内容         |
 | <a href="./Frontend_notes.md">Frontend_notes</a>   | 学习前端笔记，主要记录HTML和CSS的基础内容和使用技巧          |
-| <a href="./HelloWorld.md">HelloWorld</a>           | Shell命令、Git命令以及一些语法...  |
+| <a href="./HelloWorld.md">HelloWorld</a>           | Shell命令、Git命令以及一些工具语法命令...  |
 | <a href="./Java_notes.md">Java_notes</a>           | Java学习笔记                                                 |
 | <a href="./JavaScript.md">JavaScript</a>           | Js学习笔记包括NodeJS，以及Node.js框架koa2、Nest，还有 Node.js 中间件和插件 |
 | <a href="./jQuery_notes.md">jQuery_notes</a>       | jQuery学习笔记                                               |
