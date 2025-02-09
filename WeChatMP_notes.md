@@ -14,13 +14,11 @@
 | [functionalPages](https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html#functionalPages) | Boolean | 否   | 是否启用插件功能页 |
 
 用法：
-
-"window":{ 
-
- "backgroundTextStyle" : "light",
-
+``` json
+"window": { 
+	"backgroundTextStyle" : "light",
  }
-
+```
 tabBar:
 
 | 属性             | 类型   | 必填 | 说明                                                         |
@@ -94,10 +92,10 @@ require('图片路径')
 //全局定义在app.js里
 globalData: {
     userInfo: { 
-        name:"王康", 
-        sex:"男",
-        birthday:"2002-12-04",    
-        address:"山东省临沂市平邑县" 
+        name: "赛罗", 
+        sex: "男",
+        birthday: "2002-11-11",    
+        address: "遥远的宇宙M78星云" 
     },
         Cur:0,
 }
