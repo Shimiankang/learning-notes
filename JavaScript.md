@@ -620,27 +620,38 @@ btoa(要加密的值)
 
 ##### eval（" num = 7 "）把里面的字符串当代码执行
 
-被除数      除数      商
+``` js
 
-10    ÷     5    =   2   
+console.log()		// 把括号里面的东西打印在控制台
+console.error() 	// 抛出异常
 
-**console.log ( )  把括号里面的东西打印在控制台**
+console.trace() 	// 方法用于显示当前执行的代码在堆栈中的调用路径。
+console.info()		// 打印说明信息，用法效果和console.log一样
+console.dir()		// 以文件树结构打印
+console.table
 
-**console.error() 抛出异常**
-
-**console.trace() 方法用于显示当前执行的代码在堆栈中的调用路径。**
-
-**console.info() **
-
-**console.dir()**
-
-可以调样式：console.log('%c params ', 'color: white; background-color: #f00000', params);
+console.time()		
+console.timeEnd()	// 可以用来打印时间，两个用来打印一段代码执行时间
 
 
+// 可以调样式：
+console.log('%c params ', 'color: white; background-color: #f00000', params);
+```
 
 
 
-求余 10 % 4 = 2 ； 这就是求余   2 * 4 = 8    10 - 8 = 2 所以余数是二
+
+### 数学
+``` js
+
+// 求余
+10 % 4 = 2; 	// 这就是求余
+2 * 4 = 8;
+10 - 8 = 2; 	// 所以余数是二
+
+// 被除数      除数      商
+10 ÷ 5 = 2
+```
 
 
 
