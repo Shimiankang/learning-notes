@@ -25,3 +25,4 @@
 | <a href="./Vue_notes.md">Vue_notes</a>             | Vue学习笔记                                                  |
 | <a href="./WeChatMP.md">WeChatMP</a>               | 微信小程序笔记                                               |
 
+希望你以后写代码别老是马马虎虎。
