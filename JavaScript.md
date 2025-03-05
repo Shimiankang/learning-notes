@@ -718,24 +718,64 @@ mouseenter 事件只在鼠标移动到选取的元素上时触发。
 
 ```js
 
-var date = new Date();      //创建一个新的日期对
- Timestamp = date.getTime()  //获取时间戳
- Years = date.getFullYear()  //获取四位数 年份
- Month = date.getMonth()     //以(0~11) 获取月份
- d = date.getDate()          //获取日期 日
- Hours = date.getHours()     //以(0~23) 获取小时数
- Minutes = date.getMinutes() //获取方法 描述
+var date = new Date();      		//创建一个新的日期对
+ Timestamp = date.getTime()  		//获取时间戳
+ Years = date.getFullYear()  		//获取四位数 年份
+ Month = date.getMonth()     		//以(0~11) 获取月份
+ d = date.getDate()          		//获取日期 日
+ Hours = date.getHours()     		//以(0~23) 获取小时数
+ Minutes = date.getMinutes() 		//获取方法 描述
 
 getDate() 			// 以数值返回天（1-31）
 getDay() 			// 以数值获取周名（0-6）
-getFullYear() 		// 获取四位的年（yyyy）
+getFullYear() 			// 获取四位的年（yyyy）
 getHours() 			// 获取小时（0-23）
-getMilliseconds() 	// 获取毫秒（0-999）
-getMinutes()		// 获取分（0-59）
+getMilliseconds() 		// 获取毫秒（0-999）
+getMinutes()			// 获取分（0-59）
 getMonth()			// 获取月（0-11）
-getSeconds()		// 获取秒（0-59）
+getSeconds()			// 获取秒（0-59）
 getTime()			// 获取时间（从 1970 年 1 月 1 日至今）
 
+```
+#### 几种获取时间戳的方法
+
+**方法一：Date.now()**
+
+Date.now()可以获得当前时间戳
+```js
+Date.now()  // 1741144386666
+```
+
+**方法二：Date.parse()**
+
+Date.parse()将字符串或者时间对象直接转化成时间戳
+```js
+Date.parse(new Date())
+Date.parse('2025-03-05 10:10:10')  // 1741140610000
+```
+注意：不推荐这种办法，毫秒级别的数值被转化为000。
+
+**方法三：valueOf()**
+
+通过valueOf()函数返回指定对象的原始值获得准确的时间戳值
+```js
+new Date().valueOf()
+```
+
+**方法四：getTiem()**
+
+通过原型方法直接获取当前时间毫秒值，
+```js
+new Date().getTime()
+```
+
+**方法五：Number()**
+
+将时间对象转化为一个number类型的数值，即时间戳
+```js
+Number(new Date())
+//number类型转换简写
++new Date()
 ```
 
 ### JavaScript Class 类：
