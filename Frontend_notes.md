@@ -553,7 +553,7 @@ textarea文本域去除右下角三角：resize:none;
 
 ​		**deg：** 全称为 Degress，表示度，一个圆共360度。例如：transform: rotate(90deg);
 
-​		**grad： ** 全称为 Gradians，表示梯度，一个圆共400梯度。
+​		**grad：** 全称为 Gradians，表示梯度，一个圆共400梯度。
 
 ​		**rad：** 全称为 Radian是，表示弧度，一个圆共2π弧度
 
@@ -586,7 +586,7 @@ textarea文本域去除右下角三角：resize:none;
 | `pt` | Points              | 1pt = 1/72th of 1in |
 | `px` | Pixels              | 1px = 1/96th of 1in |
 
-<img src="/img/css_unit.jpg"/>
+<img src="./img/css_unit.jpg"/>
 
 ### CSS自定义属性 变量：
 
@@ -928,7 +928,7 @@ transform: none | transform-functions;
 
 
 
-<img src="img/learning_route.png"/>
+<img src="./img/learning_route.png"/>
 
 
 
