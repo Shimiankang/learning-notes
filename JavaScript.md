@@ -778,6 +778,8 @@ Number(new Date())
 +new Date()
 ```
 
+
+
 ### JavaScript Class 类：
 
 Class 是 ES6 中引入的一种面向对象语法糖。它不是一种新的面向对象继承模型，而是基于原型的继承模型的语法糖。
@@ -1223,11 +1225,11 @@ rs 重启一下 是 restart 的缩写
 
 ​	JWT的组成部分：**header.payload.signature**
 
-​		**header：**中包含含有关令牌类型和使用的算法信息。
+​		**header：** 中包含含有关令牌类型和使用的算法信息。
 
-​		**payload：**中包含声明或其它有用负载信息。
+​		**payload：** 中包含声明或其它有用负载信息。
 
-​		**signture：**是可选项，用来对前两部分的签名，防止篡改
+​		**signture：** 是可选项，用来对前两部分的签名，防止篡改
 
 ```js
 
@@ -1296,7 +1298,7 @@ const query = require("../db.js")//引入
 let data = await query(SQL语句)
 
 ```
-## Node  WebScoket
+## Node WebScoket
 
 WebSocket 使客户端和服务器端之间的数据交换变得更加简单，允许服务器主动向客户端推送数据。在 WebSocket API 中，浏览器和服务器只需要完成一次握手，两者之间就可以持久性的连接，并进行双向数据传输。
 
@@ -1368,7 +1370,7 @@ wss.on("connection",function (ws) {
 
 
 
-## Node  Joi
+## Node Joi
 
 JavaScript对象的规则描述语言和验证器。
 

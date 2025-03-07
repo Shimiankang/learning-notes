@@ -51,7 +51,7 @@ ctrl + shift + n      // 新窗口打开私密模式
 
 
 
-**Lorem 用法：**输入 Lorem 然后按下 Tab 键，就会生成默认三十个单词的句子
+**Lorem 用法：** 输入 Lorem 然后按下 Tab 键，就会生成默认三十个单词的句子
 
 ```scss
 
