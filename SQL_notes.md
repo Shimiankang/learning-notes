@@ -98,27 +98,29 @@ ALTER TABLE 表名 ADD [ UNIQUE | FULLTEXT | SPATIAL ] [ INDEX | KEY ]	[ 索引�
 ## MySQL 基础用法
 
 ```shell
-mysql -uroot -proot										#连接数据库 -u 用户 -p 密码 -h IP地址
+mysql -uroot -proot											#连接数据库 -u 用户 -p 密码 -h IP地址
+mysql -h 主机地址 -u 用户名 -p 用户密码						#连接数据库
+mysqladmin -u 用户名 -p 旧密码 password 新密码				#修改密码
 ```
 
 ## 基本查询语法
 
 
 ``` sql
-CREATE DATABASE 数据库名称 ;   --创建数据库 
-USE 数据库名称 ;     		  --使用数据库 
-SHOW DATABASES ;   			  --显示所有数据库 
-SHOW TABLES ;    			  --显示所有数据表 
-DESC 表名 ;      				--显示表结构
+CREATE DATABASE 数据库名称;		-- 创建数据库 
+USE 数据库名称;					-- 使用数据库 
+SHOW DATABASES;					-- 显示所有数据库 
+SHOW TABLES;					-- 显示所有数据表 
+DESC 表名;						-- 显示表结构
 
 -- MySQL连表
-SELECT * FROM TABLE LEFT JOIN TABLE2 ; 
+SELECT * FROM TABLE LEFT JOIN TABLE2; 
 
 -- 连表查询  会获取左表的全部数据 左连表； 
-SELECT * FROM TABLE LEFT JOIN TABLE2 ;
+SELECT * FROM TABLE LEFT JOIN TABLE2;
 
 -- 连表查询  会获取右表的全部数据 右连表； 
-SELECT * FROM TABLE JOIN TABLE2 ;      -- 内连接 简写  INNER JOIN 获取两个表中字段匹配关系的记录。；
+SELECT * FROM TABLE JOIN TABLE2;      -- 内连接 简写  INNER JOIN 获取两个表中字段匹配关系的记录。；
 
 -- MySQL插入数据：
 -- 括号 字段可写 也可以不写  VALUE('数据1','数据2','数据3') 
@@ -135,15 +137,13 @@ CREATE TABLE IF NOT EXISTS `tabalname` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 MAX_ROWS=750000 AVG_ROW_LENGTH=19000;
 
 
---创建视图基本语法：
-CREATE VIEW 视图名称 AS SQL语句 ;
+-- 创建视图基本语法：
+CREATE VIEW 视图名称 AS SQL语句;
 
---使用视图：
+-- 使用视图：
 SELECT 视图名称	;
 
--- MySQL 数据库；常用命令
-mysql -h 主机地址 -u 用户名 -p 用户密码				-- 连接数据库
-mysqladmin -u 用户名 -p 旧密码 password 新密码		  -- 修改密码 （试过好像不可以）
+
 CRATE DATABASE 数据库名；							 -- 创建数据库
 use 数据库名；										 -- 使用数据库
 CREATE TABLE (表字段)								   -- 创建表	
@@ -178,13 +178,13 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 
 #### 日期类型
 
-| 类型      | 大小( bytes) | 范围                                                         | 格式                | 用途                     |
-| --------- | ------------ | ------------------------------------------------------------ | ------------------- | ------------------------ |
-| DATE      | 3            | 1000-01-01/9999-12-31                                        | YYYY-MM-DD          | 日期值                   |
-| TIME      | 3            | '-838:59:59'/'838:59:59'                                     | HH:MM:SS            | 时间值或持续时间         |
-| YEAR      | 1            | 1901/2155                                                    | YYYY                | 年份值                   |
-| DATETIME  | 8            | 1000-01-01 00:00:00/9999-12-31 23:59:59                      | YYYY-MM-DD HH:MM:SS | 混合日期和时间值         |
-| TIMESTAMP | 4            | 1970-01-01 00:00:00/2038结束时间是第 **2147483647** 秒，北京时间 **2038-1-19 11:14:07**，格林尼治时间 2038年1月19日 凌晨 03:14:07 | YYYYMMDD HHMMSS     | 混合日期和时间值，时间戳 |
+| 类型      | 大小(bytes) | 范围                                                         | 格式                | 用途                     |
+| --------- | ----------- | ------------------------------------------------------------ | ------------------- | ------------------------ |
+| DATE      | 3           | 1000-01-01/9999-12-31                                        | YYYY-MM-DD          | 日期值                   |
+| TIME      | 3           | '-838:59:59'/'838:59:59'                                     | HH:MM:SS            | 时间值或持续时间         |
+| YEAR      | 1           | 1901/2155                                                    | YYYY                | 年份值                   |
+| DATETIME  | 8           | 1000-01-01 00:00:00/9999-12-31 23:59:59                      | YYYY-MM-DD HH:MM:SS | 混合日期和时间值         |
+| TIMESTAMP | 4           | 1970-01-01 00:00:00/2038结束时间是第 **2147483647** 秒，北京时间 **2038-1-19 11:14:07**，格林尼治时间 2038年1月19日 凌晨 03:14:07 | YYYYMMDD HHMMSS     | 混合日期和时间值，时间戳 |
 
 #### 字符串类型
 
@@ -391,20 +391,20 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 ``` sql
 
 -- 查询 字段 第几个 字符 
-select SUBSTRING(url,16,3) from wk_photo_ablum where id != 1;
+SELECT SUBSTRING(url,16,3) FROM wk_photo_ablum WHERE id != 1;
 
 -- 修改 字段 第几个 字符 
-update wk_photo_ablum set url = replace(url,'uik','uk') where id != 1;
+UPDATE wk_photo_ablum SET url = replace(url,'uik','uk') WHERE id != 1;
 
 -- 清空 表里的所有数据； Id 也会被清空 
-delete from 表名             --不会把 id 排序清空 可以恢复
-truncate table 表名 ; 	   --会把 id 排序清空 不能被恢复
+DELETE FROM 表名;					-- 不会把 id 排序清空 可以恢复
+TRUNCATE TABLE 表名;		 	   	-- 会把 id 排序清空 不能被恢复
 
---添加字段 两个字段 也可以单个添加
-ALTER TABLE `user` ADD `username` varchar(20) NULL DEFAULT '' COMMENT '用户名',ADD `create_at` datetime NULL COMMENT '创建时间'; 
+-- 添加字段 两个字段 也可以单个添加
+ALTER TABLE `user` ADD `username` varchar(20) NULL DEFAULT '' COMMENT '用户名',ADD `create_at` datetime NULL COMMENT '创建时间';
 
 -- 查看表字段结构 
-show full columns from 表名   
+SHOW FULL COLUMNS FROM 表名;
 
 -- 修改数据表的 某个字段的编码规则
 ALTER TABLE 表名 MODIFY COLUMN 字段名 数据类型 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;

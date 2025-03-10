@@ -95,7 +95,7 @@ ctrl + k ; ctrl + f
 
 ctrl + shift + n        // 新建窗口
 ctrl + shift + k        // 删除一行内容
-shift + del             // 删除一行元素
+shift + del             // 剪切一行内容
 ctrl + k ; ctrl + 0     // 折叠所有代码  不同的数字代表 折叠等级 0是折叠全部 1是折叠第一级
 ctrl + k ; ctrl + j     // 展开所有代码
 ctrl + shift + c        // 在根目录打开CMD

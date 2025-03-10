@@ -8,8 +8,6 @@ MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是
 
 MongoDB 将数据存储为一个文档，数据结构由键值（key => value）对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数据以及文档数据。
 
-
-
 **主要特点：**
 
 - DocumentOriented 文档导向：MongoDB 的数据格式是 JSON 风格的文档（Document）比传统的行列方式更为灵活，可以包含复杂的嵌套对象和数组。
