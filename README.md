@@ -24,6 +24,7 @@
 | <a href="./SQL_notes.md">SQL_notes</a>             | SQL语法、主要还是以MySQL为例                                 |
 | <a href="./Vue_notes.md">Vue_notes</a>             | Vue学习笔记                                                  |
 | <a href="./WeChatMP.md">WeChatMP</a>               | 微信小程序笔记                                               |
-| <a href="./Kali_Linux">Kali_Linux</a>              | Kali_Linux学习笔记，记录一些工具使用方法教程                 |
+| <a href="./GoLang_notes.md">GoLang_notes</a>       | GoLang学习笔记                                               |
+| <a href="./Kali_Linux.md">Kali_Linux</a>           | Kali_Linux学习笔记，记录一些工具使用方法教程                 |
 
 希望你以后写代码别老是马马虎虎。
