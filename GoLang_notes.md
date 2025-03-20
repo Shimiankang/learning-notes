@@ -179,14 +179,22 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+   	"gorm.io/gorm"
 	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
+    "gorm.io/gorm/logger"
+    "gorm.io/gorm/schema"
     "time"
+    "github.com/shopspring/decimal"
 )
 
 func main() {
     dsn := "root:123456@tcp(127.0.0.1:3306)/company?charset=utf8mb4&parseTime=True&loc=Local"
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
+        Logger: logger.Default.LogMode(logger.Info),  // 启用SQL日志，在控制台中输出SQL语句
+        NamingStrategy: schema.NamingStrategy{
+            SingularTable: true,  // 禁用复数表名（表明 = 结构提名 table 单数形式，不会出现 tables）
+        }
+    })
 	if err != nil {
 		panic("failed to connect database")
 	}
@@ -202,13 +210,14 @@ func main() {
 
 	// 结构体
 	type Staff struct {
-		Id        int
-		Name      string
-		Gender    string
-		work      string
-		salary    string
-		dep_id    int
-		join_time string
+        Id        int				`json:"id" gorm:"column:id;type:int(11);primaryKey;autoIncrement;comment:员工id"`
+        Name      string			`json:"name" gorm:"column:name;type:varchar(30);comment:员工姓名"`
+        Gender    string			`json:"gender" gorm:"column:gender;type:tinyint(1);comment:性别:1男 2女"`
+        Work      string			`json:"work" gorm:"column:work;type:varchar(30);comment:员工职位"`
+        Salary    decimal.Decimal	`json:"salary" gorm:"column:salary;type:decimal(10,2);comment:员工薪水"`
+        DepId     int				`json:"depId" gorm:"column:dep_id;type:int(11);comment:部门id"`
+        JoinTime  time.Time			`json:"joinTime" gorm:"column:join_time;type:datetime;default:current_timestamp;comment员工入职时间"`
+        CreatedAt time.Time			`json:"createdAt" gorm:"column:created_at;type:datetime;default:current_timestamp;comment:创建时间"`
 	}
 
 	// 迁移
