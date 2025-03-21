@@ -1,6 +1,8 @@
-# Hello Word
+# Development_notes
 
-Hello World 这个笔记主要及一些计算机相关知识，以及学习编程用的的工具、插件、包之类的。
+## 介绍
+
+**Development_notes** 这个笔记主要及一些计算机相关知识，以及学习编程用的开发环境、工具、插件、包之类的。
 
 ## Shell命令
 
@@ -389,15 +391,15 @@ language:java （用Java语言编写的项目）
 ### 文件状态：
 
  1.没有被add过的文件叫untracked
- 
+
  2.add之后文件处于staged状态等待commite
- 
+
  3.commit之后文件处于unmodified这里之所以是modified是因为文件会跟仓库中的文件对比
- 
+
  4.当unmodified的文件被修改则会变为modified状态
- 
+
  5.modified之后的文件add之后将继续变为staged状态
- 
+
  6.unmodifed的文件还有一种可能是已经不再需要了，那么可以remove它不再追踪变为untracked状态
 
 ``` shell

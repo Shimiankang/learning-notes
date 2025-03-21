@@ -4,45 +4,77 @@
 
 Linux，Linux Is Not UniX 的[递归缩写](https://baike.baidu.com/item/递归缩写/2216444?fromModule=lemma_inlink)，一般指GNU/Linux，是一套免费使用和自由传播的类Unix操作系统，是一个遵循POSIX的多用户、多任务、支持多线程和多[CPU](https://baike.baidu.com/item/CPU/120556?fromModule=lemma_inlink)的操作系统。
 
-
-
 Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。Linux有上百种不同的发行版，如基于社区开发的[Debian](https://baike.baidu.com/item/Debian/748667?fromModule=lemma_inlink)、[Arch Linux](https://baike.baidu.com/item/arch/1614148?fromtitle=arch%20linux&fromid=8876099)，和基于商业开发的[Red Hat Enterprise Linux](https://baike.baidu.com/item/Red%20Hat%20Enterprise%20Linux/10770503?fromModule=lemma_inlink)、[SUSE](https://baike.baidu.com/item/SUSE/60409?fromModule=lemma_inlink)、[Oracle Linux](https://baike.baidu.com/item/Oracle%20Linux/6876458?fromModule=lemma_inlink)等。
 
+### Linux 系统镜像
+
+| 系统        | 优点                                  | 缺点                         | 适用场景                   |
+| ----------- | ------------------------------------- | ---------------------------- | -------------------------- |
+| CentOS      | 稳定性高，企业及支持（原Red Hat衍生） | CentOS 8 已停止维护          | 传统企业服务器，生产环境   |
+| Ubuntu      | 社区活跃，软件包丰富，LTS 本本稳定    | 默认软件较新，可能需手动降级 | 开发者、云原生、新手友好   |
+| Debian      | 极稳定，软件包经过严格测试            | 软件版本较旧                 | 长期运行的服务、嵌入式系统 |
+| Alma Linux  | CentOS 替代品，由社区支持             | 生态仍在发展中               | 替代 CentOS 的企业环境     |
+| Rocky Linux | 类似 AlmaLinux，强调与 RHEL 兼容      | 同上                         | 同上                       |
+| OpenSUSE    | 强大的 YaST 配置工具，适合复杂环境    | 国内资料较少                 | 企业混合环境、高级用户     |
 
 
-### Linux常用命令
+
+### Linux 目录
+
+| 目录   | 说明                                                         | 示例                      |
+| ------ | ------------------------------------------------------------ | ------------------------- |
+| /      | 系统根目录，所有目录的起点                                   |                           |
+| /bin   | Binaries（二进制文件），存放经常使用的命令                   |                           |
+| /etc   | 配置文件存放位置位置                                         | Nginx配置：/etx/nginx/    |
+| /var   | 可变数据（日志、数据库、网站文件等）                         | 网站日志：/var/log/nginx/ |
+| /home  | 普通用户的家目录，主目录                                     | 用户文件：/hoem/username/ |
+| /tmp   | 临时文件（重启后清空）                                       | 缓存文件                  |
+| /usr   | 用户程序与只读文件                                           | 软件安装：/usr/bin/       |
+| /opt   | 第三方软件安装目录                                           | 自定义安装的 Java/Tomcat  |
+| /root  | 管理员（root）的家目录                                       | 避免在此存放网站文件      |
+| /dev   | 是 Device缩写，存放Linux的外部设备                           |                           |
+| /lib   | Library（库）类似Windows的DLL文件，程序共享库                |                           |
+| /meida | 系统识别设备 U盘、光驱等                                     |                           |
+| /sys   | Linux2.6内核                                                 |                           |
+| /proc  | Process 进程目录，伪文件系统                                 |                           |
+| /mnt   | 让用户临时挂在别的文件系统目录                               |                           |
+| /srv   | 服务启动之后需要提取的数据                                   |                           |
+| /run   | 临时文件系统，存储系统启动以来的信息，当系统启动时该目录下的文件应该会被清除 |                           |
+
+
+
+### Linux 命令
+
+#### 文件与目录操作
+
+| 命令     | 描述             | 示例                                                         |
+| -------- | ---------------- | ------------------------------------------------------------ |
+| cd       | 切换目录         | cd /var                                                      |
+| ls       | 列出所有文件目录 | ls -l                                                        |
+| mkdir    | 新建文件夹       | mkdir www                                                    |
+| touch    | 新建文件         | touch index.html                                             |
+| rm       | 删除文件         | rm -f /www  （强制删除/www目录）                             |
+| mv       | 移动文件/重命名  | mv old.txt new.txt （文件重命名） <br /> mv file.tx /var （移动文件） |
+| cp       | 复制文件/目录    | cp file.txt /var <br /> cp -r dir1 dir2 （复制目录包括目录下所有文件） |
+| rz       | 上传文件         |                                                              |
+| ifconfig | 查看网卡信息     |                                                              |
+| pwd      | 显示当前工作目录 |                                                              |
+| tar      | 打包/解压文件    | tar -czvf archive.tar.gz dir/ (压缩) <br /> tar -xzvf archive.tar.gz (解压) |
+| cat      | 查看文件内容     | cat file.txt <br /> cat file1.txt file2.txt > newfile.txt (合并文件) |
+| nano     | 简单文本编辑器   | nano file.txt                                                |
+| chmod    | 修改文件权限     | chmod 755 file.sh (赋予可执行权限)                           |
+| chown    | 修改文件所有者   |                                                              |
+|          |                  |                                                              |
+|          |                  |                                                              |
+
+常用命令示例
 
 ```sh
-
-cd ..                           #返回上一级 命令
-ls                             	#列出文件目录
-ctrl + l                       	#清除 屏幕命令
-mkdir [名称]                     #新建文件夹
-rm [名称]                        #删除文件 ‐r 管理员权限
-ifconfig                        #查看网卡信息
-rz                              #选择文件进行上传
-sz [文件名]                      #sz后面跟文件名可以进行文件从linux上面下载
-locate [文件名]                  #查找文件命令
-ps aux|grep [进程]              #对进程检测和控制
-
 # 检查端口是否被占用
 sudo netstat -tuln | grep [端口号]
 # 或者
 sudo ss -tuln | grep [端口号]
-
-
 ```
-### Linux 命令
-
-1. pwd：显示当前所在的目录路径
-2. ll：更详细的列出文件
-3. rm -r：删除一个文件夹 rm -r src 删除src目录
-4. touch：新建一个文件 如：touch index.html 就会新建一个 index.html 的文件
-5. mv：移动文件 如： mv index.html test 就会把index.html移动到test文件夹里
-6. reset：初始化终端 跟clear效果差不多
-
-**`rm -rf /*` 格式化根目录 此命令不可乱用**
-
 ####  Linux 命令速查表，菜鸟教程
 
 |                                                              |                                                              |                                                              |                                                              |
