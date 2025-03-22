@@ -8,14 +8,14 @@ Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的�
 
 ### Linux 系统镜像
 
-| 系统        | 优点                                  | 缺点                         | 适用场景                   |
-| ----------- | ------------------------------------- | ---------------------------- | -------------------------- |
-| CentOS      | 稳定性高，企业及支持（原Red Hat衍生） | CentOS 8 已停止维护          | 传统企业服务器，生产环境   |
-| Ubuntu      | 社区活跃，软件包丰富，LTS 本本稳定    | 默认软件较新，可能需手动降级 | 开发者、云原生、新手友好   |
-| Debian      | 极稳定，软件包经过严格测试            | 软件版本较旧                 | 长期运行的服务、嵌入式系统 |
-| Alma Linux  | CentOS 替代品，由社区支持             | 生态仍在发展中               | 替代 CentOS 的企业环境     |
-| Rocky Linux | 类似 AlmaLinux，强调与 RHEL 兼容      | 同上                         | 同上                       |
-| OpenSUSE    | 强大的 YaST 配置工具，适合复杂环境    | 国内资料较少                 | 企业混合环境、高级用户     |
+| 系统        | 优点                                  | 缺点                                 | 适用场景                   |
+| ----------- | ------------------------------------- | ------------------------------------ | -------------------------- |
+| CentOS      | 稳定性高，企业及支持（原Red Hat衍生） | CentOS 8 已停止维护                  | 传统企业服务器，生产环境   |
+| Ubuntu      | 社区活跃，软件包丰富，LTS 本本稳定    | 默认软件较新，可能需手动降级         | 开发者、云原生、新手友好   |
+| Debian      | 极稳定，软件包经过严格测试            | 软件版本较旧、系统默认没有安装防火墙 | 长期运行的服务、嵌入式系统 |
+| Alma Linux  | CentOS 替代品，由社区支持             | 生态仍在发展中                       | 替代 CentOS 的企业环境     |
+| Rocky Linux | 类似 AlmaLinux，强调与 RHEL 兼容      | 同上                                 | 同上                       |
+| OpenSUSE    | 强大的 YaST 配置工具，适合复杂环境    | 国内资料较少                         | 企业混合环境、高级用户     |
 
 
 
@@ -45,7 +45,7 @@ Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的�
 
 ### Linux 命令
 
-#### 文件与目录操作
+#### 文件与目录
 
 | 命令     | 描述             | 示例                                                         |
 | -------- | ---------------- | ------------------------------------------------------------ |
@@ -60,12 +60,52 @@ Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的�
 | ifconfig | 查看网卡信息     |                                                              |
 | pwd      | 显示当前工作目录 |                                                              |
 | tar      | 打包/解压文件    | tar -czvf archive.tar.gz dir/ (压缩) <br /> tar -xzvf archive.tar.gz (解压) |
+| zip      | 压缩zip格式文件  | zip -r archive.zip dir/                                      |
+| unzip    | 解压zip格式文件  | unzip archive.zip                                            |
 | cat      | 查看文件内容     | cat file.txt <br /> cat file1.txt file2.txt > newfile.txt (合并文件) |
 | nano     | 简单文本编辑器   | nano file.txt                                                |
 | chmod    | 修改文件权限     | chmod 755 file.sh (赋予可执行权限)                           |
-| chown    | 修改文件所有者   |                                                              |
-|          |                  |                                                              |
-|          |                  |                                                              |
+| chown    | 修改文件所有者   | chown user:group file.txt                                    |
+| find     | 搜索文件         | find / -name "*.log" (全盘搜索.log文件) <br /> find . type d (查找目录) |
+| grep     | 文件搜索         | grep "error" log.txt (查找包含"error"的行)                   |
+
+#### 系统与进程
+
+| 命令      | 描述             | 示例                                                         |
+| --------- | ---------------- | ------------------------------------------------------------ |
+| ps        | 查看进程状态     | ps aux (显示所有进程) <br /> ps -ef \| grep nginx (查看Nginx进程) |
+| top       | 实时监控系统资源 | top (动态查看 CPU、内存占用)                                 |
+| kill      | 终止进程         | kill 1234 （终止PID 1234） <br /> kill -9 1234 (强制终止)    |
+| systemctl | 管理系统服务     | systemctl start nginx (启动nginx服务) <br /> systemctl status nginx (查看nginx服务) |
+| df        | 查看磁盘使用空间 | df -h  （以易读格式显示）                                    |
+| free      | 查看内存使用     | free -m  (以MB为单位)                                        |
+| uname     | 查看系统信息     | uname -a  (显示内核版本和系统架构)                           |
+
+#### 网络
+
+| 命令     | 描述             | 示例                                                         |
+| -------- | ---------------- | ------------------------------------------------------------ |
+| ping     | 测试网络连通性   | ping google.com                                              |
+| curl     | 网络数据传输     | curl https://baidu.com (获取网页内容) <br /> curl -O file.zip (下载文件) |
+| wget     | 下载文件         | wget https://example.com/file.zip                            |
+| ifconfig | 查看网络接口信息 | ifconfig (需要安装 net-tool)                                 |
+| netstat  | 查看网络连接状态 | netstat -tuln (显示监听端口)                                 |
+| ssh      | 远程登录服务器   | ssh user@192.168.1.100                                       |
+
+#### 用户与权限
+
+| 命令    | 描述                 | 示例                                              |
+| ------- | -------------------- | ------------------------------------------------- |
+| sudo    | 以管理员权限执行命令 | sudo apt update <br /> sudo su （进入管理员模式） |
+| useradd | 添加用户             | useradd newuser <br /> passwd newuser (设置密码)  |
+| usermod | 修改用户属性         | usermod -aG sudo newuser (将用户加入sudo组)       |
+
+#### 日志查看
+
+| 命令       | 描述             | 示例                                             |
+| ---------- | ---------------- | ------------------------------------------------ |
+| tail       | 查看文件尾部内容 | tail -f /var/log/nginx/access.log (实时跟踪日志) |
+| journalctl | 查看系统日志     | journalctl -u nginx （查看Nginx服务日志）        |
 
 常用命令示例
 
@@ -77,9 +117,8 @@ sudo ss -tuln | grep [端口号]
 ```
 ####  Linux 命令速查表，菜鸟教程
 
-|                                                              |                                                              |                                                              |                                                              |
-| :----------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **1、文件管理**                                              |                                                              |                                                              |                                                              |
+| :----------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [cat](https://www.runoob.com/linux/linux-comm-cat.html)      | [chattr](https://www.runoob.com/linux/linux-comm-chattr.html) | [chgrp](https://www.runoob.com/linux/linux-comm-chgrp.html)  | [chmod](https://www.runoob.com/linux/linux-comm-chmod.html)  |
 | [chown](https://www.runoob.com/linux/linux-comm-chown.html)  | [cksum](https://www.runoob.com/linux/linux-comm-cksum.html)  | [cmp](https://www.runoob.com/linux/linux-comm-cmp.html)      | [diff](https://www.runoob.com/linux/linux-comm-diff.html)    |
 | [diffstat](https://www.runoob.com/linux/linux-comm-diffstat.html) | [file](https://www.runoob.com/linux/linux-comm-file.html)    | [find](https://www.runoob.com/linux/linux-comm-find.html)    | [git](https://www.runoob.com/linux/linux-comm-git.html)      |
@@ -182,7 +221,7 @@ sudo ss -tuln | grep [端口号]
 | [setleds](https://www.runoob.com/linux/linux-comm-setleds.html) | [loadkeys](https://www.runoob.com/linux/linux-comm-loadkeys.html) | [rdev](https://www.runoob.com/linux/linux-comm-rdev.html)    | [dumpkeys](https://www.runoob.com/linux/linux-comm-dumpkeys.html) |
 | [MAKEDEV](https://www.runoob.com/linux/linux-comm-makedev.html) | [poweroff](https://www.runoob.com/linux/linux-comm-poweroff.html) |                                                              |                                                              |
 
-## 其他命令
+### 其他命令
 
 - [Linux bc 命令](https://www.runoob.com/linux/linux-comm-bc.html)
 - [Linux tail 命令](https://www.runoob.com/linux/linux-comm-tail.html)
@@ -193,7 +232,7 @@ sudo ss -tuln | grep [端口号]
 - [Linux killall 命令](https://www.runoob.com/linux/linux-comm-killall.html)
 - [Linux pkill 命令](https://www.runoob.com/linux/linux-comm-pkill.html)
 
-### Linux vim/vi 编辑器：
+### Vim/vi 编辑器
 
 vim 编辑器有三种模式：
 
@@ -205,14 +244,14 @@ vim 编辑器有三种模式：
 
 <img src="img/Linux_vim.png"/>
 
-```shell
-#命令模式下命令
-i        #进入插入模式
+```sh
+# 命令模式下命令
+i        # 进入插入模式
 
-#插入模式命令
-esc      #退出插入模式
+# 插入模式命令
+esc      # 退出插入模式
 
-#命令行模式下命令
+# 命令行模式下命令
 :q      #退出 vim
 :q!     #强制退出 vim 不会保存文件
 :w      #只保存
@@ -226,9 +265,156 @@ esc      #退出插入模式
 
 
 
-### 扩展文章
+## 服务器搭建
 
-- [Linux 常用命令全拼](https://www.runoob.com/w3cnote/linux-command-full-fight.html)
+### 0.准备
 
-  
+首先你要有一台服务器，从腾讯云上或者阿里云上购买一台云服务器，然后安装 Linux（CentOS、Ubuntu、Debian） 系统镜像，然后通过sh工具连接服务器。
+
+### 1.更新安装包&安装基础工具
+
+```sh
+# 更新软件包
+sudo su								# 如果没权限，先进入管理员模式
+apt update && apt upgrade -y		# Ubuntu/Debian
+yum update -y && yum upgrade -y		# CentOS/RHEL
+
+# 安装基础工具
+apt install -y curl wget vim git	# Ubuntu/Debian
+yum install -y curl wget vim git	# CentOS/RHEL
+```
+
+### 2.配置防火墙
+
+```sh
+# Debian系统默认没有安装 ufw，需要手动安装一下
+apt install -y ufw
+
+# 开放端口
+ufw allow 22/tcp
+ufw allow 80/tcp
+ufw allow 443/tcp
+ufw allow 3306/tcp	# MySQL服务
+ufw enable
+
+# CentOS 使用 firewalld
+firewall-cmd --permanent --add-port={22/tcp,80/tcp,443/tcp,3306/tcp}
+firewall-cmd --reload
+```
+
+### 3.安装并配置 Nginx
+
+```sh
+# Ubuntu/Debian
+apt install -y nginx
+
+# CentOS/RHEL
+yum install -y nginx
+
+# 启动 Nginx
+systemctl start nginx
+systemctl enable nginx
+
+# 查看 Nginx 运行状态
+systemctl status nginx		# 访问服务器IP，会显示 ”Welcome to Nginx“ 页面
+
+# 配置网站目录
+mkdir -p /var/www/example.com
+chown -R $USER:$USER /var/www/example.com
+chmod -R 755 /var/www
+
+# 创建虚拟主机配置文件
+vim /etc/nginx/sites-available/example.com	# Ubuntu/Debian
+vim /etc/nginx/conf.d/example.com.conf		# CentOS
+# 写入配置内容
+server {
+	listen 80;
+	listen [::]:80;
+	
+	server_name example.com www.example.com;
+	root /var/www/example.com;
+	index index.html index.php;
+	
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
+
+# 启用配置，并重启 Nginx
+ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/	# 仅在 Ubuntu/Debian 系统下需要这步操作，CentOS 不需要
+nginx -t	# 检查语法
+systemctl restart nginx
+
+```
+
+### 4.安装数据库（MySQL/MariaDB）
+
+```sh
+# Ubuntu/Debian
+apt install -y mysql-server
+apt install -y mariadb-server	# Ubuntu/Debian 默认软件源中没有 mysql-server，可以直接安装 MariaDB
+
+# CentOS/RHEL
+yum install -y mysql-server
+
+# 启动 MySQL
+systemctl start mysqld
+systemctl enable mysqld
+
+# 运行安全初始化
+mysql_secure_installation	# 按提示设置 root 密码、删除匿名用户、禁止远程 root 登录等
+
+# 登录 MySQL
+mysql -u root -p
+
+# 创建数据库和用户
+CREATE DATABASE website_db;
+CREATE USER 'user_name'@'localhost' IDENTIFIED BY 'user_password';
+GRANT ALL PRIVILEGES ON website_db.* TO 'user_name'@'localhost';
+FLUSH PRIVILEGES;	# 刷新
+
+# 检查 MySQL 用户权限
+SELECT user, host FROM mysql.user;
+SHOW GRANTS FOR 'user_name'@'localhost';
+
+# 创建远程访问用户 (%允许仍和IP连接)
+CREATE USER 'user_name'@'%' IDENTIFIED BY 'user_password';
+GRANT ALL PRIVILEGES ON website_db.* TO 'user_name'@'%';
+FLUSH PRIVILEGES;	# 刷新
+
+# 修改配置文件允许远程用户访问
+# MySQL 配置方法
+vim /etc/mysql/mysql.conf.d/mysql.cnf	# Ubuntu/Debinan
+vim /etc/my.cnf							# CentOS
+# MariaDB 配置
+vim /etc/mysql/mariadb.conf.d/50-server.cnf		# Ubuntu/Debian
+vim /etc/my.cnf.d/server.cnf					# CentOS
+
+# 配置文件内容
+bind-address = 0.0.0.0		# 允许所有IP连接
+# 或 指定内网IP，如：bind-address = 192.168.1.100
+
+# 配置好后然后重启 mysql/mariadb
+systemctl restart mariadb
+```
+
+### 5.配置域名和SSl证书/HTTPS
+
+在域名注册商将域名A记录只想服务器IP。
+
+主域名：@ -> 解析到 服务器IP
+
+子域名：www -> 解析到 服务器IP
+
+```sh
+# 安装 Certbot 获取免费 SSL证书
+apt install -y certbot python3-certbot-nginx	# Ubuntu/Debian
+yum install -y certbot python3-certbot-nginx	# CentOS
+
+# 获取证书并自动配置 Nginx
+certbot --nginx -d example.com -d www.example.com	# certbot 会自动修改 nginx 配置
+
+# 检查域名是否解析成功
+dig example.com +short	# 返回域名解析到的服务器IP
+```
 
