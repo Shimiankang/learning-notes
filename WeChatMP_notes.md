@@ -14,13 +14,11 @@
 | [functionalPages](https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html#functionalPages) | Boolean | 否   | 是否启用插件功能页 |
 
 用法：
-
-"window":{ 
-
- "backgroundTextStyle" : "light",
-
+``` json
+"window": { 
+	"backgroundTextStyle" : "light",
  }
-
+```
 tabBar:
 
 | 属性             | 类型   | 必填 | 说明                                                         |
@@ -94,10 +92,10 @@ require('图片路径')
 //全局定义在app.js里
 globalData: {
     userInfo: { 
-        name:"王康", 
-        sex:"男",
-        birthday:"2002-12-04",    
-        address:"山东省临沂市平邑县" 
+        name: "赛罗", 
+        sex: "男",
+        birthday: "2002-11-11",    
+        address: "遥远的宇宙M78星云" 
     },
         Cur:0,
 }
@@ -163,7 +161,7 @@ Page({
 - pt大小与屏幕分辨率有关系，简单可以理解为长度与视觉单位
 - px是指物理分辨率，与屏幕尺寸没有关系
 
-**rpx：**rpx(responsive pixel): 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。
+**rpx：** rpx(responsive pixel): 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。
 
 | 设备         | rpx换算px (屏幕宽度/750) | px换算rpx (750/屏幕宽度) |
 | :----------- | :----------------------- | :----------------------- |

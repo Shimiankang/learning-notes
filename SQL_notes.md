@@ -98,64 +98,148 @@ ALTER TABLE 表名 ADD [ UNIQUE | FULLTEXT | SPATIAL ] [ INDEX | KEY ]	[ 索引�
 ## MySQL 基础用法
 
 ```shell
-mysql -uroot -proot										#连接数据库 -u 用户 -p 密码 -h IP地址
+# 连接数据库 -u 用户 -p 密码 -h IP地址
+mysql -uroot -proot
+
+# 连接数据库
+mysql -h 主机地址 -u 用户名 -p 用户密码
+
+# 修改密码
+mysqladmin -u 用户名 -p 旧密码 password 新密码
 ```
 
-## 基本查询语法
+```SQL
+-- 创建用户
+CREATE USER 'user_name'@'localhost' IDENTIFIED BY 'user_password';
+-- 赋予权限
+GRANT ALL PRIVILEGES ON database_name.* TO 'user_name'@'localhost';
+-- 刷新
+FLUSH PRIVILEGES;
+
+-- 远程连接授予权限  全部权限
+GRANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
+```
+
+
+
+## SQL语法
+
+### 数据库
 
 
 ``` sql
-CREATE DATABASE 数据库名称 ;   --创建数据库 
-USE 数据库名称 ;     		  --使用数据库 
-SHOW DATABASES ;   			  --显示所有数据库 
-SHOW TABLES ;    			  --显示所有数据表 
-DESC 表名 ;      				--显示表结构
+-- 创建数据库 
+CREATE DATABASE 数据库名称;
 
--- MySQL连表
-SELECT * FROM TABLE LEFT JOIN TABLE2 ; 
+-- 使用数据库
+USE 数据库名称;
 
--- 连表查询  会获取左表的全部数据 左连表； 
-SELECT * FROM TABLE LEFT JOIN TABLE2 ;
+-- 显示所有数据库
+SHOW DATABASES;					
 
--- 连表查询  会获取右表的全部数据 右连表； 
-SELECT * FROM TABLE JOIN TABLE2 ;      -- 内连接 简写  INNER JOIN 获取两个表中字段匹配关系的记录。；
+-- 显示所有数据表
+SHOW TABLES;
 
--- MySQL插入数据：
--- 括号 字段可写 也可以不写  VALUE('数据1','数据2','数据3') 
--- 插入单条数据 INSERT INTO 表名 ('字段1','字段2') VALUES (value1,value2);
--- 插入多条数据    
-INSERT INTO 表名 (字段...) VALUE('数据1','数据2','数据3'),VALUE('数据1','数据2','数据3'),VALUE('数据1','数据2','数据3');
+-- 显示表结构
+DESC 表名;
+```
 
--- MySQL创建数据表：
+### 创建
+
+```sql
+-- 创建数据表
 CREATE TABLE IF NOT EXISTS `tabalname` ( 
     `id` int(10) PRIMARY KEY AUTO_INCREMENT,
     `sequence` longtext NOT NULL,  
-    --这个数据类型加上下面的设置，可以导入超大文本数据      
+    -- 这个数据类型加上下面的设置，可以导入超大文本数据      
     PRIMARY KEY (`seq_region_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 MAX_ROWS=750000 AVG_ROW_LENGTH=19000;
 
-
---创建视图基本语法：
-CREATE VIEW 视图名称 AS SQL语句 ;
-
---使用视图：
-SELECT 视图名称	;
-
--- MySQL 数据库；常用命令
-mysql -h 主机地址 -u 用户名 -p 用户密码				-- 连接数据库
-mysqladmin -u 用户名 -p 旧密码 password 新密码		  -- 修改密码 （试过好像不可以）
-CRATE DATABASE 数据库名；							 -- 创建数据库
-use 数据库名；										 -- 使用数据库
-CREATE TABLE (表字段)								   -- 创建表	
-SELECT * FROM 表名；								   -- 查询表
-DELET FOM 表名；									   -- 删除表数据
-DROP TABLE 表名；									   -- 删除表
-
--- 远程连接授予权限  全部权限
-GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
+-- 创建一个部门表
+CREATE TABLE IF NOT EXISTS `department` (
+	`id` int(10) PRIMARY KEY AUTO_INCREMENT COMMENT '部门id',
+	`name` VARCHAR(30) NOT NULL COMMENT '部门名称',
+	`remark` VARCHAR(200) DEFAULT '' COMMENT '备注',
+	`create_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间'
+);
 ```
 
+### 插入
 
+```sql
+-- 括号 字段可写 也可以不写  VALUE('数据1','数据2','数据3') 
+-- 插入单条数据 
+INSERT INTO 表名 ('字段1','字段2') VALUES (value1,value2);
+-- 插入多条数据    
+INSERT INTO 表名 (字段) VALUES (value), (value2);
+-- INSERT INTO 表名 (字段...) VALUE('数据1','数据2','数据3'),VALUE('数据1','数据2','数据3'),VALUE('数据1','数据2','数据3');
+
+-- 插入一条数据
+INSERT INTO department (name) VALUE('研发部');
+```
+
+### 查询
+
+```sql
+-- 基础查询
+SELECT * FROM `table_name`;
+
+-- 条件查询
+SELECT * FROM `table_name` WHERE id = 1;		-- 查询id等于1的数据
+SELECT * FROM `talbe_name` WHERE name like '%王%';  -- 查询name中包含'王'的数据
+
+-- 查询某个字段
+SELECT id, name FROM `table_name`;
+SELECT count(*) as `count`, date(created_at) as `date` FROM `table_name`;
+
+-- 连表查询
+SELECT * FROM `table_name` LEFT JOIN `table2`;		-- 左连表，会获取左表全部数据
+SELECT * FROM `table_name` RIGHT JOIN `table2`;		-- 右连表，会获取右表全部数据
+SELECT * FROM `table_name` JOIN `table2`;			-- 内连表，获取两个表中匹配关系的记录  (INNER JOIN 简写 JOIN)
+```
+
+### 删除
+
+```sql
+-- 删除数据表
+DROP TABLE `table_name`;
+
+-- 删除数据
+DELETE FROM `table_name`;
+DELETE FROM `table_name` WHERE id = 10;		-- 按条件删除
+
+-- 清空表数据
+TRUNCATE TABLE `table_name`;		-- 与 DELETE 不同的是 TRUNCATE 会把 id 排序清空 不能被恢复
+```
+
+### 更新
+
+```sql
+-- 更新表数据
+UPDATE `table_name` SET name = '雷欧', column2 = value2;		-- 不推荐这种写法，这种写法会把数据表所有数据都更新
+
+-- 按条件更新数据
+UPDATE `table_name` SET name = '赛罗' WHERE id = 1; 		-- 推荐这种写法
+```
+
+### 修改
+
+```sql
+-- 修改表结构-添加列
+ALTER TABLE `table_name` ADD COLUMN remark VARCHAR(30);
+
+-- 修改表结构-修改列
+ALTER TABLE `table_name` MODIFY COLUMN salary DECIMAL(10,2);
+
+-- 修改表结构-修改列名
+ALTER TABLE `table_name` CHANGE old_column new_column CHAR(10);
+
+-- 修改表结构-删除列
+ALTER TABLE `table_name` DROP COLUMN birthday;
+
+-- 修改表名
+ALTER TABLE `table_name` RENAME TO `new_table_name`;
+```
 
 
 
@@ -178,13 +262,13 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 
 #### 日期类型
 
-| 类型      | 大小( bytes) | 范围                                                         | 格式                | 用途                     |
-| --------- | ------------ | ------------------------------------------------------------ | ------------------- | ------------------------ |
-| DATE      | 3            | 1000-01-01/9999-12-31                                        | YYYY-MM-DD          | 日期值                   |
-| TIME      | 3            | '-838:59:59'/'838:59:59'                                     | HH:MM:SS            | 时间值或持续时间         |
-| YEAR      | 1            | 1901/2155                                                    | YYYY                | 年份值                   |
-| DATETIME  | 8            | 1000-01-01 00:00:00/9999-12-31 23:59:59                      | YYYY-MM-DD HH:MM:SS | 混合日期和时间值         |
-| TIMESTAMP | 4            | 1970-01-01 00:00:00/2038结束时间是第 **2147483647** 秒，北京时间 **2038-1-19 11:14:07**，格林尼治时间 2038年1月19日 凌晨 03:14:07 | YYYYMMDD HHMMSS     | 混合日期和时间值，时间戳 |
+| 类型      | 大小(bytes) | 范围                                                         | 格式                | 用途                     |
+| --------- | ----------- | ------------------------------------------------------------ | ------------------- | ------------------------ |
+| DATE      | 3           | 1000-01-01/9999-12-31                                        | YYYY-MM-DD          | 日期值                   |
+| TIME      | 3           | '-838:59:59'/'838:59:59'                                     | HH:MM:SS            | 时间值或持续时间         |
+| YEAR      | 1           | 1901/2155                                                    | YYYY                | 年份值                   |
+| DATETIME  | 8           | 1000-01-01 00:00:00/9999-12-31 23:59:59                      | YYYY-MM-DD HH:MM:SS | 混合日期和时间值         |
+| TIMESTAMP | 4           | 1970-01-01 00:00:00/2038结束时间是第 **2147483647** 秒，北京时间 **2038-1-19 11:14:07**，格林尼治时间 2038年1月19日 凌晨 03:14:07 | YYYYMMDD HHMMSS     | 混合日期和时间值，时间戳 |
 
 #### 字符串类型
 
@@ -222,6 +306,8 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 
 ## MySQL函数
 
+### 字符串函数
+
 | 函数                                  | 描述                                                         | 实例                                                         |
 | :------------------------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | ASCII(s)                              | 返回字符串 s 的第一个字符的 ASCII 码。                       | 返回 CustomerName 字段第一个字母的 ASCII 码：`SELECT ASCII(CustomerName) AS NumCodeOfFirstChar FROM Customers;` |
@@ -255,8 +341,6 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 | TRIM(s)                               | 去掉字符串 s 开始和结尾处的空格                              | 去掉字符串 RUNOOB 的首尾空格：`SELECT TRIM('    RUNOOB    ') AS TrimmedString;` |
 | UCASE(s)                              | 将字符串转换为大写                                           | 将字符串 runoob 转换为大写：`SELECT UCASE("runoob"); -- RUNOOB` |
 | UPPER(s)                              | 将字符串转换为大写                                           | 将字符串 runoob 转换为大写：`SELECT UPPER("runoob"); -- RUNOOB` |
-
-
 
 ### 数字函数
 
@@ -299,8 +383,6 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 | TAN(x)                             | 求正切值(参数是弧度)                                         | `SELECT TAN(1.75);  -- -5.52037992250933`                    |
 | TRUNCATE(x,y)                      | 返回数值 x 保留到小数点后 y 位的值（与 ROUND 最大的区别是不会进行四舍五入） | `SELECT TRUNCATE(1.23456,3) -- 1.234`                        |
 
-
-
 ### 日期函数
 
 | 函数名                                            | 描述                                                         | 实例                                                         |
@@ -309,12 +391,12 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 | ADDTIME(t,n)                                      | n 是一个时间表达式，时间 t 加上时间表达式 n                  | 加 5 秒：`SELECT ADDTIME('2011-11-11 11:11:11', 5); ->2011-11-11 11:11:16 (秒)`添加 2 小时, 10 分钟, 5 秒:`SELECT ADDTIME("2020-06-15 09:34:21", "2:10:5");  -> 2020-06-15 11:44:26` |
 | CURDATE()                                         | 返回当前日期                                                 | `SELECT CURDATE(); -> 2018-09-19`                            |
 | CURRENT_DATE()                                    | 返回当前日期                                                 | `SELECT CURRENT_DATE(); -> 2018-09-19`                       |
-| CURRENT_TIME                                      | 返回当前时间                                                 | `SELECT CURRENT_TIME(); -> 19:59:02`                         |
+| CURRENT_TIME()                                    | 返回当前时间                                                 | `SELECT CURRENT_TIME(); -> 19:59:02`                         |
 | CURRENT_TIMESTAMP()                               | 返回当前日期和时间                                           | `SELECT CURRENT_TIMESTAMP() -> 2018-09-19 20:57:43`          |
 | CURTIME()                                         | 返回当前时间                                                 | `SELECT CURTIME(); -> 19:59:02`                              |
 | DATE()                                            | 从日期或日期时间表达式中提取日期值                           | `SELECT DATE("2017-06-15");     -> 2017-06-15`               |
 | DATEDIFF(d1,d2)                                   | 计算日期 d1->d2 之间相隔的天数                               | `SELECT DATEDIFF('2001-01-01','2001-02-02') -> -32`          |
-| DATE_ADD(d，INTERVAL expr type)                   | 计算起始日期 d 加上一个时间段后的日期，type 值可以是：MICROSECONDSECONDMINUTEHOURDAYWEEKMONTHQUARTERYEARSECOND_MICROSECONDMINUTE_MICROSECONDMINUTE_SECONDHOUR_MICROSECONDHOUR_SECONDHOUR_MINUTEDAY_MICROSECONDDAY_SECONDDAY_MINUTEDAY_HOURYEAR_MONTH | `SELECT DATE_ADD("2017-06-15", INTERVAL 10 DAY);     -> 2017-06-25 SELECT DATE_ADD("2017-06-15 09:34:21", INTERVAL 15 MINUTE); -> 2017-06-15 09:49:21 SELECT DATE_ADD("2017-06-15 09:34:21", INTERVAL -3 HOUR); ->2017-06-15 06:34:21 SELECT DATE_ADD("2017-06-15 09:34:21", INTERVAL -3 HOUR); ->2017-04-15` |
+| DATE_ADD(d，INTERVAL expr type)                   | 计算起始日期 d 加上一个时间段后的日期，t                     | `SELECT DATE_ADD("2017-06-15", INTERVAL 10 DAY);     -> 2017-06-25 SELECT DATE_ADD("2017-06-15 09:34:21", INTERVAL 15 MINUTE); -> 2017-06-15 09:49:21 SELECT DATE_ADD("2017-06-15 09:34:21", INTERVAL -3 HOUR); ->2017-06-15 06:34:21 SELECT DATE_ADD("2017-06-15 09:34:21", INTERVAL -3 HOUR); ->2017-04-15` |
 | DATE_FORMAT(d,f)                                  | 按表达式 f的要求显示日期 d                                   | `SELECT DATE_FORMAT('2011-11-11 11:11:11','%Y-%m-%d %r') -> 2011-11-11 11:11:11 AM` |
 | DATE_SUB(date,INTERVAL expr type)                 | 函数从日期减去指定的时间间隔。                               | Orders 表中 OrderDate 字段减去 2 天：`SELECT OrderId,DATE_SUB(OrderDate,INTERVAL 2 DAY) AS OrderPayDate FROM Orders` |
 | DAY(d)                                            | 返回日期值 d 的日期部分                                      | `SELECT DAY("2017-06-15");   -> 15`                          |
@@ -322,7 +404,7 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 | DAYOFMONTH(d)                                     | 计算日期 d 是本月的第几天                                    | `SELECT DAYOFMONTH('2011-11-11 11:11:11') ->11`              |
 | DAYOFWEEK(d)                                      | 日期 d 今天是星期几，1 星期日，2 星期一，以此类推            | `SELECT DAYOFWEEK('2011-11-11 11:11:11') ->6`                |
 | DAYOFYEAR(d)                                      | 计算日期 d 是本年的第几天                                    | `SELECT DAYOFYEAR('2011-11-11 11:11:11') ->315`              |
-| EXTRACT(type FROM d)                              | 从日期 d 中获取指定的值，type 指定返回的值。 type可取值为： MICROSECONDSECONDMINUTEHOURDAYWEEKMONTHQUARTERYEARSECOND_MICROSECONDMINUTE_MICROSECONDMINUTE_SECONDHOUR_MICROSECONDHOUR_SECONDHOUR_MINUTEDAY_MICROSECONDDAY_SECONDDAY_MINUTEDAY_HOURYEAR_MONTH | `SELECT EXTRACT(MINUTE FROM '2011-11-11 11:11:11')  -> 11`   |
+| EXTRACT(type FROM d)                              | 从日期 d 中获取指定的值，type 指定返回的值。                 | `SELECT EXTRACT(MINUTE FROM '2011-11-11 11:11:11')  -> 11`   |
 | FROM_DAYS(n)                                      | 计算从 0000 年 1 月 1 日开始 n 天后的日期                    | `SELECT FROM_DAYS(1111) -> 0003-01-16`                       |
 | HOUR(t)                                           | 返回 t 中的小时值                                            | `SELECT HOUR('1:2:3') -> 1`                                  |
 | LAST_DAY(d)                                       | 返回给给定日期的那一月份的最后一天                           | `SELECT LAST_DAY("2017-06-20"); -> 2017-06-30`               |
@@ -357,8 +439,6 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 | YEAR(d)                                           | 返回年份                                                     | `SELECT YEAR("2017-06-15"); -> 2017`                         |
 | YEARWEEK(date, mode)                              | 返回年份及第几周（0到53），mode 中 0 表示周天，1表示周一，以此类推 | `SELECT YEARWEEK("2017-06-15"); -> 201724`                   |
 
-
-
 ### 高级函数
 
 | 函数名                                                       | 描述                                                         | 实例                                                         |
@@ -374,7 +454,7 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 | CURRENT_USER()                                               | 返回当前用户                                                 | `SELECT CURRENT_USER(); -> guest@%`                          |
 | DATABASE()                                                   | 返回当前数据库名                                             | `SELECT DATABASE();    -> runoob`                            |
 | IF(expr,v1,v2)                                               | 如果表达式 expr 成立，返回结果 v1；否则，返回结果 v2。       | `SELECT IF(1 > 0,'正确','错误')     ->正确`                  |
-| [IFNULL(v1,v2)](https://www.runoob.com/mysql/mysql-func-ifnull.html) | 如果 v1 的值不为 NULL，则返回 v1，否则返回 v2。              | `SELECT IFNULL(null,'Hello Word') ->Hello Word`              |
+| IFNULL(v1,v2)                                                | 如果 v1 的值不为 NULL，则返回 v1，否则返回 v2。              | `SELECT IFNULL(null,'Hello Word') ->Hello Word`              |
 | ISNULL(expression)                                           | 判断表达式是否为 NULL                                        | `SELECT ISNULL(NULL); ->1`                                   |
 | LAST_INSERT_ID()                                             | 返回最近生成的 AUTO_INCREMENT 值                             | `SELECT LAST_INSERT_ID(); ->6`                               |
 | NULLIF(expr1, expr2)                                         | 比较两个字符串，如果字符串 expr1 与 expr2 相等 返回 NULL，否则返回 expr1 | `SELECT NULLIF(25, 25); ->`                                  |
@@ -391,23 +471,35 @@ GANT ALL PRIVILEGES ON *.* TO '用户名'@'本地主机名';
 ``` sql
 
 -- 查询 字段 第几个 字符 
-select SUBSTRING(url,16,3) from wk_photo_ablum where id != 1;
+SELECT SUBSTRING(url,16,3) FROM wk_photo_ablum WHERE id != 1;
 
 -- 修改 字段 第几个 字符 
-update wk_photo_ablum set url = replace(url,'uik','uk') where id != 1;
+UPDATE wk_photo_ablum SET url = replace(url,'uik','uk') WHERE id != 1;
 
 -- 清空 表里的所有数据； Id 也会被清空 
-delete from 表名             --不会把 id 排序清空 可以恢复
-truncate table 表名 ; 	   --会把 id 排序清空 不能被恢复
+DELETE FROM 表名;					-- 不会把 id 排序清空 可以恢复
+TRUNCATE TABLE 表名;		 	   	-- 会把 id 排序清空 不能被恢复
 
---添加字段 两个字段 也可以单个添加
-ALTER TABLE `user` ADD `username` varchar(20) NULL DEFAULT '' COMMENT '用户名',ADD `create_at` datetime NULL COMMENT '创建时间'; 
+-- 添加字段 两个字段 也可以单个添加
+ALTER TABLE `user` ADD `username` varchar(20) NULL DEFAULT '' COMMENT '用户名',ADD `create_at` datetime NULL COMMENT '创建时间';
 
 -- 查看表字段结构 
-show full columns from 表名   
+SHOW FULL COLUMNS FROM 表名;
 
 -- 修改数据表的 某个字段的编码规则
 ALTER TABLE 表名 MODIFY COLUMN 字段名 数据类型 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+
+-- 创建视图基本语法：
+CREATE VIEW 视图名称 AS SQL语句;
+
+-- 使用视图：
+SELECT 视图名称;
+
+CREATE TABLE (表字段);								   -- 创建表	
+SELECT * FROM 表名;								   -- 查询表
+DELETE FROM 表名;									   -- 删除表数据
+DROP TABLE 表名;									   -- 删除表
 
 ```
 

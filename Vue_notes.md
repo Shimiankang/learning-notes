@@ -85,17 +85,17 @@ yarn build
 
 
 
-**预渲染 SPA： ** 预渲染不仅可以优化 SEO 还可以解决首屏加载白屏问题。  prereender-spa-plugin
+**预渲染 SPA：** 预渲染不仅可以优化 SEO 还可以解决首屏加载白屏问题。  prereender-spa-plugin
 
-**静态化： ** 静态化是 Nuxt.js 的另一种方式，页面速度加载很快。在 Nuxt.js 中执行 generate 静态化打包时，动态路由会被忽略
+**静态化：** 静态化是 Nuxt.js 的另一种方式，页面速度加载很快。在 Nuxt.js 中执行 generate 静态化打包时，动态路由会被忽略
 
 **SSR 服务端渲染：**  服务端渲染就是在服务器发送到浏览器前，就将页面渲染上。
 
-**Phantomjs： ** 是一个基于 webkit 内核的无头浏览器，即没有UI界面，使用 Phantomjs 针对爬虫做处理。
+**Phantomjs：** 是一个基于 webkit 内核的无头浏览器，即没有UI界面，使用 Phantomjs 针对爬虫做处理。
 
 
 
-<img src="/img/seo.jpg"/>
+<img src="./img/seo.jpg"/>
 
 #### Vue模板语法：
 
@@ -488,7 +488,7 @@ app.component('my-component-name', {})
 
 在事件处理程序中调用 event.preventDefault() 或 event.stopPropagation() 是非常常见的需求。尽管我们可以在方法中轻松实现这点，但更好的方式是：方法只有纯粹的数据逻辑，而不是去处理 DOM 事件细节。
 
-为了解决这个问题。vue.js 为 v-on 提供了**事件修饰符。**修示符是由点开头的指令后缀来表示的。
+为了解决这个问题。vue.js 为 v-on 提供了 **事件修饰符。** 修示符是由点开头的指令后缀来表示的。
 
 
 

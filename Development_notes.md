@@ -1,6 +1,8 @@
-# Hello Word
+# Development_notes
 
-Hello World 这个笔记主要及一些计算机相关知识，以及学习编程用的的工具、插件、包之类的。
+## 介绍
+
+**Development_notes** 这个笔记主要及一些计算机相关知识，以及学习编程用的开发环境、工具、插件、包之类的。
 
 ## Shell命令
 
@@ -20,16 +22,16 @@ Windows Explorer 是一个典型的图形界面 Shell。
 
 ``` shell
 
-echo hello world               #输出 hello world
-your_name = "runoob.com"       #定义变量
-echo $your_name                #使用变量 需要加美元符号
-echo ${your_name}              #规范的使用
-unset your_name                #删除变量
-echo ${#your_name}             #获取字符串 长度
-echo ${#your_name: 1 : 4 }     #截取字符串 输出：unoo
-array = (value1 value2 value3) #定义 数组
-echo ${array[ 0 ]}             #使用数组
-echo ${array[@]}               #获取所有数组内数据
+echo hello world             		#输出 hello world
+your_name = "runoob.com"     		#定义变量
+echo $your_name              		#使用变量 需要加美元符号
+echo ${your_name}              		#规范的使用
+unset your_name                		#删除变量
+echo ${#your_name}             		#获取字符串 长度
+echo ${#your_name: 1 : 4 }     		#截取字符串 输出：unoo
+array = (value1 value2 value3) 		#定义 数组
+echo ${array[ 0 ]}             		#使用数组
+echo ${array[@]}               		#获取所有数组内数据
 
 ```
 
@@ -44,19 +46,19 @@ echo ${array[@]}               #获取所有数组内数据
 #### window 终端命令：
 ``` shell
 
-dir 										# 查看计算机文件目录  /s 包括子目录 又称遍历目录
-Start-Process Powershell -Verb RunAs		# 以管理员身份运行 Power Shell
+dir 								# 查看计算机文件目录  /s 包括子目录 又称遍历目录
+Start-Process Powershell -Verb RunAs				# 以管理员身份运行 Power Shell
 
-netstat -ano							 	# 查看所有端口情况   
-											# 可以根据查找出来的 PID 打开任务管理器看进程是被什么程序给占用了
+netstat -ano					 		# 查看所有端口情况   
+								# 可以根据查找出来的 PID 打开任务管理器看进程是被什么程序给占用了
 											
-netstat -ano|findstr "端口号"				  # 查看指定端口信息
+netstat -ano|findstr "端口号"			 		# 查看指定端口信息
 tastlist|findstr "PID"						# 查看PID指定的进程信息
-ipconfig 									# 查看网卡网络信息、IP信息
+ipconfig 							# 查看网卡网络信息、IP信息
 
-ping 192.168.1.1    # 测试路由器
-ping 127.0.0.1      # 测试网卡
-ping www.baidu.com  # 测试Internet
+ping 192.168.1.1   			 # 测试路由器
+ping 127.0.0.1     			 # 测试网卡
+ping www.baidu.com 			 # 测试Internet
 
 cd \ 切换c盘
 
@@ -73,16 +75,16 @@ netstat
 # 显示所有所动链接
 netstat -a
 
-cd 目录名/目录           	 # 进入目录
-cd ..                   	# 返回上一级目录
-rename 原文件名 新文件名 	   # 重命名
-dir                     	# 查看文件目录
-E:                      	# 直接进入E盘
-cls                     	# 清空命令
-doskey /histry          	# 查看历史命令
-color a                 	# 更改命令 字体背景颜色
-md 目录名称             	 # 创建目录 全拼 mkdir 
-del 文件名               	  # 删除文件
+cd 目录名/目录           		# 进入目录
+cd ..                   		# 返回上一级目录
+rename 原文件名 新文件名 	   	# 重命名
+dir                     		# 查看文件目录
+E:                      		# 直接进入E盘
+cls                     		# 清空命令
+doskey /histry          		# 查看历史命令
+color a                 		# 更改命令 字体背景颜色
+md 目录名称            		 	# 创建目录 全拼 mkdir 
+del 文件名               		# 删除文件
 
 
 regedit  				# 注册表
@@ -137,7 +139,7 @@ npm install
 
 # 安装单独依赖
 npm install name
-npm install name@2.0		# 安装指定版本的依赖
+npm install name@2.0			# 安装指定版本的依赖
 
 # 删除依赖
 npm uninstall name
@@ -145,7 +147,7 @@ npm uninstall name
 # 更新依赖
 npm update name				# 默认更新到最新版本
 npm update name@3.0			# 更新到指定版本
-npm update name@latest		# 更新到最后一个新版本
+npm update name@latest			# 更新到最后一个新版本
 
 # 查看 npm 配置
 npm config ls
@@ -339,13 +341,13 @@ bios芯片 是电脑主板上一个独立芯片，用来诊断电脑
 ### 快捷键：
 
 ```scss
-ctrl + k             // 打开命令面板
-T					 // 快速进入某个目录文件  快速检索
-。                   // 在网页使用 VsCode 打开项目
-S                    // 聚焦到搜索引擎
-T                    // 对仓库内的项目路径搜索
-L                    // 跳转到某一行
-B                    // 查看该文件改动记录
+ctrl + k             	// 打开命令面板
+T			// 快速进入某个目录文件  快速检索
+。                   	// 在网页使用 VsCode 打开项目
+S                    	// 聚焦到搜索引擎
+T                    	// 对仓库内的项目路径搜索
+L                    	// 跳转到某一行
+B                    	// 查看该文件改动记录
 ```
 
 ### 高级搜索命令：
@@ -376,110 +378,102 @@ language:java （用Java语言编写的项目）
 
 ### 常用Git命令：
 
-
- git init 初始化git生成git仓库
-
- git status   查看git状态
-
- git add filename 添文件到暂存区
-
- git add . 加入所有文件到暂存区
-
- git commite -m message 提交文件到本地仓库
-
- git reset filename  将尚没有commite之前加入到暂存区的文件重新拉回
-
- git push	 推送到远程仓库
-
- git pull       拉取远程仓库自动合并
-
+``` sh
+ git init 			#初始化git生成git仓库
+ git status   			#查看git状态、主要还是产看暂缓区文件状态
+ git add 文件名 			#添文件到暂存区
+ git add . 			#加入所有文件到暂存区
+ git commite -m message 	#提交文件到本地仓库
+ git reset 文件名  		#将尚没有commite之前加入到暂存区的文件重新拉回
+ git push	 		#推送到远程仓库
+ git pull       		#拉取远程仓库自动合并
+```
 ### 文件状态：
 
  1.没有被add过的文件叫untracked
 
  2.add之后文件处于staged状态等待commite
 
- 3.commit之后文件处于unmodified这里之所以是modified是因为
-
- 文件会跟仓库中的文件对比
+ 3.commit之后文件处于unmodified这里之所以是modified是因为文件会跟仓库中的文件对比
 
  4.当unmodified的文件被修改则会变为modified状态
 
  5.modified之后的文件add之后将继续变为staged状态
 
- 6.unmodifed的文件还有一种可能是已经不再需要了，那么可以
-
- remove它不再追踪变为untracked状态
+ 6.unmodifed的文件还有一种可能是已经不再需要了，那么可以remove它不再追踪变为untracked状态
 
 ``` shell
-git config -l													   #查看配置
-git config --system --list										   #查看本地配置
-git config --global user.name "大头康"       	                     #设置用户名 
-git config --global user.email "Kangbro@126.com"                   #设置邮箱 
-git config --global --list										   #查看全局配置
-git config --global user.name --unset 							   #删除配置
-git init  		                 	                               #初始化仓库 
-git remote show origin											   #查看 origin 信息
-git remote add 远程主机名称 远程仓库地址							   #设置远程仓库地址 origin 仓库名称
-git remote set-url 远程主机名 远程仓库地址							    #修改远程仓库地址
-git remote rename 旧远程主机名 新远程主机名							   #修改仓库名称
-git add .		                                                   #选择要上传的内容  . 代表全部 添加到暂缓区
-git commit -m 'message' 	                                       #将暂缓区内容添加到仓库中  描述主要修改类型和内容
+git config -l								#查看配置
+git config --system --list						#查看本地配置
+git config --global user.name "大头康"     	                     	#设置用户名 
+git config --global user.email "Kangbro@126.com"                   	#设置邮箱 
+git config --global --list						#查看全局配置
+git config --global user.name --unset 					#删除配置
 
-git push --set-upstream 远程主机名 分支名  	                          #上传远程代码并合并 git push—设置上游原始主机
-git push -u 远程主机名 分支										 
+git init  		                 	                        #初始化仓库 
+git remote show origin							#查看 origin 信息
+git remote add 远程主机名称 远程仓库地址					#设置远程仓库地址 origin 仓库名称
+git remote set-url 远程主机名 远程仓库地址				#修改远程仓库地址
+git remote rename 旧远程主机名 新远程主机名				#修改仓库名称
 
-git clone 远程主机地址								               # 拉取远程仓库到本地仓库 后面跟仓库地址 
-git status                                                         # 查看仓库当前状态 ，显示所有变更文件
-git tag 														   # 查看所有标签
-git tag v1.0.0 												 	   # 设置标签
-git tag -d v1.0.0											       # 删除标签
-git push origin v1.0.0											   # 远程添加标签
-git push origin -d v1.0.0										   # 远程删除标签
-git rm 															   # 删除工作区文件
-git mv 															   # 移动或重命名工作区文件
-git log															   # 查看历史提交记录
-git blame 文件名称 													# 查看文件历史修改记录
-git pull    													   # 拉取远程仓库到本地工作区并合并 保留原来的 merge commit 保留完整的历史
-git pull --rebase												   # 拉取远程主机，重写当前分支史  重新 merge commit 重写当前分支历史
-git fetch														   # 下载远程到本地仓库且不会合并
-git restore --staged 文件名        								 # 取消暂存
-git diff														   # 详细查看修改了哪些东西
-git log --online												   #
+git add .		                                                #选择要上传的内容  . 代表全部 添加到暂缓区
+git commit -m 'message' 	                                        #将暂缓区内容添加到仓库中  描述主要修改类型和内容
+git push --set-upstream 远程主机名 分支名  	                        #上传远程代码并合并 git push—设置上游原始主机
+git push -u 远程主机名 分支						#设置上游主机 简写
 
-git reset --hard HEAD~10										   # 将当前版本重置为HEAD ~10往前是个版本   
-git reset --hard 版本号码											# 重置到第几个版本号
-git reflog 														   # 显示所有提交，包括孤立节点。
-git checkout 版本号 文件名										   # 将版本号的文件赋给文件
-git remote show origin											   # 查看当前设置的仓库地址
-git ignore <语言或框架> <文件模式>									 # 生成git忽略文件， .gitgnore
-ssh-keygen -t rsa -C "邮箱地址"										# 生成 .ssh key            rsa：.ssh签名类型
-																   # rsa 签名类型有：ed25519
-git fetch 远程仓库 远程仓库分支 									    # 拉取远程仓库的某个分支
-git branch														   # 查看本地所有分支 参数： -a 查看所有；-r 查看远程分支
-git branch 分支名												 	 # 创建分支
-git branch -d 分支名											     # 删除分支 -D 是强制删除
-git branch -u 远程主机/分支名										  # 与上游分支建立追踪关系
-git branch -m 新分支名称 										   # 重命名 修改分支名
-git checkout 分支名称											    # 切换分支
-git merge 远程仓库/本地分支											 # 将远程仓库拉取到的内容合并到本地主分支
-git merge 分支名称													# 合并分支到当前分支
-git push 远程主机 -d 分支名称                                        # 删除远程分支
-git stash 														   # 将变化藏匿在一个脏工作区中
+git clone 远程主机地址							#拉取远程仓库到本地仓库 后面跟仓库地址 
+git status                                                         	#查看仓库文件变更状态，显示所有变更文件
+git tag 								#查看所有标签
+git tag v1.0.0 								#设置标签
+git tag -d v1.0.0							#删除标签
+git push origin v1.0.0							#远程添加标签
+git push origin -d v1.0.0						#远程删除标签
+git rm 									#删除工作区文件
+git mv 									#移动或重命名工作区文件
+git blame 文件名称 							#查看文件历史修改记录
+git pull    								#拉取远程仓库到本地工作区并合并 保留原来的 merge commit 保留完整的历史
+git pull --rebase							#拉取远程主机，重写当前分支史  重新 merge commit 重写当前分支历史
+git fetch								#下载远程到本地仓库且不会合并
+git restore --staged 文件名        					#取消暂存
+git diff								#详细查看修改了哪些东西
+git log									#查看历史提交记录
+git log --online							#以简洁的方式查看commit历史提交
 
-git reset --hard HEAD^												# 删除本地最后一个 commit
-git push --force-with-lease 										# 推送到远程删掉最后一个 commit
-git cherry-pick HASH 												# 恢复本地最后一个 commit
+git reflog 								#显示所有提交，包括孤立节点。
+git checkout 版本号 文件名						#将版本号的文件赋给文件
+git remote show origin							#查看当前设置的仓库地址
+git ignore <语言或框架> <文件模式>					#生成git忽略文件， .gitgnore
+ssh-keygen -t rsa -C "邮箱地址"						#生成 .ssh key	rsa：.ssh签名类型	rsa 签名类型有：ed25519
+
+git fetch 远程仓库 远程仓库分支 						#拉取远程仓库的某个分支
+git branch								#查看本地所有分支 参数： -a 查看所有；-r 查看远程分支
+git branch 分支名							#创建分支
+git branch -d 分支名							#删除分支 -D 是强制删除
+git branch -u 远程主机/分支名						#与上游分支建立追踪关系
+git branch -m 新分支名称 						#重命名 修改分支名
+git checkout 分支名称							#切换分支
+git merge 远程仓库/本地分支						#将远程仓库拉取到的内容合并到本地主分支
+git merge 分支名称							#合并分支到当前分支
+git push 远程主机 -d 分支名称                                       	#删除远程分支
+git stash 								#将变化藏匿在一个脏工作区中
+
+git reset 								#可以取消所有文件暂存更改
+git reset src/view/文件路径						#可以指定回退某个文件
+git reset --hard HEAD~10						#将当前版本重置为HEAD ~10往前是个版本   
+git reset --hard 版本号码						#重置到第几个版本号
+git reset --hard HEAD^							#删除本地最后一个 commit
+git push --force-with-lease 						#推送到远程删掉最后一个 commit
+git cherry-pick HASH 							#恢复本地最后一个 commit
+
 ```
 
 
 
-**git查看暂缓区中的内容**
-
+#### git查看暂缓区中的内容
 ```shell
 git ls-files -c		#默认 -c
 ```
-
+命令参数
 | 选项           | 含义                                                         |
 | -------------- | ------------------------------------------------------------ |
 | -c，--cached   | 显示缓存了的文件（默认）                                     |

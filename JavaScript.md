@@ -620,27 +620,38 @@ btoa(要加密的值)
 
 ##### eval（" num = 7 "）把里面的字符串当代码执行
 
-被除数      除数      商
+``` js
 
-10    ÷     5    =   2   
+console.log()		// 把括号里面的东西打印在控制台
+console.error() 	// 抛出异常
 
-**console.log ( )  把括号里面的东西打印在控制台**
+console.trace() 	// 方法用于显示当前执行的代码在堆栈中的调用路径。
+console.info()		// 打印说明信息，用法效果和console.log一样
+console.dir()		// 以文件树结构打印
+console.table
 
-**console.error() 抛出异常**
-
-**console.trace() 方法用于显示当前执行的代码在堆栈中的调用路径。**
-
-**console.info() **
-
-**console.dir()**
-
-可以调样式：console.log('%c params ', 'color: white; background-color: #f00000', params);
+console.time()		
+console.timeEnd()	// 可以用来打印时间，两个用来打印一段代码执行时间
 
 
+// 可以调样式：
+console.log('%c params ', 'color: white; background-color: #f00000', params);
+```
 
 
 
-求余 10 % 4 = 2 ； 这就是求余   2 * 4 = 8    10 - 8 = 2 所以余数是二
+
+### 数学
+``` js
+
+// 求余
+10 % 4 = 2; 	// 这就是求余
+2 * 4 = 8;
+10 - 8 = 2; 	// 所以余数是二
+
+// 被除数      除数      商
+10 ÷ 5 = 2
+```
 
 
 
@@ -707,25 +718,67 @@ mouseenter 事件只在鼠标移动到选取的元素上时触发。
 
 ```js
 
-var date = new Date();      //创建一个新的日期对
- Timestamp = date.getTime()  //获取时间戳
- Years = date.getFullYear()  //获取四位数 年份
- Month = date.getMonth()     //以(0~11) 获取月份
- d = date.getDate()          //获取日期 日
- Hours = date.getHours()     //以(0~23) 获取小时数
- Minutes = date.getMinutes() //获取方法 描述
+var date = new Date();      		//创建一个新的日期对
+ Timestamp = date.getTime()  		//获取时间戳
+ Years = date.getFullYear()  		//获取四位数 年份
+ Month = date.getMonth()     		//以(0~11) 获取月份
+ d = date.getDate()          		//获取日期 日
+ Hours = date.getHours()     		//以(0~23) 获取小时数
+ Minutes = date.getMinutes() 		//获取方法 描述
 
 getDate() 			// 以数值返回天（1-31）
 getDay() 			// 以数值获取周名（0-6）
-getFullYear() 		// 获取四位的年（yyyy）
+getFullYear() 			// 获取四位的年（yyyy）
 getHours() 			// 获取小时（0-23）
-getMilliseconds() 	// 获取毫秒（0-999）
-getMinutes()		// 获取分（0-59）
+getMilliseconds() 		// 获取毫秒（0-999）
+getMinutes()			// 获取分（0-59）
 getMonth()			// 获取月（0-11）
-getSeconds()		// 获取秒（0-59）
+getSeconds()			// 获取秒（0-59）
 getTime()			// 获取时间（从 1970 年 1 月 1 日至今）
 
 ```
+#### 几种获取时间戳的方法
+
+**方法一：Date.now()**
+
+Date.now()可以获得当前时间戳
+```js
+Date.now()  // 1741144386666
+```
+
+**方法二：Date.parse()**
+
+Date.parse()将字符串或者时间对象直接转化成时间戳
+```js
+Date.parse(new Date())
+Date.parse('2025-03-05 10:10:10')  // 1741140610000
+```
+注意：不推荐这种办法，毫秒级别的数值被转化为000。
+
+**方法三：valueOf()**
+
+通过valueOf()函数返回指定对象的原始值获得准确的时间戳值
+```js
+new Date().valueOf()
+```
+
+**方法四：getTime()**
+
+通过原型方法直接获取当前时间毫秒值，
+```js
+new Date().getTime()
+```
+
+**方法五：Number()**
+
+将时间对象转化为一个number类型的数值，即时间戳
+```js
+Number(new Date())
+//number类型转换简写
++new Date()
+```
+
+
 
 ### JavaScript Class 类：
 
@@ -1172,11 +1225,11 @@ rs 重启一下 是 restart 的缩写
 
 ​	JWT的组成部分：**header.payload.signature**
 
-​		**header：**中包含含有关令牌类型和使用的算法信息。
+​		**header：** 中包含含有关令牌类型和使用的算法信息。
 
-​		**payload：**中包含声明或其它有用负载信息。
+​		**payload：** 中包含声明或其它有用负载信息。
 
-​		**signture：**是可选项，用来对前两部分的签名，防止篡改
+​		**signture：** 是可选项，用来对前两部分的签名，防止篡改
 
 ```js
 
@@ -1245,7 +1298,7 @@ const query = require("../db.js")//引入
 let data = await query(SQL语句)
 
 ```
-## Node  WebScoket
+## Node WebScoket
 
 WebSocket 使客户端和服务器端之间的数据交换变得更加简单，允许服务器主动向客户端推送数据。在 WebSocket API 中，浏览器和服务器只需要完成一次握手，两者之间就可以持久性的连接，并进行双向数据传输。
 
@@ -1317,7 +1370,7 @@ wss.on("connection",function (ws) {
 
 
 
-## Node  Joi
+## Node Joi
 
 JavaScript对象的规则描述语言和验证器。
 
