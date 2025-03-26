@@ -47,27 +47,27 @@ Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的�
 
 #### 文件与目录
 
-| 命令     | 描述             | 示例                                                         |
-| -------- | ---------------- | ------------------------------------------------------------ |
-| cd       | 切换目录         | cd /var                                                      |
-| ls       | 列出所有文件目录 | ls -l                                                        |
-| mkdir    | 新建文件夹       | mkdir www                                                    |
-| touch    | 新建文件         | touch index.html                                             |
-| rm       | 删除文件         | rm -f /www  （强制删除/www目录）                             |
-| mv       | 移动文件/重命名  | mv old.txt new.txt （文件重命名） <br /> mv file.tx /var （移动文件） |
-| cp       | 复制文件/目录    | cp file.txt /var <br /> cp -r dir1 dir2 （复制目录包括目录下所有文件） |
-| rz       | 上传文件         |                                                              |
-| ifconfig | 查看网卡信息     |                                                              |
-| pwd      | 显示当前工作目录 |                                                              |
-| tar      | 打包/解压文件    | tar -czvf archive.tar.gz dir/ (压缩) <br /> tar -xzvf archive.tar.gz (解压) |
-| zip      | 压缩zip格式文件  | zip -r archive.zip dir/                                      |
-| unzip    | 解压zip格式文件  | unzip archive.zip                                            |
-| cat      | 查看文件内容     | cat file.txt <br /> cat file1.txt file2.txt > newfile.txt (合并文件) |
-| nano     | 简单文本编辑器   | nano file.txt                                                |
-| chmod    | 修改文件权限     | chmod 755 file.sh (赋予可执行权限)                           |
-| chown    | 修改文件所有者   | chown user:group file.txt                                    |
-| find     | 搜索文件         | find / -name "*.log" (全盘搜索.log文件) <br /> find . type d (查找目录) |
-| grep     | 文件搜索         | grep "error" log.txt (查找包含"error"的行)                   |
+| 命令  | 描述                     | 示例                                                         |
+| ----- | ------------------------ | ------------------------------------------------------------ |
+| cd    | 切换目录                 | cd /var                                                      |
+| ls    | 列出所有文件目录         | ls -l                                                        |
+| mkdir | 新建文件夹               | mkdir www                                                    |
+| touch | 新建文件                 | touch index.html                                             |
+| rm    | 删除文件                 | rm -f /www  （强制删除/www目录）                             |
+| mv    | 移动文件/重命名          | mv old.txt new.txt （文件重命名） <br /> mv file.tx /var （移动文件） |
+| cp    | 复制文件/目录            | cp file.txt /var <br /> cp -r dir1 dir2 （复制目录包括目录下所有文件） |
+| ln    | 创建链接（类似快捷方式） | ln -s /etc/nginx/sites-available/file /etc/nginx/sites-enalbed/ |
+| rz    | 上传文件                 |                                                              |
+| pwd   | 显示当前工作目录         |                                                              |
+| tar   | 打包/解压文件            | tar -czvf archive.tar.gz dir/ (压缩) <br /> tar -xzvf archive.tar.gz (解压) |
+| zip   | 压缩zip格式文件          | zip -r archive.zip dir/                                      |
+| unzip | 解压zip格式文件          | unzip archive.zip                                            |
+| cat   | 查看文件内容             | cat file.txt <br /> cat file1.txt file2.txt > newfile.txt (合并文件) |
+| nano  | 简单文本编辑器           | nano file.txt                                                |
+| chmod | 修改文件权限             | chmod 755 file.sh (赋予可执行权限)                           |
+| chown | 修改文件所有者           | chown user:group file.txt                                    |
+| find  | 搜索文件                 | find / -name "*.log" (全盘搜索.log文件) <br /> find . type d (查找目录) |
+| grep  | 文件搜索                 | grep "error" log.txt (查找包含"error"的行)                   |
 
 #### 系统与进程
 

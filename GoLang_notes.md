@@ -240,3 +240,68 @@ func main() {
 }
 ```
 
+## 部署
+
+### 1.打包到Linux
+
+```sh
+# 配置
+set CGO_ENABLED=0
+set GOOS=linux
+set GOARCH=amd64
+
+# 查看是否配置成功
+go env
+
+# 如果GOOS未配置成功
+$env:GOOS="linux"
+
+# 编译
+go build -o app main.go
+```
+
+### 2.在服务器上运行
+
+将打包好的程序上传到服务器
+
+```sh
+# 修改程序权限
+chmod 777 app
+
+# 运行
+./app
+
+# 后台运行
+setsid ./app
+```
+
+### 3.映射域名
+
+解析一个域名作为该服务接口地址
+
+```sh
+# 配置nginx
+vim /etc/nginx/sites-available/api.example.com
+
+# 配置文件内容
+server {
+    listen 80;
+    server_name api.example.com;
+
+    location / {
+        proxy_pass http://localhost:8080;  # 替换为 Go 项目的监听端口（如 8080）
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+# 启用配置
+ls -s /etc/nginx/sites-available/api.example.com /etc/nginx/sites-enabled/
+systemctl restart nginx
+
+# 配置ssl证书
+certbot --nginx -d api.example.com
+```
+

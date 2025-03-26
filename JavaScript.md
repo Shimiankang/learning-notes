@@ -1481,6 +1481,29 @@ git clone https://github.com/nestjs/typescript-starter.git <项目名>
 
 
 
+## Pkg
+
+### 介绍
+
+该工具可以将Node.js项目打包成可执行文件，即使未安装在Node.js的设备上也可以运行。
+
+该工具只能在Node.js v20版本一下使用，pkg 5.8.1最后一个版本。
+
+### 安装使用
+
+```sh
+# 安装
+npm install -g pkg
+
+# 使用
+pkg index.js --target linux 		# 打包Linux可执行文件
+pkg index.js --target win 			# 打包Windows可执行文件
+pkg index -t linux --compress GZip 	# 压缩体积
+pkg index -t linux -C Brotli		# 简写
+```
+
+
+
 
 
 
