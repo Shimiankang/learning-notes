@@ -61,6 +61,9 @@ go mod init gin-demo	# 项目名称
 go get -u github.com/gin-gonic/gin
 #或
 go install github.com/gin-gonic/gin@latest
+
+# 添加和移除未使用的模块
+go mod tidy		
 ```
 
 创建 main.go 文件
