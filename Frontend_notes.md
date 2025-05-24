@@ -4,20 +4,21 @@
 
 ### 前端组件库
 
-- H-ui（admin组件样式库）
-- Element-ui（Vue组件库）
-- Vant（安卓端组件样式库）
-- Color-UI（微信小程序样式库）
-- Bootstrap（目前最受欢迎的前端框架，基于HTML、CSS、Javascript）
-- LayUi（组件库样式库）
-- EasUi（jQuery的组件库）
-- Weui（微信小程序组件）
-- mui (移动H5端)
-- AntDesign（主要配合React使用、也有Vue版的）
-- UviewUI（uniapp样式组件库）
-- NaiveUI（一个非常全面好用的组件库，不过现在好像没人维护了）
-- ArcoUI（一款由字节跳动开发的组件库）
-- TDesign（一款由腾讯开发的组件库）
+- **H-ui:** admin组件样式库
+- **Element-ui:** Vue标配组件库
+- **Vant:** 移动端组件样式库
+- **Color-UI:** 微信小程序样式库
+- **Bootstrap:** 目前最受欢迎的前端框架，基于HTML、CSS、Javascript
+- **LayUi:** 组件库样式库
+- **EasUi:** jQuery的组件库
+- **Weui:** 微信小程序组件
+- **mui:** 移动H5端
+- **AntDesign:** 主要配合React使用、也有Vue版的
+- **UviewUI:** uniapp样式组件库
+- **NaiveUI:** 一个非常全面好用的组件库，不过现在好像没人维护了
+- **ArcoUI:** 一款由字节跳动开发的组件库
+- **TDesign:** 一款由腾讯开发的组件库
+- **ThorUI:** 轻量简洁，全面的移动端组件库包含uniapp和微信小程序
 
 ### 前端框架
 
@@ -28,6 +29,8 @@
 - jQuery 
 
 - Angular
+
+- Svelte
 
 ##### JS 工具库
 

@@ -46,15 +46,15 @@ echo ${array[@]}               		#获取所有数组内数据
 #### window 终端命令：
 ``` shell
 
-dir 								# 查看计算机文件目录  /s 包括子目录 又称遍历目录
+dir													# 查看计算机文件目录  /s 包括子目录 又称遍历目录
 Start-Process Powershell -Verb RunAs				# 以管理员身份运行 Power Shell
 
-netstat -ano					 		# 查看所有端口情况   
-								# 可以根据查找出来的 PID 打开任务管理器看进程是被什么程序给占用了
-											
-netstat -ano|findstr "端口号"			 		# 查看指定端口信息
-tastlist|findstr "PID"						# 查看PID指定的进程信息
-ipconfig 							# 查看网卡网络信息、IP信息
+netstat -ano										# 查看所有端口情况   
+													# 可以根据查找出来的 PID 打开任务管理器看进程是被什么程序给占用了
+
+netstat -ano | findstr "端口号"					# 查看指定端口信息
+tastlist | findstr "PID"						# 查看PID指定的进程信息
+ipconfig										# 查看网卡网络信息、IP信息
 
 ping 192.168.1.1   			 # 测试路由器
 ping 127.0.0.1     			 # 测试网卡
@@ -77,7 +77,7 @@ netstat -a
 
 cd 目录名/目录           		# 进入目录
 cd ..                   		# 返回上一级目录
-rename 原文件名 新文件名 	   	# 重命名
+rename 原文件名 新文件名			# 重命名
 dir                     		# 查看文件目录
 E:                      		# 直接进入E盘
 cls                     		# 清空命令
@@ -342,7 +342,7 @@ bios芯片 是电脑主板上一个独立芯片，用来诊断电脑
 
 ```scss
 ctrl + k             	// 打开命令面板
-T			// 快速进入某个目录文件  快速检索
+T						// 快速进入某个目录文件  快速检索
 。                   	// 在网页使用 VsCode 打开项目
 S                    	// 聚焦到搜索引擎
 T                    	// 对仓库内的项目路径搜索
@@ -379,14 +379,14 @@ language:java （用Java语言编写的项目）
 ### 常用Git命令：
 
 ``` sh
- git init 			#初始化git生成git仓库
- git status   			#查看git状态、主要还是产看暂缓区文件状态
- git add 文件名 			#添文件到暂存区
- git add . 			#加入所有文件到暂存区
- git commite -m message 	#提交文件到本地仓库
- git reset 文件名  		#将尚没有commite之前加入到暂存区的文件重新拉回
- git push	 		#推送到远程仓库
- git pull       		#拉取远程仓库自动合并
+ git init 			# 初始化git生成git仓库
+ git status   			# 查看git状态、主要还是产看暂缓区文件状态
+ git add 文件名 			# 添文件到暂存区
+ git add . 			# 加入所有文件到暂存区
+ git commite -m message 	# 提交文件到本地仓库
+ git reset 文件名  		# 将尚没有commite之前加入到暂存区的文件重新拉回
+ git push	 		# 推送到远程仓库
+ git pull       		# 拉取远程仓库自动合并
 ```
 ### 文件状态：
 
@@ -422,7 +422,7 @@ git push --set-upstream 远程主机名 分支名  	                        #上
 git push -u 远程主机名 分支						#设置上游主机 简写
 
 git clone 远程主机地址							#拉取远程仓库到本地仓库 后面跟仓库地址 
-git status                                                         	#查看仓库文件变更状态，显示所有变更文件
+git status                                                         	#查看仓库文件变更状态，显示所有变更文件 主要用来查看已经 add 到暂缓区的文件
 git tag 								#查看所有标签
 git tag v1.0.0 								#设置标签
 git tag -d v1.0.0							#删除标签
@@ -507,3 +507,37 @@ git pull --rebase
 4. 将当前分支还原到原来的位置
 
 这将重写当前分支的历史,避免了多余的 merge commit。
+
+### 合并commit
+
+#### git rebase 方法
+
+```sh
+# 查看所有commit记录
+git log 
+
+# 将3个commit压缩成一个commit
+git rebase -i HEAD~3
+
+# 或者 指定压缩到的commitID
+git rebase -i b38675316600f9c1531d6adaa1ec8b70a598f2a3
+
+# 然后vim编辑 将后两个 commit 标记为 squash
+pick b386753 commit1
+squash 824d780 commit2
+squash 5357064 commit3
+
+# add已经跟踪的文件，执行完上个步骤后，该步骤会被省略直接编辑 commit message
+git add -u
+
+# 提交 [省略]
+git commit -m '合并commit'
+
+# 如果要合并到主分支
+git merge branch2 --ff-only
+
+# 强制push替代远程仓库的commitID
+git push --force
+```
+
+<img src="./img/git_rebase.png"/>
