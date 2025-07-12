@@ -448,9 +448,9 @@ ssh-keygen -t rsa -C "邮箱地址"						#生成 .ssh key	rsa：.ssh签名类型
 git fetch 远程仓库 远程仓库分支 						#拉取远程仓库的某个分支
 git branch								#查看本地所有分支 参数： -a 查看所有；-r 查看远程分支
 git branch 分支名							#创建分支
-git branch -d 分支名							#删除分支 -D 是强制删除
-git branch -u 远程主机/分支名						#与上游分支建立追踪关系
-git branch -m 新分支名称 						#重命名 修改分支名
+git branch -d 分支名							# 删除分支 -D 是强制删除
+git branch -u 远程主机/分支名						# 与上游分支建立追踪关系
+git branch -m 新分支名称 						# 新建分支，并删除其他分支，默认选中该分支
 git checkout 分支名称							#切换分支
 git merge 远程仓库/本地分支						#将远程仓库拉取到的内容合并到本地主分支
 git merge 分支名称							#合并分支到当前分支
@@ -541,3 +541,11 @@ git push --force
 ```
 
 <img src="./img/git_rebase.png"/>
+
+#### 撤销最后commit，生成新的commit
+
+```sh
+git revert HEAD
+git push origin branch
+```
+
